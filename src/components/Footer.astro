@@ -10,7 +10,13 @@ const year = new Date().getFullYear();
     <div class="grid md:grid-cols-12 gap-y-10">
       <!-- Brand -->
       <div class="md:col-span-5">
-        <div class="font-semibold text-white text-lg tracking-tighter mb-3">Causewave</div>
+        <a href={base} class="inline-block mb-3">
+          <img 
+            src={`${base}images/logos/logo_2.png`} 
+            alt="Causewave" 
+            class="h-6 w-auto brightness-0 invert"
+          />
+        </a>
         <p class="max-w-xs text-slate-400">
           CSR programs that actually work — compliant, measurable, and trusted by communities.
         </p>
