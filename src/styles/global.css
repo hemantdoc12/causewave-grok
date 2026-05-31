@@ -28,16 +28,29 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: -0.025em;
 }
 
-/* Consistent Section Spacing (no more !important hacks) */
+/* Consistent Section Spacing */
 .section {
-  padding-top: 4rem;
-  padding-bottom: 4rem;
+  padding-top: 3.5rem;
+  padding-bottom: 3.5rem;
 }
 
 @media (min-width: 768px) {
   .section {
-    padding-top: 5rem;
-    padding-bottom: 5rem;
+    padding-top: 4.5rem;
+    padding-bottom: 4.5rem;
+  }
+}
+
+/* Tighter spacing for homepage sections (addresses lost compactness) */
+.homepage-section {
+  padding-top: 2.75rem;
+  padding-bottom: 2.75rem;
+}
+
+@media (min-width: 768px) {
+  .homepage-section {
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
   }
 }
 
@@ -104,19 +117,31 @@ input:focus, textarea:focus, select:focus {
   transform: translateY(10px);
 }
 
-/* Hero Background Styling (for homepage parity) */
-.hero-bg {
-  background-attachment: fixed;
+/* Homepage Hero - matches original visual weight */
+.homepage-hero {
+  background-image: url('/causewave-grok/images/backgrounds/hero-bg.jpg');
+  background-size: cover;
+  background-position: center;
   position: relative;
   overflow: hidden;
   min-height: 100vh;
 }
 
 @media (max-width: 768px) {
-  .hero-bg {
-    background-attachment: scroll;
-    min-height: auto;
+  .homepage-hero {
+    min-height: 85vh;
   }
+}
+
+/* Subtle glow overlays from original design */
+.homepage-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(ellipse at 30% 50%, rgba(14, 165, 233, 0.18) 0%, transparent 55%),
+    radial-gradient(ellipse at 70% 50%, rgba(20, 184, 166, 0.12) 0%, transparent 55%);
+  pointer-events: none;
 }
 
 /* Mobile menu animation */
