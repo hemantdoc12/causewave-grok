@@ -117,24 +117,8 @@ input:focus, textarea:focus, select:focus {
   transform: translateY(10px);
 }
 
-/* Homepage Hero - matches original visual weight */
-.homepage-hero {
-  background-image: url('/causewave-grok/images/backgrounds/hero-bg.jpg');
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  overflow: hidden;
-  min-height: 100vh;
-}
-
-@media (max-width: 768px) {
-  .homepage-hero {
-    min-height: 85vh;
-  }
-}
-
-/* Subtle glow overlays from original design */
-.homepage-hero::before {
+/* Homepage Hero glow overlays */
+.hero-glow::before {
   content: '';
   position: absolute;
   inset: 0;
