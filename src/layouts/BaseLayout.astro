@@ -1,0 +1,95 @@
+---
+import '../styles/global.css';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import { SITE } from '../consts';
+
+interface Props {
+  title?: string;
+  description?: string;
+  ogTitle?: string;
+  ogDescription?: string;
+  canonicalPath?: string;
+  activePage?: string;
+  noIndex?: boolean;
+}
+
+const {
+  title = SITE.title,
+  description = SITE.description,
+  ogTitle = SITE.title,
+  ogDescription = SITE.description,
+  canonicalPath = '',
+  activePage = '',
+  noIndex = false,
+} = Astro.props;
+
+const base = import.meta.env.BASE_URL;
+const fullUrl = `${SITE.url}${canonicalPath}`;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={ogTitle} />
+    <meta property="og:description" content={ogDescription} />
+    <meta property="og:url" content={fullUrl} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content={`${SITE.url}${SITE.ogImage}`} />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    {SITE.twitterHandle && <meta name="twitter:site" content={SITE.twitterHandle} />}
+
+    <!-- Canonical -->
+    <link rel="canonical" href={fullUrl} />
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
+    <link rel="icon" type="image/x-icon" href={`${base}favicon.ico`} />
+
+    {noIndex && <meta name="robots" content="noindex" />}
+  </head>
+
+  <body class="bg-slate-50 text-slate-800 antialiased">
+    <Navbar activePage={activePage} />
+    <slot />
+    <Footer />
+
+    <!-- Back to top -->
+    <button
+      id="back-to-top"
+      aria-label="Back to top"
+      class="hidden fixed bottom-6 right-6 w-11 h-11 bg-slate-900 text-white rounded-full shadow-lg items-center justify-center hover:bg-sky-600 transition-all z-50"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+      </svg>
+    </button>
+
+    <script>
+      const backToTop = document.getElementById('back-to-top');
+      if (backToTop) {
+        window.addEventListener('scroll', () => {
+          if (window.scrollY > 600) {
+            backToTop.classList.remove('hidden');
+            backToTop.classList.add('flex');
+          } else {
+            backToTop.classList.add('hidden');
+            backToTop.classList.remove('flex');
+          }
+        });
+
+        backToTop.addEventListener('click', () => {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      }
+    </script>
+  </body>
+</html>

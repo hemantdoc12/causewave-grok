@@ -1,11 +1,45 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<BaseLayout activePage="home">
+  <main>
+    <!-- Hero -->
+    <section class="section bg-slate-900 text-white">
+      <div class="max-w-screen-2xl mx-auto px-6 text-center">
+        <div class="max-w-3xl mx-auto">
+          <h1 class="text-5xl md:text-6xl font-semibold tracking-tighter mb-6">
+            CSR Programs That<br />
+            <span class="text-sky-400">Actually Work</span>
+          </h1>
+          <p class="text-xl text-slate-300 max-w-2xl mx-auto mb-8">
+            From strategy to community impact — we build programs that satisfy boards, regulators, and the people they serve.
+          </p>
+
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="/causewave-grok/services/" class="btn btn-primary px-8 py-3.5 text-base">
+              Explore Services
+            </a>
+            <a href="/causewave-grok/contact/" class="btn btn-outline border-white/30 text-white px-8 py-3.5 text-base hover:bg-white/10">
+              Book a Strategy Call
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Temporary placeholder content -->
+    <section class="section max-w-screen-2xl mx-auto px-6 text-center">
+      <div class="max-w-xl mx-auto">
+        <p class="text-slate-600">
+          Fresh modern foundation is now in place.<br />
+          Next: Services, About, Insights, and Contact pages will be rebuilt cleanly.
+        </p>
+        <div class="mt-8 text-xs text-slate-400">
+          Using Astro 6 + Tailwind v4 + strict TypeScript
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
+
