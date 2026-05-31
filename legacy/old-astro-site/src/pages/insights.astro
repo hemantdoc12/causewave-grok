@@ -1,0 +1,147 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const base = import.meta.env.BASE_URL;
+---
+
+<BaseLayout
+  title="Insights & Thought Leadership | Causewave Innovations LLP"
+  description="Expert insights on CSR consulting, healthcare innovation, and technology-enabled social impact."
+  ogTitle="Insights | Causewave Innovations LLP"
+  ogDescription="Thought leadership on CSR strategy and healthcare delivery innovation."
+  canonicalPath="/insights"
+  activePage="insights"
+>
+  <!-- Hero -->
+  <div class="page-header text-white py-10" style={`background-image: url('${base}insights-bg.jpg')`}>
+    <div class="max-w-screen-2xl mx-auto px-6 relative z-10">
+      <h1 class="text-3xl sm:text-4xl md:text-4xl font-semibold tracking-tight">Insights & Thought Leadership</h1>
+      <p class="mt-2 text-base text-slate-300 max-w-xl">Expert perspectives on CSR innovation and healthcare delivery.</p>
+    </div>
+  </div>
+
+  <!-- Featured Article -->
+  <section class="max-w-screen-2xl mx-auto px-6 py-8">
+    <div class="grid md:grid-cols-2 gap-6 items-center bg-gradient-to-br from-slate-50 to-white border rounded-2xl p-6 md:p-8">
+      <div>
+        <div class="inline-flex items-center gap-1.5 bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-xs font-semibold mb-4">
+          <i class="fa-solid fa-trophy"></i> SKOCH Gold Award Winner
+        </div>
+        <h2 class="text-2xl font-semibold tracking-tight mb-3">Innovation in Last-Mile Healthcare Delivery: The Chitta Express Model</h2>
+        <p class="text-sm text-slate-600 leading-relaxed mb-4">How we delivered 33+ lakh vaccinations to remote tribal areas using innovative mobile healthcare units.</p>
+        <div class="flex flex-wrap gap-3 text-xs text-slate-500 mb-4">
+          <span><i class="fa-solid fa-user mr-1"></i> Dr. Hemant L. Patel</span>
+          <span><i class="fa-solid fa-clock mr-1"></i> 8 min read</span>
+          <span><i class="fa-solid fa-tag mr-1"></i> Healthcare Innovation</span>
+        </div>
+        <a href={`${base}insights/chitta-express-innovation`} class="inline-flex px-5 py-2.5 bg-slate-900 text-white rounded-full text-sm font-semibold hover:bg-sky-600 transition-all">
+          Read Full Article <i class="fa-solid fa-arrow-right ml-2"></i>
+        </a>
+      </div>
+      <div class="grid grid-cols-2 gap-3">
+        <div class="bg-white border p-4 rounded-xl text-center shadow-sm">
+          <div class="text-2xl font-bold text-sky-600 mb-1">33 Lakh+</div>
+          <div class="text-xs text-slate-600">Vaccinations Delivered</div>
+        </div>
+        <div class="bg-white border p-4 rounded-xl text-center shadow-sm">
+          <div class="text-2xl font-bold text-teal-600 mb-1">20</div>
+          <div class="text-xs text-slate-600">Mobile Units Deployed</div>
+        </div>
+        <div class="bg-white border p-4 rounded-xl text-center shadow-sm">
+          <div class="text-2xl font-bold text-emerald-600 mb-1">100%</div>
+          <div class="text-xs text-slate-600">Remote Areas Covered</div>
+        </div>
+        <div class="bg-white border p-4 rounded-xl text-center shadow-sm">
+          <div class="text-2xl font-bold text-sky-600 mb-1">2.4M</div>
+          <div class="text-xs text-slate-600">Population Served</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Articles Grid -->
+  <section class="bg-white">
+    <div class="max-w-screen-2xl mx-auto px-6 py-8">
+      <div class="text-center mb-6">
+        <span class="text-sky-600 font-semibold text-sm">LATEST</span>
+        <h2 class="text-2xl md:text-3xl font-semibold tracking-tight mt-1">Published Articles</h2>
+      </div>
+
+      <!-- Articles -->
+      <div class="grid md:grid-cols-2 gap-4">
+        <article class="article-card bg-white border rounded-xl overflow-hidden hover:-translate-y-1 transition-all" data-category="csr">
+          <div class="bg-gradient-to-br from-emerald-500 to-emerald-700 p-4 text-white">
+            <span class="inline-block bg-white/20 px-2 py-0.5 rounded-full text-xs mb-2">CSR Strategy</span>
+            <h3 class="text-base font-semibold">Breaking the Top 100 Spell: Unlocking Mid-Cap CSR for NGO Survival</h3>
+          </div>
+          <div class="p-4">
+            <p class="text-slate-600 text-sm mb-3">In the shadow of FCRA clamps and USAID's exit, India's NGOs have one lifeline left: CSR. But chasing the same 10 giants? That's a recipe for collapse.</p>
+            <div class="flex items-center gap-2 text-xs text-slate-500 mb-3">
+              <span>Dr. Hemant L. Patel</span>
+              <span>•</span>
+              <span>Sep 29, 2025</span>
+            </div>
+            <a href="https://www.linkedin.com/pulse/breaking-top-100-spell-unlocking-mid-cap-csr-ngo-survival-patel-khrmf/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-sky-600 text-sm font-semibold hover:text-sky-700">
+              Read More <i class="fa-solid fa-arrow-right ml-1"></i>
+            </a>
+          </div>
+        </article>
+
+        <article class="article-card bg-white border rounded-xl overflow-hidden hover:-translate-y-1 transition-all" data-category="csr">
+          <div class="bg-gradient-to-br from-sky-500 to-sky-700 p-4 text-white">
+            <span class="inline-block bg-white/20 px-2 py-0.5 rounded-full text-xs mb-2">CSR Strategy</span>
+            <h3 class="text-base font-semibold">Beyond Networks: Redefining CSR Resource Mapping for India's NGOs</h3>
+          </div>
+          <div class="p-4">
+            <p class="text-slate-600 text-sm mb-3">In the span of a single funding cycle, India's social sector has shifted its center of gravity. The familiar flows—once sustained by FCRA clearances and global donors like USAID—have faded.</p>
+            <div class="flex items-center gap-2 text-xs text-slate-500 mb-3">
+              <span>Dr. Hemant L. Patel</span>
+              <span>•</span>
+              <span>Sep 20, 2025</span>
+            </div>
+            <a href="https://www.linkedin.com/pulse/beyond-networks-redefining-csr-resource-mapping-indias-patel-tipbf/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-sky-600 text-sm font-semibold hover:text-sky-700">
+              Read More <i class="fa-solid fa-arrow-right ml-1"></i>
+            </a>
+          </div>
+        </article>
+
+        <article class="article-card bg-white border rounded-xl overflow-hidden hover:-translate-y-1 transition-all" data-category="ai">
+          <div class="bg-gradient-to-br from-violet-500 to-violet-700 p-4 text-white">
+            <span class="inline-block bg-white/20 px-2 py-0.5 rounded-full text-xs mb-2">AI & Technology</span>
+            <h3 class="text-base font-semibold">The Art of Sahdev: Ancient Wisdom for Modern AI Mastery</h3>
+          </div>
+          <div class="p-4">
+            <p class="text-slate-600 text-sm mb-3">In the epic Mahabharata, five Pandava brothers share a throne and destiny. While Arjuna dazzles with archery and Bhima dominates with raw strength, the youngest, Sahdev, operates in the shadows.</p>
+            <div class="flex items-center gap-2 text-xs text-slate-500 mb-3">
+              <span>Dr. Hemant L. Patel</span>
+              <span>•</span>
+              <span>Sep 15, 2025</span>
+            </div>
+            <a href="https://www.linkedin.com/pulse/art-sahdev-ancient-wisdom-modern-ai-mastery-dr-hemant-patel-qoauf/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-sky-600 text-sm font-semibold hover:text-sky-700">
+              Read More <i class="fa-solid fa-arrow-right ml-1"></i>
+            </a>
+          </div>
+        </article>
+
+        <article class="article-card bg-white border rounded-xl overflow-hidden hover:-translate-y-1 transition-all" data-category="development">
+          <div class="bg-gradient-to-br from-amber-500 to-amber-700 p-4 text-white">
+            <span class="inline-block bg-white/20 px-2 py-0.5 rounded-full text-xs mb-2">Development Sector</span>
+            <h3 class="text-base font-semibold">A Problem Unacknowledged is a Solution Out of Reach</h3>
+          </div>
+          <div class="p-4">
+            <p class="text-slate-600 text-sm mb-3">India's development sector is bleeding funds, yet denial keeps solutions out of reach. Post-pandemic, even established NGOs face dwindling resources.</p>
+            <div class="flex items-center gap-2 text-xs text-slate-500 mb-3">
+              <span>Dr. Hemant L. Patel</span>
+              <span>•</span>
+              <span>May 13, 2025</span>
+            </div>
+            <a href="https://www.linkedin.com/pulse/problem-unacknowledged-solution-out-reach-dr-hemant-patel-iqbff/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-sky-600 text-sm font-semibold hover:text-sky-700">
+              Read More <i class="fa-solid fa-arrow-right ml-1"></i>
+            </a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+
+</BaseLayout>

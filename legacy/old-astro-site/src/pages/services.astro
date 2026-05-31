@@ -1,0 +1,332 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const base = import.meta.env.BASE_URL;
+---
+
+<BaseLayout
+  title="Our Services | CSR Strategy, Implementation & Reporting | Causewave"
+  description="End-to-end CSR support across strategy, program design, field implementation, monitoring, reporting, and stakeholder communication."
+  ogTitle="CSR Services | Causewave Innovations LLP"
+  ogDescription="We support the full CSR lifecycle — from strategy to impact reporting."
+  canonicalPath="/services"
+  activePage="services"
+>
+  <!-- Header -->
+  <div class="page-header text-white py-10" style={`background-image: url('${base}services-bg.jpg')`}>
+    <div class="max-w-screen-2xl mx-auto px-6 text-center relative z-10">
+      <h1 class="text-3xl sm:text-4xl md:text-4xl font-semibold tracking-tight">Our Services</h1>
+      <p class="mt-2 text-base text-slate-300 max-w-xl mx-auto">End-to-end CSR support — from strategy to impact reporting.</p>
+    </div>
+  </div>
+
+  <!-- CSR Services -->
+  <div class="max-w-screen-2xl mx-auto px-6 py-8">
+    <div class="text-center mb-6">
+      <span class="text-sky-600 font-semibold text-sm">CORE SERVICES</span>
+      <h2 class="text-2xl md:text-3xl font-semibold tracking-tight mt-1">CSR Strategy & Implementation</h2>
+    </div>
+    <div class="grid md:grid-cols-3 gap-4">
+      <button type="button" class="service-card bg-white p-5 rounded-xl border hover:-translate-y-1 transition-all text-left modal-trigger" data-modal="csr-strategy" aria-label="View details for CSR Strategy & Compliance">
+        <div class="w-10 h-10 bg-sky-100 rounded-lg flex items-center justify-center mb-3">
+          <i class="fa-solid fa-handshake text-xl text-sky-600"></i>
+        </div>
+        <h3 class="text-base font-semibold mb-2">CSR Strategy & Compliance</h3>
+        <p class="text-slate-600 text-sm">Shape priorities, action plans, and reporting readiness.</p>
+        <span class="text-sky-600 text-xs font-semibold mt-3 inline-flex items-center">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span>
+      </button>
+
+      <button type="button" class="service-card bg-white p-5 rounded-xl border hover:-translate-y-1 transition-all text-left modal-trigger" data-modal="program-design" aria-label="View details for Program Design & Budgeting">
+        <div class="w-10 h-10 bg-teal-100 rounded-lg flex items-center justify-center mb-3">
+          <i class="fa-solid fa-sitemap text-xl text-teal-600"></i>
+        </div>
+        <h3 class="text-base font-semibold mb-2">Program Design & Budgeting</h3>
+        <p class="text-slate-600 text-sm">Design practical initiatives across health, education, livelihoods.</p>
+        <span class="text-sky-600 text-xs font-semibold mt-3 inline-flex items-center">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span>
+      </button>
+
+      <button type="button" class="service-card bg-white p-5 rounded-xl border hover:-translate-y-1 transition-all text-left modal-trigger" data-modal="field-implementation" aria-label="View details for Field Implementation">
+        <div class="w-10 h-10 bg-emerald-100 rounded-lg flex items-center justify-center mb-3">
+          <i class="fa-solid fa-people-carry-box text-xl text-emerald-600"></i>
+        </div>
+        <h3 class="text-base font-semibold mb-2">Field Implementation</h3>
+        <p class="text-slate-600 text-sm">On-ground execution with community mobilization.</p>
+        <span class="text-sky-600 text-xs font-semibold mt-3 inline-flex items-center">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- M&E and Reporting -->
+  <div class="max-w-screen-2xl mx-auto px-6 pb-8">
+    <div class="grid md:grid-cols-3 gap-4">
+      <button type="button" class="service-card bg-white p-5 rounded-xl border hover:-translate-y-1 transition-all text-left modal-trigger" data-modal="monitoring" aria-label="View details for Monitoring & Evaluation">
+        <div class="w-10 h-10 bg-sky-100 rounded-lg flex items-center justify-center mb-3">
+          <i class="fa-solid fa-magnifying-glass-chart text-xl text-sky-600"></i>
+        </div>
+        <h3 class="text-base font-semibold mb-2">Monitoring & Evaluation</h3>
+        <p class="text-slate-600 text-sm">M&E frameworks that track outcomes and enable decisions.</p>
+        <span class="text-sky-600 text-xs font-semibold mt-3 inline-flex items-center">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span>
+      </button>
+
+      <button type="button" class="service-card bg-white p-5 rounded-xl border hover:-translate-y-1 transition-all text-left modal-trigger" data-modal="impact-reporting" aria-label="View details for Impact Reporting">
+        <div class="w-10 h-10 bg-teal-100 rounded-lg flex items-center justify-center mb-3">
+          <i class="fa-solid fa-file-lines text-xl text-teal-600"></i>
+        </div>
+        <h3 class="text-base font-semibold mb-2">Impact Reporting</h3>
+        <p class="text-slate-600 text-sm">Board-ready reports backed by field data.</p>
+        <span class="text-sky-600 text-xs font-semibold mt-3 inline-flex items-center">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span>
+      </button>
+
+      <button type="button" class="service-card bg-white p-5 rounded-xl border hover:-translate-y-1 transition-all text-left modal-trigger" data-modal="stakeholder" aria-label="View details for Stakeholder Communication">
+        <div class="w-10 h-10 bg-emerald-100 rounded-lg flex items-center justify-center mb-3">
+          <i class="fa-solid fa-bullhorn text-xl text-emerald-600"></i>
+        </div>
+        <h3 class="text-base font-semibold mb-2">Stakeholder Communication</h3>
+        <p class="text-slate-600 text-sm">Storytelling that builds trust and reputation.</p>
+        <span class="text-sky-600 text-xs font-semibold mt-3 inline-flex items-center">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- IT Services -->
+  <section class="bg-slate-50">
+    <div class="max-w-screen-2xl mx-auto px-6 py-8">
+      <div class="text-center mb-6">
+        <span class="text-sky-600 font-semibold text-sm">TECHNOLOGY</span>
+        <h2 class="text-2xl md:text-3xl font-semibold tracking-tight mt-1">Digital Solutions for CSR</h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-4">
+        <button type="button" class="service-card bg-white p-5 rounded-xl border hover:-translate-y-1 transition-all text-left modal-trigger" data-modal="csr-platform" aria-label="View details for CSR Platform Development">
+          <div class="w-10 h-10 bg-sky-100 rounded-lg flex items-center justify-center mb-3">
+            <i class="fa-solid fa-desktop text-xl text-sky-600"></i>
+          </div>
+          <h3 class="text-base font-semibold mb-2">CSR Platform Development</h3>
+          <p class="text-slate-600 text-sm">Custom software for program management and tracking.</p>
+          <span class="text-sky-600 text-xs font-semibold mt-3 inline-flex items-center">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span>
+        </button>
+
+        <button type="button" class="service-card bg-white p-5 rounded-xl border hover:-translate-y-1 transition-all text-left modal-trigger" data-modal="data-integration" aria-label="View details for Data Integration & Analytics">
+          <div class="w-10 h-10 bg-teal-100 rounded-lg flex items-center justify-center mb-3">
+            <i class="fa-solid fa-database text-xl text-teal-600"></i>
+          </div>
+          <h3 class="text-base font-semibold mb-2">Data Integration & Analytics</h3>
+          <p class="text-slate-600 text-sm">Connect CSR platforms with business systems.</p>
+          <span class="text-sky-600 text-xs font-semibold mt-3 inline-flex items-center">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span>
+        </button>
+
+        <button type="button" class="service-card bg-white p-5 rounded-xl border hover:-translate-y-1 transition-all text-left modal-trigger" data-modal="digital-transformation" aria-label="View details for Digital Transformation">
+          <div class="w-10 h-10 bg-emerald-100 rounded-lg flex items-center justify-center mb-3">
+            <i class="fa-solid fa-arrows-spin text-xl text-emerald-600"></i>
+          </div>
+          <h3 class="text-base font-semibold mb-2">Digital Transformation</h3>
+          <p class="text-slate-600 text-sm">Modernize operations with cloud and automation.</p>
+          <span class="text-sky-600 text-xs font-semibold mt-3 inline-flex items-center">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI Services -->
+  <section>
+    <div class="max-w-screen-2xl mx-auto px-6 py-8">
+      <div class="text-center mb-6">
+        <span class="text-sky-600 font-semibold text-sm">AI & INNOVATION</span>
+        <h2 class="text-2xl md:text-3xl font-semibold tracking-tight mt-1">AI-Powered Impact Communication</h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-4">
+        <button type="button" class="service-card bg-gradient-to-br from-sky-50 to-white border p-5 rounded-xl hover:-translate-y-1 transition-all text-left modal-trigger" data-modal="impact-stories" aria-label="View details for Impact Story Generation">
+          <div class="text-2xl mb-2">🎬</div>
+          <h3 class="text-base font-semibold mb-2">Impact Story Generation</h3>
+          <p class="text-slate-600 text-sm">Transform CSR data into compelling visual stories.</p>
+          <span class="text-sky-600 text-xs font-semibold mt-3 inline-flex items-center">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span>
+        </button>
+
+        <button type="button" class="service-card bg-gradient-to-br from-teal-50 to-white border p-5 rounded-xl hover:-translate-y-1 transition-all text-left modal-trigger" data-modal="stakeholder-videos" aria-label="View details for Stakeholder Videos">
+          <div class="text-2xl mb-2">✂️</div>
+          <h3 class="text-base font-semibold mb-2">Stakeholder Videos</h3>
+          <p class="text-slate-600 text-sm">Personalized video communications for different groups.</p>
+          <span class="text-sky-600 text-xs font-semibold mt-3 inline-flex items-center">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span>
+        </button>
+
+        <button type="button" class="service-card bg-gradient-to-br from-emerald-50 to-white border p-5 rounded-xl hover:-translate-y-1 transition-all text-left modal-trigger" data-modal="training-content" aria-label="View details for Training & Social Media Content">
+          <div class="text-2xl mb-2">🎓</div>
+          <h3 class="text-base font-semibold mb-2">Training & Social Media Content</h3>
+          <p class="text-slate-600 text-sm">AI-powered training materials and platform-optimized content.</p>
+          <span class="text-sky-600 text-xs font-semibold mt-3 inline-flex items-center">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section class="bg-white">
+    <div class="max-w-screen-2xl mx-auto px-6 py-8">
+      <div class="text-center mb-6">
+        <span class="text-sky-600 font-semibold text-sm">HOW WE WORK</span>
+        <h2 class="text-2xl md:text-3xl font-semibold tracking-tight mt-1">Our Process</h2>
+      </div>
+      <div class="grid md:grid-cols-4 gap-4">
+        <div class="text-center">
+          <div class="w-10 h-10 bg-sky-600 text-white rounded-full flex items-center justify-center text-sm font-bold mx-auto mb-2">1</div>
+          <h4 class="text-sm font-semibold mb-1">Discover</h4>
+          <p class="text-slate-600 text-xs">Understand your mandate and landscape.</p>
+        </div>
+        <div class="text-center">
+          <div class="w-10 h-10 bg-teal-600 text-white rounded-full flex items-center justify-center text-sm font-bold mx-auto mb-2">2</div>
+          <h4 class="text-sm font-semibold mb-1">Design</h4>
+          <p class="text-slate-600 text-xs">Develop strategy with measurable goals.</p>
+        </div>
+        <div class="text-center">
+          <div class="w-10 h-10 bg-emerald-600 text-white rounded-full flex items-center justify-center text-sm font-bold mx-auto mb-2">3</div>
+          <h4 class="text-sm font-semibold mb-1">Deliver</h4>
+          <p class="text-slate-600 text-xs">Execute with rigorous monitoring.</p>
+        </div>
+        <div class="text-center">
+          <div class="w-10 h-10 bg-sky-600 text-white rounded-full flex items-center justify-center text-sm font-bold mx-auto mb-2">4</div>
+          <h4 class="text-sm font-semibold mb-1">Demonstrate</h4>
+          <p class="text-slate-600 text-xs">Produce credible impact reports.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal -->
+  <div id="serviceModal" class="fixed inset-0 bg-black/50 z-50 hidden items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="bg-white rounded-2xl max-w-lg w-full max-h-[80vh] overflow-y-auto">
+      <div class="p-6">
+        <div class="flex justify-between items-start mb-4">
+          <h3 id="modalTitle" class="text-xl font-semibold"></h3>
+          <button type="button" id="closeModal" class="text-slate-400 hover:text-slate-600" aria-label="Close modal">
+            <i class="fa-solid fa-times text-xl"></i>
+          </button>
+        </div>
+        <p id="modalDescription" class="text-slate-600 text-sm mb-4"></p>
+        <h4 class="font-semibold text-sm mb-2">What's Included:</h4>
+        <ul id="modalFeatures" class="space-y-2"></ul>
+      </div>
+      <div class="px-6 py-4 border-t bg-slate-50 rounded-b-2xl">
+        <a href={`${base}contact`} class="block text-center px-6 py-2.5 bg-slate-900 text-white rounded-full text-sm font-semibold hover:bg-sky-600 transition-all">
+          Get Started <i class="fa-solid fa-arrow-right ml-2"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<script define:vars={{ base }}>
+const services = {
+  'csr-strategy': {
+    title: 'CSR Strategy & Compliance',
+    description: 'Comprehensive CSR strategy development with integrated digital tracking and compliance automation.',
+    features: ['CSR policy & governance framework', 'Annual CSR action plan', 'Board & committee advisory', 'Regulatory compliance audit', 'Stakeholder mapping & analysis', 'Risk assessment & mitigation']
+  },
+  'program-design': {
+    title: 'Program Design & Budgeting',
+    description: 'Design practical CSR initiatives across health, education, livelihoods, and sustainability.',
+    features: ['Needs assessment & baseline studies', 'Theory of change development', 'Budget planning & optimization', 'Partner selection & due diligence', 'Program timeline & milestones', 'KPI framework development']
+  },
+  'field-implementation': {
+    title: 'Field Implementation',
+    description: 'On-ground program execution with community mobilization and last-mile delivery.',
+    features: ['Community engagement & mobilization', 'Workforce training & capacity building', 'Logistics & supply chain support', 'Real-time field coordination', 'Progress tracking & reporting', 'Quality assurance']
+  },
+  'monitoring': {
+    title: 'Monitoring & Evaluation',
+    description: 'Rigorous M&E frameworks that track outcomes and enable data-driven decisions.',
+    features: ['Indicator design & frameworks', 'Field data collection systems', 'Periodic progress dashboards', 'Outcome attribution analysis', 'Mid-term evaluations', 'Impact assessments']
+  },
+  'impact-reporting': {
+    title: 'Impact Reporting',
+    description: 'Board-ready, regulator-compliant impact reports backed by field data.',
+    features: ['Annual CSR report preparation', 'Visual impact dashboards', 'Stakeholder-specific narratives', 'Third-party audit support', 'Government filings', 'Investor communications']
+  },
+  'stakeholder': {
+    title: 'Stakeholder Communication',
+    description: 'Compelling storytelling that builds trust and strengthens brand reputation.',
+    features: ['CSR storytelling & content', 'Community feedback mechanisms', 'Media & PR coordination', 'Government & NGO liaison', 'Crisis communication', 'Brand positioning']
+  },
+  'csr-platform': {
+    title: 'CSR Platform Development',
+    description: 'Custom-built software platforms for CSR program management and tracking.',
+    features: ['CSR project management dashboards', 'Beneficiary tracking mobile apps', 'Stakeholder engagement portals', 'Compliance automation systems', 'Real-time impact measurement APIs', 'Reporting automation']
+  },
+  'data-integration': {
+    title: 'Data Integration & Analytics',
+    description: 'Connect CSR platforms with existing business systems for unified data flows.',
+    features: ['ERP-CSR system integration', 'Financial system connectivity', 'HR system integration for volunteering', 'Automated compliance reporting', 'Business intelligence platforms', 'Predictive analytics']
+  },
+  'digital-transformation': {
+    title: 'Digital Transformation',
+    description: 'Modernize operations with cloud infrastructure and process automation.',
+    features: ['Digital strategy consulting', 'Cloud migration & infrastructure', 'Process automation', 'Data-driven decision making', 'Cybersecurity implementation', 'Change management']
+  },
+  'impact-stories': {
+    title: 'Impact Story Generation',
+    description: 'Transform CSR data into compelling visual stories that engage stakeholders.',
+    features: ['Impact data visualization videos', 'Beneficiary story documentaries', 'Before-and-after transformation videos', 'Multi-language impact narration', 'Board presentation videos', 'Annual report videos']
+  },
+  'stakeholder-videos': {
+    title: 'Stakeholder Communication Videos',
+    description: 'Personalized video communications for different stakeholder groups.',
+    features: ['Board presentation videos', 'Community update communications', 'Investor ESG reporting videos', 'Regulatory compliance submissions', 'Training video generation', 'Social media content']
+  },
+  'training-content': {
+    title: 'Training & Social Media Content',
+    description: 'AI-powered training materials and platform-optimized content.',
+    features: ['Interactive training modules', 'Multi-language video generation', 'Knowledge assessment integration', 'Platform-specific optimization', 'Trending content analysis', 'Brand storytelling']
+  }
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+  const modal = document.getElementById('serviceModal');
+  const modalTitle = document.getElementById('modalTitle');
+  const modalDescription = document.getElementById('modalDescription');
+  const modalFeatures = document.getElementById('modalFeatures');
+  const closeModal = document.getElementById('closeModal');
+  const triggers = document.querySelectorAll('.modal-trigger');
+  let lastFocusedElement = null;
+
+  const openModal = (serviceId) => {
+    const service = services[serviceId];
+    if (service) {
+      lastFocusedElement = document.activeElement;
+      modalTitle.textContent = service.title;
+      modalDescription.textContent = service.description;
+      modalFeatures.innerHTML = service.features.map(f => 
+        `<li class="flex items-start gap-2 text-sm text-slate-600"><i class="fa-solid fa-check text-sky-600 mt-1"></i> ${f}</li>`
+      ).join('');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      closeModal.focus();
+    }
+  };
+
+  const closeTheModal = () => {
+    modal.classList.add('hidden');
+    modal.classList.remove('flex');
+    if (lastFocusedElement) {
+      lastFocusedElement.focus();
+    }
+  };
+
+  triggers.forEach(trigger => {
+    trigger.addEventListener('click', () => {
+      const serviceId = trigger.getAttribute('data-modal');
+      openModal(serviceId);
+    });
+  });
+
+  closeModal.addEventListener('click', closeTheModal);
+
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      closeTheModal();
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (!modal.classList.contains('hidden') && e.key === 'Escape') {
+      closeTheModal();
+    }
+  });
+});
+</script>
