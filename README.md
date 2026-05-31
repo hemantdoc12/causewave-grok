@@ -58,7 +58,27 @@ npm run dev
 
 ## Deployment
 
-Auto-deploys to GitHub Pages on push to `main`.
+This site automatically deploys to GitHub Pages on every push to `main`.
+
+### One-time Setup (Required)
+
+After the first deployment workflow runs, you must enable GitHub Pages in the repository settings:
+
+1. Go to your repository on GitHub → **Settings** → **Pages**
+2. Under "Build and deployment", set **Source** to **GitHub Actions**
+3. Save
+
+Once enabled, every future push to `main` will automatically build and deploy the site.
+
+### Manual Deployment
+
+You can also trigger a deployment manually:
+- Go to the **Actions** tab → select **"Deploy to GitHub Pages"** → **Run workflow**
+
+### Live Site
+
+After setup, the site will be available at:
+`https://hemantdoc12.github.io/causewave-grok/`
 
 ## License
 
