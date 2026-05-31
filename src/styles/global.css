@@ -104,6 +104,21 @@ input:focus, textarea:focus, select:focus {
   transform: translateY(10px);
 }
 
+/* Hero Background Styling (for homepage parity) */
+.hero-bg {
+  background-attachment: fixed;
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+}
+
+@media (max-width: 768px) {
+  .hero-bg {
+    background-attachment: scroll;
+    min-height: auto;
+  }
+}
+
 /* Mobile menu animation */
 #mobile-menu {
   transition: all 0.2s ease;
