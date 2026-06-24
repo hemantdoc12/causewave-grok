@@ -8,21 +8,27 @@ const insights = [
     excerpt: 'A comprehensive guide to navigating CSR regulations, reporting requirements, and compliance deadlines for Indian companies.',
     category: 'Compliance',
     date: 'May 2026',
-    accent: 'sky',
+    barClass: 'bg-sky-500',
+    badgeTextClass: 'text-sky-600',
+    badgeBgClass: 'bg-sky-100',
   },
   {
     title: 'How to Design Impactful CSR Programs in Healthcare',
     excerpt: 'Lessons from managing 33 lakh+ vaccination doses in a single day — what works and what doesn\'t in public health CSR.',
     category: 'Healthcare',
     date: 'April 2026',
-    accent: 'teal',
+    barClass: 'bg-teal-500',
+    badgeTextClass: 'text-teal-600',
+    badgeBgClass: 'bg-teal-100',
   },
   {
     title: 'Measuring CSR Impact: A Practical Framework',
     excerpt: 'Build credible M&E frameworks that satisfy regulators and help you optimize program outcomes.',
     category: 'Impact Measurement',
     date: 'March 2026',
-    accent: 'emerald',
+    barClass: 'bg-emerald-500',
+    badgeTextClass: 'text-emerald-600',
+    badgeBgClass: 'bg-emerald-100',
   },
 ];
 ---
@@ -53,10 +59,10 @@ const insights = [
       <div class="grid md:grid-cols-3 gap-6 reveal-stagger">
         {insights.map((insight) => (
           <article class="card group block rounded-2xl border bg-white overflow-hidden hover:border-sky-200">
-            <div class={`h-2 bg-${insight.accent}-500`}></div>
+            <div class={`h-2 ${insight.barClass}`}></div>
             <div class="p-6">
               <div class="flex items-center gap-3 mb-3">
-                <span class={`text-xs font-medium text-${insight.accent}-600 bg-${insight.accent}-100 px-2.5 py-0.5 rounded-full`}>
+                <span class={`text-xs font-medium ${insight.badgeTextClass} ${insight.badgeBgClass} px-2.5 py-0.5 rounded-full`}>
                   {insight.category}
                 </span>
                 <span class="text-xs text-slate-500">{insight.date}</span>
