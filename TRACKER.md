@@ -10,11 +10,11 @@
 | Phase | Status | Tasks |
 |-------|--------|-------|
 | Phase 1: Foundation | [x] Complete | 4/4 |
-| Phase 2: Animations | [ ] Not started | 0/4 |
+| Phase 2: Animations | [x] Complete | 4/4 |
 | Phase 3: Missing Pages | [ ] Not started | 0/5 |
 | Phase 4: Polish | [ ] Not started | 0/5 |
 
-**Total:** 4/18 tasks complete
+**Total:** 8/18 tasks complete
 
 ---
 
@@ -146,7 +146,7 @@
 
 ### Task 2.1 — Scroll-Reveal System
 
-- **Status:** [ ] Not Started
+- **Status:** [x] Complete
 - **Priority:** High
 - **Estimated Time:** 45 min
 - **Files to Modify:**
@@ -202,7 +202,7 @@
 
 ### Task 2.2 — Hero Entrance Animations
 
-- **Status:** [ ] Not Started
+- **Status:** [x] Complete
 - **Priority:** High
 - **Estimated Time:** 30 min
 - **Files to Modify:**
@@ -241,7 +241,7 @@
 
 ### Task 2.3 — Animated Counters
 
-- **Status:** [ ] Not Started
+- **Status:** [x] Complete
 - **Priority:** Medium
 - **Estimated Time:** 30 min
 - **Files to Modify:**
@@ -312,7 +312,7 @@
 
 ### Task 2.4 — Fix Mobile Menu Toggle
 
-- **Status:** [ ] Not Started
+- **Status:** [x] Complete
 - **Priority:** Medium
 - **Estimated Time:** 20 min
 - **Files to Modify:**

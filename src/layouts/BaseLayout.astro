@@ -98,6 +98,20 @@ const fullUrl = `${SITE.url}${canonicalPath}`;
           window.scrollTo({ top: 0, behavior: 'smooth' });
         });
       }
+
+      // Scroll reveal system
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+
+      document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => {
+        revealObserver.observe(el);
+      });
     </script>
   </body>
 </html>
