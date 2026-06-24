@@ -1,0 +1,82 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+const base = import.meta.env.BASE_URL;
+
+const insights = [
+  {
+    title: 'Understanding CSR Compliance Under Companies Act 2013',
+    excerpt: 'A comprehensive guide to navigating CSR regulations, reporting requirements, and compliance deadlines for Indian companies.',
+    category: 'Compliance',
+    date: 'May 2026',
+    accent: 'sky',
+  },
+  {
+    title: 'How to Design Impactful CSR Programs in Healthcare',
+    excerpt: 'Lessons from managing 33 lakh+ vaccination doses in a single day — what works and what doesn\'t in public health CSR.',
+    category: 'Healthcare',
+    date: 'April 2026',
+    accent: 'teal',
+  },
+  {
+    title: 'Measuring CSR Impact: A Practical Framework',
+    excerpt: 'Build credible M&E frameworks that satisfy regulators and help you optimize program outcomes.',
+    category: 'Impact Measurement',
+    date: 'March 2026',
+    accent: 'emerald',
+  },
+];
+---
+
+<BaseLayout 
+  title="Insights | Causewave" 
+  description="CSR insights, compliance guides, and impact measurement best practices from Causewave."
+  activePage="insights"
+>
+  <main>
+    <!-- Hero -->
+    <section class="bg-slate-900 text-white section">
+      <div class="max-w-screen-2xl mx-auto px-6">
+        <div class="max-w-3xl">
+          <span class="text-sky-400 font-semibold text-sm tracking-widest">INSIGHTS</span>
+          <h1 class="hero-animate mt-3 text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tighter leading-tight">
+            CSR knowledge hub
+          </h1>
+          <p class="hero-animate hero-animate-delay-1 mt-5 text-lg text-slate-300 max-w-2xl">
+            Practical guides, compliance insights, and lessons from the field to help you build better CSR programs.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Insights Grid -->
+    <section class="section max-w-screen-2xl mx-auto px-6">
+      <div class="grid md:grid-cols-3 gap-6 reveal-stagger">
+        {insights.map((insight) => (
+          <article class="card group block rounded-2xl border bg-white overflow-hidden hover:border-sky-200">
+            <div class={`h-2 bg-${insight.accent}-500`}></div>
+            <div class="p-6">
+              <div class="flex items-center gap-3 mb-3">
+                <span class={`text-xs font-medium text-${insight.accent}-600 bg-${insight.accent}-100 px-2.5 py-0.5 rounded-full`}>
+                  {insight.category}
+                </span>
+                <span class="text-xs text-slate-500">{insight.date}</span>
+              </div>
+              <h2 class="text-xl font-semibold group-hover:text-sky-600 transition-colors">{insight.title}</h2>
+              <p class="mt-2 text-sm text-slate-600">{insight.excerpt}</p>
+              <span class="mt-4 inline-flex items-center text-sm font-medium text-sky-600 group-hover:underline">
+                Read more →
+              </span>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <div class="mt-12 text-center reveal">
+        <p class="text-slate-600 mb-4">More insights coming soon.</p>
+        <a href={`${base}contact/`} class="btn btn-primary px-6 py-3 text-sm">
+          Subscribe for Updates
+        </a>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

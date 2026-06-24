@@ -1,0 +1,180 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+const base = import.meta.env.BASE_URL;
+---
+
+<BaseLayout 
+  title="About | Causewave" 
+  description="18+ years of public health leadership and field expertise across India. We bridge CSR compliance with real community impact."
+  activePage="about"
+>
+  <main>
+    <!-- Hero -->
+    <section class="bg-slate-900 text-white section">
+      <div class="max-w-screen-2xl mx-auto px-6">
+        <div class="max-w-3xl">
+          <span class="text-sky-400 font-semibold text-sm tracking-widest">WHO WE ARE</span>
+          <h1 class="hero-animate mt-3 text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tighter leading-tight">
+            Bridging CSR compliance and real community impact
+          </h1>
+          <p class="hero-animate hero-animate-delay-1 mt-5 text-lg text-slate-300 max-w-2xl">
+            Most CSR programs struggle to be both compliant and truly impactful. Causewave exists to close that gap.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Story Section -->
+    <section class="section max-w-screen-2xl mx-auto px-6">
+      <div class="grid md:grid-cols-2 gap-10 items-center">
+        <div class="reveal">
+          <span class="text-sky-600 font-semibold text-sm tracking-widest">OUR STORY</span>
+          <h2 class="mt-3 text-3xl md:text-4xl font-semibold tracking-tight">
+            18+ years of public health leadership
+          </h2>
+          <p class="mt-4 text-slate-600 leading-relaxed">
+            Causewave was founded on a simple observation: CSR programs often fail at the intersection of compliance and community trust. Companies struggle with regulations, while communities struggle with programs that don't address their real needs.
+          </p>
+          <p class="mt-4 text-slate-600 leading-relaxed">
+            With over 18 years of experience in public health leadership — including managing vaccination drives that delivered 33 lakh+ doses in a single day — we bring field-tested expertise to every CSR engagement.
+          </p>
+          <p class="mt-4 text-slate-600 leading-relaxed">
+            Today, we work with companies across India to design and implement CSR programs that satisfy regulators, impress boards, and most importantly, create measurable community impact.
+          </p>
+        </div>
+        <div class="grid grid-cols-2 gap-4 reveal-stagger">
+          <div class="rounded-2xl bg-slate-50 p-6">
+            <div class="text-4xl font-semibold text-sky-600">18+</div>
+            <div class="mt-1 text-sm font-medium text-slate-600">Years of Experience</div>
+          </div>
+          <div class="rounded-2xl bg-slate-50 p-6">
+            <div class="text-4xl font-semibold text-teal-600">33 Lakh+</div>
+            <div class="mt-1 text-sm font-medium text-slate-600">Vaccination Doses in a Day</div>
+          </div>
+          <div class="rounded-2xl bg-slate-50 p-6">
+            <div class="text-4xl font-semibold text-emerald-600">5+</div>
+            <div class="mt-1 text-sm font-medium text-slate-600">States Across India</div>
+          </div>
+          <div class="rounded-2xl bg-slate-50 p-6">
+            <div class="text-4xl font-semibold text-sky-600">SKOCH</div>
+            <div class="mt-1 text-sm font-medium text-slate-600">Gold Award Winner</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="section bg-white">
+      <div class="max-w-screen-2xl mx-auto px-6">
+        <div class="text-center mb-10 reveal">
+          <span class="text-sky-600 font-semibold text-sm tracking-widest">OUR MISSION</span>
+          <h2 class="mt-3 text-3xl md:text-4xl font-semibold tracking-tight">What drives us</h2>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6 reveal-stagger">
+          <div class="rounded-2xl border bg-white p-6">
+            <div class="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-sky-100 text-sky-600">
+              <i class="fa-solid fa-bullseye text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-semibold">Compliance Without Compromise</h3>
+            <p class="mt-2 text-sm text-slate-600">
+              We believe compliance shouldn't come at the cost of impact. Our programs satisfy regulators while creating real change in communities.
+            </p>
+          </div>
+
+          <div class="rounded-2xl border bg-white p-6">
+            <div class="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-teal-100 text-teal-600">
+              <i class="fa-solid fa-users text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-semibold">Community-First Design</h3>
+            <p class="mt-2 text-sm text-slate-600">
+              Every program starts with understanding community needs. We don't believe in one-size-fits-all solutions — context matters.
+            </p>
+          </div>
+
+          <div class="rounded-2xl border bg-white p-6">
+            <div class="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-emerald-100 text-emerald-600">
+              <i class="fa-solid fa-chart-bar text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-semibold">Data-iven Decisions</h3>
+            <p class="mt-2 text-sm text-slate-600">
+              We measure everything. From field data to board reports, our programs are built on evidence, not assumptions.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Expertise Section -->
+    <section class="section">
+      <div class="max-w-screen-2xl mx-auto px-6">
+        <div class="text-center mb-10 reveal">
+          <span class="text-sky-600 font-semibold text-sm tracking-widest">OUR EXPERTISE</span>
+          <h2 class="mt-3 text-3xl md:text-4xl font-semibold tracking-tight">Focus areas</h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6 reveal-stagger">
+          <div class="flex gap-4 rounded-2xl bg-white border p-6">
+            <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-sky-100 text-sky-600">
+              <i class="fa-solid fa-heart-pulse text-xl"></i>
+            </div>
+            <div>
+              <h3 class="font-semibold">Public Health</h3>
+              <p class="mt-1 text-sm text-slate-600">Vaccination drives, healthcare access, maternal health, and disease prevention programs.</p>
+            </div>
+          </div>
+
+          <div class="flex gap-4 rounded-2xl bg-white border p-6">
+            <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-teal-100 text-teal-600">
+              <i class="fa-solid fa-graduation-cap text-xl"></i>
+            </div>
+            <div>
+              <h3 class="font-semibold">Education</h3>
+              <p class="mt-1 text-sm text-slate-600">School infrastructure, digital literacy, scholarship programs, and teacher training.</p>
+            </div>
+          </div>
+
+          <div class="flex gap-4 rounded-2xl bg-white border p-6">
+            <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-emerald-100 text-emerald-600">
+              <i class="fa-solid fa-seedling text-xl"></i>
+            </div>
+            <div>
+              <h3 class="font-semibold">Livelihoods</h3>
+              <p class="mt-1 text-sm text-slate-600">Skill development, micro-enterprise support, women's empowerment, and rural livelihoods.</p>
+            </div>
+          </div>
+
+          <div class="flex gap-4 rounded-2xl bg-white border p-6">
+            <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-sky-100 text-sky-600">
+              <i class="fa-solid fa-leaf text-xl"></i>
+            </div>
+            <div>
+              <h3 class="font-semibold">Environment</h3>
+              <p class="mt-1 text-sm text-slate-600">Water conservation, waste management, renewable energy, and climate resilience.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section bg-slate-900 text-white">
+      <div class="max-w-screen-2xl mx-auto px-6 text-center">
+        <h2 class="text-3xl md:text-4xl font-semibold tracking-tight reveal">
+          Work with us
+        </h2>
+        <p class="mt-4 text-slate-300 max-w-2xl mx-auto reveal">
+          Whether you're launching a new CSR initiative or optimizing an existing one, we're here to help.
+        </p>
+        <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center reveal">
+          <a href={`${base}contact/`} class="btn btn-primary px-8 py-3 text-base bg-white text-slate-900 hover:bg-slate-100">
+            Get in Touch
+          </a>
+          <a href={`${base}services/`} class="btn btn-outline border-white/40 text-white px-8 py-3 text-base hover:bg-white/10">
+            View Our Services →
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

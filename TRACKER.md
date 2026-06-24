@@ -11,10 +11,10 @@
 |-------|--------|-------|
 | Phase 1: Foundation | [x] Complete | 4/4 |
 | Phase 2: Animations | [x] Complete | 4/4 |
-| Phase 3: Missing Pages | [ ] Not started | 0/5 |
+| Phase 3: Missing Pages | [x] Complete | 5/5 |
 | Phase 4: Polish | [ ] Not started | 0/5 |
 
-**Total:** 8/18 tasks complete
+**Total:** 13/18 tasks complete
 
 ---
 
@@ -358,7 +358,7 @@
 
 ### Task 3.1 — Create `/services/` Page
 
-- **Status:** [ ] Not Started
+- **Status:** [x] Complete
 - **Priority:** High
 - **Estimated Time:** 2 hrs
 - **Files to Create:**
@@ -381,7 +381,7 @@
 
 ### Task 3.2 — Create `/about/` Page
 
-- **Status:** [ ] Not Started
+- **Status:** [x] Complete
 - **Priority:** High
 - **Estimated Time:** 1.5 hrs
 - **Files to Create:**
@@ -403,7 +403,7 @@
 
 ### Task 3.3 — Create `/contact/` Page
 
-- **Status:** [ ] Not Started
+- **Status:** [x] Complete
 - **Priority:** High
 - **Estimated Time:** 2 hrs
 - **Files to Create:**
@@ -427,7 +427,7 @@
 
 ### Task 3.4 — Create `/insights/` Page
 
-- **Status:** [ ] Not Started
+- **Status:** [x] Complete
 - **Priority:** Medium
 - **Estimated Time:** 1.5 hrs
 - **Files to Create:**
@@ -448,7 +448,7 @@
 
 ### Task 3.5 — Create Legal Pages
 
-- **Status:** [ ] Not Started
+- **Status:** [x] Complete
 - **Priority:** Low
 - **Estimated Time:** 1 hr
 - **Files to Create:**
