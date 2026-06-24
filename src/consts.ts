@@ -10,7 +10,7 @@ export const SITE = {
   description:
     'Causewave helps companies deliver compliant, measurable, and community-trusted CSR programs. Backed by deep public health leadership and last-mile expertise across India.',
   url: 'https://hemantdoc12.github.io/causewave-grok',
-  ogImage: '/og-default.jpg', // Replace with proper social image
+  ogImage: '/og-default.svg',
   twitterHandle: '',
 } as const;
 

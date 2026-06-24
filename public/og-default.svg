@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#0F172A"/>
+  <rect x="0" y="0" width="1200" height="630" fill="url(#gradient)"/>
+  <defs>
+    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0F172A"/>
+      <stop offset="50%" style="stop-color:#1E293B"/>
+      <stop offset="100%" style="stop-color:#0F172A"/>
+    </linearGradient>
+  </defs>
+  <circle cx="200" cy="315" r="300" fill="#0EA5E9" opacity="0.1"/>
+  <circle cx="1000" cy="315" r="250" fill="#14B8A6" opacity="0.1"/>
+  <text x="600" y="280" font-family="system-ui, sans-serif" font-size="72" font-weight="700" fill="white" text-anchor="middle" letter-spacing="-0.025em">Causewave</text>
+  <text x="600" y="360" font-family="system-ui, sans-serif" font-size="28" fill="#94A3B8" text-anchor="middle">CSR Programs That Actually Work</text>
+  <text x="600" y="420" font-family="system-ui, sans-serif" font-size="18" fill="#64748B" text-anchor="middle">Strategy · Implementation · Impact</text>
+</svg>
