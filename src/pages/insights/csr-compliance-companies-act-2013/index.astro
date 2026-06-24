@@ -1,0 +1,79 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+const base = import.meta.env.BASE_URL;
+---
+
+<BaseLayout 
+  title="Understanding CSR Compliance Under Companies Act 2013 | Causewave"
+  description="A comprehensive guide to navigating CSR regulations, reporting requirements, and compliance deadlines for Indian companies."
+  ogTitle="CSR Compliance Guide | Companies Act 2013"
+  ogDescription="Navigate CSR regulations, reporting requirements, and compliance deadlines under Section 135 of the Companies Act 2013."
+  canonicalPath="insights/csr-compliance-companies-act-2013/"
+  activePage="insights"
+>
+  <main>
+    <!-- Hero -->
+    <section class="bg-slate-900 text-white section">
+      <div class="max-w-screen-2xl mx-auto px-6">
+        <div class="max-w-3xl">
+          <a href={`${base}insights/`} class="inline-flex items-center text-sm text-slate-400 hover:text-white transition-colors mb-6">
+            <svg class="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+            Back to Insights
+          </a>
+          <div class="flex items-center gap-3 mb-4">
+            <span class="text-xs font-medium text-sky-400 bg-sky-400/10 px-2.5 py-0.5 rounded-full">Compliance</span>
+            <span class="text-xs text-slate-500">May 2026</span>
+          </div>
+          <h1 class="text-3xl md:text-4xl font-semibold tracking-tight">Understanding CSR Compliance Under Companies Act 2013</h1>
+          <p class="mt-4 text-slate-300 text-lg">A comprehensive guide to navigating CSR regulations, reporting requirements, and compliance deadlines for Indian companies.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Article Content -->
+    <article class="section max-w-screen-2xl mx-auto px-6">
+      <div class="max-w-3xl">
+        <h2 class="text-2xl font-semibold mt-8 mb-4">What is CSR under Section 135?</h2>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          The Companies Act 2013 introduced mandatory Corporate Social Responsibility (CSR) for qualifying Indian companies. Under Section 135, companies with a net worth of Rs 500 crore or more, turnover of Rs 1,000 crore or more, or net profit of Rs 5 crore or more during any financial year must constitute a CSR Committee and spend at least 2% of their average net profits on CSR activities.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-8 mb-4">Key Compliance Requirements</h2>
+        <ul class="space-y-3 text-slate-600 mb-6">
+          <li class="flex items-start gap-3">
+            <span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span>
+            <span><strong>CSR Committee:</strong> Form a committee of 3 or more directors, with at least one independent director.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span>
+            <span><strong>CSR Policy:</strong> Formulate and recommend a CSR policy to the board, including activities and implementation plans.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span>
+            <span><strong>Spending Requirement:</strong> Spend at least 2% of average net profits from the 3 preceding financial years.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span>
+            <span><strong>Annual Reporting:</strong> File CSR annual report in the Board's Report and with the Registrar of Companies.</span>
+          </li>
+        </ul>
+
+        <h2 class="text-2xl font-semibold mt-8 mb-4">Schedule VII Eligible Activities</h2>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Schedule VII of the Companies Act lists eligible CSR activities including education, healthcare, gender equality, environmental sustainability, rural development, and more. Companies can undertake these activities directly or through registered trusts, societies, or Section 8 companies.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-8 mb-4">Penalties for Non-Compliance</h2>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Companies that fail to comply with CSR requirements may face penalties including fines up to Rs 25 lakh for the company and Rs 5 lakh to Rs 25 lakh for officers in default. The company must also deposit unspent amounts to a specified fund within 6 months of the financial year end.
+        </p>
+
+        <div class="mt-12 p-6 rounded-2xl bg-slate-50 border">
+          <h3 class="font-semibold text-lg">Need help with CSR compliance?</h3>
+          <p class="mt-2 text-sm text-slate-600">Causewave helps companies navigate CSR regulations and build compliant programs. Let's discuss how we can help you.</p>
+          <a href={`${base}contact/`} class="mt-4 inline-flex btn btn-primary px-6 py-2 text-sm">Get in Touch</a>
+        </div>
+      </div>
+    </article>
+  </main>
+</BaseLayout>

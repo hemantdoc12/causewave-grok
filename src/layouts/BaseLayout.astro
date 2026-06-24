@@ -2,7 +2,7 @@
 import '../styles/global.css';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
-import { SITE } from '../consts';
+import { SITE, CONTACT } from '../consts';
 
 interface Props {
   title?: string;
@@ -12,6 +12,7 @@ interface Props {
   canonicalPath?: string;
   activePage?: string;
   noIndex?: boolean;
+  jsonLd?: Record<string, any>;
 }
 
 const {
@@ -22,10 +23,52 @@ const {
   canonicalPath = '',
   activePage = '',
   noIndex = false,
+  jsonLd = {},
 } = Astro.props;
 
 const base = import.meta.env.BASE_URL;
 const fullUrl = `${SITE.url}${canonicalPath}`;
+
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Causewave Innovations LLP",
+  "url": SITE.url,
+  "logo": `${SITE.url}images/logos/logo_2.png`,
+  "description": SITE.description,
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Ahmedabad",
+    "addressRegion": "Gujarat",
+    "addressCountry": "IN"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": CONTACT.email,
+    "telephone": CONTACT.phone,
+    "contactType": "customer service"
+  }
+};
+
+const pageName = canonicalPath.replace(/\/$/, '').split('/').pop() || 'Home';
+const breadcrumbJsonLd = canonicalPath ? {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": SITE.url
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": pageName.charAt(0).toUpperCase() + pageName.slice(1),
+      "item": fullUrl
+    }
+  ]
+} : null;
 ---
 
 <!doctype html>
@@ -45,6 +88,9 @@ const fullUrl = `${SITE.url}${canonicalPath}`;
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={ogTitle} />
+    <meta name="twitter:description" content={ogDescription} />
+    <meta name="twitter:image" content={`${SITE.url}${SITE.ogImage}`} />
     {SITE.twitterHandle && <meta name="twitter:site" content={SITE.twitterHandle} />}
 
     <!-- Canonical -->
@@ -60,12 +106,26 @@ const fullUrl = `${SITE.url}${canonicalPath}`;
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
 
     <!-- Font Awesome (for icons) -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
     {noIndex && <meta name="robots" content="noindex" />}
 
     <!-- View Transitions for smooth page transitions -->
     <meta name="view-transition" content="same-origin" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify(organizationJsonLd)} />
+    {breadcrumbJsonLd && (
+      <script type="application/ld+json" set:html={JSON.stringify(breadcrumbJsonLd)} />
+    )}
+    {Array.isArray(jsonLd) ? (
+      jsonLd.map((item) => (
+        <script type="application/ld+json" set:html={JSON.stringify(item)} />
+      ))
+    ) : Object.keys(jsonLd).length > 0 && (
+      <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+    )}
   </head>
 
   <body class="bg-slate-50 text-slate-800 antialiased">
@@ -101,20 +161,6 @@ const fullUrl = `${SITE.url}${canonicalPath}`;
           window.scrollTo({ top: 0, behavior: 'smooth' });
         });
       }
-
-      // Scroll reveal system
-      const revealObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            revealObserver.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.15 });
-
-      document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => {
-        revealObserver.observe(el);
-      });
     </script>
   </body>
 </html>

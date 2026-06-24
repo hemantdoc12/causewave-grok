@@ -1,0 +1,74 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+const base = import.meta.env.BASE_URL;
+---
+
+<BaseLayout 
+  title="Measuring CSR Impact: A Practical Framework | Causewave"
+  description="Build credible M&E frameworks that satisfy regulators and help you optimize program outcomes."
+  ogTitle="CSR Impact Measurement Framework"
+  ogDescription="Learn how to build credible M&E frameworks for CSR programs that satisfy regulators and optimize outcomes."
+  canonicalPath="insights/measuring-csr-impact-framework/"
+  activePage="insights"
+>
+  <main>
+    <!-- Hero -->
+    <section class="bg-slate-900 text-white section">
+      <div class="max-w-screen-2xl mx-auto px-6">
+        <div class="max-w-3xl">
+          <a href={`${base}insights/`} class="inline-flex items-center text-sm text-slate-400 hover:text-white transition-colors mb-6">
+            <svg class="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+            Back to Insights
+          </a>
+          <div class="flex items-center gap-3 mb-4">
+            <span class="text-xs font-medium text-emerald-400 bg-emerald-400/10 px-2.5 py-0.5 rounded-full">Impact Measurement</span>
+            <span class="text-xs text-slate-500">March 2026</span>
+          </div>
+          <h1 class="text-3xl md:text-4xl font-semibold tracking-tight">Measuring CSR Impact: A Practical Framework</h1>
+          <p class="mt-4 text-slate-300 text-lg">Build credible M&E frameworks that satisfy regulators and help you optimize program outcomes.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Article Content -->
+    <article class="section max-w-screen-2xl mx-auto px-6">
+      <div class="max-w-3xl">
+        <h2 class="text-2xl font-semibold mt-8 mb-4">Why Impact Measurement Matters</h2>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Impact measurement is no longer optional for CSR programs. Regulators, boards, and communities increasingly demand evidence that CSR investments are creating real, measurable change. A robust M&E framework helps you demonstrate compliance, optimize program design, and build stakeholder trust.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-8 mb-4">The 4-Step M&E Framework</h2>
+        <ul class="space-y-3 text-slate-600 mb-6">
+          <li class="flex items-start gap-3">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-2 shrink-0"></span>
+            <span><strong>1. Baseline Assessment:</strong> Understand the current state of your target community. Collect data on key indicators before program launch.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-2 shrink-0"></span>
+            <span><strong>2. Indicator Design:</strong> Define clear, measurable indicators aligned with program objectives. Include both output and outcome indicators.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-2 shrink-0"></span>
+            <span><strong>3. Data Collection:</strong> Set up systematic data collection processes. Use digital tools where possible for real-time tracking.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-2 shrink-0"></span>
+            <span><strong>4. Reporting & Learning:</strong> Generate regular dashboards and annual reports. Use data to optimize program design.</span>
+          </li>
+        </ul>
+
+        <h2 class="text-2xl font-semibold mt-8 mb-4">Key Metrics to Track</h2>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Effective CSR measurement goes beyond counting beneficiaries. Track metrics across four dimensions: reach (how many people served), quality (was the service effective), outcomes (what changed), and sustainability (will the impact last). Use both quantitative data and qualitative stories to paint a complete picture.
+        </p>
+
+        <div class="mt-12 p-6 rounded-2xl bg-slate-50 border">
+          <h3 class="font-semibold text-lg">Need help with impact measurement?</h3>
+          <p class="mt-2 text-sm text-slate-600">Causewave builds M&E frameworks that satisfy regulators and drive program improvement. Let's discuss your needs.</p>
+          <a href={`${base}contact/`} class="mt-4 inline-flex btn btn-primary px-6 py-2 text-sm">Get in Touch</a>
+        </div>
+      </div>
+    </article>
+  </main>
+</BaseLayout>

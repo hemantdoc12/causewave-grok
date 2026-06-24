@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://hemantdoc12.github.io/causewave-grok/sitemap-index.xml

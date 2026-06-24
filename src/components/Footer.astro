@@ -1,56 +1,17 @@
 ---
-import { SITE, CONTACT, NAV_LINKS } from '../consts';
+import { SITE, CONTACT } from '../consts';
 
 const base = import.meta.env.BASE_URL;
 const year = new Date().getFullYear();
 ---
 
-<footer class="bg-slate-900 text-slate-400 text-sm">
-  <div class="max-w-screen-2xl mx-auto px-6 py-12">
-    <div class="grid md:grid-cols-12 gap-y-10">
-      <!-- Brand -->
-      <div class="md:col-span-5">
-        <a href={base} class="inline-block mb-3">
-          <img 
-            src={`${base}images/logos/logo_2.png`} 
-            alt="Causewave" 
-            class="h-6 w-auto brightness-0 invert"
-          />
-        </a>
-        <p class="max-w-xs text-slate-400">
-          CSR programs that actually work — compliant, measurable, and trusted by communities.
-        </p>
-        <div class="mt-4 text-xs">
-          {CONTACT.location}<br>
-          <a href={`mailto:${CONTACT.email}`} class="hover:text-white transition-colors">{CONTACT.email}</a> · 
-          <a href={`tel:${CONTACT.phone.replace(/\s/g, '')}`} class="hover:text-white transition-colors">{CONTACT.phone}</a>
-        </div>
-      </div>
-
-      <!-- Links -->
-      <div class="md:col-span-3">
-        <div class="font-semibold text-white mb-3 text-xs tracking-widest uppercase">Company</div>
-        <div class="space-y-2 text-sm">
-          <a href={`${base}about/`} class="block hover:text-white transition-colors">About Us</a>
-          <a href={`${base}insights/`} class="block hover:text-white transition-colors">Insights</a>
-          <a href={`${base}contact/`} class="block hover:text-white transition-colors">Contact</a>
-        </div>
-      </div>
-
-      <div class="md:col-span-4">
-        <div class="font-semibold text-white mb-3 text-xs tracking-widest uppercase">Legal</div>
-        <div class="space-y-2 text-sm">
-          <a href={`${base}privacy-policy/`} class="block hover:text-white transition-colors">Privacy Policy</a>
-          <a href={`${base}terms-of-service/`} class="block hover:text-white transition-colors">Terms of Service</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="mt-12 pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-y-2 text-xs text-slate-500">
-      <div>© {year} Causewave Innovations LLP. All rights reserved.</div>
-      <div class="flex gap-x-4">
-        <span>Made in India</span>
-      </div>
+<footer class="bg-slate-900 text-slate-500 text-xs">
+  <div class="max-w-screen-2xl mx-auto px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-y-2">
+    <div>&copy; {year} Causewave Innovations LLP. All rights reserved.</div>
+    <div class="flex gap-x-4">
+      <a href={`${base}privacy-policy/`} class="hover:text-slate-300 transition-colors">Privacy</a>
+      <a href={`${base}terms-of-service/`} class="hover:text-slate-300 transition-colors">Terms</a>
+      <span>Made in India</span>
     </div>
   </div>
 </footer>

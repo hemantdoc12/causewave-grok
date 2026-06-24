@@ -1,0 +1,74 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+const base = import.meta.env.BASE_URL;
+---
+
+<BaseLayout 
+  title="How to Design Impactful CSR Programs in Healthcare | Causewave"
+  description="Lessons from managing 33 lakh+ vaccination doses in a single day — what works and what doesn't in public health CSR."
+  ogTitle="Healthcare CSR Programs | Design Guide"
+  ogDescription="Learn how to design impactful CSR programs in healthcare based on Causewave's experience managing 33 lakh+ vaccination doses."
+  canonicalPath="insights/impactful-csr-programs-healthcare/"
+  activePage="insights"
+>
+  <main>
+    <!-- Hero -->
+    <section class="bg-slate-900 text-white section">
+      <div class="max-w-screen-2xl mx-auto px-6">
+        <div class="max-w-3xl">
+          <a href={`${base}insights/`} class="inline-flex items-center text-sm text-slate-400 hover:text-white transition-colors mb-6">
+            <svg class="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+            Back to Insights
+          </a>
+          <div class="flex items-center gap-3 mb-4">
+            <span class="text-xs font-medium text-teal-400 bg-teal-400/10 px-2.5 py-0.5 rounded-full">Healthcare</span>
+            <span class="text-xs text-slate-500">April 2026</span>
+          </div>
+          <h1 class="text-3xl md:text-4xl font-semibold tracking-tight">How to Design Impactful CSR Programs in Healthcare</h1>
+          <p class="mt-4 text-slate-300 text-lg">Lessons from managing 33 lakh+ vaccination doses in a single day — what works and what doesn't in public health CSR.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Article Content -->
+    <article class="section max-w-screen-2xl mx-auto px-6">
+      <div class="max-w-3xl">
+        <h2 class="text-2xl font-semibold mt-8 mb-4">Why Healthcare CSR Matters</h2>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Healthcare is one of the most impactful areas for CSR investment in India. With significant gaps in healthcare access, especially in rural and underserved communities, corporate investment can drive meaningful change. Well-designed healthcare CSR programs not only improve community health outcomes but also help companies meet their statutory obligations while building goodwill.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-8 mb-4">Key Lessons from the Field</h2>
+        <ul class="space-y-3 text-slate-600 mb-6">
+          <li class="flex items-start gap-3">
+            <span class="w-1.5 h-1.5 rounded-full bg-teal-500 mt-2 shrink-0"></span>
+            <span><strong>Community Trust is Everything:</strong> Programs succeed when local communities trust the initiative. Invest in community engagement before launching interventions.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="w-1.5 h-1.5 rounded-full bg-teal-500 mt-2 shrink-0"></span>
+            <span><strong>Data Drives Decisions:</strong> Robust M&E frameworks help optimize programs in real-time. Collect baseline data and track progress against clear indicators.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="w-1.5 h-1.5 rounded-full bg-teal-500 mt-2 shrink-0"></span>
+            <span><strong>Scale Requires Planning:</strong> Managing 33 lakh+ vaccination doses in a single day required meticulous logistics, trained teams, and real-time coordination. Scale doesn't happen by accident.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="w-1.5 h-1.5 rounded-full bg-teal-500 mt-2 shrink-0"></span>
+            <span><strong>Partner with Local Stakeholders:</strong> Government agencies, NGOs, and community leaders are essential partners for last-mile delivery.</span>
+          </li>
+        </ul>
+
+        <h2 class="text-2xl font-semibold mt-8 mb-4">Design Framework for Healthcare CSR</h2>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Start with a needs assessment to identify the most pressing health challenges in your target community. Define clear, measurable objectives. Design interventions that are culturally appropriate and sustainable. Build in monitoring checkpoints. Plan for handover to local health systems. Measure outcomes, not just outputs.
+        </p>
+
+        <div class="mt-12 p-6 rounded-2xl bg-slate-50 border">
+          <h3 class="font-semibold text-lg">Want to design a healthcare CSR program?</h3>
+          <p class="mt-2 text-sm text-slate-600">Causewave has 18+ years of experience in public health CSR. Let's discuss how we can help you design an impactful program.</p>
+          <a href={`${base}contact/`} class="mt-4 inline-flex btn btn-primary px-6 py-2 text-sm">Get in Touch</a>
+        </div>
+      </div>
+    </article>
+  </main>
+</BaseLayout>

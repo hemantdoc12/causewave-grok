@@ -1,13 +1,38 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { CONTACT } from '../../consts';
+import { SITE, CONTACT } from '../../consts';
 const base = import.meta.env.BASE_URL;
+
+const localBusinessJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Causewave Innovations LLP",
+  "url": SITE.url,
+  "description": "CSR consulting firm specializing in strategy, compliance, and impact measurement across India.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Ahmedabad",
+    "addressRegion": "Gujarat",
+    "addressCountry": "IN"
+  },
+  "email": CONTACT.email,
+  "telephone": CONTACT.phone,
+  "openingHours": "Mo-Fr 09:00-18:00",
+  "areaServed": {
+    "@type": "Country",
+    "name": "India"
+  }
+};
 ---
 
 <BaseLayout 
   title="Contact | Causewave" 
   description="Get in touch with Causewave. Let's discuss how we can help you build CSR programs that actually work."
+  ogTitle="Contact Causewave | Let's Build CSR Programs That Work"
+  ogDescription="Get in touch with Causewave to discuss your CSR goals. We help companies build compliant, measurable, and community-trusted programs."
+  canonicalPath="contact/"
   activePage="contact"
+  jsonLd={localBusinessJsonLd}
 >
   <main>
     <!-- Hero -->
@@ -29,7 +54,7 @@ const base = import.meta.env.BASE_URL;
     <section class="section max-w-screen-2xl mx-auto px-6">
       <div class="grid md:grid-cols-5 gap-12">
         <!-- Form -->
-        <div class="md:col-span-3 reveal">
+        <div class="md:col-span-3">
           <h2 class="text-2xl font-semibold mb-6">Send us a message</h2>
           <form class="space-y-5">
             <div class="grid sm:grid-cols-2 gap-5">
@@ -99,7 +124,7 @@ const base = import.meta.env.BASE_URL;
         </div>
 
         <!-- Contact Details -->
-        <div class="md:col-span-2 reveal">
+        <div class="md:col-span-2">
           <h2 class="text-2xl font-semibold mb-6">Contact details</h2>
           <div class="space-y-6">
             <div class="flex items-start gap-4">
