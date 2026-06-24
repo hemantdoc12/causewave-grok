@@ -14,17 +14,6 @@ export const SITE = {
   twitterHandle: '',
 } as const;
 
-export const BRANDING = {
-  colors: {
-    primaryDark: '#0F172A',
-    accentBlue: '#0EA5E9',
-    accentTeal: '#14B8A6',
-    greenImpact: '#22C55E',
-    slate50: '#F8FAFC',
-    slate800: '#1E293B',
-  },
-} as const;
-
 export const NAV_LINKS = [
   { href: '/services/', label: 'Services' },
   { href: '/about/', label: 'About' },
