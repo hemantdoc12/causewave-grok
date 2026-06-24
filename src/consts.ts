@@ -15,10 +15,10 @@ export const SITE = {
 } as const;
 
 export const NAV_LINKS = [
-  { href: '/services/', label: 'Services' },
-  { href: '/about/', label: 'About' },
-  { href: '/insights/', label: 'Insights' },
-  { href: '/contact/', label: 'Contact' },
+  { href: 'services/', label: 'Services' },
+  { href: 'about/', label: 'About' },
+  { href: 'insights/', label: 'Insights' },
+  { href: 'contact/', label: 'Contact' },
 ] as const;
 
 export const CONTACT = {
