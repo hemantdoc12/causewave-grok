@@ -9,7 +9,7 @@ export const SITE = {
   title: 'Causewave | CSR Strategy, Implementation & Measurable Impact',
   description:
     'Causewave helps companies deliver compliant, measurable, and community-trusted CSR programs. Backed by deep public health leadership and last-mile expertise across India.',
-  url: 'https://causewave.in',
+  url: 'https://causewave.in/',
   ogImage: 'og-default.jpg',
   twitterHandle: '',
 } as const;
