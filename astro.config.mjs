@@ -6,8 +6,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://hemantdoc12.github.io',
-  base: '/causewave-grok/',
+  site: 'https://causewave.in',
   trailingSlash: 'always',
   integrations: [sitemap()],
   vite: {
