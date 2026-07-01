@@ -17,9 +17,10 @@ const servicesJsonLd = {
   },
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
-    "name": "Causewave Services",
-    "itemListElement": [
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "CSR Strategy & Planning", "description": "Develop CSR strategies aligned with business goals, statutory requirements, and community needs." } },
+      "name": "Causewave Services",
+      "itemListElement": [
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Resource Mobilization & Partner Mapping", "description": "Identify the right corporate decision-makers, funding channels, and partnerships for your sector and geography. Map resources before writing proposals." } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "CSR Strategy & Planning", "description": "Develop CSR strategies aligned with business goals, statutory requirements, and community needs." } },
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Program Implementation", "description": "End-to-end program execution with on-ground teams, vendor management, and milestone tracking." } },
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Compliance & Reporting", "description": "Board-ready reporting frameworks, annual CSR disclosures, and regulatory compliance documentation." } },
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Stakeholder Engagement", "description": "Government, community, and partner coordination for sustainable program outcomes." } },
@@ -44,9 +45,9 @@ const servicesJsonLd = {
 
 <BaseLayout 
   title="Services | Causewave"
-  description="18 services across CSR consulting, technology platforms, and AI-powered communication — strategy, implementation, data, and impact storytelling."
-  ogTitle="CSR Services | Strategy, Technology & AI-Powered Impact"
-  ogDescription="End-to-end CSR support — strategy, compliance, program design, technology platforms, data analytics, and AI-powered impact communication across India."
+  description="Resource mobilization, CSR consulting, technology platforms, and AI-powered communication — we map the right partners for your sector and geography."
+  ogTitle="CSR Services | Resource Mobilization, Strategy & Technology"
+  ogDescription="19 services across resource mobilization, CSR strategy, compliance, technology platforms, and AI-powered impact communication across India."
   canonicalPath="services/"
   activePage="services"
   jsonLd={servicesJsonLd}
@@ -61,8 +62,35 @@ const servicesJsonLd = {
             Strategy. Technology. Impact.
           </h1>
           <p class="hero-animate hero-animate-delay-1 mt-5 text-lg text-slate-300 max-w-2xl">
-            18 services across three pillars — from CSR strategy and compliance to technology platforms and AI-powered impact communication.
+            Resource mobilization, CSR strategy, technology platforms, and AI-powered impact communication — mapped to your sector and geography.
           </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Resource Mobilization USP -->
+    <section class="section max-w-screen-2xl mx-auto px-6">
+      <div class="rounded-2xl bg-slate-900 text-white p-8 md:p-12">
+        <div class="max-w-3xl">
+          <span class="text-sky-400 font-semibold text-sm tracking-widest">WHAT SETS US APART</span>
+          <h2 class="mt-3 text-2xl md:text-3xl font-semibold tracking-tight">Resource Mobilization & Partner Mapping</h2>
+          <p class="mt-4 text-slate-300 leading-relaxed">
+            Most NGOs struggle to identify the right corporate decision-maker for their sector and geography. We don't just write proposals — we first map the correct resources, funding channels, and partnerships for your specific need. That's the difference between a cold pitch and a funded program.
+          </p>
+          <div class="mt-6 grid sm:grid-cols-3 gap-4">
+            <div class="bg-white/5 border border-white/10 rounded-xl p-4">
+              <div class="text-sky-400 font-semibold text-lg">Corporate Mapping</div>
+              <p class="mt-1 text-sm text-slate-400">Identify the right CSR decision-maker for your sector, geography, and program type.</p>
+            </div>
+            <div class="bg-white/5 border border-white/10 rounded-xl p-4">
+              <div class="text-teal-400 font-semibold text-lg">Funding Channel Identification</div>
+              <p class="mt-1 text-sm text-slate-400">Corporate partnerships, government schemes, donor networks — mapped to your need.</p>
+            </div>
+            <div class="bg-white/5 border border-white/10 rounded-xl p-4">
+              <div class="text-emerald-400 font-semibold text-lg">End-to-End Support</div>
+              <p class="mt-1 text-sm text-slate-400">From first introduction to proposal to implementation to impact reporting.</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -76,7 +104,16 @@ const servicesJsonLd = {
       </div>
 
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-        <!-- 1. CSR Strategy & Planning -->
+        <!-- 1. Resource Mobilization & Partner Mapping -->
+        <div class="rounded-2xl border-2 border-sky-200 bg-sky-50/50 p-6 hover:border-sky-300 hover:shadow-sm transition-all">
+          <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-sky-100 text-sky-600 mb-4">
+            <i class="fa-solid fa-handshake text-xl"></i>
+          </div>
+          <h3 class="font-semibold text-lg">Resource Mobilization & Partner Mapping</h3>
+          <p class="mt-2 text-sm text-slate-600 leading-relaxed">Identify the right corporate decision-makers, funding channels, and partnerships for your sector and geography. We map resources before we write proposals.</p>
+        </div>
+
+        <!-- 2. CSR Strategy & Planning -->
         <div class="rounded-2xl border bg-white p-6 hover:border-sky-200 hover:shadow-sm transition-all">
           <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-sky-100 text-sky-600 mb-4">
             <i class="fa-solid fa-chess text-xl"></i>
@@ -85,7 +122,7 @@ const servicesJsonLd = {
           <p class="mt-2 text-sm text-slate-600 leading-relaxed">Develop CSR strategies aligned with business goals, statutory requirements, and community needs. Priority mapping, action plans, and 3-year roadmaps.</p>
         </div>
 
-        <!-- 2. Program Implementation -->
+        <!-- 3. Program Implementation -->
         <div class="rounded-2xl border bg-white p-6 hover:border-sky-200 hover:shadow-sm transition-all">
           <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-sky-100 text-sky-600 mb-4">
             <i class="fa-solid fa-rocket text-xl"></i>
