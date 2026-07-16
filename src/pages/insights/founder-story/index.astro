@@ -1,15 +1,24 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { SITE } from '../../../consts';
+import { getInsightBySlug, buildArticleJsonLd } from '../../../data/insights';
+
 const base = import.meta.env.BASE_URL;
+const post = getInsightBySlug('founder-story')!;
+const articleJsonLd = buildArticleJsonLd(post, SITE.url);
 ---
 
 <BaseLayout 
   title="Dr. Hemant L. Patel — 18+ Years of Public Health Leadership | Causewave"
-  description="From WHO surveillance to Gujarat's SKOCH Gold Award-winning Chitta Express — how Dr. Hemant L. Patel built 18+ years of public health impact across India."
+  description={post.description}
   ogTitle="Dr. Hemant L. Patel | Public Health & CSR Leadership"
   ogDescription="18+ years driving government engagement, evidence-based program scale-up, and digital public health innovation across WHO, CARE India, and Government of Gujarat."
-  canonicalPath="insights/founder-story/"
+  canonicalPath={post.path}
   activePage="insights"
+  ogType="article"
+  breadcrumbLabel={post.shortTitle}
+  breadcrumbParent={{ name: 'Insights', path: 'insights/' }}
+  jsonLd={articleJsonLd}
 >
   <main>
     <!-- Hero -->
@@ -127,9 +136,16 @@ const base = import.meta.env.BASE_URL;
           Causewave was founded on the belief that CSR programs should deliver both compliance and real community impact. Dr. Patel's 18+ years across WHO, CARE India, Government of Gujarat, and health-tech entrepreneurship mean Causewave doesn't just advise — it implements. The same rigor that reduced vaccination coverage gaps from ±20% to 5%, that detected 30+ outbreaks from zero, that scaled a bike-based healthcare model to a national award — that's the expertise behind every CSR engagement.
         </p>
 
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Continue exploring Causewave’s practical guides:
+          <a href={`${base}insights/csr-compliance-companies-act-2013/`} class="text-sky-600 hover:underline">CSR compliance under the Companies Act 2013</a>,
+          <a href={`${base}insights/impactful-csr-programs-healthcare/`} class="text-sky-600 hover:underline">healthcare CSR design</a>, and
+          <a href={`${base}insights/measuring-csr-impact-framework/`} class="text-sky-600 hover:underline">impact measurement</a>.
+        </p>
+
         <div class="mt-12 p-6 rounded-2xl bg-slate-50 border">
           <h3 class="font-semibold text-lg">Want to work with Dr. Patel and the Causewave team?</h3>
-          <p class="mt-2 text-sm text-slate-600">18+ years of public health leadership, now available for your CSR programs. Let's discuss how we can help.</p>
+          <p class="mt-2 text-sm text-slate-600">18+ years of public health leadership, now available for your CSR programs. Explore <a href={`${base}services/`} class="text-sky-600 hover:underline">services</a> or get in touch.</p>
           <a href={`${base}contact/`} class="mt-4 inline-flex btn btn-primary px-6 py-2 text-sm">Get in Touch</a>
         </div>
       </div>

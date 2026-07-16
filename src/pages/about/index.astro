@@ -1,27 +1,30 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import Icon from '../../components/Icon.astro';
+import { SEO } from '../../consts';
 const base = import.meta.env.BASE_URL;
 ---
 
 <BaseLayout 
-  title="About | Causewave" 
-  description="18+ years of public health leadership and field expertise across India. We bridge CSR compliance with real community impact."
-  ogTitle="About Causewave | 18+ Years of Public Health & CSR Leadership"
-  ogDescription="Learn about Causewave's 18+ years of public health leadership and field expertise across India. Bridging CSR compliance with real community impact."
+  title={SEO.about.title}
+  description={SEO.about.description}
+  ogTitle={SEO.about.ogTitle}
+  ogDescription={SEO.about.ogDescription}
   canonicalPath="about/"
   activePage="about"
+  breadcrumbLabel="About"
 >
   <main>
     <!-- Hero -->
     <section class="bg-slate-900 text-white section">
       <div class="max-w-screen-2xl mx-auto px-6">
         <div class="max-w-3xl">
-          <span class="text-sky-400 font-semibold text-sm tracking-widest">WHO WE ARE</span>
+          <span class="text-sky-400 font-semibold text-sm tracking-widest">CSR & IMPACT CONSULTING FIRM · INDIA</span>
           <h1 class="hero-animate mt-3 text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tighter leading-tight">
             Bridging CSR compliance and real community impact
           </h1>
           <p class="hero-animate hero-animate-delay-1 mt-5 text-lg text-slate-300 max-w-2xl">
-            Most CSR programs struggle to be both compliant and truly impactful. Causewave exists to close that gap.
+            Causewave is an India-based impact and CSR consulting firm. We help corporates design social impact programmes that are compliant, measurable, and trusted by communities.
           </p>
         </div>
       </div>
@@ -36,13 +39,13 @@ const base = import.meta.env.BASE_URL;
             18+ years of public health leadership
           </h2>
           <p class="mt-4 text-slate-600 leading-relaxed">
-            Causewave was founded on a simple observation: CSR programs often fail at the intersection of compliance and community trust. Companies struggle with regulations, while communities struggle with programs that don't address their real needs.
+            Causewave was founded on a simple observation: corporate social responsibility programmes often fail at the intersection of compliance and community trust. Companies struggle with regulations; communities struggle with programmes that do not address real needs.
           </p>
           <p class="mt-4 text-slate-600 leading-relaxed">
-            With over 18 years of experience in public health leadership — including managing vaccination drives that delivered 33 lakh+ doses in a single day — we bring field-tested expertise to every CSR engagement.
+            With over 18 years of experience in public health leadership — including managing vaccination drives that delivered 33 lakh+ doses in a single day — we bring field-tested expertise to every CSR strategy, programme design, and impact measurement engagement.
           </p>
           <p class="mt-4 text-slate-600 leading-relaxed">
-            Today, we work with companies across India to design and implement CSR programs that satisfy regulators, impress boards, and most importantly, create measurable community impact.
+            Today, we work with companies and partners across India on CSR consulting that satisfies regulators, impresses boards, and creates measurable community impact — especially in healthcare and last-mile delivery.
           </p>
         </div>
         <div class="grid grid-cols-2 gap-4">
@@ -77,7 +80,7 @@ const base = import.meta.env.BASE_URL;
         <div class="grid md:grid-cols-3 gap-6">
           <div class="rounded-2xl border bg-white p-6">
             <div class="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-sky-100 text-sky-600">
-              <i class="fa-solid fa-bullseye text-2xl"></i>
+              <Icon name="bullseye" class="w-6 h-6" />
             </div>
             <h3 class="text-xl font-semibold">Compliance Without Compromise</h3>
             <p class="mt-2 text-sm text-slate-600">
@@ -87,7 +90,7 @@ const base = import.meta.env.BASE_URL;
 
           <div class="rounded-2xl border bg-white p-6">
             <div class="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-teal-100 text-teal-600">
-              <i class="fa-solid fa-users text-2xl"></i>
+              <Icon name="users" class="w-6 h-6" />
             </div>
             <h3 class="text-xl font-semibold">Community-First Design</h3>
             <p class="mt-2 text-sm text-slate-600">
@@ -97,7 +100,7 @@ const base = import.meta.env.BASE_URL;
 
           <div class="rounded-2xl border bg-white p-6">
             <div class="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-emerald-100 text-emerald-600">
-              <i class="fa-solid fa-chart-bar text-2xl"></i>
+              <Icon name="chart-bar" class="w-6 h-6" />
             </div>
             <h3 class="text-xl font-semibold">Data-driven Decisions</h3>
             <p class="mt-2 text-sm text-slate-600">
@@ -120,7 +123,7 @@ const base = import.meta.env.BASE_URL;
         <div class="grid md:grid-cols-2 gap-6">
           <div class="flex gap-4 rounded-2xl bg-white border p-6">
             <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-sky-100 text-sky-600">
-              <i class="fa-solid fa-heart-pulse text-xl"></i>
+              <Icon name="heart-pulse" class="w-5 h-5" />
             </div>
             <div>
               <h3 class="font-semibold">Public Health</h3>
@@ -130,7 +133,7 @@ const base = import.meta.env.BASE_URL;
 
           <div class="flex gap-4 rounded-2xl bg-white border p-6">
             <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-teal-100 text-teal-600">
-              <i class="fa-solid fa-graduation-cap text-xl"></i>
+              <Icon name="graduation-cap" class="w-5 h-5" />
             </div>
             <div>
               <h3 class="font-semibold">Education</h3>
@@ -140,7 +143,7 @@ const base = import.meta.env.BASE_URL;
 
           <div class="flex gap-4 rounded-2xl bg-white border p-6">
             <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-emerald-100 text-emerald-600">
-              <i class="fa-solid fa-seedling text-xl"></i>
+              <Icon name="seedling" class="w-5 h-5" />
             </div>
             <div>
               <h3 class="font-semibold">Livelihoods</h3>
@@ -150,7 +153,7 @@ const base = import.meta.env.BASE_URL;
 
           <div class="flex gap-4 rounded-2xl bg-white border p-6">
             <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-sky-100 text-sky-600">
-              <i class="fa-solid fa-leaf text-xl"></i>
+              <Icon name="leaf" class="w-5 h-5" />
             </div>
             <div>
               <h3 class="font-semibold">Environment</h3>

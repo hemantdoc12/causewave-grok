@@ -1,18 +1,26 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { SITE } from '../../../consts';
+import { getInsightBySlug, buildArticleJsonLd } from '../../../data/insights';
+
 const base = import.meta.env.BASE_URL;
+const post = getInsightBySlug('csr-compliance-companies-act-2013')!;
+const articleJsonLd = buildArticleJsonLd(post, SITE.url);
 ---
 
 <BaseLayout 
   title="Understanding CSR Compliance Under Companies Act 2013 | Causewave"
-  description="A comprehensive guide to navigating CSR regulations, reporting requirements, and compliance deadlines for Indian companies."
+  description={post.description}
   ogTitle="CSR Compliance Guide | Companies Act 2013"
-  ogDescription="Navigate CSR regulations, reporting requirements, and compliance deadlines under Section 135 of the Companies Act 2013."
-  canonicalPath="insights/csr-compliance-companies-act-2013/"
+  ogDescription="Navigate CSR applicability, Section 135, the 2% rule, Schedule VII, reporting, and penalties under India's Companies Act 2013."
+  canonicalPath={post.path}
   activePage="insights"
+  ogType="article"
+  breadcrumbLabel={post.shortTitle}
+  breadcrumbParent={{ name: 'Insights', path: 'insights/' }}
+  jsonLd={articleJsonLd}
 >
   <main>
-    <!-- Hero -->
     <section class="bg-slate-900 text-white section">
       <div class="max-w-screen-2xl mx-auto px-6">
         <div class="max-w-3xl">
@@ -21,56 +29,130 @@ const base = import.meta.env.BASE_URL;
             Back to Insights
           </a>
           <div class="flex items-center gap-3 mb-4">
-            <span class="text-xs font-medium text-sky-400 bg-sky-400/10 px-2.5 py-0.5 rounded-full">Compliance</span>
-            <span class="text-xs text-slate-500">May 2026</span>
+            <span class="text-xs font-medium text-sky-400 bg-sky-400/10 px-2.5 py-0.5 rounded-full">{post.category}</span>
+            <span class="text-xs text-slate-500">{post.dateLabel}</span>
           </div>
-          <h1 class="text-3xl md:text-4xl font-semibold tracking-tight">Understanding CSR Compliance Under Companies Act 2013</h1>
-          <p class="mt-4 text-slate-300 text-lg">A comprehensive guide to navigating CSR regulations, reporting requirements, and compliance deadlines for Indian companies.</p>
+          <h1 class="text-3xl md:text-4xl font-semibold tracking-tight">{post.title}</h1>
+          <p class="mt-4 text-slate-300 text-lg">{post.excerpt}</p>
         </div>
       </div>
     </section>
 
-    <!-- Article Content -->
     <article class="section max-w-screen-2xl mx-auto px-6">
-      <div class="max-w-3xl">
-        <h2 class="text-2xl font-semibold mt-8 mb-4">What is CSR under Section 135?</h2>
-        <p class="text-slate-600 leading-relaxed mb-6">
-          The Companies Act 2013 introduced mandatory Corporate Social Responsibility (CSR) for qualifying Indian companies. Under Section 135, companies with a net worth of Rs 500 crore or more, turnover of Rs 1,000 crore or more, or net profit of Rs 5 crore or more during any financial year must constitute a CSR Committee and spend at least 2% of their average net profits on CSR activities.
+      <div class="max-w-3xl prose-slate">
+        <p class="text-slate-600 leading-relaxed mb-6 text-lg">
+          Corporate Social Responsibility (CSR) under India's Companies Act 2013 is not optional for companies that cross statutory thresholds. Boards, company secretaries, and CSR committees need a clear read on <strong>applicability</strong>, the <strong>2% spend rule</strong>, eligible activities, reporting, and what happens when money is left unspent. This guide summarises the practical compliance picture Causewave teams use when advising companies and NGO partners.
         </p>
 
-        <h2 class="text-2xl font-semibold mt-8 mb-4">Key Compliance Requirements</h2>
+        <h2 class="text-2xl font-semibold mt-10 mb-4">What is CSR under Section 135?</h2>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          Section 135 of the Companies Act 2013 introduced mandatory CSR for qualifying Indian companies. Qualifying companies must constitute a CSR Committee (where required), approve a CSR policy, and spend at least <strong>2% of the average net profits</strong> of the three immediately preceding financial years on CSR activities listed under Schedule VII — either directly or through eligible implementing agencies.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          The intent is not only statutory spend. Regulators and boards increasingly expect programmes that are planned, monitored, and reported with the same seriousness as other material business obligations. That is where compliance and impact design meet — a theme we expand in our
+          <a href={`${base}insights/measuring-csr-impact-framework/`} class="text-sky-600 hover:underline">impact measurement framework</a>.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">CSR applicability: who must comply?</h2>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          A company (including certain classes of companies as notified) comes under Section 135 if, during the immediately preceding financial year, it meets <strong>any one</strong> of these thresholds:
+        </p>
         <ul class="space-y-3 text-slate-600 mb-6">
           <li class="flex items-start gap-3">
             <span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span>
-            <span><strong>CSR Committee:</strong> Form a committee of 3 or more directors, with at least one independent director.</span>
+            <span><strong>Net worth</strong> of ₹500 crore or more, <em>or</em></span>
           </li>
           <li class="flex items-start gap-3">
             <span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span>
-            <span><strong>CSR Policy:</strong> Formulate and recommend a CSR policy to the board, including activities and implementation plans.</span>
+            <span><strong>Turnover</strong> of ₹1,000 crore or more, <em>or</em></span>
           </li>
           <li class="flex items-start gap-3">
             <span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span>
-            <span><strong>Spending Requirement:</strong> Spend at least 2% of average net profits from the 3 preceding financial years.</span>
+            <span><strong>Net profit</strong> of ₹5 crore or more.</span>
+          </li>
+        </ul>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Once applicable, the company must track ongoing eligibility, compute the average net profit correctly (as defined under the Act and rules), and maintain documentation that can withstand board scrutiny and regulatory review. “CSR applicability” searches often stop at the thresholds — the operational work is in policy, committee governance, project selection, and year-end reporting.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">Key compliance obligations</h2>
+        <ul class="space-y-3 text-slate-600 mb-6">
+          <li class="flex items-start gap-3">
+            <span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span>
+            <span><strong>CSR Committee:</strong> Form a committee as required (composition rules depend on company type and board structure; independent director requirements apply where mandated).</span>
           </li>
           <li class="flex items-start gap-3">
             <span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span>
-            <span><strong>Annual Reporting:</strong> File CSR annual report in the Board's Report and with the Registrar of Companies.</span>
+            <span><strong>CSR Policy:</strong> Formulate and recommend a CSR policy covering approach, activities, and implementation modalities for board approval.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span>
+            <span><strong>Spending requirement:</strong> Spend at least 2% of average net profits of the three preceding financial years on eligible activities.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span>
+            <span><strong>Implementation:</strong> Deliver activities directly and/or through eligible implementing agencies (registered trusts, societies, Section 8 companies, and other permitted channels under the rules).</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span>
+            <span><strong>Annual reporting:</strong> Disclose CSR particulars in the Board’s Report and comply with filing / format requirements applicable for the year.</span>
           </li>
         </ul>
 
-        <h2 class="text-2xl font-semibold mt-8 mb-4">Schedule VII Eligible Activities</h2>
+        <h2 class="text-2xl font-semibold mt-10 mb-4">Schedule VII: what counts as eligible CSR?</h2>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          Schedule VII lists activity areas the statute treats as CSR — including education, healthcare, gender equality, environmental sustainability, rural development, disaster management, and more (as amended from time to time). Companies should map every project to a Schedule VII item and document that mapping.
+        </p>
         <p class="text-slate-600 leading-relaxed mb-6">
-          Schedule VII of the Companies Act lists eligible CSR activities including education, healthcare, gender equality, environmental sustainability, rural development, and more. Companies can undertake these activities directly or through registered trusts, societies, or Section 8 companies.
+          Healthcare programmes are a frequent focus for Indian corporates because needs are clear and outcomes can be measured. For design lessons from large-scale public health delivery, see
+          <a href={`${base}insights/impactful-csr-programs-healthcare/`} class="text-sky-600 hover:underline">how to design impactful healthcare CSR programs</a>.
         </p>
 
-        <h2 class="text-2xl font-semibold mt-8 mb-4">Penalties for Non-Compliance</h2>
-        <p class="text-slate-600 leading-relaxed mb-6">
-          Companies that fail to comply with CSR requirements may face penalties including fines up to Rs 25 lakh for the company and Rs 5 lakh to Rs 25 lakh for officers in default. The company must also deposit unspent amounts to a specified fund within 6 months of the financial year end.
+        <h2 class="text-2xl font-semibold mt-10 mb-4">Unspent CSR and ongoing projects</h2>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          Unspent amounts are a common compliance pain point. Depending on whether the amount relates to an ongoing project or not, rules prescribe transfer of unspent CSR to specified funds or unspent CSR accounts within defined timelines, with multi-year project tracking for ongoing projects.
         </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          In practice, boards should receive a clear year-end view: amount required, amount spent, surplus treatment (if any), unspent classification, transfer deadlines, and project-wise status. Missing a transfer deadline can turn a planning issue into a penalty issue.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">Penalties for non-compliance</h2>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Non-compliance with CSR provisions can attract penalties on the company and on officers in default (quantum as amended under the Act). Beyond fines, reputational and governance risk is material for listed companies and large private groups. Treating CSR as a year-end accounting exercise — rather than a governed programme portfolio — is the usual root cause of last-minute non-compliance.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">Practical checklist for CSR leads</h2>
+        <ol class="list-decimal list-inside space-y-2 text-slate-600 mb-6">
+          <li>Confirm applicability and compute average net profit early in the year.</li>
+          <li>Align the annual action plan with Schedule VII and board-approved policy.</li>
+          <li>Vet implementing partners (registration, track record, geography fit).</li>
+          <li>Define indicators and reporting cadence before projects launch.</li>
+          <li>Track spend monthly; escalate unspent risk before Q4.</li>
+          <li>Close the year with board-ready disclosures and fund-transfer evidence where required.</li>
+        </ol>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">FAQ: CSR compliance (quick answers)</h2>
+        <div class="space-y-4 mb-8">
+          <div>
+            <h3 class="font-semibold text-slate-800">Is CSR the same as charity donations?</h3>
+            <p class="text-slate-600 text-sm mt-1">No. CSR spend must fit the statutory framework (policy, eligible activities, reporting). Ad hoc donations without governance often fail compliance and impact tests.</p>
+          </div>
+          <div>
+            <h3 class="font-semibold text-slate-800">Can we fund only one large NGO?</h3>
+            <p class="text-slate-600 text-sm mt-1">You can concentrate spend if the activity is eligible and governed — but partner concentration risk, capacity, and geography fit should be reviewed. Mid-cap and multi-partner strategies often improve resilience.</p>
+          </div>
+          <div>
+            <h3 class="font-semibold text-slate-800">Do we need impact data for compliance?</h3>
+            <p class="text-slate-600 text-sm mt-1">Statutory compliance focuses on spend and disclosure; boards and regulators increasingly expect outcome evidence. Build a light M&amp;E layer from day one — see our <a href={`${base}insights/measuring-csr-impact-framework/`} class="text-sky-600 hover:underline">M&amp;E framework</a>.</p>
+          </div>
+        </div>
 
         <div class="mt-12 p-6 rounded-2xl bg-slate-50 border">
-          <h3 class="font-semibold text-lg">Need help with CSR compliance?</h3>
-          <p class="mt-2 text-sm text-slate-600">Causewave helps companies navigate CSR regulations and build compliant programs. Let's discuss how we can help you.</p>
+          <h3 class="font-semibold text-lg">Need help with CSR compliance and programme design?</h3>
+          <p class="mt-2 text-sm text-slate-600">
+            Causewave helps companies navigate Section 135 obligations and build programmes that boards, regulators, and communities can trust.
+            Explore <a href={`${base}services/`} class="text-sky-600 hover:underline">our services</a> or get in touch.
+          </p>
           <a href={`${base}contact/`} class="mt-4 inline-flex btn btn-primary px-6 py-2 text-sm">Get in Touch</a>
         </div>
       </div>

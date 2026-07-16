@@ -1,46 +1,45 @@
-# Causewave Grok
+# Causewave
 
 Modern website for **Causewave Innovations LLP** — CSR strategy, implementation, and measurable social impact.
 
-This is a fresh rebuild (2026) using Astro + TypeScript + Tailwind, following clean architecture and modern best practices.
+Built with Astro + TypeScript + Tailwind. Live at **[https://causewave.in](https://causewave.in)**.
 
-## Goals of this rebuild
+## Goals
 
-- Clean, maintainable codebase (addressing issues from previous version)
-- Strong TypeScript usage and strict configuration
-- Proper component architecture (no more giant inline scripts)
-- Content Collections for insights/articles
-- Modern, reliable GitHub Pages deployment
-- Better performance and accessibility
-- Easier long-term maintenance
+- Clean, maintainable marketing site
+- Strong technical SEO foundations (canonicals, sitemap, structured data)
+- Practical CSR content for compliance, healthcare, and impact measurement
+- Reliable GitHub Pages deployment with custom domain
 
-## Tech Stack
+## Tech stack
 
-- [Astro 6](https://astro.build) (with strict TypeScript)
-- Tailwind CSS
-- Content Collections (for Insights)
+- [Astro 6](https://astro.build) (TypeScript)
+- Tailwind CSS v4
+- `@astrojs/sitemap`
 - GitHub Pages + GitHub Actions
+- Formspree (contact form)
 
-## Project Structure
+## Project structure
 
 ```
 /
-├── legacy/                 # Previous versions preserved for reference
-│   ├── old-astro-site/
-│   ├── old-html-version/
-│   └── REVIEW.md           # Code review of the previous version
-├── reference-assets/       # Original images, logos, PDFs for reference
 ├── src/
-│   ├── components/
-│   ├── content/            # Content Collections (Insights, etc.)
-│   ├── layouts/
-│   ├── pages/
-│   └── consts.ts           # Centralized site config & branding
-├── public/                 # Static assets
-└── astro.config.mjs
+│   ├── components/     # Navbar, Footer, Icon
+│   ├── data/           # Shared insight metadata (hub + Article JSON-LD)
+│   ├── layouts/        # BaseLayout (meta, OG, breadcrumbs, JSON-LD)
+│   ├── pages/          # File-based routes (home, about, services, insights, legal)
+│   ├── styles/         # global.css + @theme tokens
+│   └── consts.ts       # Site URL, nav, contact
+├── public/             # Static assets, robots.txt, CNAME, brochure
+├── seo_results/        # Google Search Console exports
+├── TRACKER.md          # Design + SEO implementation tracker
+├── DEPLOYMENT.md       # Deploy and HTTPS checklist
+└── legacy/             # Previous site versions (reference only)
 ```
 
-## Getting Started
+Insights are file-based Astro pages under `src/pages/insights/`, with shared metadata in `src/data/insights.ts`. Content Collections can be introduced later if volume grows.
+
+## Getting started
 
 ```bash
 npm install
@@ -49,41 +48,31 @@ npm run dev
 
 ## Commands
 
-| Command             | Action                                       |
-| :------------------ | :------------------------------------------- |
-| `npm run dev`       | Start local dev server                       |
-| `npm run build`     | Build production site to `./dist/`           |
-| `npm run preview`   | Preview the production build locally         |
-| `npm run astro ...` | Run Astro CLI commands                       |
+| Command | Action |
+| :------ | :----- |
+| `npm run dev` | Start local dev server |
+| `npm run build` | Build production site to `./dist/` |
+| `npm run preview` | Preview the production build locally |
 
 ## Deployment
 
-This site automatically deploys to GitHub Pages on every push to `main`.
+Pushes to `main` deploy via GitHub Actions to GitHub Pages.
 
-### One-time Setup (Required)
+### One-time setup
 
-After the first deployment workflow runs, you must enable GitHub Pages in the repository settings:
+1. Repository **Settings → Pages**
+2. Source: **GitHub Actions**
+3. Custom domain: `causewave.in` with **Enforce HTTPS** enabled  
+   (see `DEPLOYMENT.md` for the full HTTPS checklist)
 
-1. Go to your repository on GitHub → **Settings** → **Pages**
-2. Under "Build and deployment", set **Source** to **GitHub Actions**
-3. Save
+### Live site
 
-Once enabled, every future push to `main` will automatically build and deploy the site.
+**https://causewave.in**
 
-### Manual Deployment
+## SEO tracker
 
-You can also trigger a deployment manually:
-- Go to the **Actions** tab → select **"Deploy to GitHub Pages"** → **Run workflow**
-
-### Live Site
-
-After setup, the site will be available at:
-`https://hemantdoc12.github.io/causewave-grok/`
+Post-launch SEO work (breadcrumbs, Article schema, content expansion, hub internal links) is tracked in **`TRACKER.md`** phases 5–7.
 
 ## License
 
 Private — Causewave Innovations LLP
-
----
-
-**Built fresh with modern practices** — see `legacy/REVIEW.md` for context on what was improved.

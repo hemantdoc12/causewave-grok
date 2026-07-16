@@ -1,18 +1,26 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { SITE } from '../../../consts';
+import { getInsightBySlug, buildArticleJsonLd } from '../../../data/insights';
+
 const base = import.meta.env.BASE_URL;
+const post = getInsightBySlug('measuring-csr-impact-framework')!;
+const articleJsonLd = buildArticleJsonLd(post, SITE.url);
 ---
 
 <BaseLayout 
   title="Measuring CSR Impact: A Practical Framework | Causewave"
-  description="Build credible M&E frameworks that satisfy regulators and help you optimize program outcomes."
+  description={post.description}
   ogTitle="CSR Impact Measurement Framework"
-  ogDescription="Learn how to build credible M&E frameworks for CSR programs that satisfy regulators and optimize outcomes."
-  canonicalPath="insights/measuring-csr-impact-framework/"
+  ogDescription="Build credible M&E frameworks for CSR: baseline, indicators, data collection, and learning loops that boards and regulators can trust."
+  canonicalPath={post.path}
   activePage="insights"
+  ogType="article"
+  breadcrumbLabel={post.shortTitle}
+  breadcrumbParent={{ name: 'Insights', path: 'insights/' }}
+  jsonLd={articleJsonLd}
 >
   <main>
-    <!-- Hero -->
     <section class="bg-slate-900 text-white section">
       <div class="max-w-screen-2xl mx-auto px-6">
         <div class="max-w-3xl">
@@ -21,51 +29,96 @@ const base = import.meta.env.BASE_URL;
             Back to Insights
           </a>
           <div class="flex items-center gap-3 mb-4">
-            <span class="text-xs font-medium text-emerald-400 bg-emerald-400/10 px-2.5 py-0.5 rounded-full">Impact Measurement</span>
-            <span class="text-xs text-slate-500">March 2026</span>
+            <span class="text-xs font-medium text-emerald-400 bg-emerald-400/10 px-2.5 py-0.5 rounded-full">{post.category}</span>
+            <span class="text-xs text-slate-500">{post.dateLabel}</span>
           </div>
-          <h1 class="text-3xl md:text-4xl font-semibold tracking-tight">Measuring CSR Impact: A Practical Framework</h1>
-          <p class="mt-4 text-slate-300 text-lg">Build credible M&E frameworks that satisfy regulators and help you optimize program outcomes.</p>
+          <h1 class="text-3xl md:text-4xl font-semibold tracking-tight">{post.title}</h1>
+          <p class="mt-4 text-slate-300 text-lg">{post.excerpt}</p>
         </div>
       </div>
     </section>
 
-    <!-- Article Content -->
     <article class="section max-w-screen-2xl mx-auto px-6">
       <div class="max-w-3xl">
-        <h2 class="text-2xl font-semibold mt-8 mb-4">Why Impact Measurement Matters</h2>
-        <p class="text-slate-600 leading-relaxed mb-6">
-          Impact measurement is no longer optional for CSR programs. Regulators, boards, and communities increasingly demand evidence that CSR investments are creating real, measurable change. A robust M&E framework helps you demonstrate compliance, optimize program design, and build stakeholder trust.
+        <p class="text-slate-600 leading-relaxed mb-6 text-lg">
+          Impact measurement is no longer a “nice to have” for CSR. Boards want assurance that statutory spend creates real change; communities deserve programmes that improve over time; and implementing partners need feedback loops that go beyond annual PDFs. This framework is deliberately practical — light enough for mid-size portfolios, rigorous enough for board packs.
         </p>
 
-        <h2 class="text-2xl font-semibold mt-8 mb-4">The 4-Step M&E Framework</h2>
-        <ul class="space-y-3 text-slate-600 mb-6">
-          <li class="flex items-start gap-3">
-            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-2 shrink-0"></span>
-            <span><strong>1. Baseline Assessment:</strong> Understand the current state of your target community. Collect data on key indicators before program launch.</span>
-          </li>
-          <li class="flex items-start gap-3">
-            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-2 shrink-0"></span>
-            <span><strong>2. Indicator Design:</strong> Define clear, measurable indicators aligned with program objectives. Include both output and outcome indicators.</span>
-          </li>
-          <li class="flex items-start gap-3">
-            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-2 shrink-0"></span>
-            <span><strong>3. Data Collection:</strong> Set up systematic data collection processes. Use digital tools where possible for real-time tracking.</span>
-          </li>
-          <li class="flex items-start gap-3">
-            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-2 shrink-0"></span>
-            <span><strong>4. Reporting & Learning:</strong> Generate regular dashboards and annual reports. Use data to optimize program design.</span>
-          </li>
+        <h2 class="text-2xl font-semibold mt-10 mb-4">Why M&amp;E matters for CSR</h2>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          Section 135 compliance focuses on spend, policy, and disclosure (see our
+          <a href={`${base}insights/csr-compliance-companies-act-2013/`} class="text-sky-600 hover:underline">Companies Act CSR compliance guide</a>).
+          Measurement goes further: it shows whether the portfolio is working, where to reallocate budget, and how to tell a credible impact story without exaggeration.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Healthcare CSR is a common stress test for M&amp;E because service volume is high and outcomes take time. Design notes live in
+          <a href={`${base}insights/impactful-csr-programs-healthcare/`} class="text-sky-600 hover:underline">healthcare CSR program design</a>.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">The 4-step M&amp;E framework</h2>
+
+        <h3 class="text-xl font-semibold mt-8 mb-3">1. Baseline assessment</h3>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          Before launch, document the starting state for the people and places you intend to serve. Baselines can be secondary data (district health stats, school enrolment) plus a light primary sample when secondary data is stale or too coarse. Without a baseline, “improvement” is storytelling, not measurement.
+        </p>
+        <ul class="space-y-2 text-slate-600 mb-6">
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-2 shrink-0"></span><span>Define the unit of analysis (village, facility, school, household).</span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-2 shrink-0"></span><span>Capture 3–7 priority indicators only — not a research study.</span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-2 shrink-0"></span><span>Record data sources, dates, and known biases.</span></li>
         </ul>
 
-        <h2 class="text-2xl font-semibold mt-8 mb-4">Key Metrics to Track</h2>
+        <h3 class="text-xl font-semibold mt-8 mb-3">2. Indicator design</h3>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          Separate <strong>outputs</strong> (what you delivered) from <strong>outcomes</strong> (what changed). Boards often over-index on outputs because they move quickly; outcomes are slower but more honest.
+        </p>
+        <div class="overflow-x-auto mb-6">
+          <table class="w-full text-sm text-left border border-slate-200">
+            <thead class="bg-slate-100 text-slate-700">
+              <tr>
+                <th class="p-3">Type</th>
+                <th class="p-3">Example (health)</th>
+                <th class="p-3">Example (education)</th>
+              </tr>
+            </thead>
+            <tbody class="text-slate-600">
+              <tr class="border-t"><td class="p-3">Output</td><td class="p-3">Camps held; doses administered</td><td class="p-3">Students enrolled in bridge course</td></tr>
+              <tr class="border-t bg-slate-50"><td class="p-3">Quality</td><td class="p-3">Cold-chain compliance rate</td><td class="p-3">Sessions delivered as planned</td></tr>
+              <tr class="border-t"><td class="p-3">Outcome</td><td class="p-3">Coverage in hard-to-reach pockets</td><td class="p-3">Learning level improvement</td></tr>
+              <tr class="border-t bg-slate-50"><td class="p-3">Sustainability</td><td class="p-3">Facility continues protocol post-exit</td><td class="p-3">School owns remedial process</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="text-xl font-semibold mt-8 mb-3">3. Data collection</h3>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          Prefer simple digital tools that field teams will actually use. Train once, sample quality-check monthly, and keep definitions in a one-page indicator dictionary. Integrate with partner systems where possible instead of creating a parallel universe of spreadsheets.
+        </p>
+        <ul class="space-y-2 text-slate-600 mb-6">
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-2 shrink-0"></span><span>Operational data: weekly or monthly (activity and coverage).</span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-2 shrink-0"></span><span>Outcome data: mid-line / end-line or annual, depending on programme length.</span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-2 shrink-0"></span><span>Qualitative stories: structured, with consent, linked to indicators — not standalone PR.</span></li>
+        </ul>
+
+        <h3 class="text-xl font-semibold mt-8 mb-3">4. Reporting and learning</h3>
         <p class="text-slate-600 leading-relaxed mb-6">
-          Effective CSR measurement goes beyond counting beneficiaries. Track metrics across four dimensions: reach (how many people served), quality (was the service effective), outcomes (what changed), and sustainability (will the impact last). Use both quantitative data and qualitative stories to paint a complete picture.
+          Reporting without learning is compliance theatre. Schedule quarterly portfolio reviews: what worked, what failed, what to stop, what to scale. Board reports should show spend vs plan, indicator trends vs baseline, risks, and decisions taken. Annual CSR disclosures then become a summary of a living system — not a scramble for numbers in March.
         </p>
 
+        <h2 class="text-2xl font-semibold mt-10 mb-4">Minimum viable M&amp;E for a new CSR project</h2>
+        <ol class="list-decimal list-inside space-y-2 text-slate-600 mb-8">
+          <li>One-page theory of change</li>
+          <li>Baseline snapshot for primary geography</li>
+          <li>5 core indicators with definitions</li>
+          <li>Monthly operational dashboard</li>
+          <li>Quarterly learning note + annual impact brief</li>
+        </ol>
+
         <div class="mt-12 p-6 rounded-2xl bg-slate-50 border">
-          <h3 class="font-semibold text-lg">Need help with impact measurement?</h3>
-          <p class="mt-2 text-sm text-slate-600">Causewave builds M&E frameworks that satisfy regulators and drive program improvement. Let's discuss your needs.</p>
+          <h3 class="font-semibold text-lg">Need help building CSR M&amp;E that boards trust?</h3>
+          <p class="mt-2 text-sm text-slate-600">
+            Causewave designs measurement systems alongside programme delivery.
+            Explore <a href={`${base}services/`} class="text-sky-600 hover:underline">impact and strategy services</a> or contact us.
+          </p>
           <a href={`${base}contact/`} class="mt-4 inline-flex btn btn-primary px-6 py-2 text-sm">Get in Touch</a>
         </div>
       </div>

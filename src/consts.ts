@@ -1,14 +1,14 @@
 /**
  * Site-wide constants and configuration.
  * Centralized place for metadata, URLs, and branding.
- * Update these values when moving to a custom domain.
  */
+
+import { SEO } from './data/seo-keywords';
 
 export const SITE = {
   name: 'Causewave Innovations LLP',
-  title: 'Causewave | CSR Strategy, Implementation & Measurable Impact',
-  description:
-    'Causewave helps companies deliver compliant, measurable, and community-trusted CSR programs. Backed by deep public health leadership and last-mile expertise across India.',
+  title: SEO.home.title,
+  description: SEO.home.description,
   url: 'https://causewave.in/',
   ogImage: 'og-default.jpg',
   twitterHandle: '',
@@ -26,3 +26,5 @@ export const CONTACT = {
   phone: '+91 76005 96053',
   location: 'Ahmedabad, Gujarat, India',
 } as const;
+
+export { SEO };

@@ -1,6 +1,6 @@
 # Causewave Implementation Tracker
 
-> Track progress against the design system defined in `DESIGN.md`.
+> Track progress against design + SEO workstreams.
 > Change `[ ]` to `[x]` when a task is complete.
 
 ---
@@ -13,8 +13,14 @@
 | Phase 2: Animations | [x] Complete | 4/4 |
 | Phase 3: Missing Pages | [x] Complete | 5/5 |
 | Phase 4: Polish | [x] Complete | 5/5 |
+| **Phase 5: Technical SEO (P0)** | [x] Complete | 5/5 |
+| **Phase 6: Content SEO (P1)** | [x] Complete | 4/4 |
+| **Phase 7: Polish & Ops (P2)** | [x] Complete | 5/5 |
+| **Phase 8: Competitive keywords** | [x] Complete | 3/3 |
 
-**Total:** 18/18 tasks complete
+**Design system total:** 18/18 complete  
+**SEO workstream total:** 17/17 complete  
+**Last updated:** 2026-07-17
 
 ---
 
@@ -27,571 +33,208 @@
 
 ---
 
-## Phase 1: Foundation
+## Context: Search Console baseline (2026-07-17)
 
-> Establish correct fonts, remove dead code, consolidate tokens.
+### Performance
+Source: `seo_results/causewave.in-Performance-on-Search-2026-07-17.xlsx`
 
-### Task 1.1 — Import Google Fonts
+| Metric | Value |
+|--------|-------|
+| Clicks (Jul 1–14) | 1 |
+| Impressions | 14 |
+| Only converting page | `/insights/founder-story/` (pos ~4) |
+| Weak brand query | `causewave` avg pos ~20 |
+| Opportunity page | CSR compliance guide (8 impr, pos ~66) |
 
-- **Status:** [x] Complete
-- **Priority:** High
-- **Estimated Time:** 5 min
-- **Files to Modify:**
-  - `src/layouts/BaseLayout.astro` — add `<link>` tags in `<head>`
-  - `src/styles/global.css` — update `body` font-family to Inter
-- **Dependencies:** None
-- **Description:**
-  Add Space Grotesk (headings) and Inter (body) via Google Fonts. The heading font is already referenced in CSS but never imported — headings silently fall back to system-ui.
-- **Steps:**
-  1. Add to `BaseLayout.astro` `<head>`:
-     ```html
-     <link rel="preconnect" href="https://fonts.googleapis.com" />
-     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
-     ```
-  2. In `global.css`, update `body` font-family:
-     ```css
-     font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-     ```
-- **Acceptance Criteria:**
-  - [ ] Headings render in Space Grotesk (inspect in DevTools)
-  - [ ] Body text renders in Inter
-  - [ ] `npm run build` passes
+### Index coverage (Page indexing)
+Source: `seo_results/causewave.in-Coverage-2026-07-17.xlsx`
 
----
+| Status (as of ~2026-07-10) | Count |
+|----------------------------|------:|
+| Indexed | 10 |
+| Not indexed | 7 |
 
-### Task 1.2 — Delete Dead Code
+**Not indexed breakdown (critical issues):**
 
-- **Status:** [x] Complete
-- **Priority:** High
-- **Estimated Time:** 5 min
-- **Files to Delete:**
-  - `src/components/Welcome.astro` — default Astro starter, unused
-  - `src/layouts/Layout.astro` — default Astro layout, unused
-  - `src/assets/astro.svg` — only used by Welcome.astro
-  - `src/assets/background.svg` — only used by Welcome.astro
-- **Dependencies:** None
-- **Description:**
-  Remove Astro scaffolding files that are not imported anywhere. They contain conflicting design tokens (purple gradients, Inter font references) that could cause confusion.
-- **Steps:**
-  1. Delete the 4 files listed above
-  2. Keep `src/assets/` folder (may be used for future images)
-  3. Verify build passes
-- **Acceptance Criteria:**
-  - [ ] No file imports `Welcome.astro` or `Layout.astro`
-  - [ ] `src/assets/` folder is empty (or contains only future assets)
-  - [ ] `npm run build` passes
+| Reason | Pages | Interpretation / action |
+|--------|------:|-------------------------|
+| Page with redirect | 3 | Expected: `http→https`, `www→apex`, no-trailing-slash→slash, `github.io→causewave.in`. Not bugs — validation can be started after deploy. |
+| Alternative page with proper canonical tag | 2 | Expected: alternate URLs correctly point at canonical. Confirms canonicals work. |
+| Discovered – currently not indexed | 1 | Google knows the URL but has not crawled yet — request indexing after deploy for weakest pages. |
+| Crawled - currently not indexed | 1 | Crawled but not chosen for index — usually thin/low-priority; content expansion + internal links address this. |
+
+**Pre-deploy index hygiene applied:** brochure `noindex` + `robots.txt` Disallow; stronger titles/content; human breadcrumbs; no fake SearchAction.
 
 ---
 
-### Task 1.3 — Consolidate Color Tokens
+## Phase 5: Technical SEO (P0)
+
+> Fix crawl/schema/internal-link foundations before investing more in content.
+
+### Task 5.1 — Human breadcrumb labels + nested trails
+
+- **Status:** [x] Complete
+- **Priority:** High
+- **Files:**
+  - `src/layouts/BaseLayout.astro` — `breadcrumbLabel`, `breadcrumbParent`
+  - All pages with `canonicalPath`
+- **Done:** Nested insights emit `Home → Insights → <title>`; top-level pages use human labels.
+
+### Task 5.2 — Remove fake SearchAction schema
+
+- **Status:** [x] Complete
+- **Priority:** High
+- **Files:** `src/pages/index.astro`
+- **Done:** `WebSite` JSON-LD retained without `potentialAction` / `/search`.
+
+### Task 5.3 — Article OG type + Article JSON-LD on insight posts
+
+- **Status:** [x] Complete
+- **Priority:** High
+- **Files:**
+  - `src/layouts/BaseLayout.astro` (`ogType`)
+  - `src/data/insights.ts` (`buildArticleJsonLd`)
+  - All four insight post pages
+- **Done:** Each post has `og:type=article` and Article schema (headline, author, dates, publisher).
+
+### Task 5.4 — Insights hub: list all on-site articles
+
+- **Status:** [x] Complete
+- **Priority:** High
+- **Files:** `src/pages/insights/index.astro`, `src/data/insights.ts`
+- **Done:** Founder feature + three on-site guide cards; LinkedIn demoted to secondary section.
+
+### Task 5.5 — HTTPS hardening note + client redirect keep
 
 - **Status:** [x] Complete
 - **Priority:** Medium
-- **Estimated Time:** 30 min
-- **Files to Modify:**
-  - `src/styles/global.css` — remove redundant CSS variables
-  - `src/consts.ts` — remove unused `BRANDING` object
-- **Dependencies:** Task 1.2 (clean slate)
-- **Description:**
-  The project defines colors in 3 places: CSS `:root` variables, Tailwind utility classes, and `BRANDING` in `consts.ts`. Consolidate so there's a single source of truth.
-- **Steps:**
-  1. Remove `BRANDING` export from `src/consts.ts` (never imported)
-  2. Keep CSS `:root` variables for use in `global.css` (btn styles, focus rings)
-  3. Document that Tailwind palette (slate/sky/teal/emerald) is the primary system
-  4. Update `DESIGN.md` to reflect consolidated approach
-- **Acceptance Criteria:**
-  - [ ] `BRANDING` removed from `consts.ts`
-  - [ ] CSS `:root` variables kept for non-Tailwind contexts
-  - [ ] No visual changes to the site
-  - [ ] `npm run build` passes
+- **Files:** `BaseLayout.astro`, `DEPLOYMENT.md`, `README.md`
+- **Done:** Client redirect retained; Pages/DNS/GSC HTTPS checklist documented in `DEPLOYMENT.md`.
 
 ---
 
-### Task 1.4 — Add Tailwind @theme Block
+## Phase 6: Content SEO (P1)
+
+### Task 6.1 — Expand CSR compliance guide (priority page)
+
+- **Status:** [x] Complete
+- **Priority:** High
+- **Files:** `src/pages/insights/csr-compliance-companies-act-2013/index.astro`
+- **Done:** Long-form guide: applicability, obligations, Schedule VII, unspent CSR, penalties, checklist, FAQ, internal links.
+
+### Task 6.2 — Expand healthcare CSR design guide
+
+- **Status:** [x] Complete
+- **Priority:** High
+- **Files:** `src/pages/insights/impactful-csr-programs-healthcare/index.astro`
+- **Done:** Expanded framework, failure-mode table, links to founder / compliance / M&E / services.
+
+### Task 6.3 — Expand CSR impact measurement framework
+
+- **Status:** [x] Complete
+- **Priority:** High
+- **Files:** `src/pages/insights/measuring-csr-impact-framework/index.astro`
+- **Done:** Four-step M&E with indicator table, MVP checklist, cross-links.
+
+### Task 6.4 — Strengthen on-site internal linking on expanded posts
 
 - **Status:** [x] Complete
 - **Priority:** Medium
-- **Estimated Time:** 30 min
-- **Files to Modify:**
-  - `src/styles/global.css` — add `@theme` block after `@import "tailwindcss"`
-- **Dependencies:** Task 1.3
-- **Description:**
-  Tailwind CSS v4 supports `@theme` for custom design tokens. This makes custom colors/fonts available as Tailwind utilities (e.g., `bg-brand-dark`, `font-display`).
-- **Steps:**
-  1. Add after `@import "tailwindcss"` in `global.css`:
-     ```css
-     @theme {
-       --font-display: 'Space Grotesk', system-ui, sans-serif;
-       --font-body: 'Inter', system-ui, sans-serif;
-       --color-brand-dark: #0F172A;
-       --color-brand-blue: #0EA5E9;
-       --color-brand-teal: #14B8A6;
-       --color-brand-green: #22C55E;
-     }
-     ```
-  2. Verify new utilities work (e.g., `font-display`, `bg-brand-dark`)
-  3. Update `DESIGN.md` to document the `@theme` tokens
-- **Acceptance Criteria:**
-  - [ ] `@theme` block exists in `global.css`
-  - [ ] Custom utilities are usable in components
-  - [ ] No visual changes (existing Tailwind classes still work)
-  - [ ] `npm run build` passes
+- **Files:** All insight posts
+- **Done:** Guides cross-link each other + services/contact; founder story links to all three guides.
 
 ---
 
-## Phase 2: Animations
+## Phase 7: Polish & Ops (P2)
 
-> Add scroll-reveal, hero entrance, counters, and mobile menu fix.
-
-### Task 2.1 — Scroll-Reveal System
-
-- **Status:** [x] Complete
-- **Priority:** High
-- **Estimated Time:** 45 min
-- **Files to Modify:**
-  - `src/styles/global.css` — add `.reveal` and `.reveal-stagger` classes
-  - `src/layouts/BaseLayout.astro` — add Intersection Observer script
-- **Dependencies:** Phase 1 complete
-- **Description:**
-  Implement a CSS + JS scroll-reveal system. Sections fade in as they enter the viewport. Card grids stagger their entrance.
-- **Steps:**
-  1. Add to `global.css`:
-     ```css
-     .reveal {
-       opacity: 0;
-       transform: translateY(20px);
-       transition: opacity 0.6s ease, transform 0.6s ease;
-     }
-     .reveal.visible {
-       opacity: 1;
-       transform: translateY(0);
-     }
-     .reveal-stagger > * {
-       opacity: 0;
-       transform: translateY(15px);
-       transition: opacity 0.5s ease, transform 0.5s ease;
-     }
-     .reveal-stagger.visible > *:nth-child(1) { transition-delay: 0.1s; }
-     .reveal-stagger.visible > *:nth-child(2) { transition-delay: 0.2s; }
-     .reveal-stagger.visible > *:nth-child(3) { transition-delay: 0.3s; }
-     .reveal-stagger.visible > *:nth-child(4) { transition-delay: 0.4s; }
-     ```
-  2. Add Intersection Observer to `BaseLayout.astro` `<script>`:
-     ```js
-     const observer = new IntersectionObserver((entries) => {
-       entries.forEach(entry => {
-         if (entry.isIntersecting) {
-           entry.target.classList.add('visible');
-           observer.unobserve(entry.target);
-         }
-       });
-     }, { threshold: 0.15 });
-
-     document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => observer.observe(el));
-     ```
-  3. Add `.reveal` to section headings in `index.astro`
-  4. Add `.reveal-stagger` to card grids in `index.astro`
-- **Acceptance Criteria:**
-  - [ ] Sections fade in on scroll
-  - [ ] Card grids stagger their entrance
-  - [ ] Animations respect `prefers-reduced-motion` (Task 4.1 will add this)
-  - [ ] `npm run build` passes
-
----
-
-### Task 2.2 — Hero Entrance Animations
-
-- **Status:** [x] Complete
-- **Priority:** High
-- **Estimated Time:** 30 min
-- **Files to Modify:**
-  - `src/styles/global.css` — add hero animation keyframes
-  - `src/pages/index.astro` — apply animation classes to hero elements
-- **Dependencies:** Task 2.1
-- **Description:**
-  Animate hero elements on page load: heading, subtitle, CTAs, and stats appear with staggered timing.
-- **Steps:**
-  1. Add to `global.css`:
-     ```css
-     .hero-animate {
-       opacity: 0;
-       transform: translateY(30px);
-       animation: heroFadeIn 0.8s ease forwards;
-     }
-     .hero-animate-delay-1 { animation-delay: 0.15s; }
-     .hero-animate-delay-2 { animation-delay: 0.3s; }
-     .hero-animate-delay-3 { animation-delay: 0.45s; }
-
-     @keyframes heroFadeIn {
-       to { opacity: 1; transform: translateY(0); }
-     }
-     ```
-  2. Apply to hero children in `index.astro`:
-     - `h1` → `hero-animate`
-     - `<p>` (subtitle) → `hero-animate hero-animate-delay-1`
-     - CTA group → `hero-animate hero-animate-delay-2`
-     - Stats grid → `hero-animate hero-animate-delay-3`
-- **Acceptance Criteria:**
-  - [ ] Hero elements animate in sequence on page load
-  - [ ] No layout shift during animation
-  - [ ] `npm run build` passes
-
----
-
-### Task 2.3 — Animated Counters
+### Task 7.1 — Footer NAP / contact signals
 
 - **Status:** [x] Complete
 - **Priority:** Medium
-- **Estimated Time:** 30 min
-- **Files to Modify:**
-  - `src/pages/index.astro` — add stats section + counter script
-- **Dependencies:** Task 2.2
-- **Description:**
-  Re-add the stats section that was removed. Display animated counters that count up when scrolled into view.
-- **Steps:**
-  1. Add a stats section after the hero in `index.astro`:
-     ```html
-     <section class="bg-white border-b homepage-section">
-       <div class="max-w-screen-2xl mx-auto px-6 py-8">
-         <div class="grid md:grid-cols-3 gap-8 text-center" id="stats-section">
-           <div>
-             <div class="counter text-4xl font-semibold text-sky-600" data-target="50">0</div>
-             <div class="mt-1 text-sm text-slate-600">Happy Clients</div>
-           </div>
-           <div>
-             <div class="text-4xl font-semibold text-teal-600">₹<span class="counter" data-target="10">0</span> Crore+</div>
-             <div class="mt-1 text-sm text-slate-600">CSR Impact Generated</div>
-           </div>
-           <div>
-             <div class="counter text-4xl font-semibold text-emerald-600" data-target="100">0</div>
-             <div class="mt-1 text-sm text-slate-600">Compliance Success</div>
-           </div>
-         </div>
-       </div>
-     </section>
-     ```
-  2. Add counter animation script to `index.astro`:
-     ```html
-     <script>
-       function animateCounters() {
-         document.querySelectorAll('.counter').forEach(counter => {
-           const target = parseInt(counter.dataset.target);
-           const duration = 1400;
-           const startTime = performance.now();
-           function update(currentTime) {
-             const progress = Math.min((currentTime - startTime) / duration, 1);
-             counter.textContent = Math.floor(progress * target);
-             if (progress < 1) requestAnimationFrame(update);
-             else counter.textContent = target;
-           }
-           requestAnimationFrame(update);
-         });
-       }
+- **Files:** `src/components/Footer.astro`
+- **Done:** Email, phone, location with mailto/tel links.
 
-       const statsSection = document.getElementById('stats-section');
-       if (statsSection) {
-         const observer = new IntersectionObserver((entries) => {
-           entries.forEach(entry => {
-             if (entry.isIntersecting) {
-               animateCounters();
-               observer.unobserve(entry.target);
-             }
-           });
-         }, { threshold: 0.4 });
-         observer.observe(statsSection);
-       }
-     </script>
-     ```
-- **Acceptance Criteria:**
-  - [ ] Stats section appears after hero
-  - [ ] Numbers animate from 0 to target when scrolled into view
-  - [ ] `npm run build` passes
-
----
-
-### Task 2.4 — Fix Mobile Menu Toggle
+### Task 7.2 — Brochure `noindex`
 
 - **Status:** [x] Complete
 - **Priority:** Medium
-- **Estimated Time:** 20 min
-- **Files to Modify:**
-  - `src/components/Navbar.astro` — replace `hidden` toggle with opacity/height animation
-- **Dependencies:** None
-- **Description:**
-  The current mobile menu uses `hidden` (display: none) which cannot be animated. Replace with max-height + opacity transition for a smooth slide/fade effect.
-- **Steps:**
-  1. Replace the mobile menu div in `Navbar.astro`:
-     ```html
-     <div id="mobile-menu" class="md:hidden overflow-hidden max-h-0 opacity-0 transition-all duration-300 ease-in-out border-t bg-white px-6">
-     ```
-  2. Update the script to toggle classes:
-     ```js
-     <script>
-       const btn = document.getElementById('mobile-menu-btn');
-       const menu = document.getElementById('mobile-menu');
-       if (btn && menu) {
-         btn.addEventListener('click', () => {
-           const isOpen = menu.classList.contains('max-h-96');
-           if (isOpen) {
-             menu.classList.remove('max-h-96', 'opacity-100', 'py-6');
-             menu.classList.add('max-h-0', 'opacity-0', 'py-0');
-           } else {
-             menu.classList.remove('max-h-0', 'opacity-0', 'py-0');
-             menu.classList.add('max-h-96', 'opacity-100', 'py-6');
-           }
-           btn.setAttribute('aria-expanded', (!isOpen).toString());
-         });
-       }
-     </script>
-     ```
-- **Acceptance Criteria:**
-  - [ ] Mobile menu slides down smoothly on open
-  - [ ] Mobile menu slides up smoothly on close
-  - [ ] `npm run build` passes
+- **Files:** `public/brochure.html`, `brochure.html`
+- **Done:** `noindex, nofollow` meta added.
 
----
-
-## Phase 3: Missing Pages
-
-> Create the 4 main pages and 2 legal pages so all nav/footer links work.
-
-### Task 3.1 — Create `/services/` Page
-
-- **Status:** [x] Complete
-- **Priority:** High
-- **Estimated Time:** 2 hrs
-- **Files to Create:**
-  - `src/pages/services/index.astro`
-- **Files to Reference:**
-  - `src/pages/index.astro` (homepage services preview)
-  - `src/consts.ts` (nav links)
-- **Dependencies:** Phase 1 complete
-- **Description:**
-  Expand the homepage services preview into a full services page. List all CSR service offerings with detailed descriptions, process steps, and CTAs.
-- **Acceptance Criteria:**
-  - [ ] Page renders at `/causewave-grok/services/`
-  - [ ] Uses `BaseLayout` with `activePage="services"`
-  - [ ] Contains service detail cards (expand from homepage 3-card preview)
-  - [ ] Has a CTA section at bottom
-  - [ ] Navbar "Services" link highlights as active
-  - [ ] `npm run build` passes
-
----
-
-### Task 3.2 — Create `/about/` Page
-
-- **Status:** [x] Complete
-- **Priority:** High
-- **Estimated Time:** 1.5 hrs
-- **Files to Create:**
-  - `src/pages/about/index.astro`
-- **Files to Reference:**
-  - `src/pages/index.astro` (homepage about preview)
-  - `src/consts.ts` (company info)
-- **Dependencies:** Phase 1 complete
-- **Description:**
-  Full about page with company story, team/leadership, mission/values, and achievements (SKOCH award, vaccination stats).
-- **Acceptance Criteria:**
-  - [ ] Page renders at `/causewave-grok/about/`
-  - [ ] Uses `BaseLayout` with `activePage="about"`
-  - [ ] Contains company story, mission, achievements
-  - [ ] Navbar "About" link highlights as active
-  - [ ] `npm run build` passes
-
----
-
-### Task 3.3 — Create `/contact/` Page
-
-- **Status:** [x] Complete
-- **Priority:** High
-- **Estimated Time:** 2 hrs
-- **Files to Create:**
-  - `src/pages/contact/index.astro`
-- **Files to Reference:**
-  - `src/consts.ts` (CONTACT info)
-  - `src/styles/global.css` (form input styles)
-- **Dependencies:** Phase 1 complete
-- **Description:**
-  Contact page with a form (name, email, company, message, budget range) and contact details sidebar (email, phone, location from `consts.ts`).
-- **Acceptance Criteria:**
-  - [ ] Page renders at `/causewave-grok/contact/`
-  - [ ] Uses `BaseLayout` with `activePage="contact"`
-  - [ ] Contains contact form with all fields
-  - [ ] Form inputs use focus styles from `global.css`
-  - [ ] Contact details sidebar shows email, phone, location
-  - [ ] Navbar "Contact" link highlights as active
-  - [ ] `npm run build` passes
-
----
-
-### Task 3.4 — Create `/insights/` Page
+### Task 7.3 — Compress oversized logo assets
 
 - **Status:** [x] Complete
 - **Priority:** Medium
-- **Estimated Time:** 1.5 hrs
-- **Files to Create:**
-  - `src/pages/insights/index.astro`
-- **Files to Reference:**
-  - `src/components/Footer.astro` (footer links to insights)
-- **Dependencies:** Phase 1 complete
-- **Description:**
-  Insights/blog listing page. For now, create a placeholder layout with card grid for future blog posts.
-- **Acceptance Criteria:**
-  - [ ] Page renders at `/causewave-grok/insights/`
-  - [ ] Uses `BaseLayout` with `activePage="insights"`
-  - [ ] Contains placeholder card grid for blog posts
-  - [ ] Navbar "Insights" link highlights as active
-  - [ ] `npm run build` passes
+- **Files:** `public/images/logos/*`
+- **Done:** PNG resized for display; WebP re-exported (`logo_2.png` ~800KB → ~60KB).
 
----
+### Task 7.4 — Reduce Font Awesome CDN dependency
 
-### Task 3.5 — Create Legal Pages
+- **Status:** [x] Complete
+- **Priority:** Medium
+- **Files:** `src/components/Icon.astro`, `BaseLayout.astro`, pages using icons
+- **Done:** Inline SVG `Icon` component; Font Awesome CDN removed from layout.
+
+### Task 7.5 — README accuracy (live URL + structure)
 
 - **Status:** [x] Complete
 - **Priority:** Low
-- **Estimated Time:** 1 hr
-- **Files to Create:**
-  - `src/pages/privacy-policy/index.astro`
-  - `src/pages/terms-of-service/index.astro`
-- **Files to Reference:**
-  - `src/components/Footer.astro` (footer links)
-- **Dependencies:** Phase 1 complete
-- **Description:**
-  Basic privacy policy and terms of service pages. Use placeholder content for now — real legal text should be provided by the client.
-- **Acceptance Criteria:**
-  - [ ] Privacy policy page renders at `/causewave-grok/privacy-policy/`
-  - [ ] Terms of service page renders at `/causewave-grok/terms-of-service/`
-  - [ ] Both use `BaseLayout`
-  - [ ] Footer links work
-  - [ ] `npm run build` passes
+- **Files:** `README.md`, `DEPLOYMENT.md`
+- **Done:** Live URL `https://causewave.in`; structure matches repo; SEO tracker referenced.
 
 ---
 
-## Phase 4: Polish
+## Phase 8: Competitive keywords (Sattva-class category terms)
 
-> Accessibility, performance, and premium touches.
+> Align titles, meta, schema, and on-page language with category leaders such as [Sattva Consulting](https://www.sattva.co.in/) — without copying brand claims. Own “CSR consulting firm India”, corporate CSR strategy, programme design, impact measurement/assessment, compliance, and Causewave’s public-health differentiator.
 
-### Task 4.1 — Reduced Motion Support
+### Task 8.1 — Keyword map + site defaults
 
 - **Status:** [x] Complete
-- **Priority:** High
-- **Estimated Time:** 15 min
-- **Files to Modify:**
-  - `src/styles/global.css`
-- **Dependencies:** Phase 2 complete
-- **Description:**
-  Wrap all animations in `@media (prefers-reduced-motion: no-preference)` so users who prefer reduced motion see static content.
-- **Steps:**
-  1. Wrap `.reveal` transitions in media query
-  2. Wrap `.hero-animate` keyframes in media query
-  3. Wrap counter animation in JS check:
-     ```js
-     if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-       // animate
-     }
-     ```
-- **Acceptance Criteria:**
-  - [ ] Animations disabled when OS reduced-motion is on
-  - [ ] Content still visible (not hidden) when animations disabled
-  - [ ] `npm run build` passes
+- **Files:** `src/data/seo-keywords.ts`, `src/consts.ts`
+- **Done:** Central SEO map for home/about/services/contact/insights titles & descriptions; `SITE` defaults pull from map.
 
----
-
-### Task 4.2 — OG Image
+### Task 8.2 — Page titles, H1s, body, schema
 
 - **Status:** [x] Complete
-- **Priority:** Medium
-- **Estimated Time:** 1 hr
-- **Files to Create:**
-  - `public/og-default.jpg` (1200x630px social image)
-- **Files to Modify:**
-  - `src/consts.ts` — update `ogImage` path
-- **Dependencies:** None
-- **Description:**
-  Create a proper Open Graph image for social sharing. Currently references `/og-default.jpg` which doesn't exist.
-- **Acceptance Criteria:**
-  - [ ] `og-default.jpg` exists in `public/`
-  - [ ] Image is 1200x630px (Facebook/Twitter standard)
-  - [ ] `SITE.ogImage` in `consts.ts` points to correct path
-  - [ ] Meta tag renders correct image URL in HTML
+- **Files:** Home, About, Services, Contact, Insights, Footer, BaseLayout Organization schema
+- **Done:** Competitive phrasing (CSR consulting firm India, impact measurement, programme design, corporate CSR & sustainability, Section 135). Organization/`ProfessionalService` schema with `knowsAbout` + `areaServed: India`. Homepage “who we work with” section for category coverage.
 
----
-
-### Task 4.3 — Optimize Font Awesome
-
-- **Status:** [x] Complete (deferred — keeping CDN for now)
-- **Priority:** Low
-- **Estimated Time:** 1 hr
-- **Files to Modify:**
-  - `src/layouts/BaseLayout.astro` — replace CDN link
-- **Dependencies:** None
-- **Description:**
-  The full Font Awesome CSS (~90KB) is loaded from CDN but only 3 icons are used. Replace with either self-hosted subset or inline SVGs.
-- **Options:**
-  1. Use Font Awesome npm package with tree-shaking
-  2. Replace with inline SVG icons (no external dependency)
-  3. Use a lighter icon library (e.g., Lucide)
-- **Acceptance Criteria:**
-  - [ ] No external CDN dependency for icons
-  - [ ] Icons still render correctly
-  - [ ] Page load improved (fewer HTTP requests)
-  - [ ] `npm run build` passes
-
----
-
-### Task 4.4 — Smooth Scroll
+### Task 8.3 — Insight meta aligned to buyer intent
 
 - **Status:** [x] Complete
-- **Priority:** Low
-- **Estimated Time:** 10 min
-- **Files to Modify:**
-  - `src/styles/global.css`
-- **Dependencies:** None
-- **Description:**
-  Add `scroll-behavior: smooth` to `html` element for anchor link navigation.
-- **Steps:**
-  1. Add to `global.css`:
-     ```css
-     html {
-       scroll-behavior: smooth;
-     }
-     ```
-- **Acceptance Criteria:**
-  - [ ] Anchor links scroll smoothly
-  - [ ] Back-to-top button scrolls smoothly (already has `behavior: 'smooth'`)
+- **Files:** `src/data/insights.ts`
+- **Done:** Descriptions emphasise CSR compliance, healthcare programme design, impact measurement & assessment.
 
 ---
 
-### Task 4.5 — View Transitions
+## Deferred (not in this sprint)
 
-- **Status:** [x] Complete
-- **Priority:** Low
-- **Estimated Time:** 1 hr
-- **Files to Modify:**
-  - `src/layouts/BaseLayout.astro` — add View Transitions meta
-  - All page files — add transition directives
-- **Dependencies:** Phase 3 complete (all pages exist)
-- **Description:**
-  Astro supports the View Transitions API for smooth page-to-page transitions. This gives a premium SPA-like feel.
-- **Steps:**
-  1. Add to `BaseLayout.astro` `<head>`:
-     ```html
-     <meta name="view-transition" content="same-origin" />
-     ```
-  2. Add `transition:animate` directives to page elements
-- **Acceptance Criteria:**
-  - [ ] Page transitions animate smoothly
-  - [ ] No flash of unstyled content
-  - [ ] Works in Chromium browsers (Safari/Firefox fallback is ok)
-  - [ ] `npm run build` passes
+| Item | Why deferred |
+|------|----------------|
+| Astro Content Collections migration | `src/data/insights.ts` unblocks hub/schema; migrate when volume grows |
+| Full LinkedIn article mirrors on-site | Editorial rewrite; hub already links externally |
+| Self-host Google Fonts | Optional next performance pass |
+| Google Business Profile / off-site brand | Outside codebase |
 
 ---
 
-## Notes
+## Phase 1–4 archive (design system — complete)
 
-- Run `npm run build` after every task to catch issues early
-- Run `npm run dev` to test visual changes in browser
-- All pages must use `BaseLayout` (not `Layout.astro`)
-- All internal links must end with `/` (trailing slash required)
-- Keep the 3-color accent cycle: Sky → Teal → Emerald
+<details>
+<summary>Original design-system tasks (all complete)</summary>
+
+Phases 1–4 covered fonts, dead-code removal, color tokens, Tailwind `@theme`, scroll-reveal, hero animations, counters, mobile menu, missing pages, and polish. See git history prior to the SEO workstream for full task text. **18/18 complete.**
+
+</details>
+
+---
+
+## Definition of done (SEO sprint)
+
+- [x] All Phase 5–7 tasks checked
+- [x] `npm run build` succeeds
+- [x] Dist HTML: human breadcrumbs, no SearchAction, article OG types on posts, hub links all posts
+- [x] Expanded guides ship with internal links
+- [x] Footer NAP + brochure noindex + smaller logos + no FA CDN
+- [x] README reflects production domain

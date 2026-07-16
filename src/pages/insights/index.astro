@@ -1,27 +1,81 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import Icon from '../../components/Icon.astro';
+import { INSIGHT_POSTS } from '../../data/insights';
+import { SEO } from '../../consts';
+
 const base = import.meta.env.BASE_URL;
+
+const toneClasses: Record<string, { badge: string; bar: string }> = {
+  amber: { badge: 'bg-amber-100 text-amber-800', bar: 'from-amber-500 to-amber-700' },
+  sky: { badge: 'bg-sky-100 text-sky-800', bar: 'from-sky-500 to-sky-700' },
+  teal: { badge: 'bg-teal-100 text-teal-800', bar: 'from-teal-500 to-teal-700' },
+  emerald: { badge: 'bg-emerald-100 text-emerald-800', bar: 'from-emerald-500 to-emerald-700' },
+};
+
+const featured = INSIGHT_POSTS.find((p) => p.slug === 'founder-story')!;
+const guides = INSIGHT_POSTS.filter((p) => p.slug !== 'founder-story');
+
+const linkedInPosts = [
+  {
+    title: 'Breaking the Top 100 Spell: Unlocking Mid-Cap CSR for NGO Survival',
+    excerpt:
+      "In the shadow of FCRA clamps and USAID's exit, India's NGOs have one lifeline left: CSR. But chasing the same 10 giants? That's a recipe for collapse.",
+    date: 'Sep 29, 2025',
+    tag: 'CSR Strategy',
+    tone: 'from-emerald-500 to-emerald-700',
+    href: 'https://www.linkedin.com/pulse/breaking-top-100-spell-unlocking-mid-cap-csr-ngo-survival-patel-khrmf/',
+  },
+  {
+    title: 'Beyond Networks: Redefining CSR Resource Mapping for India\'s NGOs',
+    excerpt:
+      "In the span of a single funding cycle, India's social sector has shifted its center of gravity. The familiar flows—once sustained by FCRA clearances and global donors like USAID—have faded.",
+    date: 'Sep 20, 2025',
+    tag: 'CSR Strategy',
+    tone: 'from-sky-500 to-sky-700',
+    href: 'https://www.linkedin.com/pulse/beyond-networks-redefining-csr-resource-mapping-indias-patel-tipbf/',
+  },
+  {
+    title: 'The Art of Sahdev: Ancient Wisdom for Modern AI Mastery',
+    excerpt:
+      'In the epic Mahabharata, five Pandava brothers share a throne and destiny. While Arjuna dazzles with archery and Bhima dominates with raw strength, the youngest, Sahdev, operates in the shadows.',
+    date: 'Sep 15, 2025',
+    tag: 'AI & Technology',
+    tone: 'from-violet-500 to-violet-700',
+    href: 'https://www.linkedin.com/pulse/art-sahdev-ancient-wisdom-modern-ai-mastery-dr-hemant-patel-qoauf/',
+  },
+  {
+    title: 'A Problem Unacknowledged is a Solution Out of Reach',
+    excerpt:
+      "India's development sector is bleeding funds, yet denial keeps solutions out of reach. Post-pandemic, even established NGOs face dwindling resources.",
+    date: 'May 13, 2025',
+    tag: 'Development Sector',
+    tone: 'from-amber-500 to-amber-700',
+    href: 'https://www.linkedin.com/pulse/problem-unacknowledged-solution-out-reach-dr-hemant-patel-iqbff/',
+  },
+];
 ---
 
 <BaseLayout 
-  title="Insights & Thought Leadership | Causewave" 
-  description="Expert insights on CSR consulting, healthcare innovation, and technology-enabled social impact."
-  ogTitle="Insights | Causewave Innovations LLP"
-  ogDescription="Thought leadership on CSR strategy and healthcare delivery innovation."
+  title={SEO.insights.title}
+  description={SEO.insights.description}
+  ogTitle={SEO.insights.ogTitle}
+  ogDescription={SEO.insights.ogDescription}
   canonicalPath="insights/"
   activePage="insights"
+  breadcrumbLabel="Insights"
 >
   <main>
     <!-- Hero -->
     <section class="bg-slate-900 text-white section">
       <div class="max-w-screen-2xl mx-auto px-6">
         <div class="max-w-3xl">
-          <span class="text-sky-400 font-semibold text-sm tracking-widest">INSIGHTS</span>
+          <span class="text-sky-400 font-semibold text-sm tracking-widest">CSR INSIGHTS · IMPACT CONSULTING</span>
           <h1 class="hero-animate mt-3 text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tighter leading-tight">
-            Insights & Thought Leadership
+            Insights on CSR strategy, compliance & impact
           </h1>
           <p class="hero-animate hero-animate-delay-1 mt-5 text-lg text-slate-300 max-w-2xl">
-            Expert perspectives on CSR innovation and healthcare delivery.
+            Practical guidance for corporate CSR teams and non-profits: Companies Act compliance, healthcare programme design, and evidence-based impact measurement across India.
           </p>
         </div>
       </div>
@@ -32,21 +86,19 @@ const base = import.meta.env.BASE_URL;
       <div class="grid md:grid-cols-2 gap-8 items-center bg-gradient-to-br from-slate-50 to-white border rounded-2xl p-6 md:p-8">
         <div>
           <div class="inline-flex items-center gap-1.5 bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-xs font-semibold mb-4">
-            <i class="fa-solid fa-trophy"></i> SKOCH Gold Award &middot; IIM Raipur Case Study
+            <Icon name="trophy" class="w-3.5 h-3.5" /> SKOCH Gold Award &middot; IIM Raipur Case Study
           </div>
-          <h2 class="text-2xl font-semibold tracking-tight mb-3">Dr. Hemant L. Patel — 18+ Years of Public Health Impact</h2>
-          <p class="text-sm text-slate-600 leading-relaxed mb-3">
-            From designing Gujarat's award-winning Chitta/Cheetah Bike Express last-mile model to enabling Bihar's record-breaking 33 lakh+ single-day COVID-19 vaccinations — the highest in India — Dr. Patel brings field-tested public health leadership to every CSR engagement.
-          </p>
+          <h2 class="text-2xl font-semibold tracking-tight mb-3">{featured.title}</h2>
+          <p class="text-sm text-slate-600 leading-relaxed mb-3">{featured.excerpt}</p>
           <p class="text-sm text-slate-600 leading-relaxed mb-4">
-            His work spans WHO surveillance strengthening, CARE India multi-state expansion across 11 states, government health systems in Gujarat and Bihar, and health-tech entrepreneurship. Recognized internationally as a speaker at Biologistics World Asia 2021.
+            His work spans WHO surveillance strengthening, CARE India multi-state expansion across 11 states, government health systems in Gujarat and Bihar, and health-tech entrepreneurship.
           </p>
           <div class="flex flex-wrap gap-3 text-xs text-slate-500 mb-5">
-            <span><i class="fa-solid fa-building-columns mr-1"></i> WHO &middot; CARE India &middot; Govt of Gujarat</span>
-            <span><i class="fa-solid fa-stethoscope mr-1"></i> Public Health & CSR</span>
+            <span class="inline-flex items-center gap-1"><Icon name="building" class="w-3.5 h-3.5" /> WHO &middot; CARE India &middot; Govt of Gujarat</span>
+            <span class="inline-flex items-center gap-1"><Icon name="stethoscope" class="w-3.5 h-3.5" /> Public Health & CSR</span>
           </div>
-          <a href={`${base}insights/founder-story/`} class="inline-flex px-5 py-2.5 bg-slate-900 text-white rounded-full text-sm font-semibold hover:bg-sky-600 transition-all">
-            Read Full Story <i class="fa-solid fa-arrow-right ml-2"></i>
+          <a href={`${base}${featured.path}`} class="inline-flex items-center px-5 py-2.5 bg-slate-900 text-white rounded-full text-sm font-semibold hover:bg-sky-600 transition-all">
+            Read Full Story <Icon name="arrow-right" class="w-4 h-4 ml-2" />
           </a>
         </div>
         <div class="grid grid-cols-2 gap-3">
@@ -70,87 +122,80 @@ const base = import.meta.env.BASE_URL;
       </div>
     </section>
 
-    <!-- Published Articles -->
+    <!-- On-site guides (primary SEO inventory) -->
     <section class="bg-white">
       <div class="max-w-screen-2xl mx-auto px-6 py-8">
-        <div class="text-center mb-6">
-          <span class="text-sky-600 font-semibold text-sm">LATEST</span>
-          <h2 class="text-2xl md:text-3xl font-semibold tracking-tight mt-1">Published Articles</h2>
+        <div class="text-center mb-8">
+          <span class="text-sky-600 font-semibold text-sm">ON-SITE GUIDES</span>
+          <h2 class="text-2xl md:text-3xl font-semibold tracking-tight mt-1">CSR knowledge for boards, CSR teams & NGOs</h2>
+          <p class="mt-2 text-sm text-slate-600 max-w-2xl mx-auto">
+            Deep-dive articles on corporate CSR strategy, Section 135 compliance, healthcare programme design, and impact assessment — hosted on Causewave.
+          </p>
         </div>
 
-        <div class="grid md:grid-cols-2 gap-4">
-          <article class="bg-white border rounded-xl overflow-hidden hover:-translate-y-1 transition-all">
-            <div class="bg-gradient-to-br from-emerald-500 to-emerald-700 p-4 text-white">
-              <span class="inline-block bg-white/20 px-2 py-0.5 rounded-full text-xs mb-2">CSR Strategy</span>
-              <h3 class="text-base font-semibold">Breaking the Top 100 Spell: Unlocking Mid-Cap CSR for NGO Survival</h3>
-            </div>
-            <div class="p-4">
-              <p class="text-slate-600 text-sm mb-3">In the shadow of FCRA clamps and USAID's exit, India's NGOs have one lifeline left: CSR. But chasing the same 10 giants? That's a recipe for collapse.</p>
-              <div class="flex items-center gap-2 text-xs text-slate-500 mb-3">
-                <span>Dr. Hemant L. Patel</span>
-                <span>•</span>
-                <span>Sep 29, 2025</span>
-              </div>
-              <a href="https://www.linkedin.com/pulse/breaking-top-100-spell-unlocking-mid-cap-csr-ngo-survival-patel-khrmf/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-sky-600 text-sm font-semibold hover:text-sky-700">
-                Read More <i class="fa-solid fa-arrow-right ml-1"></i>
-              </a>
-            </div>
-          </article>
-
-          <article class="bg-white border rounded-xl overflow-hidden hover:-translate-y-1 transition-all">
-            <div class="bg-gradient-to-br from-sky-500 to-sky-700 p-4 text-white">
-              <span class="inline-block bg-white/20 px-2 py-0.5 rounded-full text-xs mb-2">CSR Strategy</span>
-              <h3 class="text-base font-semibold">Beyond Networks: Redefining CSR Resource Mapping for India's NGOs</h3>
-            </div>
-            <div class="p-4">
-              <p class="text-slate-600 text-sm mb-3">In the span of a single funding cycle, India's social sector has shifted its center of gravity. The familiar flows—once sustained by FCRA clearances and global donors like USAID—have faded.</p>
-              <div class="flex items-center gap-2 text-xs text-slate-500 mb-3">
-                <span>Dr. Hemant L. Patel</span>
-                <span>•</span>
-                <span>Sep 20, 2025</span>
-              </div>
-              <a href="https://www.linkedin.com/pulse/beyond-networks-redefining-csr-resource-mapping-indias-patel-tipbf/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-sky-600 text-sm font-semibold hover:text-sky-700">
-                Read More <i class="fa-solid fa-arrow-right ml-1"></i>
-              </a>
-            </div>
-          </article>
-
-          <article class="bg-white border rounded-xl overflow-hidden hover:-translate-y-1 transition-all">
-            <div class="bg-gradient-to-br from-violet-500 to-violet-700 p-4 text-white">
-              <span class="inline-block bg-white/20 px-2 py-0.5 rounded-full text-xs mb-2">AI & Technology</span>
-              <h3 class="text-base font-semibold">The Art of Sahdev: Ancient Wisdom for Modern AI Mastery</h3>
-            </div>
-            <div class="p-4">
-              <p class="text-slate-600 text-sm mb-3">In the epic Mahabharata, five Pandava brothers share a throne and destiny. While Arjuna dazzles with archery and Bhima dominates with raw strength, the youngest, Sahdev, operates in the shadows.</p>
-              <div class="flex items-center gap-2 text-xs text-slate-500 mb-3">
-                <span>Dr. Hemant L. Patel</span>
-                <span>•</span>
-                <span>Sep 15, 2025</span>
-              </div>
-              <a href="https://www.linkedin.com/pulse/art-sahdev-ancient-wisdom-modern-ai-mastery-dr-hemant-patel-qoauf/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-sky-600 text-sm font-semibold hover:text-sky-700">
-                Read More <i class="fa-solid fa-arrow-right ml-1"></i>
-              </a>
-            </div>
-          </article>
-
-          <article class="bg-white border rounded-xl overflow-hidden hover:-translate-y-1 transition-all">
-            <div class="bg-gradient-to-br from-amber-500 to-amber-700 p-4 text-white">
-              <span class="inline-block bg-white/20 px-2 py-0.5 rounded-full text-xs mb-2">Development Sector</span>
-              <h3 class="text-base font-semibold">A Problem Unacknowledged is a Solution Out of Reach</h3>
-            </div>
-            <div class="p-4">
-              <p class="text-slate-600 text-sm mb-3">India's development sector is bleeding funds, yet denial keeps solutions out of reach. Post-pandemic, even established NGOs face dwindling resources.</p>
-              <div class="flex items-center gap-2 text-xs text-slate-500 mb-3">
-                <span>Dr. Hemant L. Patel</span>
-                <span>•</span>
-                <span>May 13, 2025</span>
-              </div>
-              <a href="https://www.linkedin.com/pulse/problem-unacknowledged-solution-out-reach-dr-hemant-patel-iqbff/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-sky-600 text-sm font-semibold hover:text-sky-700">
-                Read More <i class="fa-solid fa-arrow-right ml-1"></i>
-              </a>
-            </div>
-          </article>
+        <div class="grid md:grid-cols-3 gap-5">
+          {guides.map((post) => {
+            const tone = toneClasses[post.categoryTone];
+            return (
+              <article class="bg-white border rounded-xl overflow-hidden hover:-translate-y-1 transition-all flex flex-col">
+                <div class={`bg-gradient-to-br ${tone.bar} p-4 text-white`}>
+                  <span class="inline-block bg-white/20 px-2 py-0.5 rounded-full text-xs mb-2">{post.category}</span>
+                  <h3 class="text-base font-semibold leading-snug">{post.title}</h3>
+                </div>
+                <div class="p-4 flex flex-col flex-1">
+                  <p class="text-slate-600 text-sm mb-3 flex-1">{post.excerpt}</p>
+                  <div class="flex items-center gap-2 text-xs text-slate-500 mb-3">
+                    <span>{post.author}</span>
+                    <span>•</span>
+                    <span>{post.dateLabel}</span>
+                  </div>
+                  <a
+                    href={`${base}${post.path}`}
+                    class="inline-flex items-center text-sky-600 text-sm font-semibold hover:text-sky-700"
+                  >
+                    Read guide <Icon name="arrow-right" class="w-3.5 h-3.5 ml-1" />
+                  </a>
+                </div>
+              </article>
+            );
+          })}
         </div>
+      </div>
+    </section>
+
+    <!-- LinkedIn (secondary / external) -->
+    <section class="max-w-screen-2xl mx-auto px-6 py-10">
+      <div class="text-center mb-6">
+        <span class="text-slate-500 font-semibold text-sm">ALSO ON LINKEDIN</span>
+        <h2 class="text-2xl md:text-3xl font-semibold tracking-tight mt-1">Published elsewhere</h2>
+        <p class="mt-2 text-sm text-slate-600">Essays originally published on LinkedIn by Dr. Hemant L. Patel.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-4">
+        {linkedInPosts.map((post) => (
+          <article class="bg-white border rounded-xl overflow-hidden hover:-translate-y-1 transition-all">
+            <div class={`bg-gradient-to-br ${post.tone} p-4 text-white`}>
+              <span class="inline-block bg-white/20 px-2 py-0.5 rounded-full text-xs mb-2">{post.tag}</span>
+              <h3 class="text-base font-semibold">{post.title}</h3>
+            </div>
+            <div class="p-4">
+              <p class="text-slate-600 text-sm mb-3">{post.excerpt}</p>
+              <div class="flex items-center gap-2 text-xs text-slate-500 mb-3">
+                <span>Dr. Hemant L. Patel</span>
+                <span>•</span>
+                <span>{post.date}</span>
+              </div>
+              <a
+                href={post.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center text-sky-600 text-sm font-semibold hover:text-sky-700"
+              >
+                Read on LinkedIn <Icon name="arrow-right" class="w-3.5 h-3.5 ml-1" />
+              </a>
+            </div>
+          </article>
+        ))}
       </div>
     </section>
   </main>

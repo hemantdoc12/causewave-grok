@@ -1,26 +1,29 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { SITE } from '../consts';
+import Icon from '../components/Icon.astro';
+import { SITE, SEO } from '../consts';
 const base = import.meta.env.BASE_URL;
 
+// WebSite entity only — no SearchAction until a real /search route exists
 const websiteJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   "name": "Causewave",
   "url": SITE.url,
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": `${SITE.url}search?q={search_term_string}`,
-    "query-input": "required name=search_term_string"
-  }
+  "description": SITE.description,
+  "publisher": {
+    "@type": "Organization",
+    "name": "Causewave Innovations LLP",
+    "url": SITE.url,
+  },
 };
 ---
 
 <BaseLayout 
-  title="Causewave | CSR Strategy, Implementation & Measurable Impact"
-  description="Causewave helps companies deliver compliant, measurable, and community-trusted CSR programs. Backed by 18+ years of public health leadership across India."
-  ogTitle="Causewave | CSR Programs That Actually Work"
-  ogDescription="Causewave helps companies deliver compliant, measurable, and community-trusted CSR programs. Strategy, implementation, and impact measurement."
+  title={SEO.home.title}
+  description={SEO.home.description}
+  ogTitle={SEO.home.ogTitle}
+  ogDescription={SEO.home.ogDescription}
   activePage="home" 
   canonicalPath=""
   jsonLd={websiteJsonLd}
@@ -35,17 +38,18 @@ const websiteJsonLd = {
       
       <div class="relative z-10 max-w-screen-2xl mx-auto px-6 py-12 md:py-16 grid md:grid-cols-12 gap-8 items-center">
         <div class="md:col-span-7">
+          <p class="hero-animate text-sky-300 text-sm font-semibold tracking-widest mb-3">CSR CONSULTING FIRM · INDIA</p>
           <h1 class="hero-animate text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tighter leading-tight mb-4">
-            CSR Programs That<br />
-            <span class="text-sky-400">Actually Work</span>
+            {SEO.home.h1Lead}<br />
+            <span class="text-sky-400">{SEO.home.h1Accent}</span>
           </h1>
-          <p class="hero-animate hero-animate-delay-1 max-w-lg text-lg text-slate-200 mb-5">
-            From strategy to community impact — we build programs that satisfy boards, regulators, and the people they serve.
+          <p class="hero-animate hero-animate-delay-1 max-w-xl text-lg text-slate-200 mb-5">
+            {SEO.home.h1Sub}
           </p>
 
           <div class="hero-animate hero-animate-delay-2 flex flex-col sm:flex-row gap-4 mb-8">
             <a href={`${base}services/`} class="btn btn-primary px-8 py-3 text-base">
-              Explore Services
+              Explore CSR Services
             </a>
             <a href={`${base}contact/`} class="btn border border-white/60 text-white px-8 py-3 text-base bg-white/10 hover:bg-white/20 backdrop-blur-sm">
               Book a Strategy Call
@@ -124,49 +128,83 @@ const websiteJsonLd = {
     <!-- Services Preview -->
     <section class="homepage-section max-w-screen-2xl mx-auto px-6">
       <div class="text-center mb-10">
-        <span class="text-sky-600 font-semibold text-sm tracking-widest">19 SERVICES ACROSS 3 PILLARS</span>
-        <h2 class="mt-3 text-3xl md:text-4xl font-semibold tracking-tight">Resource Mobilization. Strategy. Technology. Impact.</h2>
+        <span class="text-sky-600 font-semibold text-sm tracking-widest">CORPORATE CSR & IMPACT ADVISORY</span>
+        <h2 class="mt-3 text-3xl md:text-4xl font-semibold tracking-tight">CSR strategy. Programme design. Impact measurement.</h2>
+        <p class="mt-3 text-slate-600 max-w-2xl mx-auto text-sm">
+          Full-stack CSR consulting for companies and partners across India — from portfolio strategy and compliance to field delivery and evidence-based impact assessment.
+        </p>
       </div>
 
       <div class="grid md:grid-cols-3 gap-6">
         <a href={`${base}services/`} class="card group block rounded-2xl border bg-white p-6 hover:border-sky-200">
           <div class="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-sky-100 text-sky-600">
-            <i class="fa-solid fa-chess text-2xl"></i>
+            <Icon name="chess" class="w-6 h-6" />
           </div>
-          <h3 class="text-xl font-semibold">Resource Mobilization & CSR Strategy</h3>
-          <p class="mt-2 text-sm text-slate-600">Partner mapping, resource mobilization, strategy, compliance, implementation, stakeholder engagement, and impact measurement.</p>
+          <h3 class="text-xl font-semibold">CSR Strategy & Programme Design</h3>
+          <p class="mt-2 text-sm text-slate-600">Corporate CSR strategy, flagship programme design, portfolio advisory, Section 135 compliance, resource mobilisation, and stakeholder engagement.</p>
           <span class="mt-4 inline-flex items-center text-sm font-medium text-sky-600 group-hover:underline">
-            7 services →
+            Strategy services →
           </span>
         </a>
 
         <a href={`${base}services/`} class="card group block rounded-2xl border bg-white p-6 hover:border-teal-200">
           <div class="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-teal-100 text-teal-600">
-            <i class="fa-solid fa-laptop-code text-2xl"></i>
+            <Icon name="laptop-code" class="w-6 h-6" />
           </div>
-          <h3 class="text-xl font-semibold">Technology & Data Solutions</h3>
-          <p class="mt-2 text-sm text-slate-600">Platform development, data integration, digital transformation, cloud, analytics, and cybersecurity.</p>
+          <h3 class="text-xl font-semibold">Impact Data & Technology</h3>
+          <p class="mt-2 text-sm text-slate-600">CSR platforms, data integration, digital transformation, analytics, and monitoring systems that make social impact programmes measurable.</p>
           <span class="mt-4 inline-flex items-center text-sm font-medium text-teal-600 group-hover:underline">
-            6 services →
+            Technology services →
           </span>
         </a>
 
         <a href={`${base}services/`} class="card group block rounded-2xl border bg-white p-6 hover:border-emerald-200">
           <div class="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-emerald-100 text-emerald-600">
-            <i class="fa-solid fa-wand-magic-sparkles text-2xl"></i>
+            <Icon name="sparkles" class="w-6 h-6" />
           </div>
-          <h3 class="text-xl font-semibold">AI-Powered Communication</h3>
-          <p class="mt-2 text-sm text-slate-600">Impact stories, stakeholder videos, training content, social media, and brand storytelling — powered by AI.</p>
+          <h3 class="text-xl font-semibold">Impact Communication</h3>
+          <p class="mt-2 text-sm text-slate-600">Impact stories, board and stakeholder videos, training content, and CSR brand storytelling — powered by AI, grounded in programme data.</p>
           <span class="mt-4 inline-flex items-center text-sm font-medium text-emerald-600 group-hover:underline">
-            6 services →
+            Communication services →
           </span>
         </a>
       </div>
 
       <div class="mt-8 text-center">
         <a href={`${base}services/`} class="btn btn-primary px-6 py-3 text-sm">
-          View All 18 Services →
+          View All CSR Services →
         </a>
+      </div>
+    </section>
+
+    <!-- Who we serve / keyword themes (competitive category coverage) -->
+    <section class="homepage-section bg-slate-900 text-white">
+      <div class="max-w-screen-2xl mx-auto px-6">
+        <div class="text-center mb-8">
+          <span class="text-sky-400 font-semibold text-sm tracking-widest">WHO WE WORK WITH</span>
+          <h2 class="mt-3 text-2xl md:text-3xl font-semibold tracking-tight">Impact is a multi-stakeholder business</h2>
+          <p class="mt-3 text-slate-300 text-sm max-w-2xl mx-auto">
+            Like leading impact consulting firms in India, we engage corporates, non-profits, and ecosystem partners — with a differentiator in public health and last-mile delivery.
+          </p>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div class="rounded-xl border border-white/10 bg-white/5 p-5">
+            <h3 class="font-semibold text-sky-300">Corporate CSR & Sustainability</h3>
+            <p class="mt-2 text-sm text-slate-400">CSR strategy, compliance, flagship programmes, and portfolio governance for India Inc.</p>
+          </div>
+          <div class="rounded-xl border border-white/10 bg-white/5 p-5">
+            <h3 class="font-semibold text-teal-300">Non-profit Organisations</h3>
+            <p class="mt-2 text-sm text-slate-400">Resource mobilisation, partner mapping, and proposal-to-implementation support for NGOs.</p>
+          </div>
+          <div class="rounded-xl border border-white/10 bg-white/5 p-5">
+            <h3 class="font-semibold text-emerald-300">Impact Measurement</h3>
+            <p class="mt-2 text-sm text-slate-400">M&amp;E frameworks, impact assessment, dashboards, and board-ready evidence of outcomes.</p>
+          </div>
+          <div class="rounded-xl border border-white/10 bg-white/5 p-5">
+            <h3 class="font-semibold text-sky-300">Healthcare & Public Health CSR</h3>
+            <p class="mt-2 text-sm text-slate-400">Programme design grounded in vaccination, surveillance, and last-mile health delivery.</p>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -174,13 +212,13 @@ const websiteJsonLd = {
     <section class="homepage-section bg-white">
       <div class="max-w-screen-2xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
         <div>
-          <span class="text-sky-600 font-semibold text-sm tracking-widest">WHO WE ARE</span>
+          <span class="text-sky-600 font-semibold text-sm tracking-widest">IMPACT CONSULTING · INDIA</span>
           <h2 class="mt-3 text-3xl md:text-4xl font-semibold tracking-tight">
             Bridging CSR compliance and real community impact
           </h2>
           <p class="mt-4 text-slate-600 leading-relaxed">
-            Most CSR programs struggle to be both compliant and truly impactful. 
-            Causewave exists to close that gap — with 18+ years of public health leadership and field expertise across India.
+            Causewave is a CSR consulting firm in India built for programmes that must satisfy boards, regulators, and communities.
+            We combine corporate social responsibility strategy with field-tested public health leadership — 18+ years of delivery expertise across states.
           </p>
           <a href={`${base}about/`} class="mt-5 inline-flex btn btn-outline px-6 py-3 text-sm">
             Learn More About Us →

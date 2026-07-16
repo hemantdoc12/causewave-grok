@@ -1,12 +1,15 @@
 ---
+import Icon from '../../components/Icon.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { SITE } from '../../consts';
+import { SEO } from '../../consts';
 const base = import.meta.env.BASE_URL;
 
 const servicesJsonLd = {
   "@context": "https://schema.org",
   "@type": "Service",
-  "serviceType": "CSR Consulting & Technology",
+  "name": "Corporate CSR and Impact Consulting",
+  "serviceType": "CSR Strategy, Programme Design, Impact Measurement & Advisory",
+  "description": SEO.services.description,
   "provider": {
     "@type": "Organization",
     "name": "Causewave Innovations LLP"
@@ -17,39 +20,40 @@ const servicesJsonLd = {
   },
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
-      "name": "Causewave Services",
+      "name": "Causewave CSR & Impact Services",
       "itemListElement": [
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Resource Mobilization & Partner Mapping", "description": "Identify the right corporate decision-makers, funding channels, and partnerships for your sector and geography. Map resources before writing proposals." } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "CSR Strategy & Planning", "description": "Develop CSR strategies aligned with business goals, statutory requirements, and community needs." } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Program Implementation", "description": "End-to-end program execution with on-ground teams, vendor management, and milestone tracking." } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Compliance & Reporting", "description": "Board-ready reporting frameworks, annual CSR disclosures, and regulatory compliance documentation." } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Stakeholder Engagement", "description": "Government, community, and partner coordination for sustainable program outcomes." } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Impact Measurement", "description": "M&E frameworks, field data collection, dashboards, and board-ready impact reports." } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Sustainability Consulting", "description": "Long-term sustainability planning for CSR programs and social impact initiatives." } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "CSR Platform Development", "description": "Custom CSR program management platforms for tracking, reporting, and stakeholder communication." } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Data Integration Solutions", "description": "Unified data systems connecting field operations, government platforms, and reporting tools." } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Digital Transformation", "description": "Digitize CSR operations with cloud-based workflows, automated reporting, and real-time dashboards." } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Cloud Solutions", "description": "Scalable cloud infrastructure for public health data, program management, and analytics." } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Data Analytics", "description": "Advanced analytics for coverage tracking, gap analysis, and data-driven program optimization." } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Cybersecurity", "description": "Security frameworks for sensitive public health and CSR data across organizations." } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Impact Story Generation", "description": "AI-powered narratives that translate program data into compelling impact stories." } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Stakeholder Videos", "description": "Professional video content for board presentations, donor updates, and government reviews." } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Personalized Video Marketing", "description": "Targeted video content for CSR communications and stakeholder engagement." } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Training Video Generation", "description": "AI-enabled training content for frontline health workers and program staff at scale." } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Social Media Content", "description": "Strategic social media content for CSR program visibility and stakeholder communication." } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Brand Storytelling", "description": "Authentic brand narratives that connect corporate social responsibility with community impact." } }
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Resource Mobilisation & Partner Mapping", "description": "Identify corporate decision-makers, funding channels, and partnerships for your sector and geography." } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "CSR Strategy & Planning", "description": "Corporate CSR strategy aligned with business goals, statutory requirements, and community needs." } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Flagship Programme Design & Implementation", "description": "End-to-end CSR programme design and execution with on-ground teams and milestone tracking." } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "CSR Compliance & Reporting", "description": "Section 135 compliance, annual CSR disclosures, and board-ready reporting frameworks." } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Stakeholder Engagement", "description": "Government, community, and partner coordination for sustainable social impact programmes." } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Impact Measurement & Assessment", "description": "M&E frameworks, impact assessment, field data, dashboards, and board-ready impact reports." } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Sustainability Consulting", "description": "Long-term sustainability planning for CSR programmes and social impact initiatives." } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "CSR Platform Development", "description": "Custom CSR programme management platforms for tracking, reporting, and stakeholder communication." } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Data Integration Solutions", "description": "Unified data systems connecting field operations, government platforms, and reporting tools." } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Digital Transformation", "description": "Digitise CSR operations with cloud workflows, automated reporting, and real-time dashboards." } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Cloud Solutions", "description": "Scalable cloud infrastructure for public health data, programme management, and analytics." } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Data Analytics", "description": "Analytics for coverage tracking, gap analysis, and data-driven programme optimisation." } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Cybersecurity", "description": "Security frameworks for sensitive public health and CSR data across organisations." } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Impact Story Generation", "description": "AI-powered narratives that translate programme data into compelling impact stories." } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Stakeholder Videos", "description": "Video content for board presentations, donor updates, and government reviews." } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Personalized Video Marketing", "description": "Targeted video content for CSR communications and stakeholder engagement." } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Training Video Generation", "description": "AI-enabled training content for frontline health workers and programme staff at scale." } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Social Media Content", "description": "Strategic social media content for CSR programme visibility and stakeholder communication." } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "CSR Brand Storytelling", "description": "Brand narratives that connect corporate social responsibility with community impact." } }
     ]
   }
 };
 ---
 
 <BaseLayout 
-  title="Services | Causewave"
-  description="Resource mobilization, CSR consulting, technology platforms, and AI-powered communication — we map the right partners for your sector and geography."
-  ogTitle="CSR Services | Resource Mobilization, Strategy & Technology"
-  ogDescription="19 services across resource mobilization, CSR strategy, compliance, technology platforms, and AI-powered impact communication across India."
+  title={SEO.services.title}
+  description={SEO.services.description}
+  ogTitle={SEO.services.ogTitle}
+  ogDescription={SEO.services.ogDescription}
   canonicalPath="services/"
   activePage="services"
+  breadcrumbLabel="Services"
   jsonLd={servicesJsonLd}
 >
   <main>
@@ -57,12 +61,12 @@ const servicesJsonLd = {
     <section class="bg-slate-900 text-white section">
       <div class="max-w-screen-2xl mx-auto px-6">
         <div class="max-w-3xl">
-          <span class="text-sky-400 font-semibold text-sm tracking-widest">OUR SERVICES</span>
-          <h1 class="hero-animate mt-3 text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tighter leading-tight">
-            Strategy. Technology. Impact.
+          <span class="text-sky-400 font-semibold text-sm tracking-widest">CSR SERVICES · INDIA</span>
+          <h1 class="hero-animate mt-3 text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tighter leading-tight">
+            {SEO.services.h1}
           </h1>
           <p class="hero-animate hero-animate-delay-1 mt-5 text-lg text-slate-300 max-w-2xl">
-            Resource mobilization, CSR strategy, technology platforms, and AI-powered impact communication — mapped to your sector and geography.
+            {SEO.services.h1Sub}
           </p>
         </div>
       </div>
@@ -73,9 +77,9 @@ const servicesJsonLd = {
       <div class="rounded-2xl bg-slate-900 text-white p-8 md:p-12">
         <div class="max-w-3xl">
           <span class="text-sky-400 font-semibold text-sm tracking-widest">WHAT SETS US APART</span>
-          <h2 class="mt-3 text-2xl md:text-3xl font-semibold tracking-tight">Resource Mobilization & Partner Mapping</h2>
+          <h2 class="mt-3 text-2xl md:text-3xl font-semibold tracking-tight">Resource Mobilisation & Corporate CSR Partner Mapping</h2>
           <p class="mt-4 text-slate-300 leading-relaxed">
-            Most NGOs struggle to identify the right corporate decision-maker for their sector and geography. We don't just write proposals — we first map the correct resources, funding channels, and partnerships for your specific need. That's the difference between a cold pitch and a funded program.
+            Most non-profits struggle to identify the right corporate CSR decision-maker for their sector and geography. We don't just write proposals — we first map resources, funding channels, and partnerships. That is the difference between a cold pitch and a funded social impact programme.
           </p>
           <div class="mt-6 grid sm:grid-cols-3 gap-4">
             <div class="bg-white/5 border border-white/10 rounded-xl p-4">
@@ -98,16 +102,16 @@ const servicesJsonLd = {
     <!-- Group 1: CSR Strategy & Consulting -->
     <section class="section max-w-screen-2xl mx-auto px-6">
       <div class="text-center mb-10">
-        <span class="text-sky-600 font-semibold text-sm tracking-widest">PILLAR 1</span>
-        <h2 class="mt-3 text-3xl md:text-4xl font-semibold tracking-tight">CSR Strategy & Consulting</h2>
-        <p class="mt-3 text-slate-600 max-w-2xl mx-auto">Strategy, compliance, implementation, and stakeholder engagement — the foundation of every successful CSR program.</p>
+        <span class="text-sky-600 font-semibold text-sm tracking-widest">PILLAR 1 · CORPORATE CSR & SUSTAINABILITY</span>
+        <h2 class="mt-3 text-3xl md:text-4xl font-semibold tracking-tight">CSR Strategy, Programme Design & Advisory</h2>
+        <p class="mt-3 text-slate-600 max-w-2xl mx-auto">Corporate CSR strategy, flagship programme design, portfolio advisory, compliance, impact measurement, and stakeholder engagement — the foundation of successful social impact programmes.</p>
       </div>
 
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
         <!-- 1. Resource Mobilization & Partner Mapping -->
         <div class="rounded-2xl border-2 border-sky-200 bg-sky-50/50 p-6 hover:border-sky-300 hover:shadow-sm transition-all">
           <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-sky-100 text-sky-600 mb-4">
-            <i class="fa-solid fa-handshake text-xl"></i>
+            <Icon name="handshake" class="w-5 h-5" />
           </div>
           <h3 class="font-semibold text-lg">Resource Mobilization & Partner Mapping</h3>
           <p class="mt-2 text-sm text-slate-600 leading-relaxed">Identify the right corporate decision-makers, funding channels, and partnerships for your sector and geography. We map resources before we write proposals.</p>
@@ -116,34 +120,34 @@ const servicesJsonLd = {
         <!-- 2. CSR Strategy & Planning -->
         <div class="rounded-2xl border bg-white p-6 hover:border-sky-200 hover:shadow-sm transition-all">
           <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-sky-100 text-sky-600 mb-4">
-            <i class="fa-solid fa-chess text-xl"></i>
+            <Icon name="chess" class="w-5 h-5" />
           </div>
           <h3 class="font-semibold text-lg">CSR Strategy & Planning</h3>
-          <p class="mt-2 text-sm text-slate-600 leading-relaxed">Develop CSR strategies aligned with business goals, statutory requirements, and community needs. Priority mapping, action plans, and 3-year roadmaps.</p>
+          <p class="mt-2 text-sm text-slate-600 leading-relaxed">Corporate CSR strategy aligned with business goals, statutory requirements, and community needs. Priority mapping, annual action plans, and multi-year roadmaps.</p>
         </div>
 
         <!-- 3. Program Implementation -->
         <div class="rounded-2xl border bg-white p-6 hover:border-sky-200 hover:shadow-sm transition-all">
           <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-sky-100 text-sky-600 mb-4">
-            <i class="fa-solid fa-rocket text-xl"></i>
+            <Icon name="rocket" class="w-5 h-5" />
           </div>
-          <h3 class="font-semibold text-lg">Program Implementation</h3>
-          <p class="mt-2 text-sm text-slate-600 leading-relaxed">End-to-end program execution with on-ground teams, vendor management, and milestone tracking. From design to delivery.</p>
+          <h3 class="font-semibold text-lg">Flagship Programme Design & Implementation</h3>
+          <p class="mt-2 text-sm text-slate-600 leading-relaxed">End-to-end CSR programme design and execution with on-ground teams, vendor management, and milestone tracking — from concept to community delivery.</p>
         </div>
 
         <!-- 3. Compliance & Reporting -->
         <div class="rounded-2xl border bg-white p-6 hover:border-sky-200 hover:shadow-sm transition-all">
           <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-sky-100 text-sky-600 mb-4">
-            <i class="fa-solid fa-clipboard-check text-xl"></i>
+            <Icon name="clipboard-check" class="w-5 h-5" />
           </div>
-          <h3 class="font-semibold text-lg">Compliance & Reporting</h3>
-          <p class="mt-2 text-sm text-slate-600 leading-relaxed">Board-ready reporting frameworks, annual CSR disclosures, and regulatory compliance documentation under Companies Act 2013.</p>
+          <h3 class="font-semibold text-lg">CSR Compliance & Portfolio Reporting</h3>
+          <p class="mt-2 text-sm text-slate-600 leading-relaxed">Section 135 / Companies Act compliance, annual CSR disclosures, governance documentation, and board-ready portfolio reporting.</p>
         </div>
 
         <!-- 4. Stakeholder Engagement -->
         <div class="rounded-2xl border bg-white p-6 hover:border-sky-200 hover:shadow-sm transition-all">
           <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-sky-100 text-sky-600 mb-4">
-            <i class="fa-solid fa-handshake text-xl"></i>
+            <Icon name="handshake" class="w-5 h-5" />
           </div>
           <h3 class="font-semibold text-lg">Stakeholder Engagement</h3>
           <p class="mt-2 text-sm text-slate-600 leading-relaxed">Government, community, and partner coordination for sustainable program outcomes. Senior-level stakeholder alignment.</p>
@@ -152,19 +156,19 @@ const servicesJsonLd = {
         <!-- 5. Impact Measurement -->
         <div class="rounded-2xl border bg-white p-6 hover:border-sky-200 hover:shadow-sm transition-all">
           <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-sky-100 text-sky-600 mb-4">
-            <i class="fa-solid fa-chart-bar text-xl"></i>
+            <Icon name="chart-bar" class="w-5 h-5" />
           </div>
-          <h3 class="font-semibold text-lg">Impact Measurement</h3>
-          <p class="mt-2 text-sm text-slate-600 leading-relaxed">M&E frameworks, field data collection, dashboards, and board-ready impact reports. Evidence-based program optimization.</p>
+          <h3 class="font-semibold text-lg">Impact Measurement & Assessment</h3>
+          <p class="mt-2 text-sm text-slate-600 leading-relaxed">Impact measurement and advisory: M&amp;E frameworks, baseline and endline assessment, field data, dashboards, and board-ready impact reports.</p>
         </div>
 
         <!-- 6. Sustainability Consulting -->
         <div class="rounded-2xl border bg-white p-6 hover:border-sky-200 hover:shadow-sm transition-all">
           <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-sky-100 text-sky-600 mb-4">
-            <i class="fa-solid fa-seedling text-xl"></i>
+            <Icon name="seedling" class="w-5 h-5" />
           </div>
-          <h3 class="font-semibold text-lg">Sustainability Consulting</h3>
-          <p class="mt-2 text-sm text-slate-600 leading-relaxed">Long-term sustainability planning for CSR programs. Transition from short-term projects to lasting community impact.</p>
+          <h3 class="font-semibold text-lg">Sustainability & CSR Continuity</h3>
+          <p class="mt-2 text-sm text-slate-600 leading-relaxed">Sustainability consulting for CSR programmes — transition from short-term projects to lasting community outcomes and local ownership.</p>
         </div>
       </div>
     </section>
@@ -181,7 +185,7 @@ const servicesJsonLd = {
         <!-- 7. CSR Platform Development -->
         <div class="rounded-2xl border bg-white p-6 hover:border-teal-200 hover:shadow-sm transition-all">
           <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-teal-100 text-teal-600 mb-4">
-            <i class="fa-solid fa-laptop-code text-xl"></i>
+            <Icon name="laptop-code" class="w-5 h-5" />
           </div>
           <h3 class="font-semibold text-lg">CSR Platform Development</h3>
           <p class="mt-2 text-sm text-slate-600 leading-relaxed">Custom CSR program management platforms for tracking, reporting, and stakeholder communication.</p>
@@ -190,7 +194,7 @@ const servicesJsonLd = {
         <!-- 8. Data Integration Solutions -->
         <div class="rounded-2xl border bg-white p-6 hover:border-teal-200 hover:shadow-sm transition-all">
           <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-teal-100 text-teal-600 mb-4">
-            <i class="fa-solid fa-database text-xl"></i>
+            <Icon name="database" class="w-5 h-5" />
           </div>
           <h3 class="font-semibold text-lg">Data Integration Solutions</h3>
           <p class="mt-2 text-sm text-slate-600 leading-relaxed">Unified data systems connecting field operations, government platforms, and reporting tools into a single view.</p>
@@ -199,7 +203,7 @@ const servicesJsonLd = {
         <!-- 9. Digital Transformation -->
         <div class="rounded-2xl border bg-white p-6 hover:border-teal-200 hover:shadow-sm transition-all">
           <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-teal-100 text-teal-600 mb-4">
-            <i class="fa-solid fa-cloud text-xl"></i>
+            <Icon name="cloud" class="w-5 h-5" />
           </div>
           <h3 class="font-semibold text-lg">Digital Transformation</h3>
           <p class="mt-2 text-sm text-slate-600 leading-relaxed">Digitize CSR operations with cloud-based workflows, automated reporting, and real-time dashboards.</p>
@@ -208,7 +212,7 @@ const servicesJsonLd = {
         <!-- 10. Cloud Solutions -->
         <div class="rounded-2xl border bg-white p-6 hover:border-teal-200 hover:shadow-sm transition-all">
           <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-teal-100 text-teal-600 mb-4">
-            <i class="fa-solid fa-server text-xl"></i>
+            <Icon name="server" class="w-5 h-5" />
           </div>
           <h3 class="font-semibold text-lg">Cloud Solutions</h3>
           <p class="mt-2 text-sm text-slate-600 leading-relaxed">Scalable cloud infrastructure for public health data, program management, and analytics at population scale.</p>
@@ -217,7 +221,7 @@ const servicesJsonLd = {
         <!-- 11. Data Analytics -->
         <div class="rounded-2xl border bg-white p-6 hover:border-teal-200 hover:shadow-sm transition-all">
           <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-teal-100 text-teal-600 mb-4">
-            <i class="fa-solid fa-chart-pie text-xl"></i>
+            <Icon name="chart-pie" class="w-5 h-5" />
           </div>
           <h3 class="font-semibold text-lg">Data Analytics</h3>
           <p class="mt-2 text-sm text-slate-600 leading-relaxed">Advanced analytics for coverage tracking, gap analysis, and data-driven program optimization. Reduced coverage variation from ±20% to ~5%.</p>
@@ -226,7 +230,7 @@ const servicesJsonLd = {
         <!-- 12. Cybersecurity -->
         <div class="rounded-2xl border bg-white p-6 hover:border-teal-200 hover:shadow-sm transition-all">
           <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-teal-100 text-teal-600 mb-4">
-            <i class="fa-solid fa-shield-halved text-xl"></i>
+            <Icon name="shield" class="w-5 h-5" />
           </div>
           <h3 class="font-semibold text-lg">Cybersecurity</h3>
           <p class="mt-2 text-sm text-slate-600 leading-relaxed">Security frameworks for sensitive public health and CSR data across organizations and government platforms.</p>
@@ -246,7 +250,7 @@ const servicesJsonLd = {
         <!-- 13. Impact Story Generation -->
         <div class="rounded-2xl border bg-white p-6 hover:border-emerald-200 hover:shadow-sm transition-all">
           <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-emerald-100 text-emerald-600 mb-4">
-            <i class="fa-solid fa-wand-magic-sparkles text-xl"></i>
+            <Icon name="sparkles" class="w-5 h-5" />
           </div>
           <h3 class="font-semibold text-lg">Impact Story Generation</h3>
           <p class="mt-2 text-sm text-slate-600 leading-relaxed">AI-powered narratives that translate program data into compelling impact stories for boards, donors, and government.</p>
@@ -255,7 +259,7 @@ const servicesJsonLd = {
         <!-- 14. Stakeholder Videos -->
         <div class="rounded-2xl border bg-white p-6 hover:border-emerald-200 hover:shadow-sm transition-all">
           <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-emerald-100 text-emerald-600 mb-4">
-            <i class="fa-solid fa-video text-xl"></i>
+            <Icon name="video" class="w-5 h-5" />
           </div>
           <h3 class="font-semibold text-lg">Stakeholder Videos</h3>
           <p class="mt-2 text-sm text-slate-600 leading-relaxed">Professional video content for board presentations, donor updates, and government reviews.</p>
@@ -264,7 +268,7 @@ const servicesJsonLd = {
         <!-- 15. Personalized Video Marketing -->
         <div class="rounded-2xl border bg-white p-6 hover:border-emerald-200 hover:shadow-sm transition-all">
           <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-emerald-100 text-emerald-600 mb-4">
-            <i class="fa-solid fa-film text-xl"></i>
+            <Icon name="film" class="w-5 h-5" />
           </div>
           <h3 class="font-semibold text-lg">Personalized Video Marketing</h3>
           <p class="mt-2 text-sm text-slate-600 leading-relaxed">Targeted video content for CSR communications and stakeholder engagement at scale.</p>
@@ -273,7 +277,7 @@ const servicesJsonLd = {
         <!-- 16. Training Video Generation -->
         <div class="rounded-2xl border bg-white p-6 hover:border-emerald-200 hover:shadow-sm transition-all">
           <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-emerald-100 text-emerald-600 mb-4">
-            <i class="fa-solid fa-graduation-cap text-xl"></i>
+            <Icon name="graduation-cap" class="w-5 h-5" />
           </div>
           <h3 class="font-semibold text-lg">Training Video Generation</h3>
           <p class="mt-2 text-sm text-slate-600 leading-relaxed">AI-enabled training content for frontline health workers and program staff. 100+ minutes produced at scale.</p>
@@ -282,7 +286,7 @@ const servicesJsonLd = {
         <!-- 17. Social Media Content -->
         <div class="rounded-2xl border bg-white p-6 hover:border-emerald-200 hover:shadow-sm transition-all">
           <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-emerald-100 text-emerald-600 mb-4">
-            <i class="fa-solid fa-share-nodes text-xl"></i>
+            <Icon name="share" class="w-5 h-5" />
           </div>
           <h3 class="font-semibold text-lg">Social Media Content</h3>
           <p class="mt-2 text-sm text-slate-600 leading-relaxed">Strategic social media content for CSR program visibility, community engagement, and stakeholder communication.</p>
@@ -291,7 +295,7 @@ const servicesJsonLd = {
         <!-- 18. Brand Storytelling -->
         <div class="rounded-2xl border bg-white p-6 hover:border-emerald-200 hover:shadow-sm transition-all">
           <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-emerald-100 text-emerald-600 mb-4">
-            <i class="fa-solid fa-pen-fancy text-xl"></i>
+            <Icon name="pen" class="w-5 h-5" />
           </div>
           <h3 class="font-semibold text-lg">Brand Storytelling</h3>
           <p class="mt-2 text-sm text-slate-600 leading-relaxed">Authentic brand narratives that connect corporate social responsibility with real community impact.</p>

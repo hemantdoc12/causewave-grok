@@ -1,4 +1,8 @@
+# https://causewave.in/robots.txt
 User-agent: *
 Allow: /
+
+# Print brochure — keep out of the index (not a ranking page)
+Disallow: /brochure.html
 
 Sitemap: https://causewave.in/sitemap-index.xml

@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Causewave x NGO Partnership Brochure</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    @page { size: A4; margin: 0; }
+    @media print {
+      body { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+      .page { page-break-after: always; }
+      .page:last-child { page-break-after: auto; }
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; color: #1e293b; background: #f8fafc; }
+    h1, h2, h3, h4 { font-family: 'Space Grotesk', sans-serif; }
+    .page {
+      width: 210mm; min-height: 297mm; margin: 0 auto 20px;
+      background: white; overflow: hidden; position: relative;
+    }
+    @media screen { .page { box-shadow: 0 4px 24px rgba(0,0,0,0.1); } }
+
+    /* PAGE 1: COVER */
+    .cover {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: white; display: flex; flex-direction: column;
+      justify-content: center; align-items: center; text-align: center;
+      padding: 60px;
+    }
+    .cover .logo { width: 180px; margin-bottom: 40px; filter: brightness(0) invert(1); }
+    .cover h1 {
+      font-size: 42px; font-weight: 700; letter-spacing: -1px;
+      line-height: 1.1; margin-bottom: 20px;
+    }
+    .cover .tagline {
+      font-size: 18px; color: #94a3b8; line-height: 1.6;
+      max-width: 420px; margin-bottom: 60px;
+    }
+    .cover .accent { color: #38bdf8; }
+    .cover .contact-bar {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      background: rgba(255,255,255,0.05); padding: 20px 60px;
+      display: flex; justify-content: center; gap: 32px;
+      font-size: 12px; color: #94a3b8;
+    }
+    .cover .divider {
+      width: 60px; height: 3px; background: #0ea5e9;
+      margin: 0 auto 30px;
+    }
+
+    /* PAGE 2: WHO WE ARE */
+    .page-inner { padding: 50px 60px; }
+    .section-label {
+      font-size: 11px; font-weight: 600; letter-spacing: 3px;
+      text-transform: uppercase; color: #0ea5e9; margin-bottom: 12px;
+    }
+    .page-title {
+      font-size: 32px; font-weight: 700; letter-spacing: -0.5px;
+      line-height: 1.15; color: #0f172a; margin-bottom: 20px;
+    }
+    .page-body { font-size: 14px; line-height: 1.7; color: #475569; }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+    .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 20px; }
+    .stat-card {
+      background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px;
+      padding: 20px; text-align: center;
+    }
+    .stat-num { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; }
+    .stat-num.sky { color: #0ea5e9; }
+    .stat-num.teal { color: #14b8a6; }
+    .stat-num.emerald { color: #10b981; }
+    .stat-label { font-size: 11px; color: #64748b; margin-top: 4px; }
+    .credentials { margin-top: 24px; }
+    .credential {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: 13px; color: #475569; margin-bottom: 10px;
+    }
+    .credential .dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: #0ea5e9; margin-top: 6px; flex-shrink: 0;
+    }
+
+    /* PAGE 3: SERVICES */
+    .services-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; margin-top: 24px; }
+    .service-card {
+      background: white; border: 1px solid #e2e8f0; border-radius: 12px;
+      padding: 24px 20px; text-align: center;
+    }
+    .service-icon {
+      width: 48px; height: 48px; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 12px; font-size: 22px;
+    }
+    .service-icon.sky { background: #e0f2fe; color: #0ea5e9; }
+    .service-icon.teal { background: #ccfbf1; color: #14b8a6; }
+    .service-icon.emerald { background: #d1fae5; color: #10b981; }
+    .service-card h3 {
+      font-size: 14px; font-weight: 600; color: #0f172a; margin-bottom: 8px;
+    }
+    .service-card p { font-size: 12px; color: #64748b; line-height: 1.5; }
+
+    /* PAGE 4: PROCESS */
+    .process-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 24px; }
+    .step { text-align: center; }
+    .step-num {
+      width: 44px; height: 44px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 12px; font-family: 'Space Grotesk', sans-serif;
+      font-size: 18px; font-weight: 700; color: white;
+    }
+    .step-num.sky { background: #0ea5e9; }
+    .step-num.teal { background: #14b8a6; }
+    .step-num.emerald { background: #10b981; }
+    .step-num.sky-dark { background: #0284c7; }
+    .step h3 {
+      font-size: 13px; font-weight: 600; color: #0f172a; margin-bottom: 6px;
+      text-transform: uppercase; letter-spacing: 1px;
+    }
+    .step p { font-size: 11px; color: #64748b; line-height: 1.5; }
+    .what-you-get {
+      margin-top: 40px; background: #f8fafc; border: 1px solid #e2e8f0;
+      border-radius: 12px; padding: 32px;
+    }
+    .what-you-get h3 {
+      font-size: 16px; font-weight: 600; color: #0f172a; margin-bottom: 16px;
+    }
+    .check-list { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .check-item {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 13px; color: #475569;
+    }
+    .check { color: #10b981; font-weight: 700; }
+
+    /* PAGE 5: CONTACT */
+    .contact-page {
+      background: linear-gradient(135deg, #f8fafc 0%, #e0f2fe 100%);
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 60px;
+    }
+    .contact-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 60px; align-items: center; }
+    .contact-item {
+      display: flex; align-items: center; gap: 16px; margin-bottom: 24px;
+    }
+    .contact-icon {
+      width: 44px; height: 44px; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px; flex-shrink: 0;
+    }
+    .contact-icon.sky { background: #e0f2fe; color: #0ea5e9; }
+    .contact-icon.teal { background: #ccfbf1; color: #14b8a6; }
+    .contact-icon.emerald { background: #d1fae5; color: #10b981; }
+    .contact-text { font-size: 14px; color: #475569; }
+    .contact-text strong { color: #0f172a; font-weight: 600; }
+    .qr-box {
+      background: white; border: 1px solid #e2e8f0; border-radius: 16px;
+      padding: 32px; text-align: center;
+    }
+    .qr-placeholder {
+      width: 140px; height: 140px; margin: 0 auto 16px;
+      border: 2px dashed #cbd5e1; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 11px; color: #94a3b8; text-align: center; padding: 10px;
+    }
+    .qr-box p { font-size: 12px; color: #64748b; }
+    .footer-bar {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: 20px 60px; font-size: 11px; color: #94a3b8;
+      border-top: 1px solid #e2e8f0; background: white;
+    }
+
+    /* Print instructions */
+    .print-btn {
+      position: fixed; bottom: 30px; right: 30px;
+      background: #0ea5e9; color: white; border: none;
+      padding: 14px 28px; border-radius: 12px; font-size: 14px;
+      font-weight: 600; cursor: pointer; box-shadow: 0 4px 16px rgba(14,165,233,0.4);
+      z-index: 100; font-family: 'Inter', sans-serif;
+    }
+    .print-btn:hover { background: #0284c7; }
+    @media print { .print-btn { display: none; } }
+  </style>
+</head>
+<body>
+
+<!-- PAGE 1: COVER -->
+<div class="page cover">
+  <img src="https://causewave.in/images/logos/logo_1.webp" alt="Causewave" class="logo" />
+  <div class="divider"></div>
+  <h1>CSR Programs<br>That <span class="accent">Actually Work</span></h1>
+  <p class="tagline">
+    Partner with 18+ years of public health leadership<br>
+    to design programs that satisfy regulators,<br>
+    impress boards, and create real community impact.
+  </p>
+  <div class="contact-bar">
+    <span>causewave.in</span>
+    <span>innovate@causewave.in</span>
+    <span>+91 76005 96053</span>
+  </div>
+</div>
+
+<!-- PAGE 2: WHO WE ARE -->
+<div class="page page-inner">
+  <div class="section-label">WHO WE ARE</div>
+  <div class="two-col">
+    <div>
+      <h2 class="page-title">Bridging CSR compliance<br>and real community impact</h2>
+      <p class="page-body">
+        Most CSR programs struggle to be both compliant and truly impactful. Causewave exists to close that gap.
+      </p>
+      <p class="page-body" style="margin-top: 12px;">
+        Founded by Dr. Hemant L. Patel — a public health leader with 18+ years across WHO, CARE India, Government of Gujarat, and health-tech entrepreneurship — Causewave brings field-tested expertise to every engagement.
+      </p>
+      <p class="page-body" style="margin-top: 12px;">
+        From designing Gujarat's award-winning Chitta Express last-mile model to enabling Bihar's record-breaking 33 lakh+ single-day COVID-19 vaccinations — we don't just advise. We implement.
+      </p>
+      <div class="credentials">
+        <div class="credential"><div class="dot"></div><span>WHO Surveillance Medical Officer</span></div>
+        <div class="credential"><div class="dot"></div><span>CARE India — Multi-State Expansion (11 States)</span></div>
+        <div class="credential"><div class="dot"></div><span>Government of Gujarat — Public Health</span></div>
+        <div class="credential"><div class="dot"></div><span>SKOCH Gold Award · IIM Raipur Case Study</span></div>
+        <div class="credential"><div class="dot"></div><span>Speaker, Biologistics World Asia 2021</span></div>
+      </div>
+    </div>
+    <div>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-num sky">18+</div>
+          <div class="stat-label">Years in Public Health</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num teal">33 Lakh+</div>
+          <div class="stat-label">Vaccinations in One Day</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num emerald">SKOCH</div>
+          <div class="stat-label">Gold Award Winner</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num sky">30+</div>
+          <div class="stat-label">Outbreaks Detected</div>
+        </div>
+      </div>
+      <div style="margin-top: 24px; padding: 20px; background: #f0f9ff; border-radius: 12px; border-left: 3px solid #0ea5e9;">
+        <p style="font-size: 13px; color: #475569; line-height: 1.6; font-style: italic;">
+          "Reduce district-level vaccination coverage variation from ±20% to ~5% through data-driven analytics and real-time dashboards."
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE 3: WHAT WE OFFER -->
+<div class="page page-inner">
+  <div class="section-label">WHAT WE OFFER NGOs</div>
+  <h2 class="page-title">How we help your organization</h2>
+  <p class="page-body" style="max-width: 500px;">
+    Six ways Causewave supports NGOs in building stronger CSR programs and partnerships.
+  </p>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon sky">📋</div>
+      <h3>CSR Proposal Development</h3>
+      <p>We help NGOs craft winning CSR proposals for corporate partnerships with clear budgets, timelines, and impact metrics.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon teal">📊</div>
+      <h3>Compliance & Reporting</h3>
+      <p>Navigate Companies Act 2013 compliance, annual reporting, and regulatory documentation with confidence.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon emerald">📐</div>
+      <h3>Impact Measurement</h3>
+      <p>Build credible M&E frameworks, collect field data, and produce board-ready impact reports that satisfy donors.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon sky">💻</div>
+      <h3>Technology & Data</h3>
+      <p>Dashboards, data integration, and digital tools for program tracking, automated reporting, and real-time monitoring.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon teal">🎬</div>
+      <h3>AI-Powered Content</h3>
+      <p>Impact stories, stakeholder videos, training content, and social media — translated from your program data at scale.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon emerald">🤝</div>
+      <h3>Donor Communication</h3>
+      <p>Board-ready reports, donor updates, and government review materials that prove your impact with data.</p>
+    </div>
+  </div>
+  <div style="margin-top: 24px; padding: 16px 24px; background: #f8fafc; border-radius: 8px; border: 1px solid #e2e8f0;">
+    <p style="font-size: 13px; color: #64748b;">
+      <strong style="color: #0f172a;">Plus 12 more services</strong> across program implementation, stakeholder engagement, sustainability consulting, digital transformation, cloud solutions, cybersecurity, and more.
+      <span style="color: #0ea5e9; font-weight: 600;">See all 18 at causewave.in/services</span>
+    </p>
+  </div>
+</div>
+
+<!-- PAGE 4: HOW WE WORK -->
+<div class="page page-inner">
+  <div class="section-label">HOW WE WORK TOGETHER</div>
+  <h2 class="page-title">From first conversation<br>to measurable impact</h2>
+  <div class="process-steps">
+    <div class="step">
+      <div class="step-num sky">1</div>
+      <h3>Discover</h3>
+      <p>We understand your goals, context, and community needs.</p>
+    </div>
+    <div class="step">
+      <div class="step-num teal">2</div>
+      <h3>Design</h3>
+      <p>We create tailored programs with clear objectives and budgets.</p>
+    </div>
+    <div class="step">
+      <div class="step-num emerald">3</div>
+      <h3>Deliver</h3>
+      <p>We implement with on-ground teams and real-time tracking.</p>
+    </div>
+    <div class="step">
+      <div class="step-num sky-dark">4</div>
+      <h3>Demonstrate</h3>
+      <p>We measure impact, generate reports, and prove compliance.</p>
+    </div>
+  </div>
+  <div class="what-you-get">
+    <h3>What You Get</h3>
+    <div class="check-list">
+      <div class="check-item"><span class="check">✓</span> Stronger CSR proposals for corporate partnerships</div>
+      <div class="check-item"><span class="check">✓</span> 100% compliance readiness under Companies Act 2013</div>
+      <div class="check-item"><span class="check">✓</span> Credible impact data that satisfies donors and boards</div>
+      <div class="check-item"><span class="check">✓</span> Technology tools for program tracking and reporting</div>
+      <div class="check-item"><span class="check">✓</span> Compelling stories for stakeholder communication</div>
+      <div class="check-item"><span class="check">✓</span> Access to 18+ years of public health expertise</div>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE 5: CONTACT -->
+<div class="page contact-page">
+  <div class="contact-grid">
+    <div>
+      <div class="section-label">LET'S CONNECT</div>
+      <h2 class="page-title">Ready to build CSR programs<br>that actually work?</h2>
+      <p class="page-body" style="margin-bottom: 32px;">
+        Whether you're looking to strengthen your CSR proposals, improve compliance, or measure your impact — we're here to help. Let's start a conversation.
+      </p>
+      <div class="contact-item">
+        <div class="contact-icon sky">✉</div>
+        <div class="contact-text"><strong>Email</strong><br>innovate@causewave.in</div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon teal">☎</div>
+        <div class="contact-text"><strong>Phone</strong><br>+91 76005 96053</div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon emerald">◉</div>
+        <div class="contact-text"><strong>Location</strong><br>Ahmedabad, Gujarat, India</div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon sky">🌐</div>
+        <div class="contact-text"><strong>Website</strong><br>causewave.in</div>
+      </div>
+    </div>
+    <div class="qr-box">
+      <div class="qr-placeholder">
+        Scan to visit<br>causewave.in
+      </div>
+      <p>Scan the QR code to visit our website and explore all 18 services.</p>
+      <div style="margin-top: 20px; padding-top: 16px; border-top: 1px solid #e2e8f0;">
+        <p style="font-size: 11px; color: #94a3b8;">Generate QR at qr-code-monkey.com<br>URL: https://causewave.in</p>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bar">
+    © 2026 Causewave Innovations LLP. All rights reserved. | causewave.in | Made in India
+  </div>
+</div>
+
+<button class="print-btn" onclick="window.print()">📥 Download as PDF</button>
+
+</body>
+</html>

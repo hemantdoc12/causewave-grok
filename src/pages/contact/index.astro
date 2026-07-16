@@ -1,14 +1,15 @@
 ---
+import Icon from '../../components/Icon.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { SITE, CONTACT } from '../../consts';
+import { SITE, CONTACT, SEO } from '../../consts';
 const base = import.meta.env.BASE_URL;
 
 const localBusinessJsonLd = {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
+  "@type": "ProfessionalService",
   "name": "Causewave Innovations LLP",
   "url": SITE.url,
-  "description": "CSR consulting firm specializing in strategy, compliance, and impact measurement across India.",
+  "description": "CSR consulting firm in India specialising in CSR strategy, programme design, impact measurement, and Section 135 compliance.",
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "Ahmedabad",
@@ -21,17 +22,20 @@ const localBusinessJsonLd = {
   "areaServed": {
     "@type": "Country",
     "name": "India"
-  }
+  },
+  "priceRange": "$$",
+  "knowsAbout": [...SEO.categoryKeywords],
 };
 ---
 
 <BaseLayout 
-  title="Contact | Causewave" 
-  description="Get in touch with Causewave. Let's discuss how we can help you build CSR programs that actually work."
-  ogTitle="Contact Causewave | Let's Build CSR Programs That Work"
-  ogDescription="Get in touch with Causewave to discuss your CSR goals. We help companies build compliant, measurable, and community-trusted programs."
+  title={SEO.contact.title}
+  description={SEO.contact.description}
+  ogTitle={SEO.contact.ogTitle}
+  ogDescription={SEO.contact.ogDescription}
   canonicalPath="contact/"
   activePage="contact"
+  breadcrumbLabel="Contact"
   jsonLd={localBusinessJsonLd}
 >
   <main>
@@ -39,12 +43,12 @@ const localBusinessJsonLd = {
     <section class="bg-slate-900 text-white section">
       <div class="max-w-screen-2xl mx-auto px-6">
         <div class="max-w-3xl">
-          <span class="text-sky-400 font-semibold text-sm tracking-widest">GET IN TOUCH</span>
+          <span class="text-sky-400 font-semibold text-sm tracking-widest">CSR CONSULTING · AHMEDABAD · INDIA</span>
           <h1 class="hero-animate mt-3 text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tighter leading-tight">
-            Let's talk about your CSR goals
+            Let's talk about your CSR and impact goals
           </h1>
           <p class="hero-animate hero-animate-delay-1 mt-5 text-lg text-slate-300 max-w-2xl">
-            Whether you're starting from scratch or looking to optimize existing programs, we're here to help.
+            Whether you need CSR strategy, programme design, impact measurement, or Section 135 compliance support — we are here to help companies and NGOs across India.
           </p>
         </div>
       </div>
@@ -186,7 +190,7 @@ const localBusinessJsonLd = {
           <div class="space-y-6">
             <div class="flex items-start gap-4">
               <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-sky-100 text-sky-600">
-                <i class="fa-solid fa-envelope text-lg"></i>
+                <Icon name="envelope" class="w-5 h-5" />
               </div>
               <div>
                 <div class="font-medium text-sm">Email</div>
@@ -195,7 +199,7 @@ const localBusinessJsonLd = {
             </div>
             <div class="flex items-start gap-4">
               <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-teal-100 text-teal-600">
-                <i class="fa-solid fa-phone text-lg"></i>
+                <Icon name="phone" class="w-5 h-5" />
               </div>
               <div>
                 <div class="font-medium text-sm">Phone</div>
@@ -204,7 +208,7 @@ const localBusinessJsonLd = {
             </div>
             <div class="flex items-start gap-4">
               <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-emerald-100 text-emerald-600">
-                <i class="fa-solid fa-location-dot text-lg"></i>
+                <Icon name="map-pin" class="w-5 h-5" />
               </div>
               <div>
                 <div class="font-medium text-sm">Location</div>

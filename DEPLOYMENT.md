@@ -4,6 +4,16 @@
 
 This is the Causewave Innovations LLP website — a static site built with Astro, deployed to GitHub Pages at **https://causewave.in**.
 
+### HTTPS enforcement (required)
+
+Search Console has previously shown impressions for `http://causewave.in/` as well as `https://`. GitHub Pages should serve HTTPS for the custom domain, but confirm:
+
+1. Repo **Settings → Pages →** Custom domain: `causewave.in`
+2. Enable **Enforce HTTPS** (checkbox) after the certificate provisions
+3. DNS: `CNAME` / apex records point only at GitHub Pages targets
+4. In Google Search Console, use URL Inspection on an `http://` URL — expect a redirect to `https://`
+5. The site also includes a client-side HTTP→HTTPS redirect as defense-in-depth (not a substitute for server-level redirect)
+
 ---
 
 ## Tech Stack
@@ -32,14 +42,17 @@ This is the Causewave Innovations LLP website — a static site built with Astro
 │   │   └── BaseLayout.astro  # HTML shell: meta tags, JSON-LD, nav, footer, scripts
 │   ├── components/
 │   │   ├── Navbar.astro      # Sticky nav with mobile menu, single CTA
-│   │   └── Footer.astro      # Single-line compact footer
+│   │   ├── Footer.astro      # Footer with NAP (email, phone, location)
+│   │   └── Icon.astro        # Inline SVG icons (no Font Awesome CDN)
+│   ├── data/
+│   │   └── insights.ts       # Insight metadata for hub + Article JSON-LD
 │   └── pages/
 │       ├── index.astro                # Homepage: hero, counters, services preview, about preview
 │       ├── about/index.astro          # Company story, mission, expertise, Schedule VII tags
-│       ├── services/index.astro       # 18 services across 3 pillars + process section
+│       ├── services/index.astro       # Services across 3 pillars + process section
 │       ├── contact/index.astro        # Contact form (Formspree) + details sidebar
-│       ├── insights/index.astro       # Featured founder article + 4 LinkedIn articles
-│       ├── insights/founder-story/    # Full-length founder article
+│       ├── insights/index.astro       # On-site guides + secondary LinkedIn section
+│       ├── insights/founder-story/
 │       ├── insights/csr-compliance-companies-act-2013/
 │       ├── insights/impactful-csr-programs-healthcare/
 │       ├── insights/measuring-csr-impact-framework/
@@ -48,18 +61,12 @@ This is the Causewave Innovations LLP website — a static site built with Astro
 ├── public/
 │   ├── robots.txt            # Allow all, sitemap URL
 │   ├── CNAME                 # Custom domain: causewave.in
-│   ├── .nojekyll             # Prevents Jekyll processing on GitHub Pages
-│   ├── og-default.jpg        # OG image (35KB)
-│   ├── favicon.svg           # Favicon
+│   ├── brochure.html         # Print brochure (noindex)
+│   ├── og-default.jpg        # OG image
+│   ├── favicon.ico
 │   └── images/
-│       ├── logos/
-│       │   ├── logo_1.png    # Hero logo (original)
-│       │   ├── logo_1.webp   # Hero logo (optimized)
-│       │   ├── logo_2.png    # Navbar logo (original)
-│       │   └── logo_2.webp   # Navbar logo (optimized)
-│       └── backgrounds/
-│           ├── hero-bg.jpg   # Hero background (original)
-│           └── hero-bg.webp  # Hero background (optimized)
+│       ├── logos/            # WebP + resized PNG fallbacks
+│       └── backgrounds/      # Hero background (jpg + webp)
 ├── .github/workflows/
 │   └── deploy.yml            # GitHub Actions: auto-build and deploy on push to main
 ├── DESIGN.md                 # Design system documentation
