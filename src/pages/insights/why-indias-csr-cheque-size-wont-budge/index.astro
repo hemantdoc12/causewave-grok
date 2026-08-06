@@ -1,0 +1,257 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { SITE } from '../../../consts';
+import { getInsightBySlug, buildArticleJsonLd } from '../../../data/insights';
+
+const base = import.meta.env.BASE_URL;
+const post = getInsightBySlug('why-indias-csr-cheque-size-wont-budge')!;
+const articleJsonLd = buildArticleJsonLd(post, SITE.url);
+const linkedInUrl =
+  'https://www.linkedin.com/pulse/why-indias-csr-cheque-size-wont-budge-dr-hemant-patel-btz4f';
+---
+
+<BaseLayout 
+  title="Why India's CSR Cheque Size Won't Budge | Causewave"
+  description={post.description}
+  ogTitle="Why India's CSR Cheque Size Won't Budge"
+  ogDescription="CSR spend tripled over a decade, but average project size stayed near ₹35 lakh. Why Indian CSR multiplies projects instead of enlarging them."
+  canonicalPath={post.path}
+  activePage="insights"
+  ogType="article"
+  breadcrumbLabel={post.shortTitle}
+  breadcrumbParent={{ name: 'Insights', path: 'insights/' }}
+  jsonLd={articleJsonLd}
+>
+  <main>
+    <section class="bg-slate-900 text-white section">
+      <div class="max-w-screen-2xl mx-auto px-6">
+        <div class="max-w-3xl">
+          <a href={`${base}insights/`} class="inline-flex items-center text-sm text-slate-400 hover:text-white transition-colors mb-6">
+            <svg class="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+            Back to Insights
+          </a>
+          <div class="flex items-center gap-3 mb-4">
+            <span class="text-xs font-medium text-sky-400 bg-sky-400/10 px-2.5 py-0.5 rounded-full">{post.category}</span>
+            <span class="text-xs text-slate-500">{post.dateLabel}</span>
+            <span class="text-xs text-slate-500">Part 1 · CSR Ticket Size</span>
+          </div>
+          <h1 class="text-3xl md:text-4xl font-semibold tracking-tight">{post.title}</h1>
+          <p class="mt-4 text-slate-300 text-lg">{post.excerpt}</p>
+        </div>
+      </div>
+    </section>
+
+    <article class="section max-w-screen-2xl mx-auto px-6">
+      <div class="max-w-3xl">
+        <p class="text-slate-600 leading-relaxed mb-6 text-lg">
+          Spend grew. Projects grew. The average project did not.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Over roughly a decade of National CSR Portal filings (FY 2014-15 to FY 2024-25), corporate India spent on the order of <strong>₹2.5 lakh crore</strong> across <strong>~7 lakh project rows</strong>.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          The weighted average amount spent per project? About <strong>₹35 lakh</strong>.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          In FY 2014-15 it was ~₹36 lakh. In FY 2023-24 it was still ~₹35 lakh. Most years sat in a narrow band of roughly ₹30–41 lakh. Total CSR spent roughly tripled. Project counts rose on a similar scale. <strong>Ticket size barely moved.</strong>
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-8">
+          That is not a footnote. That is the system. This series — <em>CSR Ticket Size</em> — starts with the uncomfortable question: why can’t we raise the average? Not “why don’t companies care.” Why does the machine keep producing more projects instead of bigger ones?
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">Force 1 — The arithmetic is blunt</h2>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          If total spend multiplies and project count multiplies at the same pace, average ticket size cannot rise.
+        </p>
+        <div class="overflow-x-auto mb-6">
+          <table class="w-full text-sm text-left border border-slate-200">
+            <thead class="bg-slate-100 text-slate-700">
+              <tr>
+                <th class="p-3">Year</th>
+                <th class="p-3">Total spent (approx.)</th>
+                <th class="p-3">Project rows</th>
+                <th class="p-3">Avg / project</th>
+              </tr>
+            </thead>
+            <tbody class="text-slate-600">
+              <tr class="border-t">
+                <td class="p-3">FY 2014-15</td>
+                <td class="p-3">₹10,000 cr</td>
+                <td class="p-3">~28,000</td>
+                <td class="p-3">~₹0.36 cr</td>
+              </tr>
+              <tr class="border-t bg-slate-50">
+                <td class="p-3">FY 2023-24</td>
+                <td class="p-3">₹35,000 cr</td>
+                <td class="p-3">~99,000</td>
+                <td class="p-3">~₹0.35 cr</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Growth has been <strong>extensive, not intensive</strong>. More CSR, yes. Deeper average project, no. India scaled CSR the way many systems scale services: by adding units, not by enlarging the unit.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">Force 2 — Companies split the same story across more lines</h2>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          Look at behaviour per company-year:
+        </p>
+        <div class="overflow-x-auto mb-6">
+          <table class="w-full text-sm text-left border border-slate-200">
+            <thead class="bg-slate-100 text-slate-700">
+              <tr>
+                <th class="p-3"></th>
+                <th class="p-3">FY 2014-15</th>
+                <th class="p-3">Recent (FY 2023-24 / 24-25)</th>
+              </tr>
+            </thead>
+            <tbody class="text-slate-600">
+              <tr class="border-t">
+                <td class="p-3 font-medium">Projects per company</td>
+                <td class="p-3">~1.7</td>
+                <td class="p-3">~3.7 → 4.1</td>
+              </tr>
+              <tr class="border-t bg-slate-50">
+                <td class="p-3 font-medium">Spend per company</td>
+                <td class="p-3">~₹0.6 cr</td>
+                <td class="p-3">~₹1.3 cr</td>
+              </tr>
+              <tr class="border-t">
+                <td class="p-3 font-medium">Share filing only one project</td>
+                <td class="p-3">~85%</td>
+                <td class="p-3">~51%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Companies are spending more. They are also fragmenting that spend across more project rows. Half of filers still report a single project in a year. Among the rest, the dominant move is not “fewer, larger bets.” It is “more lines on the schedule.”
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Same budget ÷ more projects is not a mystery. It is portfolio behaviour — rational inside today’s incentives: more geographies, more partners, more Schedule VII themes, more board-visible activity — all without concentrating risk in one large outlay.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">Force 3 — The mass market of CSR is still small-ticket</h2>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          Strip away the giants and look at the shape of project rows. In a large multi-year export of project-level rows:
+        </p>
+        <ul class="space-y-2 text-slate-600 mb-6">
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>A meaningful share show zero / blank spent (data and timing issues included).</span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>Roughly one in three rows sits under ₹5 lakh.</span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>Rows of ₹1 crore+ are a thin slice (~5%).</span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>Rows of ₹5 crore+ are rare (~1%).</span></li>
+        </ul>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          Comparing early years (FY 2014-16) with late years (FY 2022-24), among non-zero projects:
+        </p>
+        <ul class="space-y-2 text-slate-600 mb-6">
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>Share of &lt; ₹5 lakh projects went <strong>up</strong></span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>Share of ₹1–5 crore projects went <strong>down</strong></span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>Share of ₹5 crore+ projects went <strong>down</strong></span></li>
+        </ul>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          The distribution did not quietly fatten in the middle. If anything, the system became more small-ticket heavy. That is the opposite of a “maturing into larger programmes” story.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">Force 4 — Two CSR Indias (and the median never left home)</h2>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          CSR has always been skewed. It still is. In recent years:
+        </p>
+        <ul class="space-y-2 text-slate-600 mb-6">
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>The top ~1% of companies by spend still account for about half of total CSR spent.</span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>The top ~10% still account for roughly four-fifths.</span></li>
+        </ul>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Concentration has eased at the very top versus the earliest years (top 1% share fell from roughly ~70%+ toward ~55% as more companies entered the filing universe). What entered with them? Thousands of company-years whose average project lives near <strong>₹10–15 lakh</strong>.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          So two things are true at once: a thin layer of concentrators still writes very large project rows, and the median filer has not upgraded ticket size in any structural way for a decade. National totals can soar while the typical cheque stays modest.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">Force 5 — Sector mix rewards volume, not ticket size</h2>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Where does the money go? Largely into themes that scale by count of interventions. Education and Health Care dominate total spend — and their share of the pie has grown — but their average project size has not marched upward. Themes often associated with smaller interventions (women empowerment, special education, senior citizens, animal welfare, orphanages) sit well below the national weighted average. Some “fatter” categories exist (certain funds, vocational skills, rural development, livelihoods) — but not enough to lift the national mean when education and health keep adding rows.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Coverage beats concentration. Year after year.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">So why can’t the average rise?</h2>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Because almost every force in the system points to more projects, not larger ones. New and mid-sized filers arrive with modest tickets. Existing filers spread larger budgets across more rows. The project-size distribution stays heavy below ₹25 lakh. Education and health expand as volume engines. A handful of giants still dominate totals — which props up the weighted average near ₹35 lakh — while the median company remains near ₹12 lakh. Under those conditions, total CSR can triple and the average project can still look frozen.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          That is not primarily a story about bad intent. It is a story about design.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-2 font-medium text-slate-800">Incentives (interpretation)</p>
+        <ol class="list-decimal list-inside space-y-2 text-slate-600 mb-6">
+          <li>The law sets a quantum (≈2% of profits), not a depth target. Compliance can be met with ten small projects as easily as with one large one — sometimes more easily. (See our <a href={`${base}insights/csr-compliance-companies-act-2013/`} class="text-sky-600 hover:underline">Section 135 compliance guide</a>.)</li>
+          <li>Local-area preference and multi-state footprints encourage many site-level lines rather than one national programme row.</li>
+          <li>Schedule VII is a menu. Menus invite portfolios.</li>
+          <li>Implementing ecosystems often clear ₹10–50 lakh grants more smoothly than multi-year ₹10–50 crore programmes.</li>
+          <li>Reporting units fragment reality. One ground initiative can become many rows — states, districts, partners, years.</li>
+        </ol>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          None of this means large projects are impossible. It means the default path is fragmentation, and defaults win at national scale.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">What this is not saying</h2>
+        <ul class="space-y-2 text-slate-600 mb-6">
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>It is not saying small projects are bad. Many should be small.</span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>It is not saying CSR failed because the average is flat.</span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>It is not saying every company should chase multi-crore tickets.</span></li>
+        </ul>
+        <blockquote class="border-l-4 border-sky-500 pl-4 my-6 text-slate-700 italic">
+          If your mental model of Indian CSR is “cheques getting larger as the market matures,” the filing data does not support that model. The market matured by multiplying.
+        </blockquote>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">The question that matters for boards and CSR heads</h2>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          Forget the national average for a moment. Ask a sharper question: <strong>Are we a sprayer or a concentrator — by design, or by accident?</strong>
+        </p>
+        <ul class="space-y-2 text-slate-600 mb-6">
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>If you added budget and mostly added project count, you are inside the national pattern.</span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>If you added budget and raised median ticket size or multi-year programme depth, you are the exception the next article is about.</span></li>
+        </ul>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Neither strategy is automatically virtuous. But only one of them can move a national average — and right now, the national machine is not choosing that path.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">Define the number carefully</h2>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          Two averages matter. Most commentary mixes them up.
+        </p>
+        <ol class="list-decimal list-inside space-y-3 text-slate-600 mb-6">
+          <li><strong>Weighted national average (~₹35 lakh)</strong> — total amount spent ÷ total project rows. Pulled upward by very large filers.</li>
+          <li><strong>Median company-year average (~₹11–12 lakh)</strong> — what a typical company-year looks like. Stuck near ₹12 lakh for years.</li>
+        </ol>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          When people hear “average CSR project is ₹35 lakh,” they imagine the normal cheque. It isn’t. ₹35 lakh is the spend-weighted centre of gravity. ₹12 lakh is closer to everyday CSR. Also: a “project” on the portal is a filing row — not always one neat programme on the ground. That caveat does not kill the finding; it makes the stuck average more interesting.
+        </p>
+
+        <p class="text-sm text-slate-500 mb-8">
+          <strong>Data:</strong> National CSR Portal company-wise project filings, FY 2014-15 to FY 2024-25. Averages are amount spent per project row unless noted.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          This is <strong>Part 1 of CSR Ticket Size</strong>. Next: Concentrators vs Sprayers — the companies that break the pattern with very large average project rows.
+        </p>
+        <p class="text-sm text-slate-500 mb-8">
+          Also published on{' '}
+          <a href={linkedInUrl} target="_blank" rel="noopener noreferrer" class="text-sky-600 hover:underline">
+            LinkedIn
+          </a>.
+        </p>
+
+        <div class="mt-12 p-6 rounded-2xl bg-slate-50 border">
+          <h3 class="font-semibold text-lg">Designing CSR portfolios that go deeper, not only wider?</h3>
+          <p class="mt-2 text-sm text-slate-600">
+            Causewave helps companies with CSR strategy, programme design, and portfolio choices — including when to concentrate versus spray.
+            Explore <a href={`${base}services/`} class="text-sky-600 hover:underline">services</a> or get in touch.
+          </p>
+          <a href={`${base}contact/`} class="mt-4 inline-flex btn btn-primary px-6 py-2 text-sm">Get in Touch</a>
+        </div>
+      </div>
+    </article>
+  </main>
+</BaseLayout>

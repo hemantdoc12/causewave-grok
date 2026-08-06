@@ -14,9 +14,22 @@ const toneClasses: Record<string, { badge: string; bar: string }> = {
 };
 
 const featured = INSIGHT_POSTS.find((p) => p.slug === 'founder-story')!;
-const guides = INSIGHT_POSTS.filter((p) => p.slug !== 'founder-story');
+// Newest first (by datePublished) for on-site guides
+const guides = INSIGHT_POSTS
+  .filter((p) => p.slug !== 'founder-story')
+  .slice()
+  .sort((a, b) => b.datePublished.localeCompare(a.datePublished));
 
 const linkedInPosts = [
+  {
+    title: "Why India's CSR Cheque Size Won't Budge",
+    excerpt:
+      'Spend grew ~3× in a decade. The average project is still about ₹35 lakh. Why the system multiplies projects instead of enlarging them.',
+    date: 'Aug 2026',
+    tag: 'CSR Strategy',
+    tone: 'from-sky-500 to-sky-700',
+    href: 'https://www.linkedin.com/pulse/why-indias-csr-cheque-size-wont-budge-dr-hemant-patel-btz4f',
+  },
   {
     title: 'Breaking the Top 100 Spell: Unlocking Mid-Cap CSR for NGO Survival',
     excerpt:

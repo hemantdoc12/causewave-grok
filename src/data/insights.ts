@@ -39,6 +39,21 @@ export const INSIGHT_POSTS: InsightPost[] = [
     author: INSIGHT_AUTHOR.name,
   },
   {
+    slug: 'why-indias-csr-cheque-size-wont-budge',
+    path: 'insights/why-indias-csr-cheque-size-wont-budge/',
+    title: "Why India's CSR Cheque Size Won't Budge",
+    shortTitle: 'CSR Ticket Size',
+    description:
+      'CSR spend in India roughly tripled over a decade, yet average project size stayed near ₹35 lakh. Analysis of National CSR Portal filings and why the system multiplies projects instead of enlarging them.',
+    excerpt:
+      'Spend grew ~3× in a decade. The average project is still about ₹35 lakh. Five forces explain why Indian CSR scales by adding projects — not by raising ticket size.',
+    category: 'CSR Strategy',
+    categoryTone: 'sky',
+    datePublished: '2026-08-05',
+    dateLabel: 'Aug 2026',
+    author: INSIGHT_AUTHOR.name,
+  },
+  {
     slug: 'csr-compliance-companies-act-2013',
     path: 'insights/csr-compliance-companies-act-2013/',
     title: 'Understanding CSR Compliance Under Companies Act 2013',
