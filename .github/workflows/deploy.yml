@@ -5,14 +5,16 @@ on:
     branches: [main]
   workflow_dispatch:
 
+# Required for GitHub Pages deploy-pages action
 permissions:
   contents: read
   pages: write
   id-token: write
 
+# Only one Pages deploy at a time; cancel stale runs so a new push is not blocked
 concurrency:
   group: pages
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   build:
@@ -39,11 +41,12 @@ jobs:
           path: dist
 
   deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    # GitHub creates this env for Pages; do not add required reviewers or wait timers
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
