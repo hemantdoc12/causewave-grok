@@ -42,7 +42,7 @@ export const INSIGHT_POSTS: InsightPost[] = [
     slug: 'why-indias-csr-cheque-size-wont-budge',
     path: 'insights/why-indias-csr-cheque-size-wont-budge/',
     title: "Why India's CSR Cheque Size Won't Budge",
-    shortTitle: 'CSR Ticket Size',
+    shortTitle: 'Cheque Size',
     description:
       'CSR spend in India roughly tripled over a decade, yet average project size stayed near ₹35 lakh. Analysis of National CSR Portal filings and why the system multiplies projects instead of enlarging them.',
     excerpt:
@@ -50,6 +50,36 @@ export const INSIGHT_POSTS: InsightPost[] = [
     category: 'CSR Strategy',
     categoryTone: 'sky',
     datePublished: '2026-08-05',
+    dateLabel: 'Aug 2026',
+    author: INSIGHT_AUTHOR.name,
+  },
+  {
+    slug: 'concentrators-vs-sprayers-csr-strategies',
+    path: 'insights/concentrators-vs-sprayers-csr-strategies/',
+    title: 'Concentrators vs Sprayers: Two CSR Strategies Hiding in the Same Data',
+    shortTitle: 'Concentrators vs Sprayers',
+    description:
+      'CSR Ticket Size Part 2: how rare concentrators with large project rows and common sprayers with many small tickets produce India’s stuck national average cheque size.',
+    excerpt:
+      'Same Section 135 world, opposite geometry: concentrators write large rows; sprayers write many small ones. That split explains the stuck national average.',
+    category: 'CSR Strategy',
+    categoryTone: 'sky',
+    datePublished: '2026-08-11',
+    dateLabel: 'Aug 2026',
+    author: INSIGHT_AUTHOR.name,
+  },
+  {
+    slug: 'csr-sector-ticket-league',
+    path: 'insights/csr-sector-ticket-league/',
+    title: 'The CSR Sector Ticket League: Why “We Work in Education” Tells You Almost Nothing',
+    shortTitle: 'Sector Ticket League',
+    description:
+      'CSR Ticket Size Part 3: rank Indian CSR sectors by average project ticket — not total spend — and see why education and health keep the national average near ₹35 lakh.',
+    excerpt:
+      'Rank CSR by average cheque per sector and the podium changes. Education and health dominate spend but sit near the mean — that is why ticket size will not budge.',
+    category: 'CSR Strategy',
+    categoryTone: 'sky',
+    datePublished: '2026-08-19',
     dateLabel: 'Aug 2026',
     author: INSIGHT_AUTHOR.name,
   },

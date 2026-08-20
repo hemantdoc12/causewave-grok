@@ -1,0 +1,441 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import SeriesNav from '../../../components/SeriesNav.astro';
+import { SITE } from '../../../consts';
+import { getInsightBySlug, buildArticleJsonLd } from '../../../data/insights';
+import { getAdjacentParts } from '../../../data/series';
+
+const base = import.meta.env.BASE_URL;
+const post = getInsightBySlug('csr-sector-ticket-league')!;
+const articleJsonLd = buildArticleJsonLd(post, SITE.url);
+const { series, current, prev, next } = getAdjacentParts('csr-ticket-size', post.slug);
+const linkedInUrl = current!.linkedInUrl;
+---
+
+<BaseLayout 
+  title='The CSR Sector Ticket League: Why “We Work in Education” Tells You Almost Nothing | Causewave'
+  description={post.description}
+  ogTitle='The CSR Sector Ticket League: Why “We Work in Education” Tells You Almost Nothing'
+  ogDescription="Rank CSR by average cheque per sector — not total crore — and the podium changes. Education and health dominate spend but sit near the national mean."
+  canonicalPath={post.path}
+  activePage="insights"
+  ogType="article"
+  breadcrumbLabel={`Part 3: ${post.shortTitle}`}
+  breadcrumbParent={[
+    { name: 'Insights', path: 'insights/' },
+    { name: 'CSR Ticket Size', path: 'insights/csr-ticket-size/' },
+  ]}
+  jsonLd={articleJsonLd}
+>
+  <main>
+    <section class="bg-slate-900 text-white section">
+      <div class="max-w-screen-2xl mx-auto px-6">
+        <div class="max-w-3xl">
+          <a href={`${base}insights/csr-ticket-size/`} class="inline-flex items-center text-sm text-slate-400 hover:text-white transition-colors mb-6">
+            ← CSR Ticket Size series
+          </a>
+          <div class="flex items-center gap-3 mb-4">
+            <span class="text-xs font-medium text-sky-400 bg-sky-400/10 px-2.5 py-0.5 rounded-full">Part 3</span>
+            <span class="text-xs text-slate-500">{post.dateLabel}</span>
+          </div>
+          <h1 class="text-3xl md:text-4xl font-semibold tracking-tight">{post.title}</h1>
+          <p class="mt-4 text-slate-300 text-lg">{post.excerpt}</p>
+        </div>
+      </div>
+    </section>
+
+    <article class="section max-w-screen-2xl mx-auto px-6">
+      <div class="max-w-3xl">
+        <SeriesNav series={series!} current={current!} prev={prev} next={next} />
+        <p class="text-slate-600 leading-relaxed mb-6 text-lg">
+          Part 1: India’s CSR spend grew ~3×. The average project stayed near ₹35 lakh. Part 2: That average is produced by rare concentrators and common sprayers.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          <a href={`${base}insights/why-indias-csr-cheque-size-wont-budge/`} class="text-sky-600 hover:underline">Part 1 → Why India’s CSR Cheque Size Won’t Budge</a>
+          {' · '}
+          <a href={`${base}insights/concentrators-vs-sprayers-csr-strategies/`} class="text-sky-600 hover:underline">Part 2 → Concentrators vs Sprayers</a>
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          Last week ended with a claim this piece is here to prove:
+        </p>
+        <blockquote class="border-l-4 border-sky-500 pl-4 my-6 text-slate-700 italic">
+          The sector label does not decide the strategy. The ticket design does. You can be an “education CSR company” at ₹40 crore a row or at ₹8 lakh a row.
+        </blockquote>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          True at company level. Also true — with a twist — at national sector level.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          If you rank Indian CSR the usual way (who spent the most crore), you get a familiar podium: Education. Health. Rural. Environment.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-8">
+          If you rank it the way this series ranks things — <strong>average amount spent per project row</strong> — the podium changes. And that change explains a lot of why the national ticket size will not budge.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">How to read this league</h2>
+        <ul class="space-y-2 text-slate-600 mb-6">
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span><strong>Coverage:</strong> National CSR Portal company-wise filings, FY 2014-15 to FY 2024-25</span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span><strong>Metric:</strong> total amount spent ÷ number of project rows in that sector</span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span><strong>National benchmark:</strong> ~₹0.35 crore (~₹35 lakh) per row</span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>A “project” is a filing row, not always one ground programme</span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>Treat central funds (PMNRF, Swachh Bharat Kosh, other government funds) as contribution lines, not NGO-style projects</span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>Ignore NEC / Not Mentioned as a development sector — it is a labelling sink (lots of rows, little spend)</span></li>
+        </ul>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          This is not a ranking of need or impact. It is a ranking of how large the typical filed cheque is.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">The fat ticket league (all years)</h2>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          Sectors with enough volume to be meaningful (500+ project rows), highest average tickets:
+        </p>
+        <div class="overflow-x-auto mb-6">
+          <table class="w-full text-sm text-left border border-slate-200">
+            <thead class="bg-slate-100 text-slate-700">
+              <tr>
+                <th class="p-3">Sector</th>
+                <th class="p-3">Avg / project (approx.)</th>
+                <th class="p-3">vs national ₹35L</th>
+                <th class="p-3">All-years spend (approx.)</th>
+              </tr>
+            </thead>
+            <tbody class="text-slate-600">
+              <tr class="border-t">
+                <td class="p-3">Swachh Bharat Kosh</td>
+                <td class="p-3">₹69 lakh</td>
+                <td class="p-3">~2.0×</td>
+                <td class="p-3">₹1,600 cr</td>
+              </tr>
+              <tr class="border-t bg-slate-50">
+                <td class="p-3">Other Central Govt Funds</td>
+                <td class="p-3">₹66 lakh</td>
+                <td class="p-3">~1.9×</td>
+                <td class="p-3">₹5,500 cr</td>
+              </tr>
+              <tr class="border-t">
+                <td class="p-3">Vocational Skills</td>
+                <td class="p-3">₹58 lakh</td>
+                <td class="p-3">~1.7×</td>
+                <td class="p-3">₹9,600 cr</td>
+              </tr>
+              <tr class="border-t bg-slate-50">
+                <td class="p-3">Rural Development</td>
+                <td class="p-3">₹58 lakh</td>
+                <td class="p-3">~1.6×</td>
+                <td class="p-3">₹20,700 cr</td>
+              </tr>
+              <tr class="border-t">
+                <td class="p-3">Livelihood Enhancement</td>
+                <td class="p-3">₹55 lakh</td>
+                <td class="p-3">~1.6×</td>
+                <td class="p-3">₹11,600 cr</td>
+              </tr>
+              <tr class="border-t bg-slate-50">
+                <td class="p-3">Conservation of Natural Resources</td>
+                <td class="p-3">₹54 lakh</td>
+                <td class="p-3">~1.5×</td>
+                <td class="p-3">₹2,500 cr</td>
+              </tr>
+              <tr class="border-t">
+                <td class="p-3">Environmental Sustainability</td>
+                <td class="p-3">₹48 lakh</td>
+                <td class="p-3">~1.4×</td>
+                <td class="p-3">₹17,400 cr</td>
+              </tr>
+              <tr class="border-t bg-slate-50">
+                <td class="p-3">PM’s National Relief Fund</td>
+                <td class="p-3">₹46 lakh</td>
+                <td class="p-3">~1.3×</td>
+                <td class="p-3">₹6,700 cr</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Read it this way: when CSR is written as skills, livelihoods, rural works, environment-as-programme, or a contribution to a named fund, the average row is fatter. That is the closest thing the filings give us to a “large unit” sector cluster.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">The thin ticket league</h2>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          Same rules, lowest averages (NEC excluded):
+        </p>
+        <div class="overflow-x-auto mb-6">
+          <table class="w-full text-sm text-left border border-slate-200">
+            <thead class="bg-slate-100 text-slate-700">
+              <tr>
+                <th class="p-3">Sector</th>
+                <th class="p-3">Avg / project (approx.)</th>
+                <th class="p-3">vs national ₹35L</th>
+              </tr>
+            </thead>
+            <tbody class="text-slate-600">
+              <tr class="border-t">
+                <td class="p-3">Setting up orphanages</td>
+                <td class="p-3">₹11 lakh</td>
+                <td class="p-3">~0.3×</td>
+              </tr>
+              <tr class="border-t bg-slate-50">
+                <td class="p-3">Senior citizens welfare</td>
+                <td class="p-3">₹13 lakh</td>
+                <td class="p-3">~0.4×</td>
+              </tr>
+              <tr class="border-t">
+                <td class="p-3">Animal welfare</td>
+                <td class="p-3">₹15 lakh</td>
+                <td class="p-3">~0.4×</td>
+              </tr>
+              <tr class="border-t bg-slate-50">
+                <td class="p-3">Socio-economic equalities</td>
+                <td class="p-3">₹22 lakh</td>
+                <td class="p-3">~0.6×</td>
+              </tr>
+              <tr class="border-t">
+                <td class="p-3">Armed forces / veterans</td>
+                <td class="p-3">₹23 lakh</td>
+                <td class="p-3">~0.6×</td>
+              </tr>
+              <tr class="border-t bg-slate-50">
+                <td class="p-3">Women empowerment</td>
+                <td class="p-3">₹23 lakh</td>
+                <td class="p-3">~0.6×</td>
+              </tr>
+              <tr class="border-t">
+                <td class="p-3">Special education</td>
+                <td class="p-3">₹23 lakh</td>
+                <td class="p-3">~0.7×</td>
+              </tr>
+              <tr class="border-t bg-slate-50">
+                <td class="p-3">Safe drinking water</td>
+                <td class="p-3">₹25 lakh</td>
+                <td class="p-3">~0.7×</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          These are not “small CSR themes” in a moral sense. They are small-ticket filing themes. Many rows. Modest cheques. High count of interventions.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          If your board wants “more women / seniors / special education” and a rising average ticket, the national pattern says those two wishes fight each other — unless you deliberately concentrate.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">The volume problem: the biggest sectors are the average</h2>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          Now the twist that kills the national mean. Education and Health Care together are about:
+        </p>
+        <ul class="space-y-2 text-slate-600 mb-6">
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>~48% of all project rows</span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>~52% of all CSR spent</span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>Average ticket: ~₹37 lakh (education) and ~₹40 lakh (health)</span></li>
+        </ul>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          That is not “fat.” That is slightly above the national mean — which they largely <em>are</em>. When half of Indian CSR lives in two headings whose typical row is ₹35–40 lakh, the national average cannot wander far from ₹35 lakh.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          Rural, skills, and livelihoods can be fatter. They are not big enough to pull the country with them. A useful bundle:
+        </p>
+        <div class="overflow-x-auto mb-4">
+          <table class="w-full text-sm text-left border border-slate-200">
+            <thead class="bg-slate-100 text-slate-700">
+              <tr>
+                <th class="p-3">Bundle (all years)</th>
+                <th class="p-3">Share of spend</th>
+                <th class="p-3">Share of rows</th>
+                <th class="p-3">Avg ticket</th>
+              </tr>
+            </thead>
+            <tbody class="text-slate-600">
+              <tr class="border-t">
+                <td class="p-3">Education + Health</td>
+                <td class="p-3">~52%</td>
+                <td class="p-3">~48%</td>
+                <td class="p-3">~₹38 lakh</td>
+              </tr>
+              <tr class="border-t bg-slate-50">
+                <td class="p-3">Fatter cluster*</td>
+                <td class="p-3">~27%</td>
+                <td class="p-3">~17%</td>
+                <td class="p-3">~₹55 lakh</td>
+              </tr>
+              <tr class="border-t">
+                <td class="p-3">Thinner social cluster**</td>
+                <td class="p-3">~5%</td>
+                <td class="p-3">~9%</td>
+                <td class="p-3">~₹20 lakh</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="text-sm text-slate-500 mb-2">
+          *Vocational skills, rural development, livelihoods, environment, conservation, selected funds.
+        </p>
+        <p class="text-sm text-slate-500 mb-6">
+          **Women, special education, seniors, animals, orphanages, equalities, drinking water, veterans.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Most of the money is in the middle of the league table. That is why ranking CSR by total crore and ranking it by ticket size tell different stories.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">What changed over the decade (this is the dagger)</h2>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          Compare early years (FY 2014-16) with recent years (FY 2022-24). The volume engines gained share — and got slightly thinner.
+        </p>
+        <div class="overflow-x-auto mb-6">
+          <table class="w-full text-sm text-left border border-slate-200">
+            <thead class="bg-slate-100 text-slate-700">
+              <tr>
+                <th class="p-3">Sector</th>
+                <th class="p-3">Spend share early → late</th>
+                <th class="p-3">Avg ticket early → late</th>
+              </tr>
+            </thead>
+            <tbody class="text-slate-600">
+              <tr class="border-t">
+                <td class="p-3">Education</td>
+                <td class="p-3">~29% → ~34%</td>
+                <td class="p-3">~₹41L → ~₹36L</td>
+              </tr>
+              <tr class="border-t bg-slate-50">
+                <td class="p-3">Health Care</td>
+                <td class="p-3">~18% → ~21%</td>
+                <td class="p-3">~₹44L → ~₹36L</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          Some fatter themes actually thickened — but stayed smaller in the mix.
+        </p>
+        <div class="overflow-x-auto mb-6">
+          <table class="w-full text-sm text-left border border-slate-200">
+            <thead class="bg-slate-100 text-slate-700">
+              <tr>
+                <th class="p-3">Sector</th>
+                <th class="p-3">Spend share early → late</th>
+                <th class="p-3">Avg ticket early → late</th>
+              </tr>
+            </thead>
+            <tbody class="text-slate-600">
+              <tr class="border-t">
+                <td class="p-3">Livelihoods</td>
+                <td class="p-3">~3% → ~6%</td>
+                <td class="p-3">~₹44L → ~₹61L</td>
+              </tr>
+              <tr class="border-t bg-slate-50">
+                <td class="p-3">Vocational skills</td>
+                <td class="p-3">~3% → ~4%</td>
+                <td class="p-3">~₹46L → ~₹55L</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          And one historically fat volume theme thinned hard:
+        </p>
+        <ul class="space-y-2 text-slate-600 mb-6">
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>Rural development: spend share ~10% → ~7%; average ticket ~₹83 lakh → ~₹50 lakh</span></li>
+        </ul>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          So the decade did not fail to invent fatter tickets. Livelihoods and skills did fatten. The country still could not lift the national average, because:
+        </p>
+        <ol class="list-decimal list-inside space-y-2 text-slate-600 mb-6">
+          <li>Education and health took more of the pie while their own tickets softened, and</li>
+          <li>Rural development, once a fat ticket engine, lost both share and ticket size, and</li>
+          <li>The sectors that thickened never became the centre of gravity.</li>
+        </ol>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          That is mix + ticket, not mystery.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">A blunt counterfactual</h2>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Keep every project count as it is. Give only Education + Health the average ticket of Vocational Skills (~₹58 lakh instead of ~₹38 lakh). The national average would jump from ~₹35 lakh to ~₹45 lakh.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          One sector-design shift in the two largest headings — holding counts constant — is worth about ₹10 lakh on the national mean.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Thin social sectors moving up to the current national average would barely move the country (a couple of lakh at most). They don’t have the volume.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          If you want the all-India number to rise, you cannot do it in the thin tail. You have to change unit size where the rows already are. That sentence is the series, applied to sectors.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">Why some sectors run fat and others run thin (interpretation)</h2>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          Label this as interpretation. The filings show the pattern; they do not prove motives.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-2 font-medium text-slate-800">Fatter tickets tend to appear where the unit of work is expensive or lumpy</p>
+        <ul class="space-y-2 text-slate-600 mb-6">
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>Skills and livelihoods: training infrastructure, placements, multi-year cohorts</span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>Rural works and environment: assets, watersheds, plants, public goods</span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>Named funds: one contribution line, large utilisation</span></li>
+        </ul>
+        <p class="text-slate-600 leading-relaxed mb-2 font-medium text-slate-800">Thinner tickets tend to appear where the unit of work is a grant, a home, a camp, a local activity</p>
+        <ul class="space-y-2 text-slate-600 mb-6">
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>Women, seniors, orphanages, special education, animal welfare, drinking-water points</span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>Easy to multiply across partners and locations</span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>Easy to keep each line “board-safe” and small</span></li>
+        </ul>
+        <p class="text-slate-600 leading-relaxed mb-2 font-medium text-slate-800">Education and health sit in between because they can be either</p>
+        <ul class="space-y-2 text-slate-600 mb-6">
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>A university, a hospital, a large trust → concentrator rows</span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>A thousand school kits / health camps → sprayer rows</span></li>
+        </ul>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Same heading. Opposite geometry. Which is why “we work in education” is not a ticket-size strategy. Part 2 showed that at company level. The league table shows it at country level: education is #1 in spend and only middle of the pack in average cheque.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">What this means if you actually file CSR</h2>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          Three practical reads. Steal them.
+        </p>
+        <ol class="list-decimal list-inside space-y-3 text-slate-600 mb-6">
+          <li><strong>Sector choice is a weak lever for your average — unless you change unit size.</strong> Moving a sprayer from “education” to “women empowerment” can make the average worse. Moving a concentrator from “education” to “skills” may not be the point. Concentration already did the work.</li>
+          <li><strong>If the committee wants a higher average ticket, look at where you already have volume.</strong> For most large filers, that is education and health. Fewer, larger programmes inside those headings beat a romantic shift to a “fatter” niche you barely operate.</li>
+          <li><strong>If you are an implementing organisation, match the sector’s natural ticket — then decide whether to fight it.</strong> A ₹8 lakh proposal in livelihoods is fighting the national grain. A ₹8 lakh proposal in senior-citizen welfare is in the grain. Neither fact makes the proposal good. It tells you what buyers already do.</li>
+        </ol>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">What this is not saying</h2>
+        <ul class="space-y-2 text-slate-600 mb-6">
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>Not that thin-ticket sectors deserve less money.</span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>Not that funds (PMNRF, Kosh) are “better CSR” because the row is large.</span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>Not that every education project should become a ₹50 lakh line.</span></li>
+        </ul>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          It is saying:
+        </p>
+        <blockquote class="border-l-4 border-sky-500 pl-4 my-6 text-slate-700 italic">
+          India’s CSR sector mix is a volume mix. The headings that dominate spend sit near ₹35–40 lakh per row. The headings that run ₹50–70 lakh per row do not dominate spend. Until that geometry changes, “we work in X” will keep sounding like a strategy — and keep failing as an explanation of ticket size.
+        </blockquote>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">Series close</h2>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          Part 1: Why ticket size won’t budge · Part 2: Concentrators vs sprayers · Part 3 (this): The sector ticket league
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Next — Part 4: <em>Geography of the Cheque</em>. Pan-India rows that average over a crore. Odisha vs Kerala. Why high-spend states are not always high-ticket states.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          If you run education or health CSR: is your portfolio sitting on the ₹38 lakh national middle — or have you actually chosen a fat or thin design inside the heading?
+        </p>
+
+        <p class="text-sm text-slate-500 mb-8">
+          <strong>Data:</strong> National CSR Portal company-wise project filings, FY 2014-15 to FY 2024-25. Averages = amount spent ÷ project rows. Latest year may be incomplete due to filing lag.
+          Also on{' '}
+          <a href={linkedInUrl} target="_blank" rel="noopener noreferrer" class="text-sky-600 hover:underline">LinkedIn</a>.
+        </p>
+
+        <SeriesNav series={series!} current={current!} prev={prev} next={next} />
+
+        <div class="mt-8 p-6 rounded-2xl bg-slate-50 border">
+          <h3 class="font-semibold text-lg">Designing CSR portfolios that go deeper, not only wider?</h3>
+          <p class="mt-2 text-sm text-slate-600">
+            Causewave helps companies with CSR strategy, programme design, and portfolio choices — including when to concentrate versus spray.
+            Explore <a href={`${base}services/`} class="text-sky-600 hover:underline">services</a> or get in touch.
+          </p>
+          <a href={`${base}contact/`} class="mt-4 inline-flex btn btn-primary px-6 py-2 text-sm">Get in Touch</a>
+        </div>
+      </div>
+    </article>
+  </main>
+</BaseLayout>

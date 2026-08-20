@@ -1,0 +1,442 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import SeriesNav from '../../../components/SeriesNav.astro';
+import { SITE } from '../../../consts';
+import { getInsightBySlug, buildArticleJsonLd } from '../../../data/insights';
+import { getAdjacentParts } from '../../../data/series';
+
+const base = import.meta.env.BASE_URL;
+const post = getInsightBySlug('concentrators-vs-sprayers-csr-strategies')!;
+const articleJsonLd = buildArticleJsonLd(post, SITE.url);
+const { series, current, prev, next } = getAdjacentParts('csr-ticket-size', post.slug);
+const linkedInUrl = current!.linkedInUrl;
+---
+
+<BaseLayout 
+  title="Concentrators vs Sprayers: Two CSR Strategies Hiding in the Same Data | Causewave"
+  description={post.description}
+  ogTitle="Concentrators vs Sprayers: Two CSR Strategies Hiding in the Same Data"
+  ogDescription="Same Section 135 world, opposite geometry: concentrators write large rows; sprayers write many small ones. That split explains India’s stuck national average."
+  canonicalPath={post.path}
+  activePage="insights"
+  ogType="article"
+  breadcrumbLabel={`Part 2: ${post.shortTitle}`}
+  breadcrumbParent={[
+    { name: 'Insights', path: 'insights/' },
+    { name: 'CSR Ticket Size', path: 'insights/csr-ticket-size/' },
+  ]}
+  jsonLd={articleJsonLd}
+>
+  <main>
+    <section class="bg-slate-900 text-white section">
+      <div class="max-w-screen-2xl mx-auto px-6">
+        <div class="max-w-3xl">
+          <a href={`${base}insights/csr-ticket-size/`} class="inline-flex items-center text-sm text-slate-400 hover:text-white transition-colors mb-6">
+            ← CSR Ticket Size series
+          </a>
+          <div class="flex items-center gap-3 mb-4">
+            <span class="text-xs font-medium text-sky-400 bg-sky-400/10 px-2.5 py-0.5 rounded-full">Part 2</span>
+            <span class="text-xs text-slate-500">{post.dateLabel}</span>
+          </div>
+          <h1 class="text-3xl md:text-4xl font-semibold tracking-tight">{post.title}</h1>
+          <p class="mt-4 text-slate-300 text-lg">{post.excerpt}</p>
+        </div>
+      </div>
+    </section>
+
+    <article class="section max-w-screen-2xl mx-auto px-6">
+      <div class="max-w-3xl">
+        <SeriesNav series={series!} current={current!} prev={prev} next={next} />
+        <p class="text-slate-600 leading-relaxed mb-6 text-lg">
+          Last week’s finding was simple and stubborn.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          India’s CSR spend grew roughly 3× over a decade. The average project stayed near <strong>₹35 lakh</strong>. The typical company still clears closer to <strong>₹12 lakh</strong> per project.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          If you missed Part 1: <a href={`${base}insights/why-indias-csr-cheque-size-wont-budge/`} class="text-sky-600 hover:underline">Why India’s CSR Cheque Size Won’t Budge</a>.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          This week is about the exception — and the rule. Because the national average is not produced by one kind of company. It is produced by two different portfolio strategies sitting inside the same statute:
+        </p>
+        <ul class="space-y-2 text-slate-600 mb-8">
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span><strong>Concentrators</strong> write few or moderate numbers of large project rows.</span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span><strong>Sprayers</strong> write many project rows at small average tickets.</span></li>
+        </ul>
+        <p class="text-slate-600 leading-relaxed mb-8">
+          Same Section 135 world. Opposite geometry.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">A simple definition (so we argue about strategy, not vibes)</h2>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          Using multi-year National CSR Portal company profiles (FY 2014-15 → FY 2024-25):
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-2 font-medium text-slate-800">Concentrator</p>
+        <ul class="space-y-2 text-slate-600 mb-6">
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>Meaningful cumulative spend (here: roughly ₹50 crore+ across years in the data), and</span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>Average amount spent per project row ≥ ₹5 crore</span></li>
+        </ul>
+        <p class="text-slate-600 leading-relaxed mb-2 font-medium text-slate-800">Sprayer</p>
+        <ul class="space-y-2 text-slate-600 mb-6">
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>Meaningful cumulative spend (here: ₹20 crore+), and</span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>80+ project rows, and</span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>Average per row ≤ ₹15 lakh</span></li>
+        </ul>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          These are filing patterns, not moral grades. A concentrator can be shallow. A sprayer can be deeply present in communities. The portal cannot see outcomes. It can see how money is sliced.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">How rare is concentration?</h2>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          Among companies with at least ₹20 crore cumulative CSR spent in the dataset (~1,400 companies):
+        </p>
+        <div class="overflow-x-auto mb-6">
+          <table class="w-full text-sm text-left border border-slate-200">
+            <thead class="bg-slate-100 text-slate-700">
+              <tr>
+                <th class="p-3">Pattern</th>
+                <th class="p-3">Rough share</th>
+              </tr>
+            </thead>
+            <tbody class="text-slate-600">
+              <tr class="border-t">
+                <td class="p-3">Average project ≥ ₹5 crore</td>
+                <td class="p-3">~5%</td>
+              </tr>
+              <tr class="border-t bg-slate-50">
+                <td class="p-3">Average project ≥ ₹2 crore</td>
+                <td class="p-3">~16%</td>
+              </tr>
+              <tr class="border-t">
+                <td class="p-3">Average project ≥ ₹1 crore</td>
+                <td class="p-3">~37%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          Among all companies with 15+ project rows (~11,000):
+        </p>
+        <ul class="space-y-2 text-slate-600 mb-6">
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>Only a few dozen clear ₹5 crore+ average tickets</span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>Well over a thousand show the opposite shape: 50+ rows with averages ≤ ₹15 lakh</span></li>
+        </ul>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          So when people say “CSR is big money,” they are often describing totals. When you look at ticket design, concentration is a minority sport.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          That minority is exactly why the weighted national average (~₹35 lakh) sits above the median company (~₹12 lakh). A thin layer of large rows lifts the mean. The mass of filers does not live there.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">What a concentrator looks like</h2>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          Concentrators do not all look the same. But they share a geometry: large average row size — often ₹10 crore to ₹50 crore+ — sustained across years.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          Illustrative public-filing profiles (cumulative; averages are amount spent ÷ project rows):
+        </p>
+        <div class="overflow-x-auto mb-4">
+          <table class="w-full text-sm text-left border border-slate-200">
+            <thead class="bg-slate-100 text-slate-700">
+              <tr>
+                <th class="p-3">Company (illustrative)</th>
+                <th class="p-3">Project rows</th>
+                <th class="p-3">Cumulative spent (approx.)</th>
+                <th class="p-3">Avg / row (approx.)</th>
+              </tr>
+            </thead>
+            <tbody class="text-slate-600">
+              <tr class="border-t">
+                <td class="p-3">Tata Consultancy Services</td>
+                <td class="p-3">~130</td>
+                <td class="p-3">~₹6,200 cr</td>
+                <td class="p-3">~₹49 cr</td>
+              </tr>
+              <tr class="border-t bg-slate-50">
+                <td class="p-3">ITC</td>
+                <td class="p-3">~120</td>
+                <td class="p-3">~₹3,500 cr</td>
+                <td class="p-3">~₹28 cr</td>
+              </tr>
+              <tr class="border-t">
+                <td class="p-3">Reliance Industries</td>
+                <td class="p-3">~350</td>
+                <td class="p-3">~₹9,200 cr</td>
+                <td class="p-3">~₹26 cr</td>
+              </tr>
+              <tr class="border-t bg-slate-50">
+                <td class="p-3">Tata Sons</td>
+                <td class="p-3">~80</td>
+                <td class="p-3">~₹1,600 cr</td>
+                <td class="p-3">~₹21 cr</td>
+              </tr>
+              <tr class="border-t">
+                <td class="p-3">Axis Bank</td>
+                <td class="p-3">~110</td>
+                <td class="p-3">~₹1,700 cr</td>
+                <td class="p-3">~₹16 cr</td>
+              </tr>
+              <tr class="border-t bg-slate-50">
+                <td class="p-3">Tech Mahindra</td>
+                <td class="p-3">~60</td>
+                <td class="p-3">~₹980 cr</td>
+                <td class="p-3">~₹15 cr</td>
+              </tr>
+              <tr class="border-t">
+                <td class="p-3">ONGC</td>
+                <td class="p-3">~350</td>
+                <td class="p-3">~₹5,100 cr</td>
+                <td class="p-3">~₹14 cr</td>
+              </tr>
+              <tr class="border-t bg-slate-50">
+                <td class="p-3">Wipro</td>
+                <td class="p-3">~170</td>
+                <td class="p-3">~₹2,100 cr</td>
+                <td class="p-3">~₹13 cr</td>
+              </tr>
+              <tr class="border-t">
+                <td class="p-3">HUL</td>
+                <td class="p-3">~140</td>
+                <td class="p-3">~₹1,600 cr</td>
+                <td class="p-3">~₹12 cr</td>
+              </tr>
+              <tr class="border-t bg-slate-50">
+                <td class="p-3">ICICI Bank</td>
+                <td class="p-3">~190</td>
+                <td class="p-3">~₹2,300 cr</td>
+                <td class="p-3">~₹12 cr</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="text-sm text-slate-500 mb-6">
+          Numbers rounded; use them as pattern evidence, not a league table of virtue.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-2 font-medium text-slate-800">What concentration often means in practice</p>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          From year-by-year filings, concentrators tend to show:
+        </p>
+        <ol class="list-decimal list-inside space-y-3 text-slate-600 mb-6">
+          <li><strong>Stable large tickets.</strong> Example pattern: ITC often lands in the ₹25–50 crore average range with roughly single-digit to low-teen project rows in a year — large programmes, not a spray of micro-lines.</li>
+          <li><strong>High medians, not one lucky year.</strong> Example pattern: TCS’s year-level averages are repeatedly multi-crore (sometimes extremely high when rows are few), not a one-off spike.</li>
+          <li><strong>Scale without abandoning size.</strong> Reliance and ONGC show you can have hundreds of rows and still keep a double-digit crore average. That is not “few projects only.” That is large unit economics even at volume — a hybrid we will return to.</li>
+          <li><strong>Education / health / livelihoods as the flagship line.</strong> Among strict concentrators, top sectors still skew to Education and Health — same headings as everyone else. Concentration is not “secret niche sectors.” It is how big each line is written.</li>
+        </ol>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">What a sprayer looks like</h2>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          Sprayers are not “small CSR.” Many have spent tens of crores over the decade. They simply cut the pie into many slices.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          Illustrative profiles:
+        </p>
+        <div class="overflow-x-auto mb-4">
+          <table class="w-full text-sm text-left border border-slate-200">
+            <thead class="bg-slate-100 text-slate-700">
+              <tr>
+                <th class="p-3">Company (illustrative)</th>
+                <th class="p-3">Project rows</th>
+                <th class="p-3">Cumulative spent (approx.)</th>
+                <th class="p-3">Avg / row (approx.)</th>
+              </tr>
+            </thead>
+            <tbody class="text-slate-600">
+              <tr class="border-t">
+                <td class="p-3">Cochin Shipyard</td>
+                <td class="p-3">~780</td>
+                <td class="p-3">~₹100 cr</td>
+                <td class="p-3">~₹13 lakh</td>
+              </tr>
+              <tr class="border-t bg-slate-50">
+                <td class="p-3">Can Fin Homes</td>
+                <td class="p-3">~690</td>
+                <td class="p-3">~₹73 cr</td>
+                <td class="p-3">~₹11 lakh</td>
+              </tr>
+              <tr class="border-t">
+                <td class="p-3">South Indian Bank</td>
+                <td class="p-3">~650</td>
+                <td class="p-3">~₹87 cr</td>
+                <td class="p-3">~₹13 lakh</td>
+              </tr>
+              <tr class="border-t bg-slate-50">
+                <td class="p-3">NSE Clearing</td>
+                <td class="p-3">~560</td>
+                <td class="p-3">~₹76 cr</td>
+                <td class="p-3">~₹14 lakh</td>
+              </tr>
+              <tr class="border-t">
+                <td class="p-3">Ion Exchange (India)</td>
+                <td class="p-3">~500</td>
+                <td class="p-3">~₹22 cr</td>
+                <td class="p-3">~₹4 lakh</td>
+              </tr>
+              <tr class="border-t bg-slate-50">
+                <td class="p-3">Blue Cross Laboratories</td>
+                <td class="p-3">~390</td>
+                <td class="p-3">~₹34 cr</td>
+                <td class="p-3">~₹9 lakh</td>
+              </tr>
+              <tr class="border-t">
+                <td class="p-3">Super Auto Forge</td>
+                <td class="p-3">~380</td>
+                <td class="p-3">~₹36 cr</td>
+                <td class="p-3">~₹9 lakh</td>
+              </tr>
+              <tr class="border-t bg-slate-50">
+                <td class="p-3">BCG (India)</td>
+                <td class="p-3">~350</td>
+                <td class="p-3">~₹31 cr</td>
+                <td class="p-3">~₹9 lakh</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="text-sm text-slate-500 mb-6">
+          Again: pattern, not shame.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-2 font-medium text-slate-800">What spraying often means in practice</p>
+        <ol class="list-decimal list-inside space-y-3 text-slate-600 mb-6">
+          <li><strong>Project count becomes the growth variable.</strong> As budgets rise, rows rise with them. Average ticket stays in a narrow band.</li>
+          <li><strong>Medians live near the national “typical company.”</strong> Year after year, averages cluster around ₹5–15 lakh — the same neighbourhood as the national median story from Part 1.</li>
+          <li><strong>Education and health again.</strong> Sprayers’ top sectors are also often Education and Health.</li>
+        </ol>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          That is the uncomfortable punchline:
+        </p>
+        <blockquote class="border-l-4 border-sky-500 pl-4 my-6 text-slate-700 italic">
+          The sector label does not decide the strategy. The ticket design does.
+        </blockquote>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          You can be an “education CSR company” at ₹40 crore a row or at ₹8 lakh a row. Both file under the same heading. Only one moves a national average.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">The hybrid: many rows and large tickets</h2>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          There is a third shape worth naming. Some of India’s largest CSR programmes are not “5 projects only.” They run 100–400+ rows and still hold averages of ₹5–25 crore+.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Think: large conglomerates and PSUs that operate multi-state footprints without collapsing to micro-tickets. Call them <strong>scale concentrators</strong>.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          They prove an important point for boards: fragmentation is a choice, not a law of large numbers. You can be big, present in many places, and still refuse the ₹10 lakh default.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">Why both strategies exist (interpretation)</h2>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          The data shows the split. Incentives help explain it.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-2 font-medium text-slate-800">Why concentrate</p>
+        <ul class="space-y-2 text-slate-600 mb-6">
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>Anchor programmes (institutions, multi-year missions, flagship trusts)</span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>Fewer implementing relationships to govern</span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>Brand and board narrative prefer depth</span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>Ability to absorb multi-crore utilisation risk</span></li>
+        </ul>
+        <p class="text-slate-600 leading-relaxed mb-2 font-medium text-slate-800">Why spray</p>
+        <ul class="space-y-2 text-slate-600 mb-6">
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>Local-area coverage across plants, branches, districts</span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>Many NGO partners, each with limited absorption capacity</span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>Risk spreading (“don’t put the 2% in three baskets”)</span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>Visibility of activity (more inaugurations than one mega outlay)</span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>Filing reality: one ground theme can become many state/district/partner rows</span></li>
+        </ul>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Neither is automatically “better impact.” But they are not the same strategy with different branding. If your committee says “we want depth” and your portal profile looks like 400 rows at ₹10 lakh, the filing pattern is voting against the speech.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">A practical self-test (steal this for your next CSR review)</h2>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          Pull your last 3–5 years of project rows. Compute:
+        </p>
+        <ol class="list-decimal list-inside space-y-2 text-slate-600 mb-6">
+          <li><strong>A.</strong> Average ticket = total spent ÷ number of project rows</li>
+          <li><strong>B.</strong> Median ticket (sort projects; pick the middle)</li>
+          <li><strong>C.</strong> Project count trend vs budget trend</li>
+        </ol>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          Then place yourself:
+        </p>
+        <div class="overflow-x-auto mb-6">
+          <table class="w-full text-sm text-left border border-slate-200">
+            <thead class="bg-slate-100 text-slate-700">
+              <tr>
+                <th class="p-3">If you see…</th>
+                <th class="p-3">You are probably…</th>
+              </tr>
+            </thead>
+            <tbody class="text-slate-600">
+              <tr class="border-t">
+                <td class="p-3">Avg ≥ ₹5 cr, stable across years</td>
+                <td class="p-3">Concentrator</td>
+              </tr>
+              <tr class="border-t bg-slate-50">
+                <td class="p-3">Avg ₹1–5 cr with controlled row growth</td>
+                <td class="p-3">Moderate / hybrid</td>
+              </tr>
+              <tr class="border-t">
+                <td class="p-3">Budget ↑ and rows ↑ at same pace; avg stuck ₹5–20 lakh</td>
+                <td class="p-3">Sprayer</td>
+              </tr>
+              <tr class="border-t bg-slate-50">
+                <td class="p-3">Avg high only because of 1–2 giant rows + many tiny ones</td>
+                <td class="p-3">Barbell (not true concentration)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Barbells are common. A single ₹100 crore line next to fifty ₹5 lakh lines can create a flattering average and a messy operating model. Ask for <strong>median ticket</strong>, not only average.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">What this means for the stuck national average</h2>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          Part 1 asked: why won’t the average rise? Part 2’s answer is sharper:
+        </p>
+        <ol class="list-decimal list-inside space-y-2 text-slate-600 mb-6">
+          <li>True concentrators are rare (~5% of material filers at ₹5 crore+ average).</li>
+          <li>Spraying is common even among companies that spend serious money.</li>
+          <li>Sector choice doesn’t fix it — education/health host both strategies.</li>
+          <li>Therefore the national machine keeps adding rows, not depth per row.</li>
+        </ol>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          The average is not waiting for better intentions. It is waiting for a different portfolio geometry at scale — and that geometry remains a minority choice.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">What this is not saying</h2>
+        <ul class="space-y-2 text-slate-600 mb-6">
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>Not “sprayers waste money.”</span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>Not “only TCS-style portfolios are real CSR.”</span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>Not “every mid-size company should force ₹10 crore projects.”</span></li>
+        </ul>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          Absorption capacity, geography, and partner ecosystems matter. It is saying:
+        </p>
+        <blockquote class="border-l-4 border-sky-500 pl-4 my-6 text-slate-700 italic">
+          If India ever wants the national average project to rise, more capital has to move from the sprayer geometry into larger unit sizes — or the country will keep celebrating higher totals while ticket size stays frozen.
+        </blockquote>
+
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Next in the series — Part 3: <a href={`${base}insights/csr-sector-ticket-league/`} class="text-sky-600 hover:underline">The CSR Sector Ticket League</a> — which development sectors systematically get fat cheques vs thin ones, and why “we work in education” tells you almost nothing about ticket size.
+        </p>
+
+        <p class="text-sm text-slate-500 mb-8">
+          <strong>Data:</strong> National CSR Portal company-wise project filings, FY 2014-15 to FY 2024-25. Averages = amount spent ÷ project rows unless noted. Latest year may be incomplete due to filing lag. Company figures are illustrative patterns from aggregated public filings.
+          Also on{' '}
+          <a href={linkedInUrl} target="_blank" rel="noopener noreferrer" class="text-sky-600 hover:underline">LinkedIn</a>.
+        </p>
+
+        <SeriesNav series={series!} current={current!} prev={prev} next={next} />
+
+        <div class="mt-8 p-6 rounded-2xl bg-slate-50 border">
+          <h3 class="font-semibold text-lg">Designing CSR portfolios that go deeper, not only wider?</h3>
+          <p class="mt-2 text-sm text-slate-600">
+            Causewave helps companies with CSR strategy, programme design, and portfolio choices — including when to concentrate versus spray.
+            Explore <a href={`${base}services/`} class="text-sky-600 hover:underline">services</a> or get in touch.
+          </p>
+          <a href={`${base}contact/`} class="mt-4 inline-flex btn btn-primary px-6 py-2 text-sm">Get in Touch</a>
+        </div>
+      </div>
+    </article>
+  </main>
+</BaseLayout>

@@ -1,13 +1,15 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import SeriesNav from '../../../components/SeriesNav.astro';
 import { SITE } from '../../../consts';
 import { getInsightBySlug, buildArticleJsonLd } from '../../../data/insights';
+import { getAdjacentParts } from '../../../data/series';
 
 const base = import.meta.env.BASE_URL;
 const post = getInsightBySlug('why-indias-csr-cheque-size-wont-budge')!;
 const articleJsonLd = buildArticleJsonLd(post, SITE.url);
-const linkedInUrl =
-  'https://www.linkedin.com/pulse/why-indias-csr-cheque-size-wont-budge-dr-hemant-patel-btz4f';
+const { series, current, prev, next } = getAdjacentParts('csr-ticket-size', post.slug);
+const linkedInUrl = current!.linkedInUrl;
 ---
 
 <BaseLayout 
@@ -18,22 +20,23 @@ const linkedInUrl =
   canonicalPath={post.path}
   activePage="insights"
   ogType="article"
-  breadcrumbLabel={post.shortTitle}
-  breadcrumbParent={{ name: 'Insights', path: 'insights/' }}
+  breadcrumbLabel={`Part 1: ${post.shortTitle}`}
+  breadcrumbParent={[
+    { name: 'Insights', path: 'insights/' },
+    { name: 'CSR Ticket Size', path: 'insights/csr-ticket-size/' },
+  ]}
   jsonLd={articleJsonLd}
 >
   <main>
     <section class="bg-slate-900 text-white section">
       <div class="max-w-screen-2xl mx-auto px-6">
         <div class="max-w-3xl">
-          <a href={`${base}insights/`} class="inline-flex items-center text-sm text-slate-400 hover:text-white transition-colors mb-6">
-            <svg class="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
-            Back to Insights
+          <a href={`${base}insights/csr-ticket-size/`} class="inline-flex items-center text-sm text-slate-400 hover:text-white transition-colors mb-6">
+            ← CSR Ticket Size series
           </a>
           <div class="flex items-center gap-3 mb-4">
-            <span class="text-xs font-medium text-sky-400 bg-sky-400/10 px-2.5 py-0.5 rounded-full">{post.category}</span>
+            <span class="text-xs font-medium text-sky-400 bg-sky-400/10 px-2.5 py-0.5 rounded-full">Part 1</span>
             <span class="text-xs text-slate-500">{post.dateLabel}</span>
-            <span class="text-xs text-slate-500">Part 1 · CSR Ticket Size</span>
           </div>
           <h1 class="text-3xl md:text-4xl font-semibold tracking-tight">{post.title}</h1>
           <p class="mt-4 text-slate-300 text-lg">{post.excerpt}</p>
@@ -43,6 +46,7 @@ const linkedInUrl =
 
     <article class="section max-w-screen-2xl mx-auto px-6">
       <div class="max-w-3xl">
+        <SeriesNav series={series!} current={current!} prev={prev} next={next} />
         <p class="text-slate-600 leading-relaxed mb-6 text-lg">
           Spend grew. Projects grew. The average project did not.
         </p>
@@ -232,18 +236,13 @@ const linkedInUrl =
 
         <p class="text-sm text-slate-500 mb-8">
           <strong>Data:</strong> National CSR Portal company-wise project filings, FY 2014-15 to FY 2024-25. Averages are amount spent per project row unless noted.
-        </p>
-        <p class="text-slate-600 leading-relaxed mb-6">
-          This is <strong>Part 1 of CSR Ticket Size</strong>. Next: Concentrators vs Sprayers — the companies that break the pattern with very large average project rows.
-        </p>
-        <p class="text-sm text-slate-500 mb-8">
-          Also published on{' '}
-          <a href={linkedInUrl} target="_blank" rel="noopener noreferrer" class="text-sky-600 hover:underline">
-            LinkedIn
-          </a>.
+          Also on{' '}
+          <a href={linkedInUrl} target="_blank" rel="noopener noreferrer" class="text-sky-600 hover:underline">LinkedIn</a>.
         </p>
 
-        <div class="mt-12 p-6 rounded-2xl bg-slate-50 border">
+        <SeriesNav series={series!} current={current!} prev={prev} next={next} />
+
+        <div class="mt-8 p-6 rounded-2xl bg-slate-50 border">
           <h3 class="font-semibold text-lg">Designing CSR portfolios that go deeper, not only wider?</h3>
           <p class="mt-2 text-sm text-slate-600">
             Causewave helps companies with CSR strategy, programme design, and portfolio choices — including when to concentrate versus spray.
