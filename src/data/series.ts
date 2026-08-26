@@ -29,7 +29,7 @@ export const CSR_TICKET_SIZE_SERIES: InsightSeries = {
   name: 'CSR Ticket Size',
   path: 'insights/csr-ticket-size/',
   description:
-    'A data series on India’s CSR project economics using National CSR Portal filings: why average cheque size stays flat, who concentrates vs sprays, and which sectors run fat or thin tickets.',
+    'A data series on India’s CSR project economics using National CSR Portal filings: why average cheque size stays flat, who concentrates vs sprays, which sectors run fat or thin tickets, and why high-spend states are not high-ticket states.',
   parts: [
     {
       part: 1,
@@ -70,9 +70,22 @@ export const CSR_TICKET_SIZE_SERIES: InsightSeries = {
       linkedInUrl:
         'https://www.linkedin.com/pulse/csr-sector-ticket-league-why-we-work-education-tells-you-patel-bcfxf/',
     },
+    {
+      part: 4,
+      slug: 'geography-of-the-cheque-csr-states',
+      path: 'insights/geography-of-the-cheque-csr-states/',
+      title: 'The Geography of the Cheque: High-Spend States Are Not High-Ticket States',
+      shortTitle: 'Geography of the Cheque',
+      excerpt:
+        'Rank CSR by average ticket per geography and the map flips: Pan-India and Odisha run fat cheques; Maharashtra-shaped volume states dominate spend with ordinary tickets.',
+      datePublished: '2026-08-26',
+      dateLabel: 'Aug 26, 2026',
+      linkedInUrl:
+        'https://www.linkedin.com/pulse/geography-cheque-high-spend-states-high-ticket-dr-hemant-patel-wo38e/',
+    },
   ],
   upcoming:
-    'Part 4 — Geography of the Cheque: pan-India rows, Odisha vs Kerala, and why high-spend states are not always high-ticket states.',
+    'Part 5 — The ₹12 Lakh Company: the typical filer — not TCS, not a 700-row sprayer — the median company-year still near ₹12 lakh a project.',
 };
 
 export const INSIGHT_SERIES = [CSR_TICKET_SIZE_SERIES] as const;

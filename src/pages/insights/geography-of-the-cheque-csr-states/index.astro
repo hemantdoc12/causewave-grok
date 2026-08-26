@@ -1,0 +1,457 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import SeriesNav from '../../../components/SeriesNav.astro';
+import { SITE } from '../../../consts';
+import { getInsightBySlug, buildArticleJsonLd } from '../../../data/insights';
+import { getAdjacentParts } from '../../../data/series';
+
+const base = import.meta.env.BASE_URL;
+const post = getInsightBySlug('geography-of-the-cheque-csr-states')!;
+const articleJsonLd = buildArticleJsonLd(post, SITE.url);
+const { series, current, prev, next } = getAdjacentParts('csr-ticket-size', post.slug);
+const linkedInUrl = current!.linkedInUrl;
+---
+
+<BaseLayout 
+  title='The Geography of the Cheque: High-Spend States Are Not High-Ticket States | Causewave'
+  description={post.description}
+  ogTitle='The Geography of the Cheque: High-Spend States Are Not High-Ticket States'
+  ogDescription="Rank CSR by average ticket per geography and the map flips: Pan-India and Odisha run fat cheques; Maharashtra-shaped volume states dominate spend with ordinary tickets."
+  canonicalPath={post.path}
+  activePage="insights"
+  ogType="article"
+  breadcrumbLabel={`Part 4: ${post.shortTitle}`}
+  breadcrumbParent={[
+    { name: 'Insights', path: 'insights/' },
+    { name: 'CSR Ticket Size', path: 'insights/csr-ticket-size/' },
+  ]}
+  jsonLd={articleJsonLd}
+>
+  <main>
+    <section class="bg-slate-900 text-white section">
+      <div class="max-w-screen-2xl mx-auto px-6">
+        <div class="max-w-3xl">
+          <a href={`${base}insights/csr-ticket-size/`} class="inline-flex items-center text-sm text-slate-400 hover:text-white transition-colors mb-6">
+            ← CSR Ticket Size series
+          </a>
+          <div class="flex items-center gap-3 mb-4">
+            <span class="text-xs font-medium text-sky-400 bg-sky-400/10 px-2.5 py-0.5 rounded-full">Part 4</span>
+            <span class="text-xs text-slate-500">{post.dateLabel}</span>
+          </div>
+          <h1 class="text-3xl md:text-4xl font-semibold tracking-tight">{post.title}</h1>
+          <p class="mt-4 text-slate-300 text-lg">{post.excerpt}</p>
+        </div>
+      </div>
+    </section>
+
+    <article class="section max-w-screen-2xl mx-auto px-6">
+      <div class="max-w-3xl">
+        <SeriesNav series={series!} current={current!} prev={prev} next={next} />
+        <p class="text-slate-600 leading-relaxed mb-6 text-lg">
+          Part 1: India’s CSR spend grew ~3×. The average project stayed near ₹35 lakh. Part 2: Rare concentrators, common sprayers. Part 3: “We work in education” tells you almost nothing about ticket size.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          <a href={`${base}insights/why-indias-csr-cheque-size-wont-budge/`} class="text-sky-600 hover:underline">Part 1 → Why India’s CSR Cheque Size Won’t Budge</a>
+          {' · '}
+          <a href={`${base}insights/concentrators-vs-sprayers-csr-strategies/`} class="text-sky-600 hover:underline">Part 2 → Concentrators vs Sprayers</a>
+          {' · '}
+          <a href={`${base}insights/csr-sector-ticket-league/`} class="text-sky-600 hover:underline">Part 3 → The CSR Sector Ticket League</a>
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          Last week ended with a map we had not opened yet:
+        </p>
+        <blockquote class="border-l-4 border-sky-500 pl-4 my-6 text-slate-700 italic">
+          Pan-India rows that average over a crore. Odisha vs Kerala. Why high-spend states are not always high-ticket states.
+        </blockquote>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          This is that map.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          If you rank Indian CSR by where the crore go, you already know the picture: Maharashtra, Gujarat, Karnataka, Tamil Nadu — plus a large Pan-India bucket.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          If you rank it by average amount spent per project row, the map flips.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-8">
+          Volume geographies are not fat-ticket geographies. That is the same geometry we saw with sectors. It is just wearing a state name.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">How to read this map</h2>
+        <ul class="space-y-2 text-slate-600 mb-6">
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span><strong>Source:</strong> National CSR Portal company-wise filings, FY 2014-15 to FY 2024-25</span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span><strong>Metric:</strong> amount spent ÷ project rows tagged to that geography</span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span><strong>National benchmark:</strong> ~₹35 lakh per row</span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>Pan India and Other Centralized Funds are filing labels, not states — they still matter, because they hold a huge share of money</span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>NEC / Not Mentioned is a labelling sink (many rows, almost no spend). Ignore it as a place</span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>A “project” is a filing row. Multi-state programmes, HQ tagging, and plant-local splits all shape the map</span></li>
+        </ul>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          This is not a ranking of which state “deserves” CSR. It is a ranking of how large the typical filed cheque is, once you pick a geography.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">The fat geographies</h2>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          Enough volume to be meaningful (2,000+ project rows). Highest average tickets:
+        </p>
+        <div class="overflow-x-auto mb-6">
+          <table class="w-full text-sm text-left border border-slate-200">
+            <thead class="bg-slate-100 text-slate-700">
+              <tr>
+                <th class="p-3">Geography</th>
+                <th class="p-3">Avg / project (approx.)</th>
+                <th class="p-3">vs national ₹35L</th>
+                <th class="p-3">Share of all-India spend</th>
+              </tr>
+            </thead>
+            <tbody class="text-slate-600">
+              <tr class="border-t">
+                <td class="p-3">Pan India</td>
+                <td class="p-3">₹1.32 crore</td>
+                <td class="p-3">~3.7×</td>
+                <td class="p-3">~24%</td>
+              </tr>
+              <tr class="border-t bg-slate-50">
+                <td class="p-3">Odisha</td>
+                <td class="p-3">₹70 lakh</td>
+                <td class="p-3">~2.0×</td>
+                <td class="p-3">~3%</td>
+              </tr>
+              <tr class="border-t">
+                <td class="p-3">Assam</td>
+                <td class="p-3">₹63 lakh</td>
+                <td class="p-3">~1.8×</td>
+                <td class="p-3">~1%</td>
+              </tr>
+              <tr class="border-t bg-slate-50">
+                <td class="p-3">Andhra Pradesh</td>
+                <td class="p-3">₹55 lakh</td>
+                <td class="p-3">~1.6×</td>
+                <td class="p-3">~4%</td>
+              </tr>
+              <tr class="border-t">
+                <td class="p-3">Other Centralized Funds</td>
+                <td class="p-3">₹55 lakh</td>
+                <td class="p-3">~1.6×</td>
+                <td class="p-3">~6%</td>
+              </tr>
+              <tr class="border-t bg-slate-50">
+                <td class="p-3">Chhattisgarh</td>
+                <td class="p-3">₹47 lakh</td>
+                <td class="p-3">~1.3×</td>
+                <td class="p-3">~1%</td>
+              </tr>
+              <tr class="border-t">
+                <td class="p-3">Bihar</td>
+                <td class="p-3">₹45 lakh</td>
+                <td class="p-3">~1.3×</td>
+                <td class="p-3">~1%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Pan-India is the quiet giant of this series. ~1 in 4 CSR rupees is filed as Pan-India. Only ~1 in 15 project rows is. That is concentration by another name: fewer lines, much larger cheques, tagged to the country rather than a district.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Odisha is the sharpest state example. It is not a top-three spender. It is a top-tier ticket. Average project there is about double the national mean.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">The volume geographies (lots of CSR, ordinary tickets)</h2>
+        <div class="overflow-x-auto mb-6">
+          <table class="w-full text-sm text-left border border-slate-200">
+            <thead class="bg-slate-100 text-slate-700">
+              <tr>
+                <th class="p-3">Geography</th>
+                <th class="p-3">Avg / project (approx.)</th>
+                <th class="p-3">Share of spend</th>
+                <th class="p-3">Share of project rows</th>
+              </tr>
+            </thead>
+            <tbody class="text-slate-600">
+              <tr class="border-t">
+                <td class="p-3">Maharashtra</td>
+                <td class="p-3">₹32 lakh</td>
+                <td class="p-3">~17%</td>
+                <td class="p-3">~19%</td>
+              </tr>
+              <tr class="border-t bg-slate-50">
+                <td class="p-3">Gujarat</td>
+                <td class="p-3">₹29 lakh</td>
+                <td class="p-3">~7%</td>
+                <td class="p-3">~8%</td>
+              </tr>
+              <tr class="border-t">
+                <td class="p-3">Karnataka</td>
+                <td class="p-3">₹28 lakh</td>
+                <td class="p-3">~6%</td>
+                <td class="p-3">~8%</td>
+              </tr>
+              <tr class="border-t bg-slate-50">
+                <td class="p-3">Delhi</td>
+                <td class="p-3">₹28 lakh</td>
+                <td class="p-3">~4%</td>
+                <td class="p-3">~5%</td>
+              </tr>
+              <tr class="border-t">
+                <td class="p-3">Tamil Nadu</td>
+                <td class="p-3">₹23 lakh</td>
+                <td class="p-3">~5%</td>
+                <td class="p-3">~8%</td>
+              </tr>
+              <tr class="border-t bg-slate-50">
+                <td class="p-3">Kerala</td>
+                <td class="p-3">₹19 lakh</td>
+                <td class="p-3">~1%</td>
+                <td class="p-3">~2%</td>
+              </tr>
+              <tr class="border-t">
+                <td class="p-3">West Bengal</td>
+                <td class="p-3">₹21 lakh</td>
+                <td class="p-3">~2%</td>
+                <td class="p-3">~4%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Maharashtra is India’s CSR factory floor: the most project rows of any state, roughly one in six rupees, and an average ticket slightly below the national mean.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          That is the Part 3 education story, in geographic form. Being where companies are headquartered and where plants are dense produces rows. It does not automatically produce large rows.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">Three geography clusters</h2>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          Bundle it:
+        </p>
+        <div class="overflow-x-auto mb-4">
+          <table class="w-full text-sm text-left border border-slate-200">
+            <thead class="bg-slate-100 text-slate-700">
+              <tr>
+                <th class="p-3">Cluster (all years)</th>
+                <th class="p-3">Share of spend</th>
+                <th class="p-3">Share of rows</th>
+                <th class="p-3">Avg ticket</th>
+              </tr>
+            </thead>
+            <tbody class="text-slate-600">
+              <tr class="border-t">
+                <td class="p-3">Pan-India + centralized funds</td>
+                <td class="p-3">~30%</td>
+                <td class="p-3">~10%</td>
+                <td class="p-3">~₹1.0 cr</td>
+              </tr>
+              <tr class="border-t bg-slate-50">
+                <td class="p-3">Mining / hinterland belt*</td>
+                <td class="p-3">~10%</td>
+                <td class="p-3">~7%</td>
+                <td class="p-3">~₹55 lakh</td>
+              </tr>
+              <tr class="border-t">
+                <td class="p-3">Big industrial / southern volume**</td>
+                <td class="p-3">~38%</td>
+                <td class="p-3">~48%</td>
+                <td class="p-3">~₹28 lakh</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="text-sm text-slate-500 mb-2">
+          *Odisha, Chhattisgarh, Jharkhand, Assam, Andhra Pradesh.
+        </p>
+        <p class="text-sm text-slate-500 mb-6">
+          **Maharashtra, Gujarat, Karnataka, Tamil Nadu, Kerala, West Bengal. Pan-India + funds mix of ~₹1.3 cr and ~₹0.55 cr.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Most of the places CSR is filed sit in the ₹20–32 lakh band. Most of the fat rupees sit in Pan-India and a short list of hinterland states.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">Same sector, three maps</h2>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          Part 3 said sector does not decide ticket size. Geography makes that concrete — even inside education.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          Illustrative all-years pattern for Education project rows:
+        </p>
+        <div class="overflow-x-auto mb-6">
+          <table class="w-full text-sm text-left border border-slate-200">
+            <thead class="bg-slate-100 text-slate-700">
+              <tr>
+                <th class="p-3">Where education is filed</th>
+                <th class="p-3">Approx. avg ticket</th>
+              </tr>
+            </thead>
+            <tbody class="text-slate-600">
+              <tr class="border-t">
+                <td class="p-3">Odisha</td>
+                <td class="p-3">~₹96 lakh</td>
+              </tr>
+              <tr class="border-t bg-slate-50">
+                <td class="p-3">Maharashtra</td>
+                <td class="p-3">~₹30 lakh</td>
+              </tr>
+              <tr class="border-t">
+                <td class="p-3">Kerala</td>
+                <td class="p-3">~₹18 lakh</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Same heading. Same Schedule VII line. Five-fold difference in typical row size between Odisha and Kerala.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Health shows the same split: fatter in Odisha / Chhattisgarh / Assam; thinner in Kerala / Tamil Nadu / West Bengal.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          So if your CSR policy says “education in our local area,” you have still not chosen a ticket size. You have chosen a map. The map comes with a default cheque.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">What changed over the decade</h2>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          Two movements matter.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-4 font-medium text-slate-800">
+          1. Pan-India lost share of spend — and the remaining Pan-India rows got much fatter.
+        </p>
+        <div class="overflow-x-auto mb-6">
+          <table class="w-full text-sm text-left border border-slate-200">
+            <thead class="bg-slate-100 text-slate-700">
+              <tr>
+                <th class="p-3">Metric</th>
+                <th class="p-3">Early (FY14-16)</th>
+                <th class="p-3">Late (FY22-24)</th>
+              </tr>
+            </thead>
+            <tbody class="text-slate-600">
+              <tr class="border-t">
+                <td class="p-3">Pan-India share of spend</td>
+                <td class="p-3">~33%</td>
+                <td class="p-3">~14%</td>
+              </tr>
+              <tr class="border-t bg-slate-50">
+                <td class="p-3">Pan-India avg ticket</td>
+                <td class="p-3">~₹69 lakh</td>
+                <td class="p-3">~₹1.6 crore</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          More money is being tagged to actual states. That looks like localisation of filing — consistent with “prefer local area” as a lived practice, not just a sentence in the Act. But the Pan-India lines that remain are large.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          The country did not abandon national programmes. It separated them: many small-to-medium state rows, plus a thinner set of very large all-India rows.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-4 font-medium text-slate-800">
+          2. Volume states took more of the mix without becoming fat-ticket states.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Maharashtra’s spend share rose (~15% → ~19%). Gujarat rose too. Their average tickets stayed in the ₹30 lakh neighbourhood.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Andhra Pradesh is the reverse image: spend share down, average ticket down hard (~₹92 lakh → ~₹47 lakh). Assam and rural-industrial states also saw tickets soften from very high bases.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Net: geography, like sector, did not fatten the national mean. The mix shifted toward more state-tagged volume — Maharashtra-shaped CSR — while the fattest remaining bucket (Pan-India) shrank as a share of the pie.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">A blunt counterfactual</h2>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Keep Maharashtra’s enormous project count as it is. Give those rows Odisha’s average ticket (~₹70 lakh instead of ~₹32 lakh). The national average would move from ~₹35 lakh to ~₹42 lakh.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          That is smaller than last week’s education+health counterfactual, and still large.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Flip it: if Pan-India rows had been filed at Maharashtra’s average ticket, the national mean would fall toward ~₹29 lakh.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Pan-India is currently propping the national average up. Maharashtra-shaped volume is what keeps it from rising.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          If your mental model is “CSR will deepen as it localises,” the filings warn you: localisation so far has often meant more state rows at ordinary tickets, not Odisha-style unit size everywhere.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">Why the map looks like this (interpretation)</h2>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          Label this as interpretation. The portal shows where rows land, not why a board chose them.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-2 font-medium text-slate-800">Fat state tickets often sit where the industrial unit is large, lumpy, and place-bound</p>
+        <ul class="space-y-2 text-slate-600 mb-6">
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>Mining, metals, energy, big plant towns</span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>One or two dominant employers, multi-year local programmes</span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>Harder to hide behind 400 micro-grants when the geography is a district, not a metro sprawl</span></li>
+        </ul>
+        <p class="text-slate-600 leading-relaxed mb-2 font-medium text-slate-800">Volume-state tickets sit where the corporate map is dense</p>
+        <ul class="space-y-2 text-slate-600 mb-6">
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>HQ cities, many companies, many plants, many NGO partners</span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>Local-area preference × many sites = many rows</span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>Easy to be visible in 12 municipal wards with ₹8–20 lakh lines</span></li>
+        </ul>
+        <p class="text-slate-600 leading-relaxed mb-2 font-medium text-slate-800">Pan-India tickets sit where the programme is designed as national</p>
+        <ul class="space-y-2 text-slate-600 mb-6">
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>Flagship trusts, multi-state missions, contribution-style lines</span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>One row can carry a crore because the geography is the country</span></li>
+        </ul>
+        <p class="text-slate-600 leading-relaxed mb-2 font-medium text-slate-800">Local-area preference is a double-edged rule</p>
+        <ul class="space-y-2 text-slate-600 mb-6">
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>It can deepen a plant district (Odisha-shaped).</span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>It can also spray a company across every state it operates in (Maharashtra-shaped, Kerala-shaped).</span></li>
+        </ul>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          The law does not choose. Portfolio design does.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">What this means if you file CSR</h2>
+        <ol class="list-decimal list-inside space-y-3 text-slate-600 mb-6">
+          <li><strong>“We spend in Maharashtra / Tamil Nadu / Gujarat” is not a depth claim.</strong> It is often a volume claim. Ask for average and median ticket in that state, not only total crore.</li>
+          <li><strong>If you operate in a fat-ticket state and still file ₹10 lakh education rows, you are choosing to be a sprayer against the local grain.</strong> The state default is not your destiny — but it is the comparison your stakeholders can now make.</li>
+          <li><strong>If you operate in a volume state and want a higher average, do not wait for geography to do it.</strong> Part 2 still applies: fewer, larger programmes, including inside education and health. Or deliberately keep a Pan-India / multi-state flagship large enough that localisation does not mean fragmentation.</li>
+          <li><strong>Implementing organisations should price to the map.</strong> A ₹5 crore rural programme is a more natural conversation in some Odisha / AP industrial belts than in a Kerala municipal CSR calendar. That is market structure, not merit.</li>
+        </ol>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">What this is not saying</h2>
+        <ul class="space-y-2 text-slate-600 mb-6">
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>Not that Odisha “does CSR better” than Kerala.</span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>Not that Pan-India tagging is a loophole or a virtue.</span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>Not that every metro company should imitate a mining-town portfolio.</span></li>
+        </ul>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          It is saying:
+        </p>
+        <blockquote class="border-l-4 border-sky-500 pl-4 my-6 text-slate-700 italic">
+          High-spend states are the factory floor of Indian CSR. High-ticket geographies are fewer: Pan-India, a handful of hinterland states, and centralized funds. Until volume states change unit size — or Pan-India stays large — the national average will keep looking like Maharashtra, not Odisha.
+        </blockquote>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">Series close</h2>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          Part 1: Why ticket size won’t budge · Part 2: Concentrators vs sprayers · Part 3: The sector ticket league · Part 4 (this): Geography of the cheque
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Next — Part 5: <em>The ₹12 Lakh Company</em>. The typical filer — not TCS, not a sprayer with 700 rows — the median company-year still sitting near ₹12 lakh a project. That is most of Corporate India. That is the silent majority behind a frozen average.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          If you file CSR in more than one state: do you have one ticket-size policy, or did each geography quietly invent its own?
+        </p>
+
+        <p class="text-sm text-slate-500 mb-8">
+          <strong>Data:</strong> National CSR Portal company-wise project filings, FY 2014-15 to FY 2024-25. Averages = amount spent ÷ project rows. Latest year may be incomplete due to filing lag.
+          Also on{' '}
+          <a href={linkedInUrl} target="_blank" rel="noopener noreferrer" class="text-sky-600 hover:underline">LinkedIn</a>.
+        </p>
+
+        <SeriesNav series={series!} current={current!} prev={prev} next={next} />
+
+        <div class="mt-8 p-6 rounded-2xl bg-slate-50 border">
+          <h3 class="font-semibold text-lg">Designing CSR portfolios that go deeper, not only wider?</h3>
+          <p class="mt-2 text-sm text-slate-600">
+            Causewave helps companies with CSR strategy, programme design, and portfolio choices — including when to concentrate versus spray.
+            Explore <a href={`${base}services/`} class="text-sky-600 hover:underline">services</a> or get in touch.
+          </p>
+          <a href={`${base}contact/`} class="mt-4 inline-flex btn btn-primary px-6 py-2 text-sm">Get in Touch</a>
+        </div>
+      </div>
+    </article>
+  </main>
+</BaseLayout>

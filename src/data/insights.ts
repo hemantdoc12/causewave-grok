@@ -84,6 +84,21 @@ export const INSIGHT_POSTS: InsightPost[] = [
     author: INSIGHT_AUTHOR.name,
   },
   {
+    slug: 'geography-of-the-cheque-csr-states',
+    path: 'insights/geography-of-the-cheque-csr-states/',
+    title: 'The Geography of the Cheque: High-Spend States Are Not High-Ticket States',
+    shortTitle: 'Geography of the Cheque',
+    description:
+      'CSR Ticket Size Part 4: pan-India rows averaging over a crore, Odisha vs Kerala, and why Maharashtra-shaped volume states dominate spend without fat tickets.',
+    excerpt:
+      'High-spend states are the CSR factory floor. High-ticket geographies are fewer: Pan-India, hinterland states, and centralized funds. Volume is not depth.',
+    category: 'CSR Strategy',
+    categoryTone: 'sky',
+    datePublished: '2026-08-26',
+    dateLabel: 'Aug 2026',
+    author: INSIGHT_AUTHOR.name,
+  },
+  {
     slug: 'csr-compliance-companies-act-2013',
     path: 'insights/csr-compliance-companies-act-2013/',
     title: 'Understanding CSR Compliance Under Companies Act 2013',
