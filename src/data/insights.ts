@@ -99,6 +99,21 @@ export const INSIGHT_POSTS: InsightPost[] = [
     author: INSIGHT_AUTHOR.name,
   },
   {
+    slug: 'the-12-lakh-company-csr-median',
+    path: 'insights/the-12-lakh-company-csr-median/',
+    title: 'The ₹12 Lakh Company: Most of Corporate India Is Not in the Average',
+    shortTitle: 'The ₹12 Lakh Company',
+    description:
+      'CSR Ticket Size Part 5: the median company-year files about ₹11–12 lakh per project and ₹23 lakh for the year — why most of Corporate India cannot move the national ₹35 lakh average.',
+    excerpt:
+      '₹35 lakh is a money average. The median filer is a ₹12 lakh ticket and a ₹23 lakh year. Headcount and rupees are two different Indias.',
+    category: 'CSR Strategy',
+    categoryTone: 'sky',
+    datePublished: '2026-08-31',
+    dateLabel: 'Aug 2026',
+    author: INSIGHT_AUTHOR.name,
+  },
+  {
     slug: 'csr-compliance-companies-act-2013',
     path: 'insights/csr-compliance-companies-act-2013/',
     title: 'Understanding CSR Compliance Under Companies Act 2013',

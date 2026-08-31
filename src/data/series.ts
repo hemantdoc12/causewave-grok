@@ -29,7 +29,7 @@ export const CSR_TICKET_SIZE_SERIES: InsightSeries = {
   name: 'CSR Ticket Size',
   path: 'insights/csr-ticket-size/',
   description:
-    'A data series on India’s CSR project economics using National CSR Portal filings: why average cheque size stays flat, who concentrates vs sprays, which sectors run fat or thin tickets, and why high-spend states are not high-ticket states.',
+    'A data series on India’s CSR project economics using National CSR Portal filings: why average cheque size stays flat, who concentrates vs sprays, which sectors and states run fat or thin tickets, and why most of Corporate India is a ₹12 lakh company.',
   parts: [
     {
       part: 1,
@@ -83,9 +83,22 @@ export const CSR_TICKET_SIZE_SERIES: InsightSeries = {
       linkedInUrl:
         'https://www.linkedin.com/pulse/geography-cheque-high-spend-states-high-ticket-dr-hemant-patel-wo38e/',
     },
+    {
+      part: 5,
+      slug: 'the-12-lakh-company-csr-median',
+      path: 'insights/the-12-lakh-company-csr-median/',
+      title: 'The ₹12 Lakh Company: Most of Corporate India Is Not in the Average',
+      shortTitle: 'The ₹12 Lakh Company',
+      excerpt:
+        '₹35 lakh is the spend-weighted average. The typical company-year files ~₹11–12 lakh per project and ~₹23 lakh for the whole year. Meet the median — and why it cannot move the national ticket.',
+      datePublished: '2026-08-31',
+      dateLabel: 'Aug 31, 2026',
+      linkedInUrl:
+        'https://www.linkedin.com/pulse/12-lakh-company-most-corporate-india-average-dr-hemant-patel-abujc/',
+    },
   ],
   upcoming:
-    'Part 5 — The ₹12 Lakh Company: the typical filer — not TCS, not a 700-row sprayer — the median company-year still near ₹12 lakh a project.',
+    'Part 6 — Education & Health: Volume Machines: the two headings that swallow about half of Indian CSR — and keep the national ticket near ₹35 lakh.',
 };
 
 export const INSIGHT_SERIES = [CSR_TICKET_SIZE_SERIES] as const;
