@@ -24,6 +24,8 @@ const websiteJsonLd = {
   description={SEO.home.description}
   ogTitle={SEO.home.ogTitle}
   ogDescription={SEO.home.ogDescription}
+  ogImage="images/og/home.jpg"
+  ogImageAlt="Aerial view of farmland and a city skyline along a river — CSR consulting across India"
   activePage="home" 
   canonicalPath=""
   jsonLd={websiteJsonLd}
@@ -78,15 +80,15 @@ const websiteJsonLd = {
       <div class="max-w-screen-2xl mx-auto px-6 py-8">
         <div class="grid md:grid-cols-3 gap-8 text-center" id="stats-section">
           <div>
-            <div class="counter text-4xl font-semibold text-sky-600" data-target="50">0</div>
+            <div class="counter text-4xl font-semibold text-sky-600" data-target="50">50</div>
             <div class="mt-1 text-sm text-slate-600">Happy Clients</div>
           </div>
           <div>
-            <div class="text-4xl font-semibold text-teal-600">₹<span class="counter" data-target="10">0</span> Crore+</div>
+            <div class="text-4xl font-semibold text-teal-600">₹<span class="counter" data-target="10">10</span> Crore+</div>
             <div class="mt-1 text-sm text-slate-600">CSR Impact Generated</div>
           </div>
           <div>
-            <div class="counter text-4xl font-semibold text-emerald-600" data-target="100">0</div>
+            <div class="counter text-4xl font-semibold text-emerald-600" data-target="100">100</div>
             <div class="mt-1 text-sm text-slate-600">Compliance Success</div>
           </div>
         </div>
@@ -99,11 +101,12 @@ const websiteJsonLd = {
           const target = parseInt(counter.dataset.target);
           const duration = 1400;
           const startTime = performance.now();
+          counter.textContent = '0';
           function update(currentTime) {
             const progress = Math.min((currentTime - startTime) / duration, 1);
-            counter.textContent = Math.floor(progress * target);
+            counter.textContent = String(Math.floor(progress * target));
             if (progress < 1) requestAnimationFrame(update);
-            else counter.textContent = target;
+            else counter.textContent = String(target);
           }
           requestAnimationFrame(update);
         });
@@ -220,9 +223,19 @@ const websiteJsonLd = {
             Causewave is a CSR consulting firm in India built for programmes that must satisfy boards, regulators, and communities.
             We combine corporate social responsibility strategy with field-tested public health leadership — 18+ years of delivery expertise across states.
           </p>
-          <a href={`${base}about/`} class="mt-5 inline-flex btn btn-outline px-6 py-3 text-sm">
-            Learn More About Us →
-          </a>
+          <p class="mt-4 text-slate-600 leading-relaxed">
+            The practice is led by
+            <a href={`${base}insights/founder-story/`} class="text-sky-600 hover:underline">Dr. Hemant L. Patel</a>
+            — from WHO surveillance to Gujarat’s SKOCH Gold Award-winning last-mile healthcare.
+          </p>
+          <div class="mt-5 flex flex-col sm:flex-row gap-3">
+            <a href={`${base}about/`} class="inline-flex btn btn-outline px-6 py-3 text-sm">
+              Learn More About Us →
+            </a>
+            <a href={`${base}insights/founder-story/`} class="inline-flex btn btn-outline px-6 py-3 text-sm">
+              Read the founder story →
+            </a>
+          </div>
         </div>
 
         <div class="grid grid-cols-2 gap-4">

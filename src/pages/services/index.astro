@@ -51,6 +51,8 @@ const servicesJsonLd = {
   description={SEO.services.description}
   ogTitle={SEO.services.ogTitle}
   ogDescription={SEO.services.ogDescription}
+  ogImage="images/og/services.jpg"
+  ogImageAlt="CSR strategy workshop table with India map, charts, and programme notes"
   canonicalPath="services/"
   activePage="services"
   breadcrumbLabel="Services"
@@ -67,6 +69,12 @@ const servicesJsonLd = {
           </h1>
           <p class="hero-animate hero-animate-delay-1 mt-5 text-lg text-slate-300 max-w-2xl">
             {SEO.services.h1Sub}
+          </p>
+          <p class="hero-animate hero-animate-delay-2 mt-5 text-sm text-slate-400 max-w-2xl">
+            Led by
+            <a href={`${base}insights/founder-story/`} class="text-sky-300 hover:underline">Dr. Hemant L. Patel</a>
+            — 18+ years of public health and last-mile delivery.
+            <a href={`${base}insights/founder-story/`} class="text-sky-300 hover:underline">Read the founder story →</a>
           </p>
         </div>
       </div>

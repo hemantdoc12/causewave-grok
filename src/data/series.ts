@@ -29,7 +29,7 @@ export const CSR_TICKET_SIZE_SERIES: InsightSeries = {
   name: 'CSR Ticket Size',
   path: 'insights/csr-ticket-size/',
   description:
-    'A data series on India’s CSR project economics using National CSR Portal filings: why average cheque size stays flat, who concentrates vs sprays, which sectors and states run fat or thin tickets, and why most of Corporate India is a ₹12 lakh company.',
+    'National CSR Portal data series: why India’s average cheque stays near ₹35 lakh, who concentrates vs sprays, and why most filers are ₹12 lakh companies.',
   parts: [
     {
       part: 1,

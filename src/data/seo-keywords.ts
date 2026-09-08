@@ -21,7 +21,7 @@ export const SEO = {
   home: {
     title: 'Causewave | CSR Consulting Firm India — Strategy, Impact & Compliance',
     description:
-      'CSR consulting firm in India helping corporates with CSR strategy, programme design, impact measurement, Section 135 compliance, and community-trusted social impact programmes. Public health leadership across India.',
+      'CSR consulting firm in India helping corporates with strategy, programme design, impact measurement, and Section 135 compliance. Public health leadership.',
     ogTitle: 'Causewave | Corporate CSR Strategy, Impact Measurement & Advisory',
     ogDescription:
       'Impact consulting for India Inc: CSR strategy, flagship programme design, portfolio advisory, impact assessment, and compliance under the Companies Act 2013.',
@@ -34,7 +34,7 @@ export const SEO = {
   about: {
     title: 'About Causewave | Impact & CSR Consulting Firm in India',
     description:
-      'Causewave is an India-based impact and CSR consulting firm. We bridge corporate social responsibility compliance with measurable community impact — rooted in 18+ years of public health leadership.',
+      'Causewave is an India CSR consulting firm bridging Section 135 compliance with measurable community impact — rooted in 18+ years of public health.',
     ogTitle: 'About Causewave | CSR & Social Impact Consulting',
     ogDescription:
       'Learn how Causewave helps companies and partners design CSR programmes that satisfy boards, regulators, and communities across India.',
@@ -43,7 +43,7 @@ export const SEO = {
   services: {
     title: 'CSR Services | Strategy, Programme Design, Impact Measurement & Advisory',
     description:
-      'Corporate CSR and sustainability support: CSR strategy, flagship programme design, portfolio advisory, compliance, impact measurement, resource mobilisation, and technology for social impact programmes in India.',
+      'CSR strategy, programme design, portfolio advisory, impact measurement, Section 135 compliance, and technology for social impact programmes in India.',
     ogTitle: 'CSR Strategy, Advisory & Impact Consulting | Causewave',
     ogDescription:
       'End-to-end CSR consulting: strategy, programme design, implementation, impact assessment, compliance, and AI-powered impact communication for corporates and NGOs.',
@@ -55,7 +55,7 @@ export const SEO = {
   contact: {
     title: 'Contact Causewave | CSR & Impact Consulting in India',
     description:
-      'Talk to Causewave about CSR strategy, impact measurement, programme design, or Section 135 compliance. CSR consulting firm based in Ahmedabad, serving companies and NGOs across India.',
+      'Contact Causewave for CSR strategy, impact measurement, programme design, or Section 135 compliance. Ahmedabad-based, serving companies across India.',
     ogTitle: 'Contact Causewave | Book a CSR Strategy Conversation',
     ogDescription:
       'Get in touch for corporate CSR advisory, impact assessment, and social impact programme design across India.',

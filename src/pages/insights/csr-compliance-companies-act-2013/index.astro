@@ -6,6 +6,36 @@ import { getInsightBySlug, buildArticleJsonLd } from '../../../data/insights';
 const base = import.meta.env.BASE_URL;
 const post = getInsightBySlug('csr-compliance-companies-act-2013')!;
 const articleJsonLd = buildArticleJsonLd(post, SITE.url);
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Is CSR the same as charity donations?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. CSR spend must fit the statutory framework (policy, eligible activities, reporting). Ad hoc donations without governance often fail compliance and impact tests.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Can we fund only one large NGO?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'You can concentrate spend if the activity is eligible and governed — but partner concentration risk, capacity, and geography fit should be reviewed. Mid-cap and multi-partner strategies often improve resilience.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Do we need impact data for compliance?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Statutory compliance focuses on spend and disclosure; boards and regulators increasingly expect outcome evidence. Build a light M&E layer from day one.',
+      },
+    },
+  ],
+};
 ---
 
 <BaseLayout 
@@ -13,12 +43,14 @@ const articleJsonLd = buildArticleJsonLd(post, SITE.url);
   description={post.description}
   ogTitle="CSR Compliance Guide | Companies Act 2013"
   ogDescription="Navigate CSR applicability, Section 135, the 2% rule, Schedule VII, reporting, and penalties under India's Companies Act 2013."
+  ogImage={post.ogImage}
+  ogImageAlt="Boardroom table with CSR policy papers, filings, and a calculator"
   canonicalPath={post.path}
   activePage="insights"
   ogType="article"
   breadcrumbLabel={post.shortTitle}
   breadcrumbParent={{ name: 'Insights', path: 'insights/' }}
-  jsonLd={articleJsonLd}
+  jsonLd={[articleJsonLd, faqJsonLd]}
 >
   <main>
     <section class="bg-slate-900 text-white section">

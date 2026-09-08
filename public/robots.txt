@@ -5,4 +5,7 @@ Allow: /
 # Print brochure — keep out of the index (not a ranking page)
 Disallow: /brochure.html
 
+# Leftover from an old WebSite SearchAction — there is no on-site search
+Disallow: /search
+
 Sitemap: https://causewave.in/sitemap-index.xml

@@ -15,6 +15,8 @@ export type InsightPost = {
   datePublished: string;
   dateLabel: string;
   author: string;
+  /** Path under the site root, e.g. images/og/founder.jpg */
+  ogImage: string;
 };
 
 export const INSIGHT_AUTHOR = {
@@ -37,6 +39,7 @@ export const INSIGHT_POSTS: InsightPost[] = [
     datePublished: '2026-01-15',
     dateLabel: '2026',
     author: INSIGHT_AUTHOR.name,
+    ogImage: 'images/og/founder.jpg',
   },
   {
     slug: 'why-indias-csr-cheque-size-wont-budge',
@@ -44,7 +47,7 @@ export const INSIGHT_POSTS: InsightPost[] = [
     title: "Why India's CSR Cheque Size Won't Budge",
     shortTitle: 'Cheque Size',
     description:
-      'CSR spend in India roughly tripled over a decade, yet average project size stayed near ₹35 lakh. Analysis of National CSR Portal filings and why the system multiplies projects instead of enlarging them.',
+      'CSR spend in India tripled in a decade, yet average project size stayed near ₹35 lakh. Why the system multiplies projects instead of enlarging them.',
     excerpt:
       'Spend grew ~3× in a decade. The average project is still about ₹35 lakh. Five forces explain why Indian CSR scales by adding projects — not by raising ticket size.',
     category: 'CSR Strategy',
@@ -52,6 +55,7 @@ export const INSIGHT_POSTS: InsightPost[] = [
     datePublished: '2026-08-05',
     dateLabel: 'Aug 2026',
     author: INSIGHT_AUTHOR.name,
+    ogImage: 'images/og/series.jpg',
   },
   {
     slug: 'concentrators-vs-sprayers-csr-strategies',
@@ -59,7 +63,7 @@ export const INSIGHT_POSTS: InsightPost[] = [
     title: 'Concentrators vs Sprayers: Two CSR Strategies Hiding in the Same Data',
     shortTitle: 'Concentrators vs Sprayers',
     description:
-      'CSR Ticket Size Part 2: how rare concentrators with large project rows and common sprayers with many small tickets produce India’s stuck national average cheque size.',
+      'CSR Ticket Size Part 2: rare concentrators with large project rows and common sprayers with many small tickets produce India’s stuck average cheque.',
     excerpt:
       'Same Section 135 world, opposite geometry: concentrators write large rows; sprayers write many small ones. That split explains the stuck national average.',
     category: 'CSR Strategy',
@@ -67,6 +71,7 @@ export const INSIGHT_POSTS: InsightPost[] = [
     datePublished: '2026-08-11',
     dateLabel: 'Aug 2026',
     author: INSIGHT_AUTHOR.name,
+    ogImage: 'images/og/series.jpg',
   },
   {
     slug: 'csr-sector-ticket-league',
@@ -74,7 +79,7 @@ export const INSIGHT_POSTS: InsightPost[] = [
     title: 'The CSR Sector Ticket League: Why “We Work in Education” Tells You Almost Nothing',
     shortTitle: 'Sector Ticket League',
     description:
-      'CSR Ticket Size Part 3: rank Indian CSR sectors by average project ticket — not total spend — and see why education and health keep the national average near ₹35 lakh.',
+      'CSR Ticket Size Part 3: rank Indian CSR sectors by average project ticket, not total spend — and why education and health keep the mean near ₹35 lakh.',
     excerpt:
       'Rank CSR by average cheque per sector and the podium changes. Education and health dominate spend but sit near the mean — that is why ticket size will not budge.',
     category: 'CSR Strategy',
@@ -82,6 +87,7 @@ export const INSIGHT_POSTS: InsightPost[] = [
     datePublished: '2026-08-19',
     dateLabel: 'Aug 2026',
     author: INSIGHT_AUTHOR.name,
+    ogImage: 'images/og/series.jpg',
   },
   {
     slug: 'geography-of-the-cheque-csr-states',
@@ -89,7 +95,7 @@ export const INSIGHT_POSTS: InsightPost[] = [
     title: 'The Geography of the Cheque: High-Spend States Are Not High-Ticket States',
     shortTitle: 'Geography of the Cheque',
     description:
-      'CSR Ticket Size Part 4: pan-India rows averaging over a crore, Odisha vs Kerala, and why Maharashtra-shaped volume states dominate spend without fat tickets.',
+      'CSR Ticket Size Part 4: pan-India rows averaging over a crore, Odisha vs Kerala, and why volume states dominate spend without fat tickets.',
     excerpt:
       'High-spend states are the CSR factory floor. High-ticket geographies are fewer: Pan-India, hinterland states, and centralized funds. Volume is not depth.',
     category: 'CSR Strategy',
@@ -97,6 +103,7 @@ export const INSIGHT_POSTS: InsightPost[] = [
     datePublished: '2026-08-26',
     dateLabel: 'Aug 2026',
     author: INSIGHT_AUTHOR.name,
+    ogImage: 'images/og/series.jpg',
   },
   {
     slug: 'the-12-lakh-company-csr-median',
@@ -104,7 +111,7 @@ export const INSIGHT_POSTS: InsightPost[] = [
     title: 'The ₹12 Lakh Company: Most of Corporate India Is Not in the Average',
     shortTitle: 'The ₹12 Lakh Company',
     description:
-      'CSR Ticket Size Part 5: the median company-year files about ₹11–12 lakh per project and ₹23 lakh for the year — why most of Corporate India cannot move the national ₹35 lakh average.',
+      'CSR Ticket Size Part 5: the median company-year files ~₹12 lakh per project and ~₹23 lakh a year — why most of Corporate India is not the average.',
     excerpt:
       '₹35 lakh is a money average. The median filer is a ₹12 lakh ticket and a ₹23 lakh year. Headcount and rupees are two different Indias.',
     category: 'CSR Strategy',
@@ -112,6 +119,7 @@ export const INSIGHT_POSTS: InsightPost[] = [
     datePublished: '2026-08-31',
     dateLabel: 'Aug 2026',
     author: INSIGHT_AUTHOR.name,
+    ogImage: 'images/og/series.jpg',
   },
   {
     slug: 'csr-compliance-companies-act-2013',
@@ -119,7 +127,7 @@ export const INSIGHT_POSTS: InsightPost[] = [
     title: 'Understanding CSR Compliance Under Companies Act 2013',
     shortTitle: 'CSR Compliance Guide',
     description:
-      'CSR compliance guide for Indian companies: Section 135 applicability, 2% CSR spend, Schedule VII activities, portfolio reporting, unspent CSR, and penalties under the Companies Act 2013.',
+      'CSR compliance guide for Indian companies: Section 135, 2% spend, Schedule VII, unspent CSR, reporting, and penalties under Companies Act 2013.',
     excerpt:
       'CSR compliance for corporates: Section 135 thresholds, board obligations, Schedule VII, annual reporting, and penalties — for CSR leads and company secretaries.',
     category: 'Compliance',
@@ -127,6 +135,7 @@ export const INSIGHT_POSTS: InsightPost[] = [
     datePublished: '2026-05-01',
     dateLabel: 'May 2026',
     author: INSIGHT_AUTHOR.name,
+    ogImage: 'images/og/compliance.jpg',
   },
   {
     slug: 'impactful-csr-programs-healthcare',
@@ -134,7 +143,7 @@ export const INSIGHT_POSTS: InsightPost[] = [
     title: 'How to Design Impactful CSR Programs in Healthcare',
     shortTitle: 'Healthcare CSR Design',
     description:
-      'Healthcare CSR programme design for India: field-tested principles for public health CSR, community trust, logistics at scale, and partnerships that last beyond the funding cycle.',
+      'Healthcare CSR programme design for India: public-health principles, community trust, logistics at scale, and partnerships that last beyond the grant.',
     excerpt:
       'Flagship healthcare CSR programme design: community trust, data, logistics at scale, and partnerships that survive beyond the funding cycle.',
     category: 'Healthcare',
@@ -142,6 +151,7 @@ export const INSIGHT_POSTS: InsightPost[] = [
     datePublished: '2026-04-01',
     dateLabel: 'April 2026',
     author: INSIGHT_AUTHOR.name,
+    ogImage: 'images/og/founder.jpg',
   },
   {
     slug: 'measuring-csr-impact-framework',
@@ -149,7 +159,7 @@ export const INSIGHT_POSTS: InsightPost[] = [
     title: 'Measuring CSR Impact: A Practical Framework',
     shortTitle: 'Impact Measurement',
     description:
-      'Impact measurement and assessment for CSR: practical M&E frameworks, baselines, indicators, data collection, and board-ready impact reporting for social impact programmes in India.',
+      'Impact measurement for CSR: practical M&E frameworks, baselines, indicators, data collection, and board-ready reporting for programmes in India.',
     excerpt:
       'Impact measurement & advisory: a four-step M&E framework with indicator examples, reporting cadence, and board-ready impact practices for CSR teams.',
     category: 'Impact Measurement',
@@ -157,6 +167,7 @@ export const INSIGHT_POSTS: InsightPost[] = [
     datePublished: '2026-03-01',
     dateLabel: 'March 2026',
     author: INSIGHT_AUTHOR.name,
+    ogImage: 'images/og/services.jpg',
   },
 ];
 
@@ -191,6 +202,6 @@ export function buildArticleJsonLd(post: InsightPost, siteUrl: string) {
       '@type': 'WebPage',
       '@id': url,
     },
-    image: `${siteUrl}og-default.jpg`,
+    image: `${siteUrl}${post.ogImage}`,
   };
 }
