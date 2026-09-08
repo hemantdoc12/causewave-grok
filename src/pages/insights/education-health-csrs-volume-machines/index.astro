@@ -1,0 +1,401 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import SeriesNav from '../../../components/SeriesNav.astro';
+import { SITE } from '../../../consts';
+import { getInsightBySlug, buildArticleJsonLd } from '../../../data/insights';
+import { getAdjacentParts } from '../../../data/series';
+
+const base = import.meta.env.BASE_URL;
+const post = getInsightBySlug('education-health-csrs-volume-machines')!;
+const articleJsonLd = buildArticleJsonLd(post, SITE.url);
+const { series, current, prev, next } = getAdjacentParts('csr-ticket-size', post.slug);
+const linkedInUrl = current!.linkedInUrl;
+---
+
+<BaseLayout 
+  title='Education and Health Are CSR’s Volume Machines | Causewave'
+  description={post.description}
+  ogTitle='Education and Health Are CSR’s Volume Machines'
+  ogDescription="Education and health hold about half of Indian CSR at ~₹37–40 lakh a row. They are not the fat causes — they are the volume machines that are the average."
+  ogImage={post.ogImage}
+  ogImageAlt="India map, CSR filings, and a calculator on a desk — CSR ticket size research"
+  canonicalPath={post.path}
+  activePage="insights"
+  ogType="article"
+  breadcrumbLabel={`Part 6: ${post.shortTitle}`}
+  breadcrumbParent={[
+    { name: 'Insights', path: 'insights/' },
+    { name: 'CSR Ticket Size', path: 'insights/csr-ticket-size/' },
+  ]}
+  jsonLd={articleJsonLd}
+>
+  <main>
+    <section class="bg-slate-900 text-white section">
+      <div class="max-w-screen-2xl mx-auto px-6">
+        <div class="max-w-3xl">
+          <a href={`${base}insights/csr-ticket-size/`} class="inline-flex items-center text-sm text-slate-400 hover:text-white transition-colors mb-6">
+            ← CSR Ticket Size series
+          </a>
+          <div class="flex items-center gap-3 mb-4">
+            <span class="text-xs font-medium text-sky-400 bg-sky-400/10 px-2.5 py-0.5 rounded-full">Part 6</span>
+            <span class="text-xs text-slate-500">{post.dateLabel}</span>
+          </div>
+          <h1 class="text-3xl md:text-4xl font-semibold tracking-tight">{post.title}</h1>
+          <p class="mt-4 text-slate-300 text-lg">{post.excerpt}</p>
+        </div>
+      </div>
+    </section>
+
+    <article class="section max-w-screen-2xl mx-auto px-6">
+      <div class="max-w-3xl">
+        <SeriesNav series={series!} current={current!} prev={prev} next={next} />
+        <p class="text-slate-600 leading-relaxed mb-6 text-lg">
+          Part 1: Spend grew ~3×. The average project stayed near ₹35 lakh. Part 2: Rare concentrators. Common sprayers. Part 3: Sector label ≠ ticket size — but education and health sit in the middle of the league and dominate the pie. Part 4: High-spend states are not high-ticket states. Part 5: The typical company-year is ₹23 lakh total, ₹11–12 lakh a row.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          <a href={`${base}insights/why-indias-csr-cheque-size-wont-budge/`} class="text-sky-600 hover:underline">Part 1 → Why India’s CSR Cheque Size Won’t Budge</a>
+          {' · '}
+          <a href={`${base}insights/concentrators-vs-sprayers-csr-strategies/`} class="text-sky-600 hover:underline">Part 2 → Concentrators vs Sprayers</a>
+          {' · '}
+          <a href={`${base}insights/csr-sector-ticket-league/`} class="text-sky-600 hover:underline">Part 3 → The CSR Sector Ticket League</a>
+          {' · '}
+          <a href={`${base}insights/geography-of-the-cheque-csr-states/`} class="text-sky-600 hover:underline">Part 4 → The Geography of the Cheque</a>
+          {' · '}
+          <a href={`${base}insights/the-12-lakh-company-csr-median/`} class="text-sky-600 hover:underline">Part 5 → The ₹12 Lakh Company</a>
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          This week is the hinge.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          If you want to know why a national average will not move, look at where half the rupees already live.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          Across FY 2014-15 to FY 2024-25, Education and Health Care together are about:
+        </p>
+        <ul class="space-y-2 text-slate-600 mb-6">
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>~52% of all CSR spent</span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>~48% of all project rows</span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>Average ticket: ~₹37 lakh (education) and ~₹40 lakh (health)</span></li>
+        </ul>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          The national mean is ~₹35 lakh.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          These two headings are not “the fat causes.” They are the volume machines — so large, and so close to the mean, that they <em>are</em> the average.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Skills and rural can run ₹55–58 lakh a row. They do not have the volume. Education and health have the volume. They run ₹35–40 lakh.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-8">
+          That is the whole trap, in three lines.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">They did not start this large. They grew into the mean.</h2>
+        <div class="overflow-x-auto mb-6">
+          <table class="w-full text-sm text-left border border-slate-200">
+            <thead class="bg-slate-100 text-slate-700">
+              <tr>
+                <th class="p-3"></th>
+                <th class="p-3">FY 2014-15</th>
+                <th class="p-3">FY 2023-24 / 24-25</th>
+              </tr>
+            </thead>
+            <tbody class="text-slate-600">
+              <tr class="border-t">
+                <td class="p-3">Education + health, share of spend</td>
+                <td class="p-3">~44%</td>
+                <td class="p-3">~55%</td>
+              </tr>
+              <tr class="border-t bg-slate-50">
+                <td class="p-3">Share of project rows</td>
+                <td class="p-3">~30%</td>
+                <td class="p-3">~52–53%</td>
+              </tr>
+              <tr class="border-t">
+                <td class="p-3">Combined avg ticket</td>
+                <td class="p-3">~₹53 lakh</td>
+                <td class="p-3">~₹36 lakh</td>
+              </tr>
+              <tr class="border-t bg-slate-50">
+                <td class="p-3">National avg ticket</td>
+                <td class="p-3">~₹36 lakh</td>
+                <td class="p-3">~₹34–35 lakh</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Read the diagonal.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          As these two headings took more of the pie, their own tickets thinned toward the national number. The country did not discover a new average. The volume engines settled on it.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Education’s average row fell from the high-₹40 lakh zone toward ~₹36 lakh. Health did the same after a COVID bulge.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-8">
+          Recent years: education alone is about one-third of all CSR spent. That is not a theme. That is the default filing.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">Inside the machine: a thin tail, a mass of small rows</h2>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          The sector average of ₹37–40 lakh is as misleading as the national ₹35 lakh.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          Among education project rows in the project-level file (non-zero spend, approx.):
+        </p>
+        <div class="overflow-x-auto mb-6">
+          <table class="w-full text-sm text-left border border-slate-200">
+            <thead class="bg-slate-100 text-slate-700">
+              <tr>
+                <th class="p-3">Ticket</th>
+                <th class="p-3">Share of education rows</th>
+              </tr>
+            </thead>
+            <tbody class="text-slate-600">
+              <tr class="border-t">
+                <td class="p-3">Under ₹5 lakh</td>
+                <td class="p-3">~39%</td>
+              </tr>
+              <tr class="border-t bg-slate-50">
+                <td class="p-3">₹5–25 lakh</td>
+                <td class="p-3">~39%</td>
+              </tr>
+              <tr class="border-t">
+                <td class="p-3">₹1 crore+</td>
+                <td class="p-3">~6%</td>
+              </tr>
+              <tr class="border-t bg-slate-50">
+                <td class="p-3">₹5 crore+</td>
+                <td class="p-3">~1%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Health Care is almost the same shape: ~40% of non-zero rows under ₹5 lakh, about 6% at ₹1 crore+.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Vocational skills — a fatter heading from
+          <a href={`${base}insights/csr-sector-ticket-league/`} class="text-sky-600 hover:underline">Part 3</a>
+          — has fewer micro-rows and more mass in the ₹50 lakh–₹5 crore band.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          So education and health are not “medium projects.” They are a huge pile of small rows plus a handful of giant ones. The giant ones (schools, hospitals, flagship trusts, multi-crore education lines) pull the mean to ₹37 lakh. The pile keeps the typical row in the same neighbourhood as
+          <a href={`${base}insights/the-12-lakh-company-csr-median/`} class="text-sky-600 hover:underline">Part 5’s ₹12 lakh company</a>.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-8">
+          Special education is thinner still (~₹23 lakh average). If your board says “education” and files special-education-sized lines, you are below even the volume machine’s mean.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">Same heading. Opposite geometry. Again.</h2>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          <a href={`${base}insights/concentrators-vs-sprayers-csr-strategies/`} class="text-sky-600 hover:underline">Part 2</a>
+          was concentrators vs sprayers. It was always going to land here.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Education as concentration (illustrative): TCS, Reliance, ONGC, Tech Mahindra — education as top sector, average rows in the ₹15–50 crore zone.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Education as spray (illustrative): Companies with hundreds of education-tagged rows at ₹4–15 lakh averages: the Can Fin / Ion Exchange / Super Auto Forge pattern from Part 2.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Health as concentration: ITC, Tata Sons, Jio — large average health rows. Health as spray: Cochin Shipyard, South Indian Bank, Blue Cross Laboratories — many health rows, small average tickets.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          Among companies whose top sector is education (positive averages):
+        </p>
+        <ul class="space-y-2 text-slate-600 mb-6">
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>Median average ticket is still ~₹8 lakh — the same median India as Part 5</span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>Only a rounding error (~0.2%) average ₹5 crore+ per row</span></li>
+        </ul>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          “We work in education” is the most common CSR sentence in India. It is also the least informative sentence about ticket size. Part 3 said that. The company file confirms it: education-top firms have the same median ticket as everyone else.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-8">
+          The heading is a container. Geometry still happens inside the container.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">The median company’s one cheque lands here</h2>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Part 5: typical year is one or two rows, ~₹23 lakh out the door.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Where does that one cheque go?
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Most often: a school, a scholarship, a hospital, a camp, a health NGO — or a fund line that feels like those things.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          That is why education and health are volume machines.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Not because India ran out of other Schedule VII items. Because the one-cheque company needs a board-safe, partner-available, locally visible line. Education and health are the deepest NGO market, the easiest story, the first items on the menu. For how those healthcare programmes actually have to be designed, see
+          <a href={`${base}insights/impactful-csr-programs-healthcare/`} class="text-sky-600 hover:underline">how to design impactful healthcare CSR programs</a>.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          When 20,000 such years hit the same two headings, you do not get a national skills mission. You get half of CSR sitting at ₹35–40 lakh a row.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-8">
+          The 0.5% of company-years that hold half the rupees (Part 5) also pile into education and health — some as concentrators, many as scaled sprayers. Volume from the bottom of the population. Volume from the top of the money. Same two labels.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">Geography inside the machine (Part 4, wearing a school uniform)</h2>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          Education spend is not “India.” It is a map.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          Illustrative pattern:
+        </p>
+        <div class="overflow-x-auto mb-6">
+          <table class="w-full text-sm text-left border border-slate-200">
+            <thead class="bg-slate-100 text-slate-700">
+              <tr>
+                <th class="p-3">Education filed as…</th>
+                <th class="p-3">Approx. avg ticket</th>
+              </tr>
+            </thead>
+            <tbody class="text-slate-600">
+              <tr class="border-t">
+                <td class="p-3">Pan-India</td>
+                <td class="p-3">~₹1.6 crore</td>
+              </tr>
+              <tr class="border-t bg-slate-50">
+                <td class="p-3">Odisha</td>
+                <td class="p-3">~₹96 lakh</td>
+              </tr>
+              <tr class="border-t">
+                <td class="p-3">Maharashtra</td>
+                <td class="p-3">~₹30 lakh</td>
+              </tr>
+              <tr class="border-t bg-slate-50">
+                <td class="p-3">Kerala</td>
+                <td class="p-3">~₹18 lakh</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Maharashtra is the education factory floor: the most education rows, ordinary tickets. Pan-India education is the fat tail. Kerala education is thin.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Health repeats it: Pan-India and Assam/Odisha/Chhattisgarh fatter; Kerala/West Bengal/Tamil Nadu thinner.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-8">
+          So even “education CSR in our local area” has not chosen a ticket. It has chosen a default cheque for that map. See
+          <a href={`${base}insights/geography-of-the-cheque-csr-states/`} class="text-sky-600 hover:underline">The Geography of the Cheque</a>.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">COVID: the machine can jump. Then it snaps back.</h2>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          Health Care’s share of all CSR spent:
+        </p>
+        <ul class="space-y-2 text-slate-600 mb-6">
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>Pre-pandemic: typically ~16–20%</span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>FY 2020-21: ~28%</span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>FY 2021-22: ~30%</span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>FY 2023-24 / 24-25: back to ~21%</span></li>
+        </ul>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Education + health together crossed ~54–56% in those years and stayed near 55% after the emergency.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          The emergency proved companies can reallocate fast. The snap-back proved the default is sticky.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Once the oxygen and relief rows faded, the volume machine was still education-and-health — just without the temporary fat of crisis tickets. Health’s average row is softer now than in the COVID bulge.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-8">
+          A crisis can thicken a heading for two years. It does not rewrite the operating system.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">Why these two headings pin the national average</h2>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Not just “because they are popular.”
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          <strong>Arithmetic:</strong> when ~half the rupees sit at ~₹38 lakh a row, the national mean cannot wander far. If you removed education and health entirely, the rest of CSR would average about ₹32 lakh — lower, not higher. They slightly lift the mean. They also lock it. The fatter headings are too small to pull a country whose centre of gravity is two middle-ticket machines.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          <strong>Menu design</strong> (interpretation): Schedule VII leads with education, hunger, health. Boards start at the top of the list.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          <strong>Market design</strong> (interpretation): schools and hospitals absorb both a ₹8 lakh grant and a ₹80 crore trust. The heading stretches. Skills and rural works often need a lumpier unit. Stretchable headings attract both the median cheque and the giant row — and the average becomes a blend.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          <strong>Reporting design</strong> (interpretation): one scholarship programme in 12 districts can become 12 education rows. Volume is easy to manufacture in these labels.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-8">
+          None of that makes education or health unworthy. It makes them poor levers for raising average ticket size unless you change unit size inside them.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">What this means if you actually file (or fund) these two</h2>
+        <p class="text-slate-600 leading-relaxed mb-2 font-medium text-slate-800">
+          If education/health is 60%+ of your CSR and your average row is ~₹12–40 lakh:
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          You are the national machine. Adding another school line will not differentiate you. Fewer, larger, multi-year programmes in the same heading will.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-2 font-medium text-slate-800">
+          If you are a concentrator in education already:
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          You are rare. You are also why the sector mean is ₹37 lakh instead of ₹12 lakh. Own that geometry on purpose.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-2 font-medium text-slate-800">
+          If you are an NGO pitching “education” or “health”:
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          You are pitching into the most crowded, most small-ticket market in Indian CSR. A ₹8 lakh proposal is the grain. A ₹5 crore proposal is a conversation with the tail, not with the median company.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-2 font-medium text-slate-800">
+          If your committee wants a higher national-style average:
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-8">
+          Do not leave education/health. Change the row size where the rows already are. Part 3’s counterfactual still holds: give only these two headings vocational-skills ticket size and the national mean jumps about ₹10 lakh. No other pair of headings has that leverage.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">What this is not saying</h2>
+        <ul class="space-y-2 text-slate-600 mb-6">
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>Not that companies should spend less on education or health.</span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>Not that a school kit is fake CSR.</span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>Not that every education rupee should become a university.</span></li>
+        </ul>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          It is saying:
+        </p>
+        <blockquote class="border-l-4 border-sky-500 pl-4 my-6 text-slate-700 italic">
+          Education and health are how Indian CSR scales. They are not how it deepens per project. Until unit size changes inside the two headings that hold half the money, the country’s average ticket will keep looking like a school-and-hospital average — because it is one.
+        </blockquote>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">Series close</h2>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          Part 1: Why ticket size won’t budge · Part 2: Concentrators vs sprayers · Part 3: Sector ticket league · Part 4: Geography of the cheque · Part 5: The ₹12 lakh company · Part 6 (this): Education and health as volume machines
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Next week — Part 7: <em>What would actually raise the average?</em> Counterfactuals, not slogans: fewer rows, multi-year outlays, mega-programmes, and why localisation without larger units will not do it.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          If your CSR policy’s first line is “education and health”: you have described India’s default. The open question is whether your rows are the 39% under ₹5 lakh — or the 1% that actually move a mean.
+        </p>
+
+        <p class="text-sm text-slate-500 mb-8">
+          <strong>Data:</strong> National CSR Portal company-wise project filings, FY 2014-15 to FY 2024-25. Averages = amount spent ÷ project rows. Latest year may be incomplete due to filing lag. Bucket shares from the project-level export (illustrative of shape).
+          Also on{' '}
+          <a href={linkedInUrl} target="_blank" rel="noopener noreferrer" class="text-sky-600 hover:underline">LinkedIn</a>.
+        </p>
+
+        <SeriesNav series={series!} current={current!} prev={prev} next={next} />
+
+        <div class="mt-8 p-6 rounded-2xl bg-slate-50 border">
+          <h3 class="font-semibold text-lg">Designing CSR portfolios that go deeper, not only wider?</h3>
+          <p class="mt-2 text-sm text-slate-600">
+            Causewave helps companies with CSR strategy, programme design, and portfolio choices — including when to concentrate versus spray.
+            Explore <a href={`${base}services/`} class="text-sky-600 hover:underline">services</a> or get in touch.
+          </p>
+          <a href={`${base}contact/`} class="mt-4 inline-flex btn btn-primary px-6 py-2 text-sm">Get in Touch</a>
+        </div>
+      </div>
+    </article>
+  </main>
+</BaseLayout>

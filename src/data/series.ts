@@ -29,7 +29,7 @@ export const CSR_TICKET_SIZE_SERIES: InsightSeries = {
   name: 'CSR Ticket Size',
   path: 'insights/csr-ticket-size/',
   description:
-    'National CSR Portal data series: why India’s average cheque stays near ₹35 lakh, who concentrates vs sprays, and why most filers are ₹12 lakh companies.',
+    'National CSR Portal data: why India’s average cheque stays near ₹35 lakh, who concentrates vs sprays, and why education and health pin the mean.',
   parts: [
     {
       part: 1,
@@ -96,9 +96,22 @@ export const CSR_TICKET_SIZE_SERIES: InsightSeries = {
       linkedInUrl:
         'https://www.linkedin.com/pulse/12-lakh-company-most-corporate-india-average-dr-hemant-patel-abujc/',
     },
+    {
+      part: 6,
+      slug: 'education-health-csrs-volume-machines',
+      path: 'insights/education-health-csrs-volume-machines/',
+      title: 'Education and Health Are CSR’s Volume Machines',
+      shortTitle: 'Volume Machines',
+      excerpt:
+        'Education and health are ~52% of CSR spent and ~48% of rows, at ~₹37–40 lakh a ticket. They are not the fat causes — they are the volume machines that are the average.',
+      datePublished: '2026-09-08',
+      dateLabel: 'Sep 8, 2026',
+      linkedInUrl:
+        'https://www.linkedin.com/pulse/education-health-csrs-volume-machines-dr-hemant-patel-uzjuf/',
+    },
   ],
   upcoming:
-    'Part 6 — Education & Health: Volume Machines: the two headings that swallow about half of Indian CSR — and keep the national ticket near ₹35 lakh.',
+    'Part 7 — What would actually raise the average? Counterfactuals, not slogans: fewer rows, multi-year outlays, mega-programmes, and why localisation without larger units will not do it.',
 };
 
 export const INSIGHT_SERIES = [CSR_TICKET_SIZE_SERIES] as const;

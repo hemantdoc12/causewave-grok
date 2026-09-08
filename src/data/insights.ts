@@ -122,6 +122,22 @@ export const INSIGHT_POSTS: InsightPost[] = [
     ogImage: 'images/og/series.jpg',
   },
   {
+    slug: 'education-health-csrs-volume-machines',
+    path: 'insights/education-health-csrs-volume-machines/',
+    title: 'Education and Health Are CSR’s Volume Machines',
+    shortTitle: 'Volume Machines',
+    description:
+      'CSR Ticket Size Part 6: education and health hold ~half of Indian CSR at ~₹37–40 lakh a row — volume machines that pin the national average near ₹35 lakh.',
+    excerpt:
+      'Education and health are ~52% of CSR spent and ~48% of rows, at ~₹37–40 lakh a ticket. They are not the fat causes — they are the volume machines that are the average.',
+    category: 'CSR Strategy',
+    categoryTone: 'sky',
+    datePublished: '2026-09-08',
+    dateLabel: 'Sep 2026',
+    author: INSIGHT_AUTHOR.name,
+    ogImage: 'images/og/series.jpg',
+  },
+  {
     slug: 'csr-compliance-companies-act-2013',
     path: 'insights/csr-compliance-companies-act-2013/',
     title: 'Understanding CSR Compliance Under Companies Act 2013',
