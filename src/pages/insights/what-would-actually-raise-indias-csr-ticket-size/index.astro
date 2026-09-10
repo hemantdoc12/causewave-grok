@@ -1,0 +1,300 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import SeriesNav from '../../../components/SeriesNav.astro';
+import { SITE } from '../../../consts';
+import { getInsightBySlug, buildArticleJsonLd } from '../../../data/insights';
+import { getAdjacentParts } from '../../../data/series';
+
+const base = import.meta.env.BASE_URL;
+const post = getInsightBySlug('what-would-actually-raise-indias-csr-ticket-size')!;
+const articleJsonLd = buildArticleJsonLd(post, SITE.url);
+const { series, current, prev, next } = getAdjacentParts('csr-ticket-size', post.slug);
+const linkedInUrl = current!.linkedInUrl;
+---
+
+<BaseLayout 
+  title='What Would Actually Raise India’s CSR Ticket Size | Causewave'
+  description={post.description}
+  ogTitle='What Would Actually Raise India’s CSR Ticket Size'
+  ogDescription="Average ticket = spend ÷ rows. Five counterfactuals that would move ₹35 lakh — and five that look busy while leaving the mean exactly where it is."
+  ogImage={post.ogImage}
+  ogImageAlt="India map, CSR filings, and a calculator on a desk — CSR ticket size research"
+  canonicalPath={post.path}
+  activePage="insights"
+  ogType="article"
+  breadcrumbLabel={`Part 7: ${post.shortTitle}`}
+  breadcrumbParent={[
+    { name: 'Insights', path: 'insights/' },
+    { name: 'CSR Ticket Size', path: 'insights/csr-ticket-size/' },
+  ]}
+  jsonLd={articleJsonLd}
+>
+  <main>
+    <section class="bg-slate-900 text-white section">
+      <div class="max-w-screen-2xl mx-auto px-6">
+        <div class="max-w-3xl">
+          <a href={`${base}insights/csr-ticket-size/`} class="inline-flex items-center text-sm text-slate-400 hover:text-white transition-colors mb-6">
+            ← CSR Ticket Size series
+          </a>
+          <div class="flex items-center gap-3 mb-4">
+            <span class="text-xs font-medium text-sky-400 bg-sky-400/10 px-2.5 py-0.5 rounded-full">Part 7</span>
+            <span class="text-xs text-slate-500">{post.dateLabel}</span>
+          </div>
+          <h1 class="text-3xl md:text-4xl font-semibold tracking-tight">{post.title}</h1>
+          <p class="mt-4 text-slate-300 text-lg">{post.excerpt}</p>
+        </div>
+      </div>
+    </section>
+
+    <article class="section max-w-screen-2xl mx-auto px-6">
+      <div class="max-w-3xl">
+        <SeriesNav series={series!} current={current!} prev={prev} next={next} />
+        <p class="text-slate-600 leading-relaxed mb-6 text-lg">
+          Six weeks of filings, one stubborn number: about ₹35 lakh a project, for a decade.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Part 1: spend grew ~3×; tickets did not. Part 2: concentrators vs sprayers. Part 3: sector league. Part 4: high-spend states ≠ high-ticket states. Part 5: the typical year is ₹23 lakh total. Part 6: education and health are the volume machines.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          <a href={`${base}insights/why-indias-csr-cheque-size-wont-budge/`} class="text-sky-600 hover:underline">Part 1 → Why India’s CSR Cheque Size Won’t Budge</a>
+          {' · '}
+          <a href={`${base}insights/concentrators-vs-sprayers-csr-strategies/`} class="text-sky-600 hover:underline">Part 2 → Concentrators vs Sprayers</a>
+          {' · '}
+          <a href={`${base}insights/csr-sector-ticket-league/`} class="text-sky-600 hover:underline">Part 3 → The CSR Sector Ticket League</a>
+          {' · '}
+          <a href={`${base}insights/geography-of-the-cheque-csr-states/`} class="text-sky-600 hover:underline">Part 4 → The Geography of the Cheque</a>
+          {' · '}
+          <a href={`${base}insights/the-12-lakh-company-csr-median/`} class="text-sky-600 hover:underline">Part 5 → The ₹12 Lakh Company</a>
+          {' · '}
+          <a href={`${base}insights/education-health-csrs-volume-machines/`} class="text-sky-600 hover:underline">Part 6 → Education and Health Are CSR’s Volume Machines</a>
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          This week is not another diagnosis.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          It is the physics.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-8">
+          If you wanted the national average to rise — as a board metric, a policy curiosity, or a provocation — what would actually move it? And what would look busy while leaving ₹35 lakh exactly where it is?
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">There is only one equation</h2>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Average ticket = total amount spent ÷ number of project rows.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          So there are only three ways to raise it:
+        </p>
+        <ol class="list-decimal list-inside space-y-2 text-slate-600 mb-6">
+          <li>Same rows, more spend (intensive growth)</li>
+          <li>Same spend, fewer rows (consolidation)</li>
+          <li>Shift mix toward headings and maps that already run fatter tickets</li>
+        </ol>
+        <p class="text-slate-600 leading-relaxed mb-8">
+          India did the opposite of (1) and (2) at once: spend up, rows up in lockstep. (3) went the wrong way: education and health gained share while thinning.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-8">
+          Everything else is commentary.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">First: who cannot lift a national mean</h2>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          The ₹12 lakh company cannot.
+          <a href={`${base}insights/the-12-lakh-company-csr-median/`} class="text-sky-600 hover:underline">Part 5</a>:
+          median year is ~₹23 lakh out the door. You cannot write a ₹35 lakh average project from a ₹23 lakh budget. Lecturing 20,000 such filers is a category error.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          The ₹25 crore+ giants, alone, mostly cannot either — not the way people think. Company-years that spend ₹25 crore+ hold about half of all CSR rupees — and only about 7% of all project rows. Their average row is already about ₹2.7 crore.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          They are the weighted mean. They are not where the denominator lives.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-8">
+          The national average is a fight between a money tail and a row factory. If you only squeeze the tail, the factory keeps printing lines.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">Five things that would move the number</h2>
+        <p class="text-slate-600 leading-relaxed mb-8">
+          These hold spend roughly constant unless noted. They are counterfactuals, not moral advice.
+        </p>
+
+        <h3 class="text-xl font-semibold mt-8 mb-3">1. Stop fragmenting (the biggest lever in the file)</h3>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          In FY 2014-15, companies filed about 1.7 project rows each. In FY 2023-24, about 3.7.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Same companies-count order of magnitude. More slices.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          If FY 2023-24 had kept 1.7 rows per company with the same total spend, the average project would have been about ₹75 lakh — not ₹35 lakh.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Even a milder freeze at 2.5 rows per company → about ₹51 lakh.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          That is not a new CSR law. That is not adding a line every time the budget ticks up.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-8">
+          Caveat, honestly: early years also had messier zeros and more one-line filings. 1.7 is not a golden age. It is still the cleanest proof in the series that the average died of addition.
+        </p>
+
+        <h3 class="text-xl font-semibold mt-8 mb-3">2. Consolidate the movable middle (₹1–25 crore years)</h3>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          This band has enough money to choose geometry and enough rows to matter.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          If those company-years had capped at five project rows (same spend, rest of India unchanged), the all-years national average would rise from ~₹35 lakh to ~₹42 lakh.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-8">
+          That is the
+          <a href={`${base}insights/concentrators-vs-sprayers-csr-strategies/`} class="text-sky-600 hover:underline">Part 2</a>
+          sprayer, in arithmetic. Not the SME. Not necessarily the PSU giant. The filer who can afford a programme — and files a portfolio of small lines instead.
+        </p>
+
+        <h3 class="text-xl font-semibold mt-8 mb-3">3. Fatten unit size inside education and health</h3>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          <a href={`${base}insights/csr-sector-ticket-league/`} class="text-sky-600 hover:underline">Part 3</a>
+          /
+          <a href={`${base}insights/education-health-csrs-volume-machines/`} class="text-sky-600 hover:underline">Part 6</a>:
+          give only those two headings the average ticket of vocational skills (~₹58 lakh instead of ~₹38 lakh), keeping their row counts.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          National average: ~₹35 lakh → ~₹45 lakh.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-8">
+          No other pair of headings has that leverage. They hold half the pie. If the volume machines keep minting ₹8–25 lakh school and camp rows, the country cannot average ₹50 lakh.
+        </p>
+
+        <h3 class="text-xl font-semibold mt-8 mb-3">4. Change tickets on the volume map (not only the volume)</h3>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          <a href={`${base}insights/geography-of-the-cheque-csr-states/`} class="text-sky-600 hover:underline">Part 4</a>:
+          if Maharashtra’s enormous row count had Odisha’s average ticket, the national mean would move ~₹35 lakh → ~₹42 lakh.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-8">
+          Localisation without larger units does the reverse. If Pan-India rows had been filed at Maharashtra’s ticket, the national average would fall toward ~₹29 lakh. Pan-India is currently propping the mean up.
+        </p>
+
+        <h3 class="text-xl font-semibold mt-8 mb-3">5. Stop the mix from thinning</h3>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Hold recent years’ row mix by sector, but restore early-year ticket sizes inside each heading.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          The late-period average would sit near ₹41 lakh instead of the actual ~₹34 lakh.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-8">
+          The decade did not only add education rows. The same labels started writing smaller cheques. Rural development is the exhibit: once a fat-ticket engine, now closer to the mean. Reversing that slide is a real lever. Adding more education share is not.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">Five things that would not (or would barely)</h2>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          <strong>Spend more at national scale.</strong> We already did. Rows came with the rupees. Totals are not tickets.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          <strong>Bring more companies under Section 135.</strong> New filers look like Part 5. They add headcount and modest rows. They dilute, they do not fatten.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          <strong>“We work in education / health.”</strong> That is how you become the average (Part 6), not how you lift it — unless the row size changes.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          <strong>Send every rupee to a poorer district, without changing unit size.</strong> Need and ticket size are different maps (the equity debate is real; it is not this equation). A thousand ₹8 lakh Bihar rows will not raise a national mean.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          <strong>Tell only the top 0.5% to “think bigger.”</strong> Many already do. Flooring ₹25 crore+ years at a ₹2 crore average ticket barely moves the all-India number — they are not the denominator.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-8">
+          <strong>Declare a mega-programme without killing the micro-rows.</strong> A ₹100 crore flagship next to eighty ₹5 lakh lines is a barbell (Part 2). The mean flatters you. The operating model is still a spray.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">Multi-year is a measurement trick — and a real one</h2>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          The portal’s unit is a filing row, often by year, state, partner.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          A ₹6 crore, three-year school can appear as three ₹2 crore rows — or as thirty district-year slices. Ground spend unchanged. Measured ticket crushed.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          We cannot perfectly re-stitch programmes in this file. Treat this as interpretation with teeth:
+        </p>
+        <blockquote class="border-l-4 border-sky-500 pl-4 my-6 text-slate-700 italic">
+          If boards reported programmes (multi-year, multi-district, one object) instead of annual fragments, the published average would rise even if not a single extra rupee reached a student.
+        </blockquote>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          That would be a better thermometer. It might also be a better operating habit: fewer contracts, longer commitments, one owner.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-8">
+          It would not, by itself, fix Part 5’s ₹23 lakh year. It would stop pretending that fragmentation is “more impact.”
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">Zeros are part of the ₹35 lakh story</h2>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          About 15% of project rows sit in company-years with zero recorded spend. They inflate the denominator.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Count only positive-spend rows and the all-years average is about ₹41 lakh, not ₹35 lakh.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          That does not make the series vanish — the median is still ~₹11–12 lakh, education/health still pin the middle, fragmentation still rose. It does mean some of “₹35 lakh” is file hygiene, not philosophy.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-8">
+          If you want a cleaner public metric: average among rows with amount spent &gt; 0, plus median company-year ticket. Publish both. The mean without the median is how giants hypnotise a country.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">So what is the shortest path, if the goal were the mean?</h2>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          In order of leverage, from this file:
+        </p>
+        <ol class="list-decimal list-inside space-y-2 text-slate-600 mb-6">
+          <li>Do not add a project row when you add budget — especially in the ₹1–25 crore band.</li>
+          <li>Write larger units inside education and health, where the rows already are.</li>
+          <li>Keep (or grow) a few genuinely fat national / plant-district programmes — the Pan-India and Odisha-shaped lines that currently hold the mean up.</li>
+          <li>File programmes, not confetti — multi-year, fewer geographies per object.</li>
+          <li>Leave the median company alone on ticket size; ask them for one decent line, not a portfolio.</li>
+        </ol>
+        <p class="text-slate-600 leading-relaxed mb-8">
+          None of this requires a new Schedule VII. It requires treating row count as a design variable, not as a trophy.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">What this is not saying</h2>
+        <ul class="space-y-2 text-slate-600 mb-6">
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>Not that the purpose of CSR is to maximise average ticket.</span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>Not that small projects are waste.</span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>Not that Odisha-style or TCS-style portfolios fit every firm.</span></li>
+        </ul>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          It is saying:
+        </p>
+        <blockquote class="border-l-4 border-sky-500 pl-4 my-6 text-slate-700 italic">
+          If your strategy for “deeper CSR” is more spend, more states, more education lines, and more partners — the filings say you have described the last decade. The average did not move. The equation did not forgive you.
+        </blockquote>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">Series note</h2>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          Part 7 (this): What would actually raise the average.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Next week — Part 8 (last): <em>The playbook</em> — what CSR heads, boards, and implementing organisations can do on Monday without pretending they are the national mean.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          If you run a ₹5–25 crore CSR year: you are sitting on the movable middle. The country’s ₹35 lakh is not a mystery. It is your row count, multiplied by everyone like you.
+        </p>
+
+        <p class="text-sm text-slate-500 mb-8">
+          <strong>Data:</strong> National CSR Portal company-wise filings, FY 2014-15 to FY 2024-25. Counterfactuals keep total spent constant unless stated. Averages = amount spent ÷ project rows. Latest year may be incomplete due to filing lag.
+          Also on{' '}
+          <a href={linkedInUrl} target="_blank" rel="noopener noreferrer" class="text-sky-600 hover:underline">LinkedIn</a>.
+        </p>
+
+        <SeriesNav series={series!} current={current!} prev={prev} next={next} />
+
+        <div class="mt-8 p-6 rounded-2xl bg-slate-50 border">
+          <h3 class="font-semibold text-lg">Designing CSR portfolios that go deeper, not only wider?</h3>
+          <p class="mt-2 text-sm text-slate-600">
+            Causewave helps companies with CSR strategy, programme design, and portfolio choices — including when to concentrate versus spray.
+            Explore <a href={`${base}services/`} class="text-sky-600 hover:underline">services</a> or get in touch.
+          </p>
+          <a href={`${base}contact/`} class="mt-4 inline-flex btn btn-primary px-6 py-2 text-sm">Get in Touch</a>
+        </div>
+      </div>
+    </article>
+  </main>
+</BaseLayout>

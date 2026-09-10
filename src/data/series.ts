@@ -109,9 +109,22 @@ export const CSR_TICKET_SIZE_SERIES: InsightSeries = {
       linkedInUrl:
         'https://www.linkedin.com/pulse/education-health-csrs-volume-machines-dr-hemant-patel-uzjuf/',
     },
+    {
+      part: 7,
+      slug: 'what-would-actually-raise-indias-csr-ticket-size',
+      path: 'insights/what-would-actually-raise-indias-csr-ticket-size/',
+      title: 'What Would Actually Raise India’s CSR Ticket Size',
+      shortTitle: 'Raise the Average',
+      excerpt:
+        'Average ticket = spend ÷ rows. Five counterfactuals that would move ₹35 lakh — and five that look busy while leaving the mean exactly where it is.',
+      datePublished: '2026-09-10',
+      dateLabel: 'Sep 10, 2026',
+      linkedInUrl:
+        'https://www.linkedin.com/pulse/what-would-actually-raise-indias-csr-ticket-size-dr-hemant-patel-et5bf/',
+    },
   ],
   upcoming:
-    'Part 7 — What would actually raise the average? Counterfactuals, not slogans: fewer rows, multi-year outlays, mega-programmes, and why localisation without larger units will not do it.',
+    'Part 8 (last) — The playbook: what CSR heads, boards, and implementing organisations can do on Monday without pretending they are the national mean.',
 };
 
 export const INSIGHT_SERIES = [CSR_TICKET_SIZE_SERIES] as const;

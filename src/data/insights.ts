@@ -138,6 +138,22 @@ export const INSIGHT_POSTS: InsightPost[] = [
     ogImage: 'images/og/series.jpg',
   },
   {
+    slug: 'what-would-actually-raise-indias-csr-ticket-size',
+    path: 'insights/what-would-actually-raise-indias-csr-ticket-size/',
+    title: 'What Would Actually Raise India’s CSR Ticket Size',
+    shortTitle: 'Raise the Average',
+    description:
+      'CSR Ticket Size Part 7: what would actually raise India’s ~₹35 lakh average — fewer rows, fatter education/health units — and what looks busy but does not.',
+    excerpt:
+      'Average ticket = spend ÷ rows. Five counterfactuals that would move ₹35 lakh — and five that look busy while leaving the mean exactly where it is.',
+    category: 'CSR Strategy',
+    categoryTone: 'sky',
+    datePublished: '2026-09-10',
+    dateLabel: 'Sep 2026',
+    author: INSIGHT_AUTHOR.name,
+    ogImage: 'images/og/series.jpg',
+  },
+  {
     slug: 'csr-compliance-companies-act-2013',
     path: 'insights/csr-compliance-companies-act-2013/',
     title: 'Understanding CSR Compliance Under Companies Act 2013',
