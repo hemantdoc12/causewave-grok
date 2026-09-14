@@ -120,6 +120,8 @@ const breadcrumbJsonLd = canonicalPath
   ? {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
+      "name": breadcrumbItems.map((crumb) => crumb.name).join(' › '),
+      "numberOfItems": breadcrumbItems.length,
       "itemListElement": breadcrumbItems.map((crumb, i) => ({
         "@type": "ListItem",
         "position": i + 1,
