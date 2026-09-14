@@ -29,7 +29,7 @@ export const CSR_TICKET_SIZE_SERIES: InsightSeries = {
   name: 'CSR Ticket Size',
   path: 'insights/csr-ticket-size/',
   description:
-    'National CSR Portal data: why India’s average cheque stays near ₹35 lakh, who concentrates vs sprays, and why education and health pin the mean.',
+    'Why India’s CSR cheque stays near ₹35 lakh — concentrators vs sprayers, education and health as volume machines, and a playbook to design for depth.',
   parts: [
     {
       part: 1,
@@ -122,9 +122,21 @@ export const CSR_TICKET_SIZE_SERIES: InsightSeries = {
       linkedInUrl:
         'https://www.linkedin.com/pulse/what-would-actually-raise-indias-csr-ticket-size-dr-hemant-patel-et5bf/',
     },
+    {
+      part: 8,
+      slug: 'csr-ticket-size-playbook',
+      path: 'insights/csr-ticket-size-playbook/',
+      title: 'The CSR Ticket Size Playbook',
+      shortTitle: 'The Playbook',
+      excerpt:
+        'Part 7 was physics. This is Monday: diagnose your geometry, playbook by annual CSR budget, and a 90-day plan that does not need a new Schedule VII.',
+      datePublished: '2026-09-14',
+      dateLabel: 'Sep 14, 2026',
+      linkedInUrl:
+        'https://www.linkedin.com/pulse/csr-ticket-size-playbook-dr-hemant-patel-xrkhf/',
+    },
   ],
-  upcoming:
-    'Part 8 (last) — The playbook: what CSR heads, boards, and implementing organisations can do on Monday without pretending they are the national mean.',
+  upcoming: 'Next series — POSHAN: coming soon.',
 };
 
 export const INSIGHT_SERIES = [CSR_TICKET_SIZE_SERIES] as const;

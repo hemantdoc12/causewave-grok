@@ -1,0 +1,321 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import SeriesNav from '../../../components/SeriesNav.astro';
+import { SITE } from '../../../consts';
+import { getInsightBySlug, buildArticleJsonLd } from '../../../data/insights';
+import { getAdjacentParts } from '../../../data/series';
+
+const base = import.meta.env.BASE_URL;
+const post = getInsightBySlug('csr-ticket-size-playbook')!;
+const articleJsonLd = buildArticleJsonLd(post, SITE.url);
+const { series, current, prev, next } = getAdjacentParts('csr-ticket-size', post.slug);
+const linkedInUrl = current!.linkedInUrl;
+---
+
+<BaseLayout 
+  title='The CSR Ticket Size Playbook | Causewave'
+  description={post.description}
+  ogTitle='The CSR Ticket Size Playbook'
+  ogDescription="Part 7 was physics. This is Monday: diagnose your geometry, playbook by annual CSR budget, and a 90-day plan that does not need a new Schedule VII."
+  ogImage={post.ogImage}
+  ogImageAlt="India map, CSR filings, and a calculator on a desk — CSR ticket size research"
+  canonicalPath={post.path}
+  activePage="insights"
+  ogType="article"
+  breadcrumbLabel={`Part 8: ${post.shortTitle}`}
+  breadcrumbParent={[
+    { name: 'Insights', path: 'insights/' },
+    { name: 'CSR Ticket Size', path: 'insights/csr-ticket-size/' },
+  ]}
+  jsonLd={articleJsonLd}
+>
+  <main>
+    <section class="bg-slate-900 text-white section">
+      <div class="max-w-screen-2xl mx-auto px-6">
+        <div class="max-w-3xl">
+          <a href={`${base}insights/csr-ticket-size/`} class="inline-flex items-center text-sm text-slate-400 hover:text-white transition-colors mb-6">
+            ← CSR Ticket Size series
+          </a>
+          <div class="flex items-center gap-3 mb-4">
+            <span class="text-xs font-medium text-sky-400 bg-sky-400/10 px-2.5 py-0.5 rounded-full">Part 8 of 8</span>
+            <span class="text-xs text-slate-500">{post.dateLabel}</span>
+          </div>
+          <h1 class="text-3xl md:text-4xl font-semibold tracking-tight">{post.title}</h1>
+          <p class="mt-4 text-slate-300 text-lg">{post.excerpt}</p>
+        </div>
+      </div>
+    </section>
+
+    <article class="section max-w-screen-2xl mx-auto px-6">
+      <div class="max-w-3xl">
+        <SeriesNav series={series!} current={current!} prev={prev} next={next} />
+        <p class="text-slate-600 leading-relaxed mb-6 text-lg">
+          This series started with a stuck number.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          India’s CSR spend grew about 3×. The average project stayed near ₹35 lakh. The typical company still clears about ₹11–12 lakh a row, on a ₹23 lakh year.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Not because nobody cares. Because the system scales by adding project rows, not enlarging them.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          <a href={`${base}insights/why-indias-csr-cheque-size-wont-budge/`} class="text-sky-600 hover:underline">Part 1 → Why India’s CSR Cheque Size Won’t Budge</a>
+          {' · '}
+          <a href={`${base}insights/concentrators-vs-sprayers-csr-strategies/`} class="text-sky-600 hover:underline">Part 2 → Concentrators vs Sprayers</a>
+          {' · '}
+          <a href={`${base}insights/csr-sector-ticket-league/`} class="text-sky-600 hover:underline">Part 3 → The CSR Sector Ticket League</a>
+          {' · '}
+          <a href={`${base}insights/geography-of-the-cheque-csr-states/`} class="text-sky-600 hover:underline">Part 4 → The Geography of the Cheque</a>
+          {' · '}
+          <a href={`${base}insights/the-12-lakh-company-csr-median/`} class="text-sky-600 hover:underline">Part 5 → The ₹12 Lakh Company</a>
+          {' · '}
+          <a href={`${base}insights/education-health-csrs-volume-machines/`} class="text-sky-600 hover:underline">Part 6 → Education and Health Are CSR’s Volume Machines</a>
+          {' · '}
+          <a href={`${base}insights/what-would-actually-raise-indias-csr-ticket-size/`} class="text-sky-600 hover:underline">Part 7 → What Would Actually Raise India’s CSR Ticket Size</a>
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Part 7 was physics. This is Monday.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-8">
+          You do not need a new Schedule VII to design for depth. You need to stop treating row count as a trophy.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">15 minutes: diagnose your geometry</h2>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          Pull last year’s CSR schedule (portal rows or your own annex). Compute four numbers:
+        </p>
+        <ol class="list-decimal list-inside space-y-2 text-slate-600 mb-6">
+          <li><strong>A.</strong> Total spent</li>
+          <li><strong>B.</strong> Number of project rows (and rows per crore spent)</li>
+          <li><strong>C.</strong> Average ticket and median ticket</li>
+          <li><strong>D.</strong> Share of spend in the top 3 rows vs the bottom half of rows</li>
+        </ol>
+        <p class="text-slate-600 leading-relaxed mb-8">
+          Write the label at the top of the CSR committee note — concentrator / sprayer / barbell / median. If the speech says “depth” and the label says “sprayer,” the filing is the truth.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">Playbook by annual CSR budget</h2>
+        <p class="text-slate-600 leading-relaxed mb-8">
+          The same advice does not fit a ₹23 lakh year and a ₹80 crore year.
+          <a href={`${base}insights/the-12-lakh-company-csr-median/`} class="text-sky-600 hover:underline">Part 5</a>
+          was the point.
+        </p>
+
+        <h3 class="text-xl font-semibold mt-8 mb-3">Under ₹50 lakh — the ₹12 lakh company</h3>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Do not build a portfolio. One or two lines is rational. You cannot imitate a conglomerate.
+        </p>
+        <p class="text-slate-800 font-medium mb-2">Do</p>
+        <ul class="space-y-2 text-slate-600 mb-6">
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>Pick one partner or institution you can actually govern</span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>Prefer a 12–24 month object (one school cycle, one cohort, one facility) over five ₹4 lakh activities</span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>Measure that line: who was reached, what changed, was money used</span></li>
+        </ul>
+        <p class="text-slate-800 font-medium mb-2">Don’t</p>
+        <ul class="space-y-2 text-slate-600 mb-6">
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>Add districts to look national</span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>Split a ₹20 lakh budget into eight “themes” for the annex</span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>Apologise for not having a ₹35 lakh average. The national mean is not your number</span></li>
+        </ul>
+        <p class="text-slate-600 leading-relaxed mb-8">
+          Your job is one decent cheque, not a smaller copy of India Inc.
+        </p>
+
+        <h3 class="text-xl font-semibold mt-8 mb-3">₹50 lakh – ₹5 crore</h3>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          You are large enough to look busy. You are small enough that busy becomes spray.
+        </p>
+        <p class="text-slate-800 font-medium mb-2">Do</p>
+        <ul class="space-y-2 text-slate-600 mb-6">
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>Cap themes at two (if you live in education/health, stay there — change unit size, not the label)</span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>Cap implementing partners you meet more than once a year</span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>When budget rises 20%, do not raise row count 20%</span></li>
+        </ul>
+        <p class="text-slate-800 font-medium mb-2">Don’t</p>
+        <ul class="space-y-2 text-slate-600 mb-8">
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>Collect NGOs like stamps</span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>File every plant’s ₹8 lakh wish list as a separate “strategy”</span></li>
+        </ul>
+
+        <h3 class="text-xl font-semibold mt-8 mb-3">₹5 – ₹25 crore — the movable middle</h3>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          This is
+          <a href={`${base}insights/what-would-actually-raise-indias-csr-ticket-size/`} class="text-sky-600 hover:underline">Part 7</a>’s
+          lever. You have enough money to choose geometry. You have enough rows to move a national denominator if thousands of you fragment.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Default rule: budget up, rows flat (or down).
+        </p>
+        <p class="text-slate-800 font-medium mb-2">A one-year experiment</p>
+        <ol class="list-decimal list-inside space-y-2 text-slate-600 mb-6">
+          <li>List rows under ₹25 lakh.</li>
+          <li>Merge anything that is the same partner / same object / same district.</li>
+          <li>Kill orphan lines with no owner.</li>
+          <li>Put the freed money into one education or health unit that could actually be a programme (multi-year, named, governed).</li>
+          <li>Report median ticket next year, not only total crore.</li>
+        </ol>
+        <p class="text-slate-600 leading-relaxed mb-8">
+          If the committee wants “reach,” buy reach inside one programme (more students in the same school network), not 14 new headings.
+        </p>
+
+        <h3 class="text-xl font-semibold mt-8 mb-3">₹25 crore+</h3>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          You are the spend-weighted average. Your geometry is public, whether you like it or not.
+        </p>
+        <p class="text-slate-800 font-medium mb-2">Do</p>
+        <ul class="space-y-2 text-slate-600 mb-6">
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>Keep at least one flagship that is fat on purpose (institution, multi-year mission, plant-district public good)</span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>If you operate in many states, do not let “local area” become confetti. Cluster.</span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>Watch the barbell: a ₹100 crore trust plus eighty ₹5 lakh grants is two strategies pretending to be one</span></li>
+        </ul>
+        <p class="text-slate-800 font-medium mb-2">Don’t</p>
+        <ul class="space-y-2 text-slate-600 mb-8">
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>Use Pan-India tagging as a substitute for a programme</span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>Assume that because your average is high, your median is. Publish both internally.</span></li>
+        </ul>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">What the board should see (one page)</h2>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          Stop sending a 40-row annex as if volume were diligence.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          Four numbers, three years, one page:
+        </p>
+        <ol class="list-decimal list-inside space-y-2 text-slate-600 mb-6">
+          <li>Total spent</li>
+          <li>Number of project rows (and rows per crore spent)</li>
+          <li>Average ticket and median ticket</li>
+          <li>Share of spend in the top 3 rows vs the bottom half of rows</li>
+        </ol>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          Add one sentence of geometry: concentrator / sprayer / barbell / median.
+        </p>
+        <p class="text-slate-800 font-medium mb-2">Questions worth asking once a year</p>
+        <ul class="space-y-2 text-slate-600 mb-6">
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>If we spent 20% more, would we add rows or enlarge objects?</span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>Which rows have no named owner?</span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>Are we in education/health because we chose it, or because it is the menu default?</span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>For multi-state companies: is each state a strategy, or a filing habit?</span></li>
+        </ul>
+        <p class="text-slate-600 leading-relaxed mb-8">
+          If directors only see “CSR spend vs 2% obligation,” they will keep buying compliance theatre. Ticket size is how you see design.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">If you implement or fundraise from CSR</h2>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Price to the population, not to the newspaper.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Do not send a ₹2 crore proposal to a company whose entire CSR is ₹30 lakh. Do not send a ₹8 lakh activity kit to a concentrator and call it a partnership.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          If you work in women / seniors / special education / animal welfare, the national ticket is thinner. You are not “bad at fundraising”; you are in a small-cheque market unless you find a concentrator.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          If you work in skills, livelihoods, rural works, you can ask for a lumpier unit. That is the grain.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-8">
+          Education and health are the most crowded markets. A generic “we do education” pitch is competing with half of Indian CSR. Specificity is the only wedge: which school network, which outcome, which three years.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">Stop / start</h2>
+        <p class="text-slate-800 font-medium mb-2">Stop counting</p>
+        <ul class="space-y-2 text-slate-600 mb-6">
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>Number of projects as a KPI</span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>Number of states as “coverage”</span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>Number of NGOs as “ecosystem building”</span></li>
+        </ul>
+        <p class="text-slate-800 font-medium mb-2">Start counting</p>
+        <ul class="space-y-2 text-slate-600 mb-6">
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>Median ticket</span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>Rows per crore</span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>Share of spend in programmes that will still exist in 36 months</span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>Orphan rows (no owner, no outcome, no repeat)</span></li>
+        </ul>
+        <p class="text-slate-800 font-medium mb-2">Stop saying</p>
+        <ul class="space-y-2 text-slate-600 mb-6">
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>“We work in education” as if it were a ticket-size strategy</span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>“We spend in Maharashtra” as if it were depth</span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>“More projects this year” as if it were impact</span></li>
+        </ul>
+        <p class="text-slate-800 font-medium mb-2">Start saying</p>
+        <ul class="space-y-2 text-slate-600 mb-8">
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>“We added budget and held row count.”</span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>“Our median rose.”</span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>“This is one programme in three districts, not three programmes in one.”</span></li>
+        </ul>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">A 90-day plan that does not require a new policy</h2>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          <strong>Days 1–15.</strong> Compute A–D. Label the geometry. Share it with the CFO and the CSR head only.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          <strong>Days 16–45.</strong> Identify the bottom quartile of rows by size. Merge, end, or justify each one in a sentence.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          <strong>Days 46–75.</strong> Pick one object to enlarge (preferably inside education or health if that is already your volume). Write a 3-year outline: owner, partner, ticket, what gets killed to fund it.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          <strong>Days 76–90.</strong> Board note: last year vs proposed year on rows, average, median. Ask for permission to be less busy.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-8">
+          If you cannot get permission to be less busy, you do not have a depth strategy. You have a calendar.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">What this series is not asking of you</h2>
+        <ul class="space-y-2 text-slate-600 mb-6">
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>Not to abandon small, good work.</span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>Not to chase TCS-style averages if your obligation is ₹23 lakh.</span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>Not to treat Odisha or Pan-India as moral high ground.</span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>Not to maximise average ticket as the purpose of Section 135.</span></li>
+        </ul>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          It asked only this:
+        </p>
+        <blockquote class="border-l-4 border-sky-500 pl-4 my-6 text-slate-700 italic">
+          Know your geometry. Do not confuse reach with fragmentation. Do not ask the median company to lift a mean it cannot reach. If you sit in the ₹5–25 crore band, you are how India’s denominator is printed.
+        </blockquote>
+        <p class="text-slate-600 leading-relaxed mb-8">
+          The last decade proved that more CSR is easy. Fewer, clearer objects is the scarce skill.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">Close</h2>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Eight weeks. Same portal. Same fraction.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Spend ÷ rows stayed near ₹35 lakh because almost every incentive points to another line: another state, another partner, another school kit, another annex row.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          You cannot repeal that habit from Delhi. You can repeal it in your annex.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          If this series was useful, the test is not a like. The test is whether next year’s filing has the same budget and fewer rows — or a bigger row where it counts — and a median you are willing to show a director.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Thank you for reading the lot.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Next series — <em>POSHAN</em>: coming soon.
+        </p>
+
+        <p class="text-sm text-slate-500 mb-8">
+          <strong>Data throughout:</strong> National CSR Portal company-wise project filings, FY 2014-15 to FY 2024-25. Averages = amount spent ÷ project rows. Latest year may be incomplete due to filing lag.
+          Also on{' '}
+          <a href={linkedInUrl} target="_blank" rel="noopener noreferrer" class="text-sky-600 hover:underline">LinkedIn</a>.
+        </p>
+
+        <SeriesNav series={series!} current={current!} prev={prev} next={next} />
+
+        <div class="mt-8 p-6 rounded-2xl bg-slate-50 border">
+          <h3 class="font-semibold text-lg">Designing CSR portfolios that go deeper, not only wider?</h3>
+          <p class="mt-2 text-sm text-slate-600">
+            Causewave helps companies with CSR strategy, programme design, and portfolio choices — including when to concentrate versus spray.
+            Explore <a href={`${base}services/`} class="text-sky-600 hover:underline">services</a> or get in touch.
+          </p>
+          <a href={`${base}contact/`} class="mt-4 inline-flex btn btn-primary px-6 py-2 text-sm">Get in Touch</a>
+        </div>
+      </div>
+    </article>
+  </main>
+</BaseLayout>

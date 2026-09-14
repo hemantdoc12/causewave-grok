@@ -154,6 +154,22 @@ export const INSIGHT_POSTS: InsightPost[] = [
     ogImage: 'images/og/series.jpg',
   },
   {
+    slug: 'csr-ticket-size-playbook',
+    path: 'insights/csr-ticket-size-playbook/',
+    title: 'The CSR Ticket Size Playbook',
+    shortTitle: 'The Playbook',
+    description:
+      'CSR Ticket Size Part 8: a Monday playbook by budget band — diagnose your geometry, cut orphan rows, and stop treating project count as a trophy.',
+    excerpt:
+      'Part 7 was physics. This is Monday: diagnose your geometry, playbook by annual CSR budget, and a 90-day plan that does not need a new Schedule VII.',
+    category: 'CSR Strategy',
+    categoryTone: 'sky',
+    datePublished: '2026-09-14',
+    dateLabel: 'Sep 2026',
+    author: INSIGHT_AUTHOR.name,
+    ogImage: 'images/og/series.jpg',
+  },
+  {
     slug: 'csr-compliance-companies-act-2013',
     path: 'insights/csr-compliance-companies-act-2013/',
     title: 'Understanding CSR Compliance Under Companies Act 2013',
