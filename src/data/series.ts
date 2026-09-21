@@ -20,6 +20,8 @@ export type InsightSeries = {
   name: string;
   path: string;
   description: string;
+  /** Tailwind gradient for listing cards, matching on-site guide cards */
+  cardTone: string;
   parts: SeriesPart[];
   upcoming?: string;
 };
@@ -28,6 +30,7 @@ export const CSR_TICKET_SIZE_SERIES: InsightSeries = {
   id: 'csr-ticket-size',
   name: 'CSR Ticket Size',
   path: 'insights/csr-ticket-size/',
+  cardTone: 'from-sky-500 to-sky-700',
   description:
     'Why India’s CSR cheque stays near ₹35 lakh — concentrators vs sprayers, education and health as volume machines, and a playbook to design for depth.',
   parts: [
@@ -142,6 +145,7 @@ export const POSHAN_TRACKER_SERIES: InsightSeries = {
   id: 'poshan-tracker',
   name: 'The Poshan Tracker File',
   path: 'insights/poshan-tracker/',
+  cardTone: 'from-teal-500 to-teal-700',
   description:
     'Poshan Tracker vs NFHS-6: stunting is a family argument, wasting is two countries. A five-part series on India’s nutrition dashboard.',
   parts: [

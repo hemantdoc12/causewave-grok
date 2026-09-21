@@ -133,23 +133,36 @@ const linkedInPosts = [
     {INSIGHT_SERIES.map((series, i) => (
       <section class={i === 0 ? 'bg-white border-y' : 'bg-slate-50 border-b'}>
         <div class="max-w-screen-2xl mx-auto px-6 py-10">
-          <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-6">
-            <div>
-              <span class="text-sky-600 font-semibold text-sm tracking-widest">DATA SERIES</span>
-              <h2 class="text-2xl md:text-3xl font-semibold tracking-tight mt-1">{series.name}</h2>
-              <p class="mt-2 text-sm text-slate-600 max-w-2xl">{series.description}</p>
-            </div>
-            <a href={`${base}${series.path}`} class="inline-flex items-center text-sm font-semibold text-sky-600 hover:text-sky-700 shrink-0">
+          <div class="text-center mb-8">
+            <span class="text-sky-600 font-semibold text-sm tracking-widest">DATA SERIES</span>
+            <h2 class="text-2xl md:text-3xl font-semibold tracking-tight mt-1">{series.name}</h2>
+            <p class="mt-2 text-sm text-slate-600 max-w-2xl mx-auto">{series.description}</p>
+            <a href={`${base}${series.path}`} class="mt-4 inline-flex items-center text-sm font-semibold text-sky-600 hover:text-sky-700">
               View series hub <Icon name="arrow-right" class="w-4 h-4 ml-1" />
             </a>
           </div>
-          <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {series.parts.map((part) => (
-              <a href={`${base}${part.path}`} class="block rounded-xl border bg-white p-5 hover:border-sky-300 transition-all">
-                <div class="text-xs font-semibold text-sky-600 mb-2">Part {part.part}</div>
-                <h3 class="font-semibold text-slate-900 text-sm leading-snug mb-2">{part.title}</h3>
-                <p class="text-xs text-slate-600 line-clamp-3">{part.excerpt}</p>
-              </a>
+              <article class="bg-white border rounded-xl overflow-hidden hover:-translate-y-1 transition-all flex flex-col">
+                <div class={`bg-gradient-to-br ${series.cardTone} p-4 text-white`}>
+                  <span class="inline-block bg-white/20 px-2 py-0.5 rounded-full text-xs mb-2">Part {part.part}</span>
+                  <h3 class="text-base font-semibold leading-snug">{part.title}</h3>
+                </div>
+                <div class="p-4 flex flex-col flex-1">
+                  <p class="text-slate-600 text-sm mb-3 flex-1">{part.excerpt}</p>
+                  <div class="flex items-center gap-2 text-xs text-slate-500 mb-3">
+                    <span>Dr. Hemant L. Patel</span>
+                    <span>•</span>
+                    <span>{part.dateLabel}</span>
+                  </div>
+                  <a
+                    href={`${base}${part.path}`}
+                    class="inline-flex items-center text-sky-600 text-sm font-semibold hover:text-sky-700"
+                  >
+                    Read part {part.part} <Icon name="arrow-right" class="w-3.5 h-3.5 ml-1" />
+                  </a>
+                </div>
+              </article>
             ))}
           </div>
         </div>
