@@ -2,7 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Icon from '../../components/Icon.astro';
 import { INSIGHT_POSTS } from '../../data/insights';
-import { CSR_TICKET_SIZE_SERIES } from '../../data/series';
+import { INSIGHT_SERIES } from '../../data/series';
 import { SEO } from '../../consts';
 
 const base = import.meta.env.BASE_URL;
@@ -14,7 +14,7 @@ const toneClasses: Record<string, { badge: string; bar: string }> = {
   emerald: { badge: 'bg-emerald-100 text-emerald-800', bar: 'from-emerald-500 to-emerald-700' },
 };
 
-const seriesSlugs = new Set(CSR_TICKET_SIZE_SERIES.parts.map((p) => p.slug));
+const seriesSlugs = new Set(INSIGHT_SERIES.flatMap((s) => s.parts.map((p) => p.slug)));
 const featured = INSIGHT_POSTS.find((p) => p.slug === 'founder-story')!;
 // Guides excluding founder + series parts (series has its own section)
 const guides = INSIGHT_POSTS
@@ -130,30 +130,31 @@ const linkedInPosts = [
       </div>
     </section>
 
-    <!-- CSR Ticket Size series -->
-    <section class="bg-white border-y">
-      <div class="max-w-screen-2xl mx-auto px-6 py-10">
-        <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-6">
-          <div>
-            <span class="text-sky-600 font-semibold text-sm tracking-widest">DATA SERIES</span>
-            <h2 class="text-2xl md:text-3xl font-semibold tracking-tight mt-1">{CSR_TICKET_SIZE_SERIES.name}</h2>
-            <p class="mt-2 text-sm text-slate-600 max-w-2xl">{CSR_TICKET_SIZE_SERIES.description}</p>
-          </div>
-          <a href={`${base}${CSR_TICKET_SIZE_SERIES.path}`} class="inline-flex items-center text-sm font-semibold text-sky-600 hover:text-sky-700 shrink-0">
-            View series hub <Icon name="arrow-right" class="w-4 h-4 ml-1" />
-          </a>
-        </div>
-        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {CSR_TICKET_SIZE_SERIES.parts.map((part) => (
-            <a href={`${base}${part.path}`} class="block rounded-xl border bg-slate-50 p-5 hover:border-sky-300 hover:bg-white transition-all">
-              <div class="text-xs font-semibold text-sky-600 mb-2">Part {part.part}</div>
-              <h3 class="font-semibold text-slate-900 text-sm leading-snug mb-2">{part.title}</h3>
-              <p class="text-xs text-slate-600 line-clamp-3">{part.excerpt}</p>
+    {INSIGHT_SERIES.map((series, i) => (
+      <section class={i === 0 ? 'bg-white border-y' : 'bg-slate-50 border-b'}>
+        <div class="max-w-screen-2xl mx-auto px-6 py-10">
+          <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-6">
+            <div>
+              <span class="text-sky-600 font-semibold text-sm tracking-widest">DATA SERIES</span>
+              <h2 class="text-2xl md:text-3xl font-semibold tracking-tight mt-1">{series.name}</h2>
+              <p class="mt-2 text-sm text-slate-600 max-w-2xl">{series.description}</p>
+            </div>
+            <a href={`${base}${series.path}`} class="inline-flex items-center text-sm font-semibold text-sky-600 hover:text-sky-700 shrink-0">
+              View series hub <Icon name="arrow-right" class="w-4 h-4 ml-1" />
             </a>
-          ))}
+          </div>
+          <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {series.parts.map((part) => (
+              <a href={`${base}${part.path}`} class="block rounded-xl border bg-white p-5 hover:border-sky-300 transition-all">
+                <div class="text-xs font-semibold text-sky-600 mb-2">Part {part.part}</div>
+                <h3 class="font-semibold text-slate-900 text-sm leading-snug mb-2">{part.title}</h3>
+                <p class="text-xs text-slate-600 line-clamp-3">{part.excerpt}</p>
+              </a>
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    ))}
 
     <!-- On-site guides (primary SEO inventory) -->
     <section class="bg-white">

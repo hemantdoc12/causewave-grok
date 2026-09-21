@@ -1,0 +1,156 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import SeriesNav from '../../../components/SeriesNav.astro';
+import { SITE } from '../../../consts';
+import { getInsightBySlug, buildArticleJsonLd } from '../../../data/insights';
+import { getAdjacentParts } from '../../../data/series';
+
+const base = import.meta.env.BASE_URL;
+const post = getInsightBySlug('two-nutrition-numbers')!;
+const articleJsonLd = buildArticleJsonLd(post, SITE.url);
+const { series, current, prev, next } = getAdjacentParts('poshan-tracker', post.slug);
+const linkedInUrl = current!.linkedInUrl;
+---
+
+<BaseLayout 
+  title="Two nutrition numbers | Causewave"
+  description={post.description}
+  ogTitle="Two nutrition numbers"
+  ogDescription="NFHS-6 vs Poshan Tracker: stunting is a family argument, wasting is two countries. Hold both numbers."
+  ogImage={post.ogImage}
+  ogImageAlt="Nutrition programme desk with growth charts, India map, and a weighing scale"
+  canonicalPath={post.path}
+  activePage="insights"
+  ogType="article"
+  breadcrumbLabel={`Part 1: ${post.shortTitle}`}
+  breadcrumbParent={[
+    { name: 'Insights', path: 'insights/' },
+    { name: 'The Poshan Tracker File', path: 'insights/poshan-tracker/' },
+  ]}
+  jsonLd={articleJsonLd}
+>
+  <main>
+    <section class="bg-slate-900 text-white section">
+      <div class="max-w-screen-2xl mx-auto px-6">
+        <div class="max-w-3xl">
+          <a href={`${base}insights/poshan-tracker/`} class="inline-flex items-center text-sm text-slate-400 hover:text-white transition-colors mb-6">
+            ← The Poshan Tracker File
+          </a>
+          <div class="flex items-center gap-3 mb-4">
+            <span class="text-xs font-medium text-teal-400 bg-teal-400/10 px-2.5 py-0.5 rounded-full">Part 1 of 5</span>
+            <span class="text-xs text-slate-500">{post.dateLabel}</span>
+          </div>
+          <h1 class="text-3xl md:text-4xl font-semibold tracking-tight">{post.title}</h1>
+          <p class="mt-4 text-slate-300 text-lg">{post.excerpt}</p>
+        </div>
+      </div>
+    </section>
+
+    <article class="section max-w-screen-2xl mx-auto px-6">
+      <div class="max-w-3xl">
+        <SeriesNav series={series!} current={current!} prev={prev} next={next} />
+        <p class="text-slate-600 leading-relaxed mb-6 text-lg">
+          Last series was cheques. This one is children.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-8">
+          Same country. Same LinkedIn. Different file.
+        </p>
+
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Every month the government publishes what Anganwadis measured.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Ministries quote it. State dashboards quote it. CSR decks that work in “health and nutrition” quote it without always knowing which thermometer they picked up.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          There is another number. The household survey. NFHS-6, released this year: about 29% of children under five are stunted. About 19% are wasted.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          On Poshan Tracker in August 2026, the district average in our file is:
+        </p>
+        <ul class="space-y-2 text-slate-600 mb-6">
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-teal-500 mt-2 shrink-0"></span><span>Stunting 25%. Close enough that people blur them.</span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-teal-500 mt-2 shrink-0"></span><span>Underweight 10%. The survey says 32%.</span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-teal-500 mt-2 shrink-0"></span><span>Wasting 3%. The survey says 19%.</span></li>
+        </ul>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Stunting is a family argument. Wasting is two countries.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-8">
+          That gap is the series. Not an average that would not budge. Named districts. Months. A map.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">What you are looking at</h2>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          NFHS is a household sample. Children whether or not they walk into an Anganwadi. One round, 2023–24.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Poshan Tracker is the programme’s own census: children on the roll, measured this month, typed into a phone. Forty-one months of it in this file. Thirty-six states and UTs. Seven hundred and thirty-nine districts with a complete history.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          One is prevalence. One is what the machine wrote down.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          If you average them you get a polite 27% and a useless sentence. If you keep them apart you can see where the dashboard is doing a different job from the survey — and where it is quietly agreeing.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          It agrees on the shape. The heavy belt is still central and eastern India. Next week we name 132 districts the dashboard itself still puts in very high risk. West Singhbhum. Nandurbar. Thirty-eight of them in Madhya Pradesh.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-8">
+          It disagrees on acute malnutrition. Researchers flagged that in 2024. NFHS-6 did not close it. Part 5 asks whether Tracker wasting even follows a season. Spoiler the file already whispers: it mostly just falls.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">Why this, after CSR</h2>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          You already know I will sit with a public dump until it produces one stubborn fact.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          The last stubborn fact was ₹35 lakh. See
+          <a href={`${base}insights/csr-ticket-size/`} class="text-sky-600 hover:underline">CSR Ticket Size</a>.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          This one is a place-list, and a 3% that should not be used as 19%.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-8">
+          If you fund schools, anganwadis, or “nutrition” lines —
+          <a href={`${base}insights/education-health-csrs-volume-machines/`} class="text-sky-600 hover:underline">Part 6 of the last run</a>
+          was you — this is the dashboard those rupees sit under. I will not lecture you about row count. I will tell you which districts the machine still paints red, which states moved the wrong way, and which number you should stop mixing into a slide.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">This week’s only job</h2>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Hold two numbers. Do not pick a side in the first post.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          <strong>Survey:</strong> how stunted, wasted, underweight are India’s children.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          <strong>Dashboard:</strong> what 14 lakh centres recorded in August.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          <strong>The gap:</strong> a finding, not a rounding error.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-8">
+          Next week the map.
+        </p>
+
+        <p class="text-sm text-slate-500 mb-8">
+          <strong>Data:</strong> Part 1 of 5. Poshan Tracker monthly dumps, April 2023–August 2026. Latest month on the public site: August. District averages are unweighted. Tracker percentages are whole numbers as published. NFHS-6 is the 2023–24 household survey. This is programme data, not a second NFHS.
+          Also on{' '}
+          <a href={linkedInUrl} target="_blank" rel="noopener noreferrer" class="text-sky-600 hover:underline">LinkedIn</a>.
+        </p>
+
+        <SeriesNav series={series!} current={current!} prev={prev} next={next} />
+
+        <div class="mt-8 p-6 rounded-2xl bg-slate-50 border">
+          <h3 class="font-semibold text-lg">Designing healthcare and nutrition CSR that matches the map?</h3>
+          <p class="mt-2 text-sm text-slate-600">
+            Causewave helps companies with programme design and last-mile public health delivery.
+            Explore <a href={`${base}services/`} class="text-sky-600 hover:underline">services</a> or get in touch.
+          </p>
+          <a href={`${base}contact/`} class="mt-4 inline-flex btn btn-primary px-6 py-2 text-sm">Get in Touch</a>
+        </div>
+      </div>
+    </article>
+  </main>
+</BaseLayout>

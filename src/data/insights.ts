@@ -170,6 +170,22 @@ export const INSIGHT_POSTS: InsightPost[] = [
     ogImage: 'images/og/series.jpg',
   },
   {
+    slug: 'two-nutrition-numbers',
+    path: 'insights/two-nutrition-numbers/',
+    title: 'Two nutrition numbers',
+    shortTitle: 'Two Numbers',
+    description:
+      'POSHAN Part 1: NFHS-6 says ~29% stunted and ~19% wasted; Poshan Tracker’s August 2026 district average is 25% and 3%. Hold both numbers.',
+    excerpt:
+      'NFHS-6: ~29% stunted, ~19% wasted. Poshan Tracker’s August 2026 district average: 25% and 3%. Stunting is a family argument. Wasting is two countries.',
+    category: 'Nutrition',
+    categoryTone: 'teal',
+    datePublished: '2026-09-21',
+    dateLabel: 'Sep 2026',
+    author: INSIGHT_AUTHOR.name,
+    ogImage: 'images/og/poshan.jpg',
+  },
+  {
     slug: 'csr-compliance-companies-act-2013',
     path: 'insights/csr-compliance-companies-act-2013/',
     title: 'Understanding CSR Compliance Under Companies Act 2013',

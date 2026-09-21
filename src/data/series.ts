@@ -136,10 +136,33 @@ export const CSR_TICKET_SIZE_SERIES: InsightSeries = {
         'https://www.linkedin.com/pulse/csr-ticket-size-playbook-dr-hemant-patel-xrkhf/',
     },
   ],
-  upcoming: 'Next series — POSHAN: coming soon.',
 };
 
-export const INSIGHT_SERIES = [CSR_TICKET_SIZE_SERIES] as const;
+export const POSHAN_TRACKER_SERIES: InsightSeries = {
+  id: 'poshan-tracker',
+  name: 'The Poshan Tracker File',
+  path: 'insights/poshan-tracker/',
+  description:
+    'Poshan Tracker vs NFHS-6: stunting is a family argument, wasting is two countries. A five-part series on India’s nutrition dashboard.',
+  parts: [
+    {
+      part: 1,
+      slug: 'two-nutrition-numbers',
+      path: 'insights/two-nutrition-numbers/',
+      title: 'Two nutrition numbers',
+      shortTitle: 'Two Numbers',
+      excerpt:
+        'NFHS-6: ~29% stunted, ~19% wasted. Poshan Tracker’s August 2026 district average: 25% and 3%. Stunting is a family argument. Wasting is two countries.',
+      datePublished: '2026-09-21',
+      dateLabel: 'Sep 21, 2026',
+      linkedInUrl: 'https://www.linkedin.com/pulse/two-nutrition-numbers-dr-hemant-patel-maqjf/',
+    },
+  ],
+  upcoming:
+    'Part 2 — The map: 132 districts the dashboard still paints very high risk. West Singhbhum. Nandurbar. Thirty-eight of them in Madhya Pradesh.',
+};
+
+export const INSIGHT_SERIES = [POSHAN_TRACKER_SERIES, CSR_TICKET_SIZE_SERIES] as const;
 
 export function getSeriesById(id: string): InsightSeries | undefined {
   return INSIGHT_SERIES.find((s) => s.id === id);
