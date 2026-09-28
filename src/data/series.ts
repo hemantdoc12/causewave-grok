@@ -161,9 +161,21 @@ export const POSHAN_TRACKER_SERIES: InsightSeries = {
       dateLabel: 'Sep 21, 2026',
       linkedInUrl: 'https://www.linkedin.com/pulse/two-nutrition-numbers-dr-hemant-patel-maqjf/',
     },
+    {
+      part: 2,
+      slug: '132-districts',
+      path: 'insights/132-districts/',
+      title: '132 districts',
+      shortTitle: '132 Districts',
+      excerpt:
+        'West Singhbhum 66% stunted. Nandurbar 63%. 132 districts the dashboard itself still puts in very high risk — 38 of them in Madhya Pradesh.',
+      datePublished: '2026-09-28',
+      dateLabel: 'Sep 28, 2026',
+      linkedInUrl: 'https://www.linkedin.com/pulse/132-districts-dr-hemant-patel-thkxc/',
+    },
   ],
   upcoming:
-    'Part 2 — The map: 132 districts the dashboard still paints very high risk. West Singhbhum. Nandurbar. Thirty-eight of them in Madhya Pradesh.',
+    'Part 3 — Who moved since 2023. Some of these names have been falling for three years and remain. Some — Delhi, Telangana — have been rising.',
 };
 
 export const INSIGHT_SERIES = [POSHAN_TRACKER_SERIES, CSR_TICKET_SIZE_SERIES] as const;

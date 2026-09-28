@@ -1,0 +1,211 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import SeriesNav from '../../../components/SeriesNav.astro';
+import { SITE } from '../../../consts';
+import { getInsightBySlug, buildArticleJsonLd } from '../../../data/insights';
+import { getAdjacentParts } from '../../../data/series';
+
+const base = import.meta.env.BASE_URL;
+const post = getInsightBySlug('132-districts')!;
+const articleJsonLd = buildArticleJsonLd(post, SITE.url);
+const { series, current, prev, next } = getAdjacentParts('poshan-tracker', post.slug);
+const linkedInUrl = current!.linkedInUrl;
+---
+
+<BaseLayout 
+  title="132 districts | Causewave"
+  description={post.description}
+  ogTitle="132 districts"
+  ogDescription="132 districts sit in very high risk on Poshan Tracker in August 2026 — West Singhbhum, Nandurbar, and 38 in Madhya Pradesh."
+  ogImage={post.ogImage}
+  ogImageAlt="Nutrition programme desk with growth charts, India map, and a weighing scale"
+  canonicalPath={post.path}
+  activePage="insights"
+  ogType="article"
+  breadcrumbLabel={`Part 2: ${post.shortTitle}`}
+  breadcrumbParent={[
+    { name: 'Insights', path: 'insights/' },
+    { name: 'The Poshan Tracker File', path: 'insights/poshan-tracker/' },
+  ]}
+  jsonLd={articleJsonLd}
+>
+  <main>
+    <section class="bg-slate-900 text-white section">
+      <div class="max-w-screen-2xl mx-auto px-6">
+        <div class="max-w-3xl">
+          <a href={`${base}insights/poshan-tracker/`} class="inline-flex items-center text-sm text-slate-400 hover:text-white transition-colors mb-6">
+            ← The Poshan Tracker File
+          </a>
+          <div class="flex items-center gap-3 mb-4">
+            <span class="text-xs font-medium text-teal-400 bg-teal-400/10 px-2.5 py-0.5 rounded-full">Part 2 of 5</span>
+            <span class="text-xs text-slate-500">{post.dateLabel}</span>
+          </div>
+          <h1 class="text-3xl md:text-4xl font-semibold tracking-tight">{post.title}</h1>
+          <p class="mt-4 text-slate-300 text-lg">{post.excerpt}</p>
+        </div>
+      </div>
+    </section>
+
+    <article class="section max-w-screen-2xl mx-auto px-6">
+      <div class="max-w-3xl">
+        <SeriesNav series={series!} current={current!} prev={prev} next={next} />
+        <p class="text-slate-600 leading-relaxed mb-6 text-lg">
+          Last week: two numbers. Survey wasting ~19%. Dashboard wasting 3%. Stunting is close. Acute malnutrition is not.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          <a href={`${base}insights/two-nutrition-numbers/`} class="text-sky-600 hover:underline">Part 1 → Two nutrition numbers</a>
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-8">
+          This week: the map.
+        </p>
+
+        <p class="text-slate-600 leading-relaxed mb-6">
+          West Singhbhum. Stunting 66%. Underweight 44%. Measured 97% of the children on the roll.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Nandurbar. 63% stunted. 45% underweight. Measured 99%.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          These are not secret blocks. They are at the top of a list the public dashboard can produce and almost never does: 132 districts that, in August 2026, sit in very high risk on the Anganwadi file.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-8">
+          Not a survey. Not NFHS. What the machine wrote down, this month.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">How the list is made</h2>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Four numbers on children 0–5: stunting, underweight, wasting, overweight. Combined into a score. Twenty or more = very high risk.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          August 2026:
+        </p>
+        <div class="overflow-x-auto mb-6">
+          <table class="w-full text-sm text-left border border-slate-200">
+            <thead class="bg-slate-100 text-slate-700">
+              <tr>
+                <th class="p-3">Band</th>
+                <th class="p-3">Districts</th>
+              </tr>
+            </thead>
+            <tbody class="text-slate-600">
+              <tr class="border-t"><td class="p-3">Very high risk</td><td class="p-3">132</td></tr>
+              <tr class="border-t bg-slate-50"><td class="p-3">High</td><td class="p-3">205</td></tr>
+              <tr class="border-t"><td class="p-3">Moderate</td><td class="p-3">159</td></tr>
+              <tr class="border-t bg-slate-50"><td class="p-3">Lower</td><td class="p-3">291</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Forty-three percent of districts are high or very high. The file is not a wall of red. It is also not a success slide.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-8">
+          This is relative to the dashboard.
+          <a href={`${base}insights/two-nutrition-numbers/`} class="text-sky-600 hover:underline">Part 1</a>
+          still holds: do not read 132 as “NFHS says 132.” Read it as: these are the places the programme itself cannot call fine.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">The top of the page</h2>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          Coverage = share of registered 0–5 children measured that month. Figures are stunting / underweight / wasting.
+        </p>
+        <div class="overflow-x-auto mb-6">
+          <table class="w-full text-sm text-left border border-slate-200">
+            <thead class="bg-slate-100 text-slate-700">
+              <tr>
+                <th class="p-3">District</th>
+                <th class="p-3">Stunting</th>
+                <th class="p-3">Underweight</th>
+                <th class="p-3">Wasting</th>
+                <th class="p-3">Measured</th>
+              </tr>
+            </thead>
+            <tbody class="text-slate-600">
+              <tr class="border-t"><td class="p-3">West Singhbhum, Jharkhand</td><td class="p-3">66%</td><td class="p-3">44%</td><td class="p-3">8%</td><td class="p-3">97%</td></tr>
+              <tr class="border-t bg-slate-50"><td class="p-3">Nandurbar, Maharashtra</td><td class="p-3">63%</td><td class="p-3">45%</td><td class="p-3">10%</td><td class="p-3">99%</td></tr>
+              <tr class="border-t"><td class="p-3">Sukma, Chhattisgarh</td><td class="p-3">50%</td><td class="p-3">32%</td><td class="p-3">13%</td><td class="p-3">99%</td></tr>
+              <tr class="border-t bg-slate-50"><td class="p-3">Barwani, Madhya Pradesh</td><td class="p-3">47%</td><td class="p-3">37%</td><td class="p-3">12%</td><td class="p-3">99%</td></tr>
+              <tr class="border-t"><td class="p-3">Godda, Jharkhand</td><td class="p-3">53%</td><td class="p-3">29%</td><td class="p-3">7%</td><td class="p-3">97%</td></tr>
+              <tr class="border-t bg-slate-50"><td class="p-3">Dhar, Madhya Pradesh</td><td class="p-3">44%</td><td class="p-3">36%</td><td class="p-3">12%</td><td class="p-3">99%</td></tr>
+              <tr class="border-t"><td class="p-3">Khandwa, Madhya Pradesh</td><td class="p-3">48%</td><td class="p-3">33%</td><td class="p-3">8%</td><td class="p-3">99%</td></tr>
+              <tr class="border-t bg-slate-50"><td class="p-3">South Tripura</td><td class="p-3">49%</td><td class="p-3">25%</td><td class="p-3">9%</td><td class="p-3">96%</td></tr>
+              <tr class="border-t"><td class="p-3">Raichur, Karnataka</td><td class="p-3">45%</td><td class="p-3">29%</td><td class="p-3">9%</td><td class="p-3">99%</td></tr>
+              <tr class="border-t bg-slate-50"><td class="p-3">East Singhbhum, Jharkhand</td><td class="p-3">49%</td><td class="p-3">24%</td><td class="p-3">5%</td><td class="p-3">97%</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="text-slate-600 leading-relaxed mb-8">
+          Frontline walked Madhya Pradesh this August. Free Press Journal put the state Tracker rates in September. Neither published 38 of MP’s 55 districts in this band. That is the new sentence.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">Where the 132 sit</h2>
+        <div class="overflow-x-auto mb-6">
+          <table class="w-full text-sm text-left border border-slate-200">
+            <thead class="bg-slate-100 text-slate-700">
+              <tr>
+                <th class="p-3">State / UT</th>
+                <th class="p-3">Very high-risk districts</th>
+              </tr>
+            </thead>
+            <tbody class="text-slate-600">
+              <tr class="border-t"><td class="p-3">Madhya Pradesh</td><td class="p-3">38</td></tr>
+              <tr class="border-t bg-slate-50"><td class="p-3">Arunachal Pradesh</td><td class="p-3">13</td></tr>
+              <tr class="border-t"><td class="p-3">Jharkhand</td><td class="p-3">12</td></tr>
+              <tr class="border-t bg-slate-50"><td class="p-3">Bihar</td><td class="p-3">12</td></tr>
+              <tr class="border-t"><td class="p-3">Uttar Pradesh</td><td class="p-3">10</td></tr>
+              <tr class="border-t bg-slate-50"><td class="p-3">Tripura</td><td class="p-3">6</td></tr>
+              <tr class="border-t"><td class="p-3">Telangana</td><td class="p-3">6</td></tr>
+              <tr class="border-t bg-slate-50"><td class="p-3">Assam</td><td class="p-3">6</td></tr>
+              <tr class="border-t"><td class="p-3">Chhattisgarh</td><td class="p-3">5</td></tr>
+              <tr class="border-t bg-slate-50"><td class="p-3">The rest</td><td class="p-3">24 — including Nandurbar, Raichur, Narmada, Chhota Udepur</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Madhya Pradesh is 29% of the entire very-high-risk list. Add Bihar, Jharkhand, Tripura: 68 of 132. Half the red, four states. That pile is Part 4.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-8">
+          Telangana’s six will look different next week. They are on a state that moved the wrong way.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">What stays on the list and does not lead it</h2>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Thirteen very-high-risk rows have measurement coverage under 85%. Eleven are in Arunachal (Anjaw 46%, Tirap 47%…). Two in Nagaland. A 56% stunting rate on half the children measured is not Nandurbar’s 63% on 99%. They stay. They do not open the piece.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Six August rows have no public name — dummy ids, including a Gujarat 990 with zero children. Plumbing. Not a place.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-8">
+          Mahe, Puducherry, 57% stunted. In the file. Not a national headline.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">This week’s only job</h2>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          A targeting list. Current. From the dashboard itself.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          A national average can fall and these 132 can still be here.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-8">
+          Next week: who moved since 2023. Some of these names have been falling for three years and remain. Some — Delhi, Telangana — have been rising.
+        </p>
+
+        <p class="text-sm text-slate-500 mb-8">
+          <strong>Data:</strong> Part 2 of 5. Poshan Tracker, August 2026. Very high risk = score ≥ 20 on stunting, underweight, wasting, overweight (0–5). Coverage from November 2024. Unnamed district-ids dropped from any map you publish. Programme data, not NFHS.
+          Also on{' '}
+          <a href={linkedInUrl} target="_blank" rel="noopener noreferrer" class="text-sky-600 hover:underline">LinkedIn</a>.
+        </p>
+
+        <SeriesNav series={series!} current={current!} prev={prev} next={next} />
+
+        <div class="mt-8 p-6 rounded-2xl bg-slate-50 border">
+          <h3 class="font-semibold text-lg">Designing healthcare and nutrition CSR that matches the map?</h3>
+          <p class="mt-2 text-sm text-slate-600">
+            Causewave helps companies with programme design and last-mile public health delivery.
+            Explore <a href={`${base}services/`} class="text-sky-600 hover:underline">services</a> or get in touch.
+          </p>
+          <a href={`${base}contact/`} class="mt-4 inline-flex btn btn-primary px-6 py-2 text-sm">Get in Touch</a>
+        </div>
+      </div>
+    </article>
+  </main>
+</BaseLayout>

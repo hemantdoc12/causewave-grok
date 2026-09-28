@@ -186,6 +186,22 @@ export const INSIGHT_POSTS: InsightPost[] = [
     ogImage: 'images/og/poshan.jpg',
   },
   {
+    slug: '132-districts',
+    path: 'insights/132-districts/',
+    title: '132 districts',
+    shortTitle: '132 Districts',
+    description:
+      'POSHAN Part 2: 132 districts sit in very high risk on Poshan Tracker in August 2026 — West Singhbhum, Nandurbar, and 38 in Madhya Pradesh.',
+    excerpt:
+      'West Singhbhum 66% stunted. Nandurbar 63%. 132 districts the dashboard itself still puts in very high risk — 38 of them in Madhya Pradesh.',
+    category: 'Nutrition',
+    categoryTone: 'teal',
+    datePublished: '2026-09-28',
+    dateLabel: 'Sep 2026',
+    author: INSIGHT_AUTHOR.name,
+    ogImage: 'images/og/poshan.jpg',
+  },
+  {
     slug: 'csr-compliance-companies-act-2013',
     path: 'insights/csr-compliance-companies-act-2013/',
     title: 'Understanding CSR Compliance Under Companies Act 2013',
