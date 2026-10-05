@@ -173,9 +173,21 @@ export const POSHAN_TRACKER_SERIES: InsightSeries = {
       dateLabel: 'Sep 28, 2026',
       linkedInUrl: 'https://www.linkedin.com/pulse/132-districts-dr-hemant-patel-thkxc/',
     },
+    {
+      part: 3,
+      slug: '634-down-94-up',
+      path: 'insights/634-down-94-up/',
+      title: '634 down. 94 up.',
+      shortTitle: '634 Down',
+      excerpt:
+        'April 2023 to August 2026: 634 districts got better, 94 got worse. Slope and level are different sentences — Gujarat can fall and still have names on the 132.',
+      datePublished: '2026-10-05',
+      dateLabel: 'Oct 5, 2026',
+      linkedInUrl: 'https://www.linkedin.com/pulse/634-down-94-up-dr-hemant-patel-hmrqe/',
+    },
   ],
   upcoming:
-    'Part 3 — Who moved since 2023. Some of these names have been falling for three years and remain. Some — Delhi, Telangana — have been rising.',
+    'Part 4 — Never mind who moved. Who holds the red now. Four states. Half the list.',
 };
 
 export const INSIGHT_SERIES = [POSHAN_TRACKER_SERIES, CSR_TICKET_SIZE_SERIES] as const;

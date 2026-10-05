@@ -1,0 +1,174 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import SeriesNav from '../../../components/SeriesNav.astro';
+import { SITE } from '../../../consts';
+import { getInsightBySlug, buildArticleJsonLd } from '../../../data/insights';
+import { getAdjacentParts } from '../../../data/series';
+
+const base = import.meta.env.BASE_URL;
+const post = getInsightBySlug('634-down-94-up')!;
+const articleJsonLd = buildArticleJsonLd(post, SITE.url);
+const { series, current, prev, next } = getAdjacentParts('poshan-tracker', post.slug);
+const linkedInUrl = current!.linkedInUrl;
+---
+
+<BaseLayout 
+  title="634 down. 94 up. | Causewave"
+  description={post.description}
+  ogTitle="634 down. 94 up."
+  ogDescription="Of 729 districts with a usable Poshan Tracker trend, 634 improved and 94 got worse. Gujarat fell. Delhi and Telangana rose."
+  ogImage={post.ogImage}
+  ogImageAlt="Nutrition programme desk with growth charts, India map, and a weighing scale"
+  canonicalPath={post.path}
+  activePage="insights"
+  ogType="article"
+  breadcrumbLabel={`Part 3: ${post.shortTitle}`}
+  breadcrumbParent={[
+    { name: 'Insights', path: 'insights/' },
+    { name: 'The Poshan Tracker File', path: 'insights/poshan-tracker/' },
+  ]}
+  jsonLd={articleJsonLd}
+>
+  <main>
+    <section class="bg-slate-900 text-white section">
+      <div class="max-w-screen-2xl mx-auto px-6">
+        <div class="max-w-3xl">
+          <a href={`${base}insights/poshan-tracker/`} class="inline-flex items-center text-sm text-slate-400 hover:text-white transition-colors mb-6">
+            ← The Poshan Tracker File
+          </a>
+          <div class="flex items-center gap-3 mb-4">
+            <span class="text-xs font-medium text-teal-400 bg-teal-400/10 px-2.5 py-0.5 rounded-full">Part 3 of 5</span>
+            <span class="text-xs text-slate-500">{post.dateLabel}</span>
+          </div>
+          <h1 class="text-3xl md:text-4xl font-semibold tracking-tight">{post.title}</h1>
+          <p class="mt-4 text-slate-300 text-lg">{post.excerpt}</p>
+        </div>
+      </div>
+    </section>
+
+    <article class="section max-w-screen-2xl mx-auto px-6">
+      <div class="max-w-3xl">
+        <SeriesNav series={series!} current={current!} prev={prev} next={next} />
+        <p class="text-slate-600 leading-relaxed mb-6 text-lg">
+          Last week: 132 districts still very high risk. West Singhbhum. Nandurbar. Thirty-eight of them in Madhya Pradesh.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          <a href={`${base}insights/two-nutrition-numbers/`} class="text-sky-600 hover:underline">Part 1 → Two nutrition numbers</a>
+          {' · '}
+          <a href={`${base}insights/132-districts/`} class="text-sky-600 hover:underline">Part 2 → 132 districts</a>
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-8">
+          This week: the film, not the photograph.
+        </p>
+
+        <p class="text-slate-600 leading-relaxed mb-6">
+          April 2023 to August 2026. Same districts, every month, a score we can add. 739 of them have the full 41 months. 729 are usable — we throw out the near-zero 2023 baselines that would fake a miracle.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          Of those 729:
+        </p>
+        <ul class="space-y-2 text-slate-600 mb-6">
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-teal-500 mt-2 shrink-0"></span><span>634 got better.</span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-teal-500 mt-2 shrink-0"></span><span>94 got worse.</span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-teal-500 mt-2 shrink-0"></span><span>1 did not move.</span></li>
+        </ul>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          The dashboard, as a national object, is not stuck. It is also not kind in every direction.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-8">
+          NFHS cannot see this. One wave. The Tracker can. That is why
+          <a href={`${base}insights/two-nutrition-numbers/`} class="text-sky-600 hover:underline">Part 1</a>
+          bothered you with two thermometers.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">The states that fell</h2>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          Average district score, April 2023 → August 2026:
+        </p>
+        <div class="overflow-x-auto mb-6">
+          <table class="w-full text-sm text-left border border-slate-200">
+            <thead class="bg-slate-100 text-slate-700">
+              <tr>
+                <th class="p-3">State</th>
+                <th class="p-3">Score 2023 → 2026</th>
+                <th class="p-3">Districts down</th>
+              </tr>
+            </thead>
+            <tbody class="text-slate-600">
+              <tr class="border-t"><td class="p-3">Gujarat</td><td class="p-3">25 → 10</td><td class="p-3">All 33 named</td></tr>
+              <tr class="border-t bg-slate-50"><td class="p-3">Punjab</td><td class="p-3">21 → 8</td><td class="p-3">21 of 22</td></tr>
+              <tr class="border-t"><td class="p-3">Maharashtra</td><td class="p-3">24 → 12</td><td class="p-3">All 36</td></tr>
+              <tr class="border-t bg-slate-50"><td class="p-3">Chhattisgarh</td><td class="p-3">25 → 14</td><td class="p-3">All 28</td></tr>
+              <tr class="border-t"><td class="p-3">Karnataka</td><td class="p-3">21 → 12</td><td class="p-3">All 30</td></tr>
+              <tr class="border-t bg-slate-50"><td class="p-3">Madhya Pradesh</td><td class="p-3">30 → 22</td><td class="p-3">51 of 52 — still 38 names on the 132</td></tr>
+              <tr class="border-t"><td class="p-3">Uttar Pradesh</td><td class="p-3">23 → 16</td><td class="p-3">—</td></tr>
+              <tr class="border-t bg-slate-50"><td class="p-3">Bihar</td><td class="p-3">25 → 19</td><td class="p-3">—</td></tr>
+              <tr class="border-t"><td class="p-3">Tamil Nadu</td><td class="p-3">11 → 4</td><td class="p-3">Already a floor, still falling</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Slope and level are different sentences. Gujarat can be the best slope in the large-state file and still have Narmada and Chhota Udepur on the
+          <a href={`${base}insights/132-districts/`} class="text-sky-600 hover:underline">132</a>.
+          Madhya Pradesh can improve and still be the pile.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Clean district falls, among names you can trust: Botad, Panchmahal, Dahod, Tapi. Tarn Taran, Fazilka. Dantewada.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-8">
+          We do not open with Kra Dadi in Arunachal, which drops from a 100% stunting baseline. That is a glitch until someone proves it is a child.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">The states that rose</h2>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Delhi. Eleven districts in the panel. Ten got worse. Central, North, South East, South, New Delhi, North East. Measurement coverage in the mid-90s. This is not “we finally counted the poor.” This is the capital moving the wrong way on its own dashboard.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Telangana. Twenty-six of 33 districts worse. Six of them are already on the 132: Asifabad, Vikarabad, Adilabad, Narayanpet, Mulugu. Started better than Gujarat in 2023. Not the story people tell about Telangana.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Tripura. Six of eight worse. Six of eight very high risk today. Slope and level agree. Both are bad.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-8">
+          Jharkhand improved on average and still owns West Singhbhum. A district can fall and remain the worst named place in the file.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">How to read a slope without lying</h2>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          A falling score while more children enter the roll can be composition, not height. Enrolment drives do that. Treat a summer collapse as a data event until the same children show up later.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          A rising score with 95% measured — Delhi — is harder to explain away as “we found more kids.”
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-8">
+          A ministry line that “indicators are improving” can be true in this part and still leave you with last week’s 132.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">This week’s only job</h2>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Progress is a slope. It is not a press release.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-8">
+          Next week: never mind who moved. Who holds the red now. Four states. Half the list.
+        </p>
+
+        <p class="text-sm text-slate-500 mb-8">
+          <strong>Data:</strong> Part 3 of 5. Balanced panel of 739 districts, April 2023–August 2026. Usable trend = 729 (near-zero 2023 baselines out). Score as in Part 2. Programme data, not NFHS.
+          Also on{' '}
+          <a href={linkedInUrl} target="_blank" rel="noopener noreferrer" class="text-sky-600 hover:underline">LinkedIn</a>.
+        </p>
+
+        <SeriesNav series={series!} current={current!} prev={prev} next={next} />
+
+        <div class="mt-8 p-6 rounded-2xl bg-slate-50 border">
+          <h3 class="font-semibold text-lg">Designing healthcare and nutrition CSR that matches the map?</h3>
+          <p class="mt-2 text-sm text-slate-600">
+            Causewave helps companies with programme design and last-mile public health delivery.
+            Explore <a href={`${base}services/`} class="text-sky-600 hover:underline">services</a> or get in touch.
+          </p>
+          <a href={`${base}contact/`} class="mt-4 inline-flex btn btn-primary px-6 py-2 text-sm">Get in Touch</a>
+        </div>
+      </div>
+    </article>
+  </main>
+</BaseLayout>

@@ -202,6 +202,22 @@ export const INSIGHT_POSTS: InsightPost[] = [
     ogImage: 'images/og/poshan.jpg',
   },
   {
+    slug: '634-down-94-up',
+    path: 'insights/634-down-94-up/',
+    title: '634 down. 94 up.',
+    shortTitle: '634 Down',
+    description:
+      'POSHAN Part 3: of 729 districts with a usable trend, 634 improved and 94 got worse. Gujarat fell. Delhi and Telangana rose.',
+    excerpt:
+      'April 2023 to August 2026: 634 districts got better, 94 got worse. Slope and level are different sentences — Gujarat can fall and still have names on the 132.',
+    category: 'Nutrition',
+    categoryTone: 'teal',
+    datePublished: '2026-10-05',
+    dateLabel: 'Oct 2026',
+    author: INSIGHT_AUTHOR.name,
+    ogImage: 'images/og/poshan.jpg',
+  },
+  {
     slug: 'csr-compliance-companies-act-2013',
     path: 'insights/csr-compliance-companies-act-2013/',
     title: 'Understanding CSR Compliance Under Companies Act 2013',
