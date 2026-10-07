@@ -1,0 +1,235 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { SITE } from '../../../consts';
+import { getInsightBySlug, buildArticleJsonLd } from '../../../data/insights';
+
+const base = import.meta.env.BASE_URL;
+const post = getInsightBySlug('the-agency-took-the-cheque')!;
+const articleJsonLd = buildArticleJsonLd(post, SITE.url);
+const linkedInUrl = 'https://www.linkedin.com/pulse/agency-took-cheque-dr-hemant-patel-tipoe/';
+---
+
+<BaseLayout 
+  title="The Agency Took the Cheque | Causewave"
+  description={post.description}
+  ogTitle="The Agency Took the Cheque"
+  ogDescription="Implementing agencies now file about seven rupees in ten. The pen changed hands. The cheque did not grow. Own-trust ₹70 lakh is a mean, not a median."
+  ogImage={post.ogImage}
+  ogImageAlt="India map, CSR filings, and a calculator on a desk — CSR ticket size research"
+  canonicalPath={post.path}
+  activePage="insights"
+  ogType="article"
+  breadcrumbLabel={post.shortTitle}
+  breadcrumbParent={[
+    { name: 'Insights', path: 'insights/' },
+    { name: 'CSR Ticket Size', path: 'insights/csr-ticket-size/' },
+  ]}
+  jsonLd={articleJsonLd}
+>
+  <main>
+    <section class="bg-slate-900 text-white section">
+      <div class="max-w-screen-2xl mx-auto px-6">
+        <div class="max-w-3xl">
+          <a href={`${base}insights/csr-ticket-size/`} class="inline-flex items-center text-sm text-slate-400 hover:text-white transition-colors mb-6">
+            ← CSR Ticket Size series
+          </a>
+          <div class="flex items-center gap-3 mb-4">
+            <span class="text-xs font-medium text-sky-400 bg-sky-400/10 px-2.5 py-0.5 rounded-full">Special</span>
+            <span class="text-xs text-slate-500">{post.dateLabel}</span>
+          </div>
+          <h1 class="text-3xl md:text-4xl font-semibold tracking-tight">{post.title}</h1>
+          <p class="mt-4 text-slate-300 text-lg">{post.excerpt}</p>
+        </div>
+      </div>
+    </section>
+
+    <article class="section max-w-screen-2xl mx-auto px-6">
+      <div class="max-w-3xl">
+        <p class="text-slate-600 leading-relaxed mb-6 text-lg">
+          A special after
+          <a href={`${base}insights/csr-ticket-size/`} class="text-sky-600 hover:underline">CSR Ticket Size</a>.
+          Not Part 9.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          The series asked why India’s average CSR project stayed near ₹35 lakh while the money tripled.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          This piece asks the question the comments kept asking.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Directly. Through an NGO. Through our own foundation.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Who holds the pen — and did that choice change the cheque?
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-8">
+          Short answer: the pen changed hands. The cheque did not grow. The channel that absorbed the decade is the one that got thinner.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">Three ways to file the same rupee</h2>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          On the National CSR Portal, every project row carries a mode. The labels are messy — the same idea is capitalised two or three ways — but they collapse into three vehicles that matter:
+        </p>
+        <ul class="space-y-2 text-slate-600 mb-6">
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>Directly by the company</span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>Other implementing agencies (the NGO / external partner line)</span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span>A trust, society, or Section 8 company set up by the company itself</span></li>
+        </ul>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          There is a fourth, small one: trusts set up by government. About 1% of spend, sitting near the national average. Not the plot.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          And there is NEC / Not Mentioned. Many rows, little money. A labelling sink. Ignored here as a vehicle.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          Across FY 2014-15 to FY 2024-25, read the typical row before you fall in love with the ₹70 lakh:
+        </p>
+        <div class="overflow-x-auto mb-6">
+          <table class="w-full text-sm text-left border border-slate-200">
+            <thead class="bg-slate-100 text-slate-700">
+              <tr>
+                <th class="p-3">Vehicle</th>
+                <th class="p-3">Typical row (median)</th>
+                <th class="p-3">What the mean does</th>
+              </tr>
+            </thead>
+            <tbody class="text-slate-600">
+              <tr class="border-t">
+                <td class="p-3">Own trust / Section 8</td>
+                <td class="p-3">~₹10 lakh</td>
+                <td class="p-3">All-years mean ~₹70 lakh — a fat tail of ₹1 crore+ rows</td>
+              </tr>
+              <tr class="border-t bg-slate-50">
+                <td class="p-3">Implementing agency</td>
+                <td class="p-3">~₹10 lakh</td>
+                <td class="p-3">Recent average ~₹43–44 lakh</td>
+              </tr>
+              <tr class="border-t">
+                <td class="p-3">Direct</td>
+                <td class="p-3">~₹5 lakh</td>
+                <td class="p-3">Recent average ~₹27 lakh</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          The foundation does not lift the everyday cheque. It fattens the average, because a thicker tail of ₹1 crore and ₹5 crore lines pulls the mean up. About 80% of own-trust rupees, in the years that label was used, sit in rows of ₹1 crore or more. The median never left the ₹10 lakh neighbourhood of the agency market.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-8">
+          That is the myth, dealt with. Now the decade, which is the actual story.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">The pen moved</h2>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          FY 2023-24 is the last year in this file where all three labels still exist. In FY 2024-25 the extract contains only agency, direct, and NEC. Do not read that as “foundations spent zero.” Read it as the form stopped offering the old bucket — or this pull no longer received it.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          The takeover did not start in 2021. By FY 2016-17 the agency line was already about half of CSR spend. It then kept climbing: ~51%, ~60%, ~66%, ~70%.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Same shape as education and health in
+          <a href={`${base}insights/education-health-csrs-volume-machines/`} class="text-sky-600 hover:underline">Part 6</a>.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          The channel that gained the volume did not keep a fat ticket. It settled toward the national number, and in the recent years it sits just above it (~₹43–44 lakh) while direct sits under it (~₹27 lakh).
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-8">
+          India did not discover a deeper way to write CSR. India handed the default cheque to the implementing agency, and the default got ordinary.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">The foundation number is an early-year object</h2>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          If you only see the all-years table, you will go and set up a Section 8 company.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Don’t. Not for ticket size.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          In FY 2014-15 the own-trust line was a fifth of all CSR spend — about ₹2,050 crore — written across under 1,000 non-zero rows. Average about ₹2.1 crore. That is a handful of large lines in year one of the law, not a national habit.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          It then lived for a while as a minority channel: roughly 6–9% of spend, average row drifting from ~₹80 lakh toward ~₹60 lakh, through FY 2020-21.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Then the cliff.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          FY 2021-22 is the year the CSR-1 rule bites: implementing agencies, including entities set up by the company, were pushed to register with the Ministry. A corporate foundation is, in law, an implementing agency. A large share of those rupees almost certainly moved into the “other implementing agencies” line rather than ceasing to exist.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          So this is not an obituary for foundations.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          It is a warning about the statistic. The ₹70 lakh all-years average is what the label looked like when companies still used it for their big lines, weighted toward the early years. Once the label is either rare or gone, there is no separate fat-cheque vehicle left on the form.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-8">
+          You cannot see, from the mode field alone, which of today’s agency rows are a company’s own foundation and which are an outside NGO. Anyone who ranks “own foundation vs NGO” off the recent portal file is ranking a category the file no longer keeps cleanly.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">Direct is the channel that is actually small</h2>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Agency is the volume machine of delivery. Direct is the thin one.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          All years, non-zero rows: half of direct rows are micro-lines. Recent direct average is ~₹27 lakh — under the national ₹35 lakh, and about half of what direct itself was in FY 2014-15.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          That fits
+          <a href={`${base}insights/the-12-lakh-company-csr-median/`} class="text-sky-600 hover:underline">Part 5</a>.
+          The typical company-year is ~₹23 lakh. A company with one small obligation does not hire a foundation. It files directly, often one line, often under ₹5 lakh. Lecturing that company to “professionalise through a trust” does not create a ₹70 lakh row. It creates a compliance cost on top of a ₹5 lakh cheque.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-8">
+          The companies that can move a mean are already inside the agency line, or used to be visible as trusts and are now inside it unlabelled.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">What to do with this on Monday</h2>
+        <p class="text-slate-600 leading-relaxed mb-2 font-medium text-slate-800">If you are a board.</p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          “We work through an implementing agency” is no longer a strategy. It is the default. About seven rupees in ten are filed that way, at an average that has been drifting down for a decade. A new foundation does not show up on the recent form as a fatter cheque.
+          <a href={`${base}insights/csr-ticket-size-playbook/`} class="text-sky-600 hover:underline">Part 8</a>
+          still stands: the design variable is how many rows, not which dropdown you pick.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Ask the agency question one level down, where the form has gone blind: of our agency rows, which are our own institution, and which are partners — and what is the median of each? The portal will not answer it for you anymore. Your annex will.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-2 font-medium text-slate-800">If you are an NGO.</p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          You are not pitching a side door. You are pitching the market. Recent agency rows average on the order of ₹44 lakh. The all-years median agency row is still about ₹10 lakh. A ₹8 lakh proposal is the grain. A ₹5 crore proposal is a conversation with the tail — the same tail that once made own-trust averages look like a different country.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-2 font-medium text-slate-800">If you are reading the ₹70 lakh as a target.</p>
+        <p class="text-slate-600 leading-relaxed mb-8">
+          It was a mean, in a label, in the years the label still caught large lines. The median under that label was ₹10 lakh. The recent years that still use the label average ~₹27 lakh. Chasing the historical mean is how annual reports stay busier than programmes.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">The line that connects to the series</h2>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          <a href={`${base}insights/why-indias-csr-cheque-size-wont-budge/`} class="text-sky-600 hover:underline">Part 1</a>:
+          spend tripled, the average project did not.
+          <a href={`${base}insights/education-health-csrs-volume-machines/`} class="text-sky-600 hover:underline">Part 6</a>:
+          education and health became half the money and settled on the mean. This special: the implementing agency became the way the money is written, and settled there too.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Different dropdown. Same geometry.
+        </p>
+        <blockquote class="border-l-4 border-sky-500 pl-4 my-6 text-slate-700 italic">
+          The vehicle was never the lever. It was the place the lever got harder to see.
+        </blockquote>
+
+        <p class="text-sm text-slate-500 mb-8">
+          <strong>Data:</strong> National CSR Portal company-wise project filings, FY 2014-15 to FY 2024-25. Averages are amount spent ÷ non-zero project rows. Mode strings merged across capitalisation. NEC excluded from the vehicle story. FY 2024-25 has no own-trust or government-trust label in this file; the shift is therefore told through FY 2023-24, the last year the three vehicles can still be seen apart. A portal row is a filing unit, not always one ground programme. This is not a ranking of foundations, NGOs, or impact.
+          Also on{' '}
+          <a href={linkedInUrl} target="_blank" rel="noopener noreferrer" class="text-sky-600 hover:underline">LinkedIn</a>.
+        </p>
+
+        <div class="mt-8 p-6 rounded-2xl bg-slate-50 border">
+          <h3 class="font-semibold text-lg">Designing CSR portfolios that go deeper, not only wider?</h3>
+          <p class="mt-2 text-sm text-slate-600">
+            Causewave helps companies with CSR strategy, programme design, and portfolio choices — including when to concentrate versus spray.
+            Explore <a href={`${base}services/`} class="text-sky-600 hover:underline">services</a> or get in touch.
+          </p>
+          <a href={`${base}contact/`} class="mt-4 inline-flex btn btn-primary px-6 py-2 text-sm">Get in Touch</a>
+        </div>
+      </div>
+    </article>
+  </main>
+</BaseLayout>

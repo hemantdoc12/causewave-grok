@@ -17,6 +17,8 @@ export type InsightPost = {
   author: string;
   /** Path under the site root, e.g. images/og/founder.jpg */
   ogImage: string;
+  /** Standalone specials sit outside series hubs and the generic guides grid. */
+  kind?: 'guide' | 'special';
 };
 
 export const INSIGHT_AUTHOR = {
@@ -216,6 +218,23 @@ export const INSIGHT_POSTS: InsightPost[] = [
     dateLabel: 'Oct 2026',
     author: INSIGHT_AUTHOR.name,
     ogImage: 'images/og/poshan.jpg',
+  },
+  {
+    slug: 'the-agency-took-the-cheque',
+    path: 'insights/the-agency-took-the-cheque/',
+    title: 'The Agency Took the Cheque',
+    shortTitle: 'The Agency Took the Cheque',
+    description:
+      'CSR special: agencies now file ~70% of spend. The pen changed hands; the cheque did not grow. Own-trust ₹70 lakh is a mean, not a median.',
+    excerpt:
+      'Direct, own foundation, or NGO: the pen changed hands over a decade. The cheque did not grow. The channel that absorbed the volume is the one that got thinner.',
+    category: 'CSR Strategy',
+    categoryTone: 'sky',
+    datePublished: '2026-10-07',
+    dateLabel: 'Oct 2026',
+    author: INSIGHT_AUTHOR.name,
+    ogImage: 'images/og/series.jpg',
+    kind: 'special',
   },
   {
     slug: 'csr-compliance-companies-act-2013',
