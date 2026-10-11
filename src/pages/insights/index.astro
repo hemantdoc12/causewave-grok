@@ -3,6 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Icon from '../../components/Icon.astro';
 import { INSIGHT_POSTS } from '../../data/insights';
 import { INSIGHT_SERIES } from '../../data/series';
+import { WEEKLY_TITLES, latestIssue } from '../../data/weeklies';
 import { SEO } from '../../consts';
 
 const base = import.meta.env.BASE_URL;
@@ -25,6 +26,7 @@ const guides = INSIGHT_POSTS
   .filter((p) => p.slug !== 'founder-story' && !seriesSlugs.has(p.slug) && p.kind !== 'special')
   .slice()
   .sort((a, b) => b.datePublished.localeCompare(a.datePublished));
+const weeklies = WEEKLY_TITLES.map((title) => ({ title, issue: latestIssue(title.id) }));
 
 const linkedInPosts = [
   {
@@ -213,6 +215,45 @@ const linkedInPosts = [
         </div>
       </section>
     )}
+
+    <section class="bg-slate-50 border-b">
+      <div class="max-w-screen-2xl mx-auto px-6 py-10">
+        <div class="text-center mb-8">
+          <span class="text-amber-700 font-semibold text-sm tracking-widest">SUNDAY WEEKLIES · PREPARED END TO END BY AI</span>
+          <h2 class="text-2xl md:text-3xl font-semibold tracking-tight mt-1">Two Sunday reviews, labelled as AI-prepared</h2>
+          <p class="mt-2 text-sm text-slate-600 max-w-2xl mx-auto">
+            Newspaper-style weeklies. The PDF is the issue. They sit apart from the authored series and on-site guides.
+          </p>
+          <a href={`${base}weekly/`} class="mt-4 inline-flex items-center text-sm font-semibold text-sky-600 hover:text-sky-700">
+            View Sunday weeklies <Icon name="arrow-right" class="w-4 h-4 ml-1" />
+          </a>
+        </div>
+        <div class="grid sm:grid-cols-2 gap-5 max-w-4xl mx-auto">
+          {weeklies.map(({ title, issue }) => (
+            <article class="bg-white border rounded-xl overflow-hidden hover:-translate-y-1 transition-all flex flex-col">
+              <div class={`bg-gradient-to-br ${title.cardTone} p-4 text-white`}>
+                <span class="inline-block bg-white/20 px-2 py-0.5 rounded-full text-xs mb-2">{title.name}</span>
+                <h3 class="text-base font-semibold leading-snug">{issue.headline}</h3>
+              </div>
+              <div class="p-4 flex flex-col flex-1">
+                <p class="text-slate-600 text-sm mb-3 flex-1">{issue.dek}</p>
+                <div class="flex items-center gap-2 text-xs text-slate-500 mb-3">
+                  <span>AI-prepared</span>
+                  <span>•</span>
+                  <span>{issue.dateLabel}</span>
+                </div>
+                <a
+                  href={`${base}${issue.path}`}
+                  class="inline-flex items-center text-sky-600 text-sm font-semibold hover:text-sky-700"
+                >
+                  Read this issue <Icon name="arrow-right" class="w-3.5 h-3.5 ml-1" />
+                </a>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
 
     <!-- On-site guides (primary SEO inventory) -->
     <section class="bg-white">

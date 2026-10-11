@@ -70,6 +70,15 @@ export const SEO = {
       'Practical guidance on CSR compliance, social impact programmes, and evidence-based impact assessment from Causewave.',
   },
 
+  weekly: {
+    title: 'Sunday Weeklies | Impact Weekly & AI Health Weekly',
+    description:
+      'Sunday weeklies from Causewave: Impact Weekly on India’s CSR week, and AI Health Weekly on evidence in health AI. Prepared end to end by AI.',
+    ogTitle: 'Sunday Weeklies | Prepared end to end by AI',
+    ogDescription:
+      'Impact Weekly and AI Health Weekly — AI-prepared Sunday reviews. The editorial is Dr. Hemant L. Patel.',
+  },
+
   /** Entity / schema helpers */
   categoryKeywords: [
     'CSR consulting firm India',
