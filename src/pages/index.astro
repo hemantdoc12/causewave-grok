@@ -35,7 +35,11 @@ const filmJsonLd = filmSrc
       description: SEO.home.h1Sub,
       thumbnailUrl: `${SITE.url}${filmPoster}`,
       contentUrl: `${SITE.url}${filmSrc}`,
-      uploadDate: "2026-10-13",
+      uploadDate: "2026-10-14",
+      duration: "PT1M2S",
+      encodingFormat: "video/mp4",
+      width: 1920,
+      height: 1080,
       publisher: {
         "@type": "Organization",
         name: "Causewave Innovations LLP",
@@ -89,20 +93,22 @@ const homeJsonLd = filmJsonLd ? [websiteJsonLd, filmJsonLd] : websiteJsonLd;
 
         <div class="md:col-span-5 flex justify-center md:justify-end">
           {filmSrc ? (
-            <div class="w-full max-w-md">
+            <div class="w-full">
               <div class="rounded-2xl overflow-hidden border border-white/20 shadow-2xl bg-black/50 aspect-video">
                 <video
                   controls
                   playsinline
                   preload="metadata"
                   poster={`${base}${filmPoster}`}
+                  width="1920"
+                  height="1080"
                   class="h-full w-full object-cover"
                   aria-label="Causewave brand film"
                 >
                   <source src={`${base}${filmSrc}`} type={filmSrc.endsWith('.webm') ? 'video/webm' : 'video/mp4'} />
                 </video>
               </div>
-              <p class="mt-3 text-center text-sm text-white/80">Brand film</p>
+              <p class="mt-3 text-center text-sm text-white/80">Brand film · 1:02</p>
             </div>
           ) : (
             <picture>

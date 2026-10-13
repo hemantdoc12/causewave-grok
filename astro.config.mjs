@@ -6,7 +6,7 @@ import sitemap from '@astrojs/sitemap';
 
 /** Per-URL lastmod (YYYY-MM-DD). Insights use datePublished; money pages use this SEO pass. */
 const LASTMOD_BY_PATH = {
-  '/': '2026-10-13',
+  '/': '2026-10-14',
   '/about/': '2026-09-21',
   '/services/': '2026-09-08',
   '/contact/': '2026-10-13',
