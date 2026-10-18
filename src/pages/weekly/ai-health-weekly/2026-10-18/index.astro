@@ -1,0 +1,8 @@
+---
+import WeeklyIssuePage from '../../../../components/WeeklyIssuePage.astro';
+import { getWeeklyIssue } from '../../../../data/weeklies';
+
+const issue = getWeeklyIssue('ai-health-weekly', '2026-10-18')!;
+---
+
+<WeeklyIssuePage issue={issue} />

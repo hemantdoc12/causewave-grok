@@ -6,6 +6,7 @@ import {
   WEEKLY_AI_DISCLAIMER,
   WEEKLY_AUTHOR,
   buildWeeklyIssueJsonLd,
+  adjacentWeeklyIssues,
   getWeeklyTitle,
   siblingIssue,
   type WeeklyIssue,
@@ -20,6 +21,7 @@ const title = getWeeklyTitle(issue.titleId);
 const jsonLd = buildWeeklyIssueJsonLd(issue, title, SITE.url);
 const sibling = siblingIssue(issue);
 const siblingTitle = sibling ? getWeeklyTitle(sibling.titleId) : undefined;
+const { prev, next } = adjacentWeeklyIssues(issue);
 const base = import.meta.env.BASE_URL;
 const pdfHref = `${base}${issue.pdfPath}`;
 ---
@@ -130,10 +132,44 @@ const pdfHref = `${base}${issue.pdfPath}`;
           <a href={pdfHref} class="text-sky-600 hover:underline font-semibold">download the PDF</a>.
         </p>
 
-        <div class="rounded-2xl border border-dashed bg-slate-50 p-6 mb-8">
-          <div class="text-xs font-semibold text-slate-500 tracking-widest mb-2">NEXT ISSUE</div>
-          <p class="text-sm text-slate-600 leading-relaxed">{issue.nextIssueLabel}</p>
-        </div>
+        {next ? (
+          <a
+            href={`${base}${next.path}`}
+            class="block rounded-2xl border bg-white p-6 hover:border-sky-300 hover:-translate-y-0.5 transition-all mb-8"
+          >
+            <div class="flex items-center gap-3 mb-2">
+              <span class="text-xs font-semibold text-sky-600 bg-sky-50 px-2.5 py-0.5 rounded-full">
+                Next issue
+              </span>
+              <span class="text-xs text-slate-500">{next.volume} · {next.number}</span>
+            </div>
+            <h2 class="text-xl font-semibold tracking-tight text-slate-900">{next.headline}</h2>
+            <p class="mt-2 text-sm text-slate-600 leading-relaxed">{next.dek}</p>
+            <span class="mt-4 inline-flex text-sm font-semibold text-sky-600">Read {next.number} →</span>
+          </a>
+        ) : (
+          <div class="rounded-2xl border border-dashed bg-slate-50 p-6 mb-8">
+            <div class="text-xs font-semibold text-slate-500 tracking-widest mb-2">NEXT ISSUE</div>
+            <p class="text-sm text-slate-600 leading-relaxed">{issue.nextIssueLabel}</p>
+          </div>
+        )}
+
+        {prev && (
+          <a
+            href={`${base}${prev.path}`}
+            class="block rounded-2xl border bg-white p-6 hover:border-sky-300 hover:-translate-y-0.5 transition-all mb-8"
+          >
+            <div class="flex items-center gap-3 mb-2">
+              <span class="text-xs font-semibold text-slate-500 bg-slate-100 px-2.5 py-0.5 rounded-full">
+                Previous issue
+              </span>
+              <span class="text-xs text-slate-500">{prev.volume} · {prev.number}</span>
+            </div>
+            <h2 class="text-xl font-semibold tracking-tight text-slate-900">{prev.headline}</h2>
+            <p class="mt-2 text-sm text-slate-600 leading-relaxed">{prev.dek}</p>
+            <span class="mt-4 inline-flex text-sm font-semibold text-sky-600">Read {prev.number} →</span>
+          </a>
+        )}
 
         {sibling && siblingTitle && (
           <a
