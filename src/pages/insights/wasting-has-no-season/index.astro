@@ -1,0 +1,164 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import SeriesNav from '../../../components/SeriesNav.astro';
+import { SITE } from '../../../consts';
+import { getInsightBySlug, buildArticleJsonLd } from '../../../data/insights';
+import { getAdjacentParts } from '../../../data/series';
+
+const base = import.meta.env.BASE_URL;
+const post = getInsightBySlug('wasting-has-no-season')!;
+const articleJsonLd = buildArticleJsonLd(post, SITE.url);
+const { series, current, prev, next } = getAdjacentParts('poshan-tracker', post.slug);
+const linkedInUrl = current!.linkedInUrl;
+---
+
+<BaseLayout 
+  title="Wasting has no season | Causewave"
+  description={post.description}
+  ogTitle="Wasting has no season"
+  ogDescription="Tracker wasting fell 6.5% to 3.2% with no monsoon spike. Survey still ~19%. Anyone putting 3% on a success slide has to beat that gap first."
+  ogImage={post.ogImage}
+  ogImageAlt="Nutrition programme desk with growth charts, India map, and a weighing scale"
+  canonicalPath={post.path}
+  activePage="insights"
+  ogType="article"
+  breadcrumbLabel={`Part 5: ${post.shortTitle}`}
+  breadcrumbParent={[
+    { name: 'Insights', path: 'insights/' },
+    { name: 'The Poshan Tracker File', path: 'insights/poshan-tracker/' },
+  ]}
+  jsonLd={articleJsonLd}
+>
+  <main>
+    <section class="bg-slate-900 text-white section">
+      <div class="max-w-screen-2xl mx-auto px-6">
+        <div class="max-w-3xl">
+          <a href={`${base}insights/poshan-tracker/`} class="inline-flex items-center text-sm text-slate-400 hover:text-white transition-colors mb-6">
+            ← The Poshan Tracker File
+          </a>
+          <div class="flex items-center gap-3 mb-4">
+            <span class="text-xs font-medium text-teal-400 bg-teal-400/10 px-2.5 py-0.5 rounded-full">Part 5 of 5</span>
+            <span class="text-xs text-slate-500">{post.dateLabel}</span>
+          </div>
+          <h1 class="text-3xl md:text-4xl font-semibold tracking-tight">{post.title}</h1>
+          <p class="mt-4 text-slate-300 text-lg">{post.excerpt}</p>
+        </div>
+      </div>
+    </section>
+
+    <article class="section max-w-screen-2xl mx-auto px-6">
+      <div class="max-w-3xl">
+        <SeriesNav series={series!} current={current!} prev={prev} next={next} />
+        <p class="text-slate-600 leading-relaxed mb-6 text-lg">
+          Last week: four states hold half the very-high-risk list. Madhya Pradesh 38 of 132. Tamil Nadu, none.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          <a href={`${base}insights/four-states-hold-half-the-red/`} class="text-sky-600 hover:underline">Part 4 → Four states hold half the red</a>
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-8">
+          This week, last of the national run: the number from
+          <a href={`${base}insights/two-nutrition-numbers/`} class="text-sky-600 hover:underline">Part 1</a>
+          that should have moved with the calendar.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Dashboard wasting. Survey: about 19%. File: 3.2% in August 2026.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-8">
+          If that 3% were a real pulse of thin children, it should tick when infection and the lean season tick. A survey cannot see months. This file can.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">The line</h2>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          Unweighted average of district wasting, children 0–5:
+        </p>
+        <div class="overflow-x-auto mb-6">
+          <table class="w-full text-sm text-left border border-slate-200">
+            <thead class="bg-slate-100 text-slate-700">
+              <tr>
+                <th class="p-3">Month</th>
+                <th class="p-3">Wasting</th>
+              </tr>
+            </thead>
+            <tbody class="text-slate-600">
+              <tr class="border-t"><td class="p-3">April 2023</td><td class="p-3">6.5%</td></tr>
+              <tr class="border-t bg-slate-50"><td class="p-3">October 2023</td><td class="p-3">5.8%</td></tr>
+              <tr class="border-t"><td class="p-3">April 2024</td><td class="p-3">5.5%</td></tr>
+              <tr class="border-t bg-slate-50"><td class="p-3">October 2024</td><td class="p-3">4.2%</td></tr>
+              <tr class="border-t"><td class="p-3">April 2025</td><td class="p-3">4.5%</td></tr>
+              <tr class="border-t bg-slate-50"><td class="p-3">October 2025</td><td class="p-3">4.3%</td></tr>
+              <tr class="border-t"><td class="p-3">April 2026</td><td class="p-3">3.4%</td></tr>
+              <tr class="border-t bg-slate-50"><td class="p-3">August 2026</td><td class="p-3">3.2%</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Three years, down. No monsoon spike in 2024. None in 2025. None this summer. July 2025 bumps 0.2 off June and then the fall resumes.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Pool the 739 districts by calendar month and you get a faint pre-monsoon lift: April–May around 5.0, winter around 4.4. Half a point. That is not a season. That is weather inside a collapse.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-8">
+          Stunting on the same districts fell too — 35% to 25% — but wasting is the one that should be seasonal. It is the one that isn’t.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">What 3% can mean</h2>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Researchers said in 2024: Tracker wasting is the wild gap with NFHS. NFHS-6 did not close it.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          A file at 3%, with no monsoon, can be:
+        </p>
+        <ul class="space-y-2 text-slate-600 mb-6">
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-teal-500 mt-2 shrink-0"></span><span>True — fewer wasted children on the rolls.</span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-teal-500 mt-2 shrink-0"></span><span>Measurement — height boards that miss wasting, or children too sick to arrive.</span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-teal-500 mt-2 shrink-0"></span><span>Selection — the wasted child never enrolled, or enrolled and not weighed.</span></li>
+        </ul>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          From November 2024 the large states report 95–99% of registered 0–5 children measured. That makes “we didn’t weigh them” harder for children already on the roll. It does not fix the board. It does not fix the child who never registered.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          So the sentence is not “India ended wasting.”
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-8">
+          The sentence is: the public monthly file does not show the seasonal pulse textbooks would expect, and it shows a three-year decline the survey does not. Anyone putting 3% on a success slide has to beat that gap first.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">One check, not a state chapter</h2>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Where we have looked hardest at a single state, Gujarat wasting went 9% (late 2024) to 3% and stayed there. Narmada 6%, Chhota Udepur 8%, Anand 3%, this August. The hole there is stunting, not wasting — the opposite of NFHS, where wasting is the stubborn national indicator.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-8">
+          A close-up can wait. It is not this series.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">What the five weeks were</h2>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Two numbers that are not the same object. A list of 132. A slope: 634 down, 94 up. Four states holding half the red. Wasting that will not keep a season, and should not be quoted as 19%.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          The dashboard will keep publishing. September was not on the site when this file closed. When it is, the list and the slope can be refreshed. The two thermometers will not start agreeing because a month got added.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-8">
+          If you quote Poshan Tracker next to NFHS in a deck: stunting, maybe, with a wince. Wasting, no.
+        </p>
+
+        <p class="text-sm text-slate-500 mb-8">
+          <strong>Data:</strong> Part 5 of 5. Poshan Tracker, April 2023–August 2026. District averages unweighted. Balanced panel = 739 districts. Programme data, not NFHS. NFHS-6 wasting remains ~19%.
+          Also on{' '}
+          <a href={linkedInUrl} target="_blank" rel="noopener noreferrer" class="text-sky-600 hover:underline">LinkedIn</a>.
+        </p>
+
+        <SeriesNav series={series!} current={current!} prev={prev} next={next} />
+
+        <div class="mt-8 p-6 rounded-2xl bg-slate-50 border">
+          <h3 class="font-semibold text-lg">Designing healthcare and nutrition CSR that matches the map?</h3>
+          <p class="mt-2 text-sm text-slate-600">
+            Causewave helps companies with programme design and last-mile public health delivery.
+            Explore <a href={`${base}services/`} class="text-sky-600 hover:underline">services</a> or get in touch.
+          </p>
+          <a href={`${base}contact/`} class="mt-4 inline-flex btn btn-primary px-6 py-2 text-sm">Get in Touch</a>
+        </div>
+      </div>
+    </article>
+  </main>
+</BaseLayout>

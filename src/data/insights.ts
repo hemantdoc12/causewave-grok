@@ -220,6 +220,38 @@ export const INSIGHT_POSTS: InsightPost[] = [
     ogImage: 'images/og/poshan.jpg',
   },
   {
+    slug: 'four-states-hold-half-the-red',
+    path: 'insights/four-states-hold-half-the-red/',
+    title: 'Four states hold half the red',
+    shortTitle: 'Half the Red',
+    description:
+      'POSHAN Part 4: Madhya Pradesh, Bihar, Jharkhand and Tripura hold 68 of 132 very-high-risk districts — half the red in four states.',
+    excerpt:
+      'Madhya Pradesh, Bihar, Jharkhand, Tripura: 16% of districts, 52% of the very-high-risk list. Four states hold half the red.',
+    category: 'Nutrition',
+    categoryTone: 'teal',
+    datePublished: '2026-10-12',
+    dateLabel: 'Oct 2026',
+    author: INSIGHT_AUTHOR.name,
+    ogImage: 'images/og/poshan.jpg',
+  },
+  {
+    slug: 'wasting-has-no-season',
+    path: 'insights/wasting-has-no-season/',
+    title: 'Wasting has no season',
+    shortTitle: 'No Season',
+    description:
+      'POSHAN Part 5: Tracker wasting fell 6.5% to 3.2% with no monsoon spike. Survey still ~19%. Do not put 3% on a success slide.',
+    excerpt:
+      'Dashboard wasting: 6.5% in April 2023, 3.2% in August 2026, no monsoon spike. Survey still ~19%. Anyone putting 3% on a success slide has to beat that gap first.',
+    category: 'Nutrition',
+    categoryTone: 'teal',
+    datePublished: '2026-10-19',
+    dateLabel: 'Oct 2026',
+    author: INSIGHT_AUTHOR.name,
+    ogImage: 'images/og/poshan.jpg',
+  },
+  {
     slug: 'the-agency-took-the-cheque',
     path: 'insights/the-agency-took-the-cheque/',
     title: 'The Agency Took the Cheque',

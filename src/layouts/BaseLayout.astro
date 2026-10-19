@@ -2,7 +2,7 @@
 import '../styles/global.css';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
-import { SITE, CONTACT, SOCIAL } from '../consts';
+import { SITE, CONTACT } from '../consts';
 
 interface BreadcrumbItem {
   name: string;
@@ -88,8 +88,7 @@ const organizationJsonLd = {
     "contactType": "customer service",
     "areaServed": "IN",
     "availableLanguage": ["English", "Hindi", "Gujarati"]
-  },
-  "sameAs": [SOCIAL.instagram]
+  }
 };
 
 // Build breadcrumb trail: Home → [parents] → current

@@ -185,9 +185,31 @@ export const POSHAN_TRACKER_SERIES: InsightSeries = {
       dateLabel: 'Oct 5, 2026',
       linkedInUrl: 'https://www.linkedin.com/pulse/634-down-94-up-dr-hemant-patel-hmrqe/',
     },
+    {
+      part: 4,
+      slug: 'four-states-hold-half-the-red',
+      path: 'insights/four-states-hold-half-the-red/',
+      title: 'Four states hold half the red',
+      shortTitle: 'Half the Red',
+      excerpt:
+        'Madhya Pradesh, Bihar, Jharkhand, Tripura: 16% of districts, 52% of the very-high-risk list. Four states hold half the red.',
+      datePublished: '2026-10-12',
+      dateLabel: 'Oct 12, 2026',
+      linkedInUrl: 'https://www.linkedin.com/pulse/four-states-hold-half-red-dr-hemant-patel-asade/',
+    },
+    {
+      part: 5,
+      slug: 'wasting-has-no-season',
+      path: 'insights/wasting-has-no-season/',
+      title: 'Wasting has no season',
+      shortTitle: 'No Season',
+      excerpt:
+        'Dashboard wasting: 6.5% in April 2023, 3.2% in August 2026, no monsoon spike. Survey still ~19%. Anyone putting 3% on a success slide has to beat that gap first.',
+      datePublished: '2026-10-19',
+      dateLabel: 'Oct 19, 2026',
+      linkedInUrl: 'https://www.linkedin.com/pulse/wasting-has-season-dr-hemant-patel-csxsf/',
+    },
   ],
-  upcoming:
-    'Part 4 — Never mind who moved. Who holds the red now. Four states. Half the list.',
 };
 
 export const INSIGHT_SERIES = [POSHAN_TRACKER_SERIES, CSR_TICKET_SIZE_SERIES] as const;

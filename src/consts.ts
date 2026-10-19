@@ -27,8 +27,4 @@ export const CONTACT = {
   location: 'Ahmedabad, Gujarat, India',
 } as const;
 
-export const SOCIAL = {
-  instagram: 'https://www.instagram.com/causewave.in/',
-} as const;
-
 export { SEO };

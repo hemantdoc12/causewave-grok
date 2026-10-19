@@ -1,7 +1,7 @@
 ---
 import Icon from '../../components/Icon.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { SITE, CONTACT, SEO, SOCIAL } from '../../consts';
+import { SITE, CONTACT, SEO } from '../../consts';
 const base = import.meta.env.BASE_URL;
 
 const localBusinessJsonLd = {
@@ -25,7 +25,6 @@ const localBusinessJsonLd = {
   },
   "priceRange": "$$",
   "knowsAbout": [...SEO.categoryKeywords],
-  "sameAs": [SOCIAL.instagram],
 };
 ---
 
@@ -214,22 +213,6 @@ const localBusinessJsonLd = {
               <div>
                 <div class="font-medium text-sm">Location</div>
                 <span class="text-slate-600 text-sm">{CONTACT.location}</span>
-              </div>
-            </div>
-            <div class="flex items-start gap-4">
-              <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-sky-100 text-sky-600">
-                <Icon name="instagram" class="w-5 h-5" />
-              </div>
-              <div>
-                <div class="font-medium text-sm">Instagram</div>
-                <a
-                  href={SOCIAL.instagram}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="text-slate-600 text-sm hover:text-sky-600 transition-colors"
-                >
-                  @causewave.in
-                </a>
               </div>
             </div>
           </div>
