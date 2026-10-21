@@ -1,0 +1,62 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { SITE } from '../../consts';
+import { BRAND_FILM, resolveBrandFilm, buildBrandFilmJsonLd } from '../../data/brand-film';
+
+const base = import.meta.env.BASE_URL;
+const film = resolveBrandFilm();
+const filmJsonLd = buildBrandFilmJsonLd(SITE.url, film);
+---
+
+<BaseLayout
+  title={BRAND_FILM.pageTitle}
+  description={BRAND_FILM.pageDescription}
+  ogTitle={BRAND_FILM.name}
+  ogDescription={BRAND_FILM.description}
+  ogImage={film.poster}
+  ogImageAlt="Still from the Causewave brand film — India map with the line CSR intelligence, over a decade deep"
+  ogType="video.other"
+  ogVideo={film.src ? `${SITE.url}${film.src}` : undefined}
+  canonicalPath={BRAND_FILM.path}
+  breadcrumbLabel="Brand film"
+  jsonLd={filmJsonLd ?? {}}
+>
+  <main>
+    <article class="bg-slate-900 text-white min-h-[70vh]">
+      <div class="max-w-4xl mx-auto px-6 py-12 md:py-16">
+        <h1 class="text-3xl md:text-5xl font-semibold tracking-tight">{BRAND_FILM.name}</h1>
+        <p class="mt-3 text-sm text-slate-400">{BRAND_FILM.durationLabel} · Causewave Innovations LLP</p>
+
+        {film.src ? (
+          <div class="mt-8 rounded-2xl overflow-hidden border border-white/15 shadow-2xl bg-black aspect-video">
+            <video
+              controls
+              playsinline
+              preload="metadata"
+              poster={`${base}${film.poster}`}
+              width={BRAND_FILM.width}
+              height={BRAND_FILM.height}
+              class="h-full w-full object-cover"
+              aria-label={BRAND_FILM.name}
+            >
+              <source src={`${base}${film.src}`} type={film.mime} />
+            </video>
+          </div>
+        ) : (
+          <p class="mt-8 text-slate-300">The film is not on this build.</p>
+        )}
+
+        <p class="mt-8 text-lg text-slate-200 leading-relaxed">
+          {BRAND_FILM.description}
+        </p>
+        <p class="mt-4 text-slate-400 leading-relaxed">
+          Causewave is a CSR consulting firm in India. The film is the shortest way to see how strategy, programme design, and last-mile delivery sit together.
+        </p>
+        <div class="mt-8 flex flex-col sm:flex-row gap-4">
+          <a href={`${base}services/`} class="btn btn-primary px-8 py-3 text-base">Explore CSR Services</a>
+          <a href={`${base}contact/`} class="btn border border-white/60 text-white px-8 py-3 text-base bg-white/10 hover:bg-white/20">Get in Touch</a>
+        </div>
+      </div>
+    </article>
+  </main>
+</BaseLayout>

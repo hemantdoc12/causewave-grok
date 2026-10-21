@@ -1,19 +1,14 @@
 ---
-import fs from 'node:fs';
-import path from 'node:path';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Icon from '../components/Icon.astro';
 import { SITE, SEO } from '../consts';
+import { BRAND_FILM, resolveBrandFilm } from '../data/brand-film';
 const base = import.meta.env.BASE_URL;
+const film = resolveBrandFilm();
+const filmSrc = film.src;
+const filmPoster = film.poster;
 
-const videosDir = path.join(process.cwd(), 'public', 'videos');
-const videoFiles = fs.existsSync(videosDir) ? fs.readdirSync(videosDir) : [];
-const filmFile = videoFiles.find((f) => /\.(mp4|webm|mov)$/i.test(f));
-const filmPosterFile = videoFiles.find((f) => /\.(jpe?g|webp|png)$/i.test(f));
-const filmSrc = filmFile ? `videos/${filmFile}` : null;
-const filmPoster = filmPosterFile ? `videos/${filmPosterFile}` : 'images/og/home.jpg';
-
-// WebSite entity only — no SearchAction until a real /search route exists
+// WebSite entity only — VideoObject lives on the dedicated watch page
 const websiteJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebSite",
@@ -26,29 +21,6 @@ const websiteJsonLd = {
     "url": SITE.url,
   },
 };
-
-const filmJsonLd = filmSrc
-  ? {
-      "@context": "https://schema.org",
-      "@type": "VideoObject",
-      name: "Causewave brand film",
-      description: SEO.home.h1Sub,
-      thumbnailUrl: `${SITE.url}${filmPoster}`,
-      contentUrl: `${SITE.url}${filmSrc}`,
-      uploadDate: "2026-10-14T00:00:00+05:30",
-      duration: "PT1M2S",
-      encodingFormat: "video/mp4",
-      width: 1920,
-      height: 1080,
-      publisher: {
-        "@type": "Organization",
-        name: "Causewave Innovations LLP",
-        url: SITE.url,
-      },
-    }
-  : null;
-
-const homeJsonLd = filmJsonLd ? [websiteJsonLd, filmJsonLd] : websiteJsonLd;
 ---
 
 <BaseLayout 
@@ -60,7 +32,7 @@ const homeJsonLd = filmJsonLd ? [websiteJsonLd, filmJsonLd] : websiteJsonLd;
   ogImageAlt="Aerial view of farmland and a city skyline along a river — CSR consulting across India"
   activePage="home" 
   canonicalPath=""
-  jsonLd={homeJsonLd}
+  jsonLd={websiteJsonLd}
 >
   <main>
     <!-- Hero -->
@@ -105,10 +77,14 @@ const homeJsonLd = filmJsonLd ? [websiteJsonLd, filmJsonLd] : websiteJsonLd;
                   class="h-full w-full object-cover"
                   aria-label="Causewave brand film"
                 >
-                  <source src={`${base}${filmSrc}`} type={filmSrc.endsWith('.webm') ? 'video/webm' : 'video/mp4'} />
+                  <source src={`${base}${filmSrc}`} type={film.mime} />
                 </video>
               </div>
-              <p class="mt-3 text-center text-sm text-white/80">Brand film · 1:02</p>
+              <p class="mt-3 text-center text-sm text-white/80">
+                <a href={`${base}${BRAND_FILM.path}`} class="hover:text-white underline-offset-4 hover:underline">
+                  Brand film · {BRAND_FILM.durationLabel}
+                </a>
+              </p>
             </div>
           ) : (
             <picture>
