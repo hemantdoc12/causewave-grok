@@ -196,6 +196,68 @@ export const WEEKLY_ISSUES: WeeklyIssue[] = [
     },
     nextIssueLabel: 'Sunday, 25 October 2026',
   },
+  {
+    titleId: 'impact-weekly',
+    date: '2026-10-25',
+    dateLabel: 'Sunday, 25 Oct 2026',
+    path: 'weekly/impact-weekly/2026-10-25/',
+    volume: 'Vol. I',
+    number: 'No. 3',
+    headline: 'The week outcomes stopped being a report and became the deal',
+    dek: 'The WHO documented a CSR-backed eye-care programme as a national model, a state tranche releases only when 600 rural youth land jobs, and a skilling centre announced offers at its inauguration.',
+    excerpt:
+      'Measurement moved from the annual report into the structure of the work. WHO documented Asha Kirana. NSDC’s first SSE instrument pays on verified placement. 100 job offers landed at a ribbon-cutting. Offers are not outcomes.',
+    description:
+      'Impact Weekly Vol. I No. 3 — the week outcomes became the deal. WHO Asha Kirana, NSDC ZCZP, 100 job offers. Prepared end to end by AI.',
+    pdfPath: 'weekly/impact-weekly-2026-10-25.pdf',
+    pageCount: 2,
+    linkedInUrl:
+      'https://www.linkedin.com/posts/dr-hemant-patel-b842a5143_impact-weekly-no-3-19-24-october-2026-activity-7519981372267237376-BoO-',
+    highlights: [
+      'WHO documented Karnataka’s Asha Kirana: 14 million eye screenings, 393 permanent vision centres inside government hospitals.',
+      'NSDC’s first social-stock-exchange instrument: Madhya Pradesh’s ₹5.60 crore releases only when 600 rural youth verifiably start work abroad.',
+      'Disability programmes, elderly care, climate resilience and sports may join Schedule VII; MCA takes the final call after Niti Aayog’s blueprint.',
+      'Primus Partners argues 10% of the annual CSR pool — about ₹4,000 crore a year — for frontier-tech R&D. Still a proposal.',
+      'Hyderabad’s Green Skills & Applied AI CoE opened with 100 job offers at the ribbon-cutting.',
+      'Grace Cancer’s ₹1-crore ZCZP closed at a reported 0.07x. Editorial: offers are not outcomes.',
+    ],
+    quote: {
+      text: 'Every outcome, every rupee.',
+      attribution: 'Ashishkumar Chauhan, NSE MD & CEO, at the NSDC ZCZP listing, 22 Oct',
+    },
+    nextIssueLabel: 'Sunday, 1 November 2026',
+  },
+  {
+    titleId: 'ai-health-weekly',
+    date: '2026-10-25',
+    dateLabel: 'Sunday, 25 Oct 2026',
+    path: 'weekly/ai-health-weekly/2026-10-25/',
+    volume: 'Vol. I',
+    number: 'No. 3',
+    headline: 'The week the evidence asked harder questions',
+    dek: 'A diagnostic model beat doctors on paper, a meta-analysis showed humans rarely correct a wrong machine, and the FDA’s first generative-AI docket closed under a pile of letters.',
+    excerpt:
+      'The strongest items this week cut in opposite directions. A generalist diagnostic AI posted its best benchmark yet. The week’s best oversight evidence found the odds of a correct clinical decision about ten times higher when automated advice was correct than when it was wrong.',
+    description:
+      'AI Health Weekly Vol. I No. 3 — the week the evidence asked harder questions. MAI-DxO 83% vs 36%, FDA 500 comments. Prepared end to end by AI.',
+    pdfPath: 'weekly/ai-health-weekly-2026-10-25.pdf',
+    pageCount: 5,
+    linkedInUrl:
+      'https://www.linkedin.com/posts/dr-hemant-patel-b842a5143_ai-health-weekly-no-3-25-october-2026-activity-7519981781287153664-HMxX',
+    highlights: [
+      'Microsoft’s MAI-DxO, in Science: 83% of NEJM clinicopathological cases against 36% for experienced physicians — written puzzles, not patients.',
+      'npj Digital Medicine: odds of a correct clinician decision about ten times higher with correct than incorrect automated advice (OR 10.19); 26.6% of erroneous ECG interpretations never corrected.',
+      'FDA generative-AI device docket closed 19 October with more than 500 comments; draft guidance promised within months.',
+      'Google’s AI-guided gestational-age assessment from novice “blind sweep” ultrasounds held up across new cohorts (JAMA Network Open).',
+      'Johns Hopkins Bayview alerted 3,182 patients after a staffer entered their data into an AI tool outside governance.',
+      'India: a public register of AI health systems is still a proposal; ICMR picked seven institutions with ₹105 crore for indigenous devices.',
+    ],
+    quote: {
+      text: 'The safeguard we cite most is the one we measure least.',
+      attribution: 'Editorial, AI Health Weekly',
+    },
+    nextIssueLabel: 'Sunday, 1 November 2026',
+  },
 ];
 
 export function getWeeklyTitle(id: WeeklyTitleId): WeeklyTitle {
