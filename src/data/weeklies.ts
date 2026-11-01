@@ -258,6 +258,68 @@ export const WEEKLY_ISSUES: WeeklyIssue[] = [
     },
     nextIssueLabel: 'Sunday, 1 November 2026',
   },
+  {
+    titleId: 'impact-weekly',
+    date: '2026-11-01',
+    dateLabel: 'Sunday, 1 Nov 2026',
+    path: 'weekly/impact-weekly/2026-11-01/',
+    volume: 'Vol. I',
+    number: 'No. 4',
+    headline: 'The bell rang; the ministry has not counted what it rings in',
+    dek: 'Lighthouse Communities Foundation completed the exchange route this paper tracked all month, the Centre confirmed it has no assessment of what that route brings in, and the week’s firmest outcome numbers came from five- and thirteen-year retrospectives.',
+    excerpt:
+      'Eighteen days after first tracking Lighthouse, the livelihoods non-profit rang the bell at the BSE Social Stock Exchange on 29 Oct — the first ZCZP this paper followed end to end. MCA said no assessment of institutional capital. The week’s outcome numbers came from looking backwards.',
+    description:
+      'Impact Weekly Vol. I No. 4 — the bell rang; the ministry has not counted. Lighthouse ZCZP listing, MCA USQ 3559. Prepared end to end by AI.',
+    pdfPath: 'weekly/impact-weekly-2026-11-01.pdf',
+    pageCount: 2,
+    linkedInUrl:
+      'https://www.linkedin.com/posts/dr-hemant-patel-b842a5143_impact-weekly-no-4-26-31-october-2026-activity-7522506884654993408-OABn',
+    highlights: [
+      'Lighthouse Communities Foundation listed on the BSE Social Stock Exchange on 29 Oct — 500 Pune youth, 77% one-year retention, 51 centres across six states.',
+      'MCA told Parliament (USQ 3559) it has no assessment of institutional capital through the ZCZP CSR route; Schedule VII (xiii) since 27 May, 10% cap.',
+      'Maruti’s OSCOE Foundation filed as a Section 8 company with ₹1 lakh initial capital; ROC approval still pending.',
+      'MCA extended FY26 filing: financial statements to 31 December, returns to 31 January.',
+      'IIT Kharagpur’s Physical AI school drew ₹22.5 crore in alumni giving — philanthropy, not CSR.',
+      'Tata Capital’s five-year retrospective: 5.5 lakh lives in Maharashtra, 37 lakh nationwide (CM Fadnavis).',
+    ],
+    quote: {
+      text: 'We look forward to transforming a million youth, nationally - helping them choose and build the careers they aspire to.',
+      attribution: 'Dr. Ganesh Natarajan, Co-Founder & Chairman, LCF, at the BSE SSE listing, 29 Oct',
+    },
+    nextIssueLabel: 'Sunday, 8 November 2026',
+  },
+  {
+    titleId: 'ai-health-weekly',
+    date: '2026-11-01',
+    dateLabel: 'Sunday, 1 Nov 2026',
+    path: 'weekly/ai-health-weekly/2026-11-01/',
+    volume: 'Vol. I',
+    number: 'No. 4',
+    headline: 'The week the rules diverged',
+    dek: 'Washington erased the AI label from health-record certification; the WHO answered with a roadmap and a partnership; Medicare’s AI gatekeeper posted first outcomes.',
+    excerpt:
+      'The US removed mandatory AI disclosure from EHR certification in the same days Medicare’s pilot published first numbers on AI gatekeeping; WHO, Europe and India moved the other way. The week’s divergence is in force, with dates attached.',
+    description:
+      'AI Health Weekly Vol. I No. 4 — the week the rules diverged. HTI-5, WHO roadmap, Medicare WISeR 15–20%. Prepared end to end by AI.',
+    pdfPath: 'weekly/ai-health-weekly-2026-11-01.pdf',
+    pageCount: 5,
+    linkedInUrl:
+      'https://www.linkedin.com/posts/dr-hemant-patel-b842a5143_ai-health-weekly-no-4-1-november-2026-activity-7522507145200902144-AaLj',
+    highlights: [
+      'HTI-5 deletes the DSS source-attribute / model-card requirement, drops 14 of 60 certification criteria, and cites HHS’s own $1.55 billion figure; effective 28 December.',
+      'WHO Europe: 53 states adopted a unanimous AI-in-health roadmap to 2033. WHO SEARO signed an evaluation partnership with Wadhwani for India’s public-health AI.',
+      'Medicare’s WISeR AI prior-auth pilot (JAMA): 15–20% drop in targeted services, the decline fading; the unit is services, not patients.',
+      'Nature Health: five models, 177,000 outputs each; the leading product took 97.5% of first choices.',
+      'Sixty percent of Americans are uncomfortable with AI in their own diagnosis.',
+      'India’s public path this week is WHO evaluation plus a parliamentary demand for an AI-health law — not yet a bill.',
+    ],
+    quote: {
+      text: 'The distance that still needs closing is not between Washington and Geneva. It is between the test set, the prior-auth log, and the patient.',
+      attribution: 'Editorial, AI Health Weekly',
+    },
+    nextIssueLabel: 'Sunday, 8 November 2026',
+  },
 ];
 
 export function getWeeklyTitle(id: WeeklyTitleId): WeeklyTitle {
