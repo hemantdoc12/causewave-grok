@@ -320,6 +320,68 @@ export const WEEKLY_ISSUES: WeeklyIssue[] = [
     },
     nextIssueLabel: 'Sunday, 8 November 2026',
   },
+  {
+    titleId: 'impact-weekly',
+    date: '2026-11-08',
+    dateLabel: 'Sunday, 8 Nov 2026',
+    path: 'weekly/impact-weekly/2026-11-08/',
+    volume: 'Vol. I',
+    number: 'No. 5',
+    headline: 'Three levels of government built CSR pipes this week; the first pushback arrived within a day',
+    dek: 'A national school meet, Karnataka’s adoption programme and Wayanad’s district platform all moved to organise CSR demand — while the week’s biggest cheques went around the CSR system entirely, and its firmest numbers were outcome counts.',
+    excerpt:
+      'Three levels of government built CSR pipes this week; the first pushback arrived within a day. Vidyanjali, Karnataka’s 1,000-school adoption, and Wayanad’s Bhoomi matching platform organised demand. The week’s biggest cheques went around CSR entirely; its firmest numbers were outcome counts.',
+    description:
+      'Impact Weekly Vol. I No. 5 — three levels of government built CSR pipes; pushback in a day. Karnataka, Bhoomi. Prepared end to end by AI.',
+    pdfPath: 'weekly/impact-weekly-2026-11-08.pdf',
+    pageCount: 2,
+    linkedInUrl:
+      'https://www.linkedin.com/posts/dr-hemant-patel-b842a5143_impact-weekly-no-5-2-7-november-2026-activity-7525040142101839872-SIEM',
+    highlights: [
+      'Education Ministry’s National CSR Meet (31 Oct) routed corporate support through Vidyanjali to needs government schools have already flagged.',
+      'Karnataka launched Namma Shaale Namma Javabdari: 1,000 rural schools first, 2,000 in the broader plan. Resistance arrived within a day.',
+      'Wayanad’s Bhoomi matching platform — it collects no money itself — has supported 451 students, 254 of them directly affected by the July 2024 landslides.',
+      'Star Health’s 32 free Arogya Seva Kendra clinics, with Piramal Swasthya across nine states, recorded 1.83 lakh beneficiary visits in year one — company-reported.',
+      'Nita Ambani announced Anant Ashray, a 100-acre not-for-profit township at Karjat for over 5,000 — philanthropy, not CSR.',
+      'Joy Alukkas committed ₹100 crore to philanthropy, launched by Kerala’s Chief Minister. Also not billed as CSR.',
+    ],
+    quote: {
+      text: 'Above all, we hope Nita Mukesh Ambani Anant Ashray gives every person, at every age, the chance to live with dignity and look forward to each new day with hope.',
+      attribution: 'Nita Ambani, Founder & Chairperson, Reliance Foundation, at the Karjat groundbreaking, 1 Nov',
+    },
+    nextIssueLabel: 'Sunday, 15 November 2026',
+  },
+  {
+    titleId: 'ai-health-weekly',
+    date: '2026-11-08',
+    dateLabel: 'Sunday, 8 Nov 2026',
+    path: 'weekly/ai-health-weekly/2026-11-08/',
+    volume: 'Vol. I',
+    number: 'No. 5',
+    headline: 'The week AI got measured',
+    dek: 'A randomised trial cut an autoimmune diagnostic odyssey by two-thirds; an audit of 163 cleared devices found most updates reporting no benefit data; two studies showed trust outrunning accuracy.',
+    excerpt:
+      'This week produced the rarest thing in health AI: numbers with denominators. A randomised alert inside the record shortened diagnosis; an audit of 163 cleared devices found most updates reporting no benefit data. People trusted wrong AI anyway.',
+    description:
+      'AI Health Weekly Vol. I No. 5 — the week AI got measured. AURA 43 vs 138 days, 163-device audit, trust study. Prepared end to end by AI.',
+    pdfPath: 'weekly/ai-health-weekly-2026-11-08.pdf',
+    pageCount: 5,
+    linkedInUrl:
+      'https://www.linkedin.com/posts/dr-hemant-patel-b842a5143_ai-health-weekly-no-5-8-november-2026-activity-7525040603240407040-ha5a',
+    highlights: [
+      'AURA (NEJM AI): 2,385 patients randomised; among those diagnosed, median wait fell from 138 to 43 days (HR 1.9, 95% CI 1.3–2.7). Single academic system.',
+      'JAMA Network Open: of 163 AI devices cleared via 510(k), 56 (34.4%) were updated after clearance; 48 of those 56 reported no clinical or organisational benefit in any update entry.',
+      'A 300-participant NEJM AI study found people trusted AI medical advice even when the system was wrong; disclaimers did not correct it.',
+      'Senator Cassidy circulated a PATIENT AI Act discussion draft: a Medicare payment path for autonomous AI. A draft for comment, not a bill.',
+      'FDA: PulseAI ECG algorithm cleared (510(k)); Cleo Skin received breakthrough-device designation — a faster review lane, not an authorisation.',
+      'India’s SAHI roadmap entered final drafting after the fourth committee meeting; IIT Jodhpur and ICMR founded a rural-AI centre with a “doctor final” rule.',
+    ],
+    quote: {
+      text: 'Trust is not a deployment strategy, and an update without benefit data is not a safety case.',
+      attribution: 'Editorial, AI Health Weekly',
+    },
+    nextIssueLabel: 'Sunday, 15 November 2026',
+  },
 ];
 
 export function getWeeklyTitle(id: WeeklyTitleId): WeeklyTitle {
