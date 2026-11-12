@@ -11,6 +11,7 @@
  * - CSR portfolio advisory & social audit
  * - Healthcare / public health CSR (Causewave differentiator)
  * - Sustainability & ESG advisory (adjacent; only where we deliver)
+ * - AI video for CSR / impact films / NGO training video
  */
 
 export const SEO = {
@@ -80,15 +81,15 @@ export const SEO = {
   },
 
   aiVideo: {
-    title: 'AI Video for CSR | Impact Films for Boards, Training & Programmes',
+    title: 'AI Video for CSR in India | Impact Films for Boards & NGOs',
     description:
-      'AI-assisted impact films for CSR boards, donors, and frontline training. Causewave turns your brief into a film people understand — from first conversation to delivery.',
-    ogTitle: 'AI-powered impact films for CSR and NGO programmes',
+      'AI video for CSR and NGO programmes in India. Impact films for boards, donors, and frontline training. Causewave takes your brief through to delivery.',
+    ogTitle: 'AI video for CSR — impact films for boards, training and NGOs',
     ogDescription:
-      'Board films, training modules, and programme stories. One client-facing team from brief to delivery.',
+      'Board films, training modules, and programme stories for companies and non-profits in India. One client-facing team from brief to delivery.',
     h1: 'Turn your ideas into films people understand.',
     h1Sub:
-      'From a programme story to a learning film, Causewave turns your brief into clear, engaging video. One client-facing team, from the first conversation to final delivery.',
+      'AI-assisted impact films for CSR boards, donors, NGOs, and frontline training. Causewave turns your brief into a film people understand — from the first conversation to delivery.',
   },
 
   /** Entity / schema helpers */
@@ -106,6 +107,9 @@ export const SEO = {
     'sustainability consulting',
     'public health CSR',
     'resource mobilisation CSR',
+    'AI video for CSR',
+    'CSR impact films',
+    'NGO training video',
   ] as const,
 
   serviceTypes: [
@@ -116,5 +120,6 @@ export const SEO = {
     'CSR Compliance and Reporting',
     'Resource Mobilisation and Partner Mapping',
     'Social Impact Technology Solutions',
+    'AI-powered impact films',
   ] as const,
 } as const;

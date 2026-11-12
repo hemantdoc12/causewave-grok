@@ -10,7 +10,7 @@ const LASTMOD_BY_PATH = {
   '/brand-film/': '2026-10-21',
   '/about/': '2026-09-21',
   '/services/': '2026-11-12',
-  '/services/ai-video/': '2026-11-12',
+  '/ai-video/': '2026-11-12',
   '/contact/': '2026-10-19',
   '/insights/': '2026-11-08',
   '/weekly/': '2026-11-08',
@@ -54,6 +54,9 @@ export default defineConfig({
   trailingSlash: 'always',
   integrations: [
     sitemap({
+      filter(page) {
+        return !page.includes('/services/ai-video');
+      },
       serialize(item) {
         const path = new URL(item.url).pathname;
         const lastmod = LASTMOD_BY_PATH[path] ?? '2026-09-08';

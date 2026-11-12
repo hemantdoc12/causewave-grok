@@ -17,6 +17,8 @@ interface Props {
   canonicalPath?: string;
   activePage?: string;
   noIndex?: boolean;
+  /** Overrides default robots. Example: "noindex, follow" on redirect pages. */
+  robots?: string;
   /** Open Graph type — use "article" for insight posts, "video.other" for watch pages */
   ogType?: 'website' | 'article' | 'video.other';
   /** Absolute URL of a video file for og:video (watch pages) */
@@ -39,6 +41,7 @@ const {
   canonicalPath = '',
   activePage = '',
   noIndex = false,
+  robots,
   ogType = 'website',
   breadcrumbLabel,
   breadcrumbParent,
@@ -77,6 +80,8 @@ const organizationJsonLd = {
     "Public health CSR",
     "Social impact programmes",
     "Sustainability consulting",
+    "AI video for CSR",
+    "Impact films",
   ],
   "address": {
     "@type": "PostalAddress",
@@ -197,7 +202,10 @@ const breadcrumbJsonLd = canonicalPath
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
 
-    {noIndex && <meta name="robots" content="noindex, nofollow" />}
+    {(robots || noIndex) && (
+      <meta name="robots" content={robots || 'noindex, nofollow'} />
+    )}
+    <slot name="head" />
 
     <!-- View Transitions for smooth page transitions -->
     <meta name="view-transition" content="same-origin" />
