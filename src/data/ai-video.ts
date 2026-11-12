@@ -14,24 +14,15 @@ export const AI_VIDEO = {
   uploadDate: '2026-09-23T10:20:30+00:00',
   width: 1920,
   height: 1080,
-  faqs: [
-    {
-      q: 'What is AI video for CSR?',
-      a: 'AI-assisted impact films for companies and NGOs in India. Causewave turns a programme brief into a film for CSR boards, donors, communities, or frontline training — from the first conversation to delivery.',
-    },
-    {
-      q: 'Who is this for — companies or NGOs?',
-      a: 'Both. Corporate CSR teams use films for committees, donors, and brand storytelling. Non-profits use them for resource mobilisation, programme stories, and staff training.',
-    },
-    {
-      q: 'What kinds of CSR films do you make?',
-      a: 'Board and donor films, frontline training videos, programme stories, and short campaign cuts. Length and language follow the audience, not a fixed template.',
-    },
-    {
-      q: 'How do we start a brief?',
-      a: 'Send the idea, who it is for, and where it will be seen. We reply within 24 hours and shape the story with you before production.',
-    },
-  ],
+  productionPartner: {
+    name: 'Orange Frame Production',
+    logo: 'images/partners/orange-frame.png',
+    logoAlt: 'Orange Frame Production',
+    headline: 'Film craft behind every frame.',
+    blurb:
+      'Causewave takes the brief, the client conversation, and delivery. Orange Frame Production shapes and produces the film. One team to talk to.',
+    crafts: ['Scriptwriting', 'Direction', 'Production', 'AI video'],
+  },
 } as const;
 
 export function buildAiVideoJsonLd(siteUrl: string) {
@@ -93,18 +84,6 @@ export function buildAiVideoJsonLd(siteUrl: string) {
         name: 'Causewave Innovations LLP',
         url: siteUrl,
       },
-    },
-    {
-      '@context': 'https://schema.org',
-      '@type': 'FAQPage',
-      mainEntity: AI_VIDEO.faqs.map((item) => ({
-        '@type': 'Question',
-        name: item.q,
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: item.a,
-        },
-      })),
     },
   ];
 }
