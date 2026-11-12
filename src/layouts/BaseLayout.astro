@@ -147,7 +147,11 @@ const breadcrumbJsonLd = canonicalPath
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Defense-in-depth: hosting should also force HTTPS (GitHub Pages enforce HTTPS). -->
     <script>
-      if (window.location.protocol === 'http:') {
+      if (
+        window.location.protocol === 'http:' &&
+        window.location.hostname !== 'localhost' &&
+        window.location.hostname !== '127.0.0.1'
+      ) {
         window.location.href = window.location.href.replace('http:', 'https:');
       }
     </script>

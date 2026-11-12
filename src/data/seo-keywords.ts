@@ -79,6 +79,18 @@ export const SEO = {
       'Impact Weekly and AI Health Weekly — AI-prepared Sunday reviews. The editorial is Dr. Hemant L. Patel.',
   },
 
+  aiVideo: {
+    title: 'AI Video for CSR | Impact Films for Boards, Training & Programmes',
+    description:
+      'AI-assisted impact films for CSR boards, donors, and frontline training. Causewave turns your brief into a film people understand — from first conversation to delivery.',
+    ogTitle: 'AI-powered impact films for CSR and NGO programmes',
+    ogDescription:
+      'Board films, training modules, and programme stories. One client-facing team from brief to delivery.',
+    h1: 'Turn your ideas into films people understand.',
+    h1Sub:
+      'From a programme story to a learning film, Causewave turns your brief into clear, engaging video. One client-facing team, from the first conversation to final delivery.',
+  },
+
   /** Entity / schema helpers */
   categoryKeywords: [
     'CSR consulting firm India',

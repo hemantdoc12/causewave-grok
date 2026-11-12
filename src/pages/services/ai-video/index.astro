@@ -1,0 +1,300 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { SITE, CONTACT, SEO } from '../../../consts';
+import { AI_VIDEO, buildAiVideoJsonLd } from '../../../data/ai-video';
+
+const base = import.meta.env.BASE_URL;
+const jsonLd = buildAiVideoJsonLd(SITE.url);
+
+const useCases = [
+  {
+    n: '01',
+    label: 'Explain',
+    title: 'Programme stories',
+    body: 'Make a new idea, offer or process easier to understand — for communities, staff and partners.',
+    tone: 'text-sky-600',
+  },
+  {
+    n: '02',
+    label: 'Connect',
+    title: 'Boards & donors',
+    body: 'Give CSR committees and funding partners a clear story and a film they can play.',
+    tone: 'text-teal-600',
+  },
+  {
+    n: '03',
+    label: 'Teach',
+    title: 'Learning & training',
+    body: 'Turn field guidance into content people can follow — in the language and length they need.',
+    tone: 'text-emerald-600',
+  },
+  {
+    n: '04',
+    label: 'Show impact',
+    title: 'Programmes & outcomes',
+    body: 'Explain the work, the people and the change behind it — coverage and results, not activity.',
+    tone: 'text-sky-600',
+  },
+];
+
+const steps = [
+  {
+    n: '01',
+    title: 'Understand',
+    body: 'Agree the audience, message and intended use.',
+  },
+  {
+    n: '02',
+    title: 'Shape',
+    body: 'Develop the story and visual direction for your review.',
+  },
+  {
+    n: '03',
+    title: 'Produce',
+    body: 'Build the film from the agreed story and visual direction.',
+  },
+  {
+    n: '04',
+    title: 'Deliver',
+    body: 'Coordinate feedback and final delivery against the agreed scope.',
+  },
+];
+---
+
+<BaseLayout
+  title={SEO.aiVideo.title}
+  description={SEO.aiVideo.description}
+  ogTitle={SEO.aiVideo.ogTitle}
+  ogDescription={SEO.aiVideo.ogDescription}
+  ogImage="images/og/services.jpg"
+  ogImageAlt="CSR strategy workshop table with India map, charts, and programme notes"
+  canonicalPath={AI_VIDEO.path}
+  activePage="services"
+  breadcrumbLabel="AI video"
+  breadcrumbParent={{ name: 'Services', path: 'services/' }}
+  jsonLd={jsonLd}
+>
+  <main>
+    <section class="bg-slate-900 text-white section">
+      <div class="max-w-screen-2xl mx-auto px-6 text-center">
+        <div class="max-w-3xl mx-auto">
+          <span class="text-sky-400 font-semibold text-sm tracking-widest">AI-POWERED CONTENT VISUALISATION</span>
+          <h1 class="hero-animate mt-3 text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tighter leading-tight">
+            {SEO.aiVideo.h1}
+          </h1>
+          <p class="hero-animate hero-animate-delay-1 mt-5 text-lg text-slate-300">
+            {SEO.aiVideo.h1Sub}
+          </p>
+          <div class="hero-animate hero-animate-delay-2 mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="#brief" class="btn bg-sky-500 hover:bg-sky-400 text-white px-8 py-3 text-base">Discuss your brief</a>
+            <a href="#sample" class="btn border border-white/60 text-white px-8 py-3 text-base bg-white/10 hover:bg-white/20">View a film sample</a>
+          </div>
+        </div>
+
+        <div id="sample" class="mt-12 max-w-4xl mx-auto scroll-mt-24">
+          <div
+            class="rounded-2xl overflow-hidden border border-white/15 shadow-2xl bg-black aspect-video relative"
+            style={`background-image: url('${AI_VIDEO.thumbnailUrl}'); background-size: cover; background-position: center;`}
+          >
+            <iframe
+              src={AI_VIDEO.playerSrc}
+              title={AI_VIDEO.sampleCaption}
+              class="absolute inset-0 h-full w-full"
+              allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <p class="mt-3 text-sm text-slate-400">{AI_VIDEO.sampleCaption}</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section max-w-screen-2xl mx-auto px-6">
+      <div class="text-center mb-10">
+        <h2 class="text-3xl md:text-4xl font-semibold tracking-tight">What do you need to bring to life?</h2>
+        <p class="mt-3 text-slate-600 max-w-2xl mx-auto">For CSR teams, non-profits and implementing partners.</p>
+      </div>
+      <div class="flex flex-wrap justify-center gap-4">
+        {useCases.map((item) => (
+          <article class="w-full sm:w-[calc(50%-0.5rem)] lg:w-[calc(25%-0.75rem)] rounded-2xl border bg-white p-6 text-center">
+            <span class={`text-xs font-semibold tracking-widest ${item.tone}`}>{item.n} / {item.label}</span>
+            <h3 class="mt-2 font-semibold text-lg">{item.title}</h3>
+            <p class="mt-2 text-sm text-slate-600 leading-relaxed">{item.body}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="section bg-white">
+      <div class="max-w-screen-2xl mx-auto px-6">
+        <div class="text-center mb-10">
+          <span class="text-sky-600 font-semibold text-sm tracking-widest">HOW WE WORK</span>
+          <h2 class="mt-3 text-3xl md:text-4xl font-semibold tracking-tight">A clear route from brief to screen.</h2>
+        </div>
+        <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+          {steps.map((step, i) => (
+            <div class="text-center">
+              <div class:list={[
+                'mx-auto flex h-12 w-12 items-center justify-center rounded-full font-semibold text-lg',
+                i % 3 === 0 ? 'bg-sky-100 text-sky-600' : i % 3 === 1 ? 'bg-teal-100 text-teal-600' : 'bg-emerald-100 text-emerald-600',
+              ]}>
+                {step.n}
+              </div>
+              <h3 class="mt-4 font-semibold">{step.title}</h3>
+              <p class="mt-2 text-sm text-slate-600">{step.body}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section id="brief" class="section bg-slate-900 text-white scroll-mt-24">
+      <div class="max-w-xl mx-auto px-6 text-center">
+        <h2 class="text-3xl md:text-4xl font-semibold tracking-tight">What would you like to visualise?</h2>
+        <p class="mt-3 text-slate-300">Tell us the idea, who it is for and where it will be seen.</p>
+
+        <div id="form-success" class="hidden mt-8 p-6 rounded-2xl bg-emerald-50 border border-emerald-200 text-center text-slate-800">
+          <div class="text-2xl mb-2">✓</div>
+          <h3 class="font-semibold text-emerald-800">Message sent successfully!</h3>
+          <p class="text-sm text-emerald-600 mt-1">We have received your brief and will get back to you within 24 hours.</p>
+          <button type="button" id="send-another" class="mt-3 text-sm text-emerald-700 font-medium hover:text-emerald-900">Send another message →</button>
+        </div>
+
+        <div id="form-error" class="hidden mt-8 p-6 rounded-2xl bg-red-50 border border-red-200 text-center text-slate-800">
+          <div class="text-2xl mb-2">✕</div>
+          <h3 class="font-semibold text-red-800">Something went wrong</h3>
+          <p class="text-sm text-red-600 mt-1">Please try again or email us directly at <a href={`mailto:${CONTACT.email}`} class="font-medium underline">{CONTACT.email}</a></p>
+        </div>
+
+        <form id="ai-video-form" action="https://formspree.io/f/xnjkpjvy" method="POST" class="mt-8 text-left rounded-2xl bg-white p-6 sm:p-8 text-slate-800 space-y-5">
+          <input type="text" name="_gotcha" class="hidden" tabindex="-1" autocomplete="off" />
+          <input type="hidden" name="_subject" value="AI video inquiry from causewave.in/services/ai-video/" />
+          <input type="hidden" name="source" value="ai-video" />
+          <input type="hidden" name="_redirect" value="false" />
+
+          <div class="grid sm:grid-cols-2 gap-5">
+            <div>
+              <label for="name" class="block text-sm font-medium text-slate-700 mb-1">Full name *</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                class="w-full rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-sm"
+                placeholder="Your name"
+              />
+            </div>
+            <div>
+              <label for="email" class="block text-sm font-medium text-slate-700 mb-1">Email *</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                class="w-full rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-sm"
+                placeholder="you@organisation.org"
+              />
+            </div>
+          </div>
+          <div>
+            <label for="organisation" class="block text-sm font-medium text-slate-700 mb-1">Organisation</label>
+            <input
+              type="text"
+              id="organisation"
+              name="organisation"
+              class="w-full rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-sm"
+              placeholder="Company or NGO"
+            />
+          </div>
+          <div>
+            <label for="film-type" class="block text-sm font-medium text-slate-700 mb-1">What kind of film?</label>
+            <select
+              id="film-type"
+              name="film_type"
+              class="w-full rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-sm"
+            >
+              <option value="">Select a type</option>
+              <option value="Board / donor film">Board / donor film</option>
+              <option value="Training module">Training module</option>
+              <option value="Programme story">Programme story</option>
+              <option value="Campaign / social cuts">Campaign / social cuts</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          <div>
+            <label for="message" class="block text-sm font-medium text-slate-700 mb-1">The brief *</label>
+            <textarea
+              id="message"
+              name="message"
+              rows="4"
+              required
+              class="w-full rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-sm resize-none"
+              placeholder="The idea, who it is for, and where it will be seen."
+            ></textarea>
+          </div>
+          <button type="submit" id="submit-btn" class="btn btn-primary w-full sm:w-auto px-8 py-3 text-sm">
+            Discuss your brief
+          </button>
+        </form>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
+
+<script>
+  const form = document.getElementById('ai-video-form') as HTMLFormElement | null;
+  const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement | null;
+  const successMsg = document.getElementById('form-success');
+  const errorMsg = document.getElementById('form-error');
+  const sendAnother = document.getElementById('send-another');
+
+  if (form) {
+    const params = new URLSearchParams(window.location.search);
+    for (const key of ['utm_source', 'utm_medium', 'utm_campaign']) {
+      const value = params.get(key);
+      if (value) {
+        const input = document.createElement('input');
+        input.type = 'hidden';
+        input.name = key;
+        input.value = value;
+        form.appendChild(input);
+      }
+    }
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (!submitBtn) return;
+      submitBtn.textContent = 'Sending...';
+      submitBtn.disabled = true;
+      errorMsg?.classList.add('hidden');
+
+      try {
+        const data = new FormData(form);
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: data,
+          headers: { Accept: 'application/json' },
+        });
+
+        if (res.ok) {
+          form.classList.add('hidden');
+          successMsg?.classList.remove('hidden');
+        } else {
+          errorMsg?.classList.remove('hidden');
+        }
+      } catch {
+        errorMsg?.classList.remove('hidden');
+      } finally {
+        submitBtn.textContent = 'Discuss your brief';
+        submitBtn.disabled = false;
+      }
+    });
+  }
+
+  sendAnother?.addEventListener('click', () => {
+    successMsg?.classList.add('hidden');
+    form?.classList.remove('hidden');
+    form?.reset();
+  });
+</script>
