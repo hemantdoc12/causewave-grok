@@ -159,8 +159,8 @@ const steps = [
           <p class="mt-3 text-slate-300">Tell us the idea, who it is for and where it will be seen.</p>
         </div>
 
-        <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
-          <div>
+        <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 lg:items-stretch">
+          <div class="h-full">
             <div id="form-success" class="hidden p-6 rounded-2xl bg-emerald-50 border border-emerald-200 text-center text-slate-800">
               <div class="text-2xl mb-2">✓</div>
               <h3 class="font-semibold text-emerald-800">Message sent successfully!</h3>
@@ -174,7 +174,7 @@ const steps = [
               <p class="text-sm text-red-600 mt-1">Please try again or email us directly at <a href={`mailto:${CONTACT.email}`} class="font-medium underline">{CONTACT.email}</a></p>
             </div>
 
-            <form id="ai-video-form" action="https://formspree.io/f/xnjkpjvy" method="POST" class="text-left rounded-2xl bg-white p-6 sm:p-8 text-slate-800 space-y-5">
+            <form id="ai-video-form" action="https://formspree.io/f/xnjkpjvy" method="POST" class="text-left rounded-2xl bg-white p-6 sm:p-8 text-slate-800 space-y-5 h-full flex flex-col">
               <input type="text" name="_gotcha" class="hidden" tabindex="-1" autocomplete="off" />
               <input type="hidden" name="_subject" value="AI video inquiry from causewave.in/ai-video/" />
               <input type="hidden" name="source" value="ai-video" />
@@ -229,24 +229,24 @@ const steps = [
                   <option value="Other">Other</option>
                 </select>
               </div>
-              <div>
+              <div class="flex-1 flex flex-col min-h-32">
                 <label for="message" class="block text-sm font-medium text-slate-700 mb-1">The brief *</label>
                 <textarea
                   id="message"
                   name="message"
                   rows="4"
                   required
-                  class="w-full rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-sm resize-none"
+                  class="w-full flex-1 min-h-24 rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-sm resize-none"
                   placeholder="The idea, who it is for, and where it will be seen."
                 ></textarea>
               </div>
-              <button type="submit" id="submit-btn" class="btn btn-primary w-full sm:w-auto px-8 py-3 text-sm">
+              <button type="submit" id="submit-btn" class="btn btn-primary w-full sm:w-auto sm:self-start px-8 py-3 text-sm">
                 Discuss your brief
               </button>
             </form>
           </div>
 
-          <aside class="rounded-2xl border border-white/15 bg-white/5 p-8 text-center">
+          <aside class="h-full flex flex-col justify-center rounded-2xl border border-white/15 bg-white/5 p-8 text-center">
             <span class="text-sky-400 font-semibold text-sm tracking-widest">PRODUCTION PARTNER</span>
             <div class="mt-6 mx-auto flex h-28 w-28 items-center justify-center rounded-2xl bg-white p-3">
               <img
