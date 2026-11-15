@@ -382,6 +382,68 @@ export const WEEKLY_ISSUES: WeeklyIssue[] = [
     },
     nextIssueLabel: 'Sunday, 15 November 2026',
   },
+  {
+    titleId: 'impact-weekly',
+    date: '2026-11-15',
+    dateLabel: 'Sunday, 15 Nov 2026',
+    path: 'weekly/impact-weekly/2026-11-15/',
+    volume: 'Vol. I',
+    number: 'No. 6',
+    headline: 'Karnataka took its CSR schools ask to the Centre; the week’s real answers arrived as counts',
+    dek: 'The 1,000-school push met organised opposition at home and an appeal to Delhi inside four days — while a Mysuru launch, a coal-belt coaching pipeline and a renamed Marico programme put numbers, not promises, on the table.',
+    excerpt:
+      'Karnataka took its 1,000-school CSR ask to the Centre days after school committees drew a boundary around private adoption. Bharat Vann launched with a three-year maintenance commitment. The week’s firmest numbers were pipelines that publish counts.',
+    description:
+      'Impact Weekly Vol. I No. 6 — Karnataka took its CSR schools ask to the Centre; the week’s real answers arrived as counts. Prepared end to end by AI.',
+    pdfPath: 'weekly/impact-weekly-2026-11-15.pdf',
+    pageCount: 2,
+    linkedInUrl:
+      'https://www.linkedin.com/posts/dr-hemant-patel-b842a5143_impact-weekly-no-6-9-14-november-2026-activity-7527568196166512640-FCV4',
+    highlights: [
+      'Bharat Vann launched in Mysuru on 13 Nov: two lakh native saplings, SBI and SBI Foundation under CSR, three-year maintenance in writing.',
+      'Karnataka’s school committees opposed private adoption of government schools; three days later the CM asked MCA to align CSR with the 1,000-school plan.',
+      'SECL’s Sushrut free residential NEET coaching records 100+ results in two to three years — company-reported, attributed to its PRO.',
+      'NHRC asked the WCD Ministry to examine Meta’s reported UNICEF funding — an examination request, not a finding.',
+      'Marico renamed Nihar Shanti and led with its ledger: 1.26 lakh teachers trained, about 12.69 lakh students benefited.',
+      'TCS completed its first 50 Tech Days: 23,000+ students, 912 faculty, 27 cities. Editorial: a count you can revisit beats a commitment you can only applaud.',
+    ],
+    quote: {
+      text: 'With the renewed identity, Nihar Shanti Mazbooti Ki Paathshala moves beyond creating moments of fun and engagement to creating meaningful, long-term impact.',
+      attribution: 'Amit Bhasin, Chief Legal Officer & Group Counsel, Marico, on the Nihar Shanti rebrand, 13 Nov',
+    },
+    nextIssueLabel: 'Sunday, 22 November 2026',
+  },
+  {
+    titleId: 'ai-health-weekly',
+    date: '2026-11-15',
+    dateLabel: 'Sunday, 15 Nov 2026',
+    path: 'weekly/ai-health-weekly/2026-11-15/',
+    volume: 'Vol. I',
+    number: 'No. 6',
+    headline: 'The week AI sat down with the patient',
+    dek: 'Patients can now query their own records through a general chatbot; hospitals were offered a governed agent layer; and a controlled study measured how a single drug ad steers an AI’s answer.',
+    excerpt:
+      'The patient interface, long hypothetical, became product this week: one of the largest US EHR vendors opened patient-permitted record access to Claude, and Google shipped an agent layer wired read-only into Epic and Oracle Health. The evidence ran both ways.',
+    description:
+      'AI Health Weekly Vol. I No. 6 — the week AI sat down with the patient. Claude records, Gemini healthcare, echo RCT. Prepared end to end by AI.',
+    pdfPath: 'weekly/ai-health-weekly-2026-11-15.pdf',
+    pageCount: 5,
+    linkedInUrl:
+      'https://www.linkedin.com/posts/dr-hemant-patel-b842a5143_ai-health-weekly-no6-15november2026-activity-7527568489927286784-FLTr',
+    highlights: [
+      'First randomised trial of AI-written echo reports: 1,200 scans, 21 Kaiser Permanente sites; substantial edits 50.6% AI vs 49.7% human; reading time 8.5 to 4.6 minutes. Conference abstract; reports, not patient outcomes.',
+      'Mount Sinai / Lancet Digital Health: labelled drug ad before cases across 12 models, 258,559 responses; advertised drug selected 47.6% with ad vs 35% without; ad acknowledged 29.9% of the time.',
+      'Google Gemini for healthcare US preview: governed agent layer, read-only into Epic and Oracle Health — no write-back.',
+      'athenahealth MCP server lets patients query their own records through Claude, across 160,000-plus US physicians.',
+      'AMA adopted policy that AI cannot receive physician licensure or titles; vendors, not physicians, liable for defective products. KFF: eight states limit solely automated insurance denials this year.',
+      'India: 61% of 976 surveyed consumers prefer instant AI or online answers to waiting for a professional (BCG). Editorial: an answer that looks clinically reasonable can still raise the question of who it is working for.',
+    ],
+    quote: {
+      text: 'An answer can be clinically reasonable and still raise an important question about why the AI arrived at that answer.',
+      attribution: 'Girish Nadkarni, Mount Sinai, on the ad-influence study',
+    },
+    nextIssueLabel: 'Sunday, 22 November 2026',
+  },
 ];
 
 export function getWeeklyTitle(id: WeeklyTitleId): WeeklyTitle {
