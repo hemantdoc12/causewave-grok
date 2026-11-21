@@ -269,6 +269,40 @@ export const INSIGHT_POSTS: InsightPost[] = [
     kind: 'special',
   },
   {
+    slug: 'indias-csr-draft-against-the-major-economy-test',
+    path: 'insights/indias-csr-draft-against-the-major-economy-test/',
+    title: "India's CSR Draft Against the Major-Economy Test",
+    shortTitle: 'CSR Draft vs Major Economies',
+    description:
+      'CSR special: MCA’s 11 Nov 2026 draft tested against the USA, China and the EU. Keep independent assessment for large or high-risk projects. Comments until 11 Dec.',
+    excerpt:
+      'India’s proposed CSR changes should be tested against the USA, China and the EU, not only against countries with similar spending mandates.',
+    category: 'CSR Strategy',
+    categoryTone: 'sky',
+    datePublished: '2026-11-21',
+    dateLabel: 'Nov 2026',
+    author: INSIGHT_AUTHOR.name,
+    ogImage: 'images/og/series.jpg',
+    kind: 'special',
+  },
+  {
+    slug: 'before-you-say-ai-can-do-it',
+    path: 'insights/before-you-say-ai-can-do-it/',
+    title: 'Before You Say “AI Can Do It”, Do You Know What “It” Requires?',
+    shortTitle: 'Before You Say AI Can Do It',
+    description:
+      'Opinion: generating an output is not delivering a service. Before you say AI can do it, know what it requires — standard, verification, who answers.',
+    excerpt:
+      'The ability to generate an output is being mistaken for the ability to deliver a service. The evidence says they are different things.',
+    category: 'Opinion',
+    categoryTone: 'amber',
+    datePublished: '2026-11-21',
+    dateLabel: 'Nov 2026',
+    author: INSIGHT_AUTHOR.name,
+    ogImage: 'images/og/ai-video.jpg',
+    kind: 'special',
+  },
+  {
     slug: 'csr-compliance-companies-act-2013',
     path: 'insights/csr-compliance-companies-act-2013/',
     title: 'Understanding CSR Compliance Under Companies Act 2013',

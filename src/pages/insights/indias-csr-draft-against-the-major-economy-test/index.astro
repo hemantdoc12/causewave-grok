@@ -1,0 +1,278 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { SITE } from '../../../consts';
+import { getInsightBySlug, buildArticleJsonLd } from '../../../data/insights';
+
+const base = import.meta.env.BASE_URL;
+const post = getInsightBySlug('indias-csr-draft-against-the-major-economy-test')!;
+const articleJsonLd = buildArticleJsonLd(post, SITE.url);
+const linkedInUrl =
+  'https://www.linkedin.com/pulse/indias-csr-draft-against-major-economy-test-dr-hemant-patel-bnqmf/';
+---
+
+<BaseLayout
+  title="India's CSR Draft Against the Major-Economy Test | Causewave"
+  description={post.description}
+  ogTitle="India's CSR Draft Against the Major-Economy Test"
+  ogDescription="What the USA, China and the European Union reveal about the MCA’s 11 November 2026 CSR proposals. Comments until 11 December 2026."
+  ogImage={post.ogImage}
+  ogImageAlt="India map, CSR filings, and a calculator on a desk — CSR ticket size research"
+  canonicalPath={post.path}
+  activePage="insights"
+  ogType="article"
+  breadcrumbLabel={post.shortTitle}
+  breadcrumbParent={[
+    { name: 'Insights', path: 'insights/' },
+    { name: 'CSR Ticket Size', path: 'insights/csr-ticket-size/' },
+  ]}
+  jsonLd={articleJsonLd}
+>
+  <main>
+    <section class="bg-slate-900 text-white section">
+      <div class="max-w-screen-2xl mx-auto px-6">
+        <div class="max-w-3xl">
+          <a href={`${base}insights/csr-ticket-size/`} class="inline-flex items-center text-sm text-slate-400 hover:text-white transition-colors mb-6">
+            ← CSR Ticket Size series
+          </a>
+          <div class="flex items-center gap-3 mb-4">
+            <span class="text-xs font-medium text-sky-400 bg-sky-400/10 px-2.5 py-0.5 rounded-full">Special</span>
+            <span class="text-xs text-slate-500">{post.dateLabel}</span>
+          </div>
+          <h1 class="text-3xl md:text-4xl font-semibold tracking-tight">{post.title}</h1>
+          <p class="mt-4 text-slate-300 text-lg">{post.excerpt}</p>
+        </div>
+      </div>
+    </section>
+
+    <article class="section max-w-screen-2xl mx-auto px-6">
+      <div class="max-w-3xl">
+        <p class="text-slate-600 leading-relaxed mb-6 text-lg">
+          A special after
+          <a href={`${base}insights/csr-ticket-size/`} class="text-sky-600 hover:underline">CSR Ticket Size</a>.
+          Not Part 9.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          What the USA, China and the European Union reveal about the 2026 proposals.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Corporate giving, responsibility for business harm, and sustainability disclosure are different duties. No single foreign model combines them in exactly India’s way.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          The MCA draft of 11 November 2026 can reasonably simplify India-specific machinery. Foreign burden reduction is not evidence that independent evaluation of India’s mandated social spending has lost its value.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-8">
+          Keep large or high-risk projects independently assessed. Review burdens with evidence. Clarify government-scheme exclusions and implementing-agency duties. Restore or explain the missing livelihood-enhancement language. The draft remains a proposal. Comments are invited until 11 December 2026.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">What is actually on the table</h2>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Public Notice No. 05/05/2026-CSR-MCA, dated 11 November 2026, carries two draft instruments. Both have blank G.S.R. numbers and dates. Nothing binds anyone until publication in the Official Gazette. Comments, with brief justification, are due by 11 December 2026 through the MCA’s e-consultation module.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          The draft Companies (CSR Policy) Second Amendment Rules, 2026 do five things:
+        </p>
+        <ul class="space-y-3 text-slate-600 mb-6">
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span><strong>Impact assessment becomes voluntary.</strong> Today, rule 8(3) requires every company with an average CSR obligation of ₹10 crore or more over three preceding years to have an independent agency assess each completed project of ₹1 crore or more. The draft lets any CSR-mandated company assess voluntarily. Where assessments are done, board reporting and the cost-booking cap survive.</span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span><strong>Four new exclusions:</strong> one-off events; financing government schemes; corpus contributions; in-kind contribution of a company’s own products or services, with a disaster-relief carve-out and arm’s-length valuation.</span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span><strong>A surrender-and-cancellation regime for CSR-1 registrations,</strong> with notice, a reply window, and a three-year bar after cancellation.</span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span><strong>International organisations headquartered in India</strong> become eligible implementing agencies if notified under the UN (Privileges and Immunities) Act, 1947 and globally headquartered here.</span></li>
+          <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0"></span><span><strong>Tax references</strong> update from the Income-tax Act, 1961 to the Income Tax Act, 2025.</span></li>
+        </ul>
+        <p class="text-slate-600 leading-relaxed mb-8">
+          The draft Schedule VII substitutes fourteen items for the current thirteen. Most additions map to recognisable priorities: mental health, telemedicine, the Prime Minister Internship Scheme, transgender persons among beneficiary groups, natural farming, clean energy, e-waste, a wider sports item. Named government funds are consolidated. One subtraction matters: “livelihood enhancement projects,” present in the current education item, do not appear in the draft.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">Where India stands today</h2>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          India’s regime is a statutory spending floor, not a disclosure rule. Section 135 requires qualifying companies to spend at least 2% of average net profit on CSR, with board-level governance and a public annual report. Unspent amounts have transfer deadlines. Penalties sit on the company and on defaulting officers.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          A dated FY 2023-24 snapshot: 27,188 companies spent ₹34,908.75 crore; education ₹12,134.57 crore; health ₹7,150.81 crore; 5,721 companies spent less than prescribed. NITI Aayog’s 2021 DMEO study recorded a gap in large-scale empirical evaluation of CSR impact. That is a 2021 diagnosis, not an updated inventory.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-8">
+          Mandatory CSR-1 registration and the impact-assessment layer arrived in 2021, following the Injeti Srinivas committee. That committee said not to treat CSR “as a means of resource gap funding for government schemes.” May 2026 added Social Stock Exchange zero-coupon zero-principal instruments, capped at 10% of the year’s CSR, and exempted those funded projects from impact assessment.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">Three different duties</h2>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Giving money, avoiding harm, and reporting are different obligations. India’s section 135 allocates profits to specified social purposes. Human-rights due diligence asks whether the business causes harm. Sustainability reporting asks for information. A donation may satisfy the first without the second. A detailed report may satisfy the third without showing that a programme worked.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          ISO 26000, the UN Guiding Principles, and the OECD Guidelines do not set an Indian-style percentage-of-profit CSR budget. Their absence is not permission to offset operational harm with philanthropy.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-8">
+          India already has more than a spending regime. SEBI’s March 2025 circular phases third-party assessment or assurance of BRSR Core to the top 1,000 listed entities by FY 2026-27. A CSR impact assessment asks what a funded intervention achieved. BRSR Core checks specified sustainability information. Completing one does not discharge the other.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">USA, China, EU</h2>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Legal position as at 21 November 2026. Enacted law, future application dates, and proposals are kept separate. Mauritius, Nepal and Indonesia remain supporting cases, not the main benchmark.
+        </p>
+        <div class="overflow-x-auto mb-6">
+          <table class="w-full text-sm text-left border border-slate-200">
+            <thead class="bg-slate-100 text-slate-700">
+              <tr>
+                <th class="p-3">Question</th>
+                <th class="p-3">India</th>
+                <th class="p-3">USA (reviewed)</th>
+                <th class="p-3">China</th>
+                <th class="p-3">EU</th>
+              </tr>
+            </thead>
+            <tbody class="text-slate-600">
+              <tr class="border-t">
+                <td class="p-3 font-medium text-slate-800">Duty</td>
+                <td class="p-3">2% spending floor</td>
+                <td class="p-3">Permission to donate; no profit floor</td>
+                <td class="p-3">Stakeholder responsibility; no % floor</td>
+                <td class="p-3">Reporting and due diligence</td>
+              </tr>
+              <tr class="border-t bg-slate-50">
+                <td class="p-3 font-medium text-slate-800">Object</td>
+                <td class="p-3">Eligible social spend</td>
+                <td class="p-3">Giving vs targeted conduct controls</td>
+                <td class="p-3">Governance, selected ESG reports, SOE direction</td>
+                <td class="p-3">How business is done</td>
+              </tr>
+              <tr class="border-t">
+                <td class="p-3 font-medium text-slate-800">Evaluation</td>
+                <td class="p-3">Project impact assessment (now proposed voluntary)</td>
+                <td class="p-3">Not a like-for-like CSR evaluation</td>
+                <td class="p-3">Disclosure is not causal project evaluation</td>
+                <td class="p-3">Assurance of reported information</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          <strong>United States.</strong> Delaware’s General Corporation Law §122(9) authorises charitable donations. It does not impose a percentage-of-profit floor. The IRS 5% private-foundation payout is a foundation rule, not an operating-company 2%. The SEC’s 2024 climate-disclosure rules were stayed; rescission is still a proposal as of this writing. UFLPA import controls are conduct enforcement, not philanthropy.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          <strong>China.</strong> Company Law article 20 (effective July 2024) requires companies to assume social responsibility and encourages public-welfare activity and reports. It does not set India’s numerical floor. SSE and SZSE sustainability-report guidelines make reporting compulsory for specified listed groups. SASAC guidance is relevant to central enterprises, not every private company.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          <strong>European Union.</strong> Directive (EU) 2026/470 narrowed CSRD and due-diligence coverage. Revised reporting scope applies from financial years starting on or after 1 January 2027. Due-diligence transposition is due by 26 July 2028, company compliance by July 2029. Europe reduced burden and kept a verification architecture. That is not a case for deleting Indian project evaluation.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-8">
+          The relevant question is whether a particular Indian rule makes India’s own model more accountable at reasonable cost — not whether it resembles the average foreign rule.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">Five tests</h2>
+
+        <h3 class="text-xl font-semibold mt-8 mb-3">1. Voluntary impact assessment</h3>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          None of the named international instruments requires project-level social impact assessment of corporate social spending. The proposed retreat is a policy choice. The EU narrowed reporting scope and retained verification. The US and Chinese instruments reviewed are not a like-for-like case for removing Indian project evaluation.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-8">
+          Verdict: retain independent assessment for large or high-risk projects, and review thresholds with published cost and use evidence. If assessment becomes voluntary, mandatory disclosure of the choice, reasons, findings, and board response is a minimum fallback — not an equivalent substitute.
+        </p>
+
+        <h3 class="text-xl font-semibold mt-8 mb-3">2. The new exclusions</h3>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Several exclusions codify positions already taken in MCA FAQs: corpus, one-off events, in-kind monetisation. The government-schemes exclusion implements the High-Level Committee’s additionality principle. Mauritius channels most of its mandatory CSR fund through the state; India bars that flow. That is a defensible Indian design choice.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-8">
+          One defect needs repair before notification: the same package excludes financing government schemes and makes participation in the Prime Minister Internship Scheme eligible CSR. “Government Schemes” needs a definition or an express carve-out, plus a rule against double counting company costs and government stipend.
+        </p>
+
+        <h3 class="text-xl font-semibold mt-8 mb-3">3. CSR-1 surrender and cancellation</h3>
+        <p class="text-slate-600 leading-relaxed mb-8">
+          The 2021 register lacked an exit ramp. The draft supplies one, with notice and hearing language. Two points for the comment window: whether an agency may transfer a company’s unspent CSR without the company’s reconciliation process, given that section 135(6) sits on the company; and whether conviction-based cancellation should be tied to listed integrity offences or material unsuitability, not unrelated convictions. Neither gap requires abandoning the register.
+        </p>
+
+        <h3 class="text-xl font-semibold mt-8 mb-3">4. India-headquartered international organisations</h3>
+        <p class="text-slate-600 leading-relaxed mb-8">
+          The real filter is the headquarters limb, not the long section-3 notification list. Fits include the International Solar Alliance, ICRISAT, CDRI, and the International Big Cat Alliance. Eligibility is not proof of implementing capacity. Donor oversight remains necessary. A sensible, narrowly drawn correction.
+        </p>
+
+        <h3 class="text-xl font-semibold mt-8 mb-3">5. The Schedule VII substitution</h3>
+        <p class="text-slate-600 leading-relaxed mb-8">
+          The additions align with the SDG mapping the High-Level Committee itself recommended. The regression is quieter: “livelihood enhancement projects” drops out of the education item. An existing livelihood programme that mixes vocational training with enterprise support may have to re-examine every component. Restore the phrase, or explain continuing coverage. Do not make a liberal-interpretation note carry an unstated policy change.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">What the comparison cannot prove</h2>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Legal architecture is not an outcome measure. Money transferred, projects completed, and lives improved are different sentences. Dharmapala and Khanna found increased CSR participation after the mandate, alongside reduced spending among firms previously above the floor. Rajgopal and Tantri report crowding out of voluntary CSR. Those studies do not rank the November 2026 draft.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-8">
+          This article reaches institutional and legal judgments, not a causal ranking of national models. India’s difference is defensible when it produces additional social value and explains the cost. It is not self-justifying.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">Comment-ready agenda</h2>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          Recommendations, not enacted requirements or text already in the MCA draft.
+        </p>
+        <div class="overflow-x-auto mb-6">
+          <table class="w-full text-sm text-left border border-slate-200">
+            <thead class="bg-slate-100 text-slate-700">
+              <tr>
+                <th class="p-3">Action</th>
+                <th class="p-3">Clarification or amendment</th>
+                <th class="p-3">Reason</th>
+              </tr>
+            </thead>
+            <tbody class="text-slate-600">
+              <tr class="border-t">
+                <td class="p-3">Retain</td>
+                <td class="p-3">Independent assessment for large or high-risk projects; review thresholds with published evidence</td>
+                <td class="p-3">Burden relief should not make outcomes invisible</td>
+              </tr>
+              <tr class="border-t bg-slate-50">
+                <td class="p-3">Define</td>
+                <td class="p-3">Boundary between government-budget financing, eligible company-incurred PMIS costs, and expressly eligible fund contributions; prevent double counting</td>
+                <td class="p-3">An implicit distinction invites inconsistent eligibility</td>
+              </tr>
+              <tr class="border-t">
+                <td class="p-3">Restore</td>
+                <td class="p-3">Reinstate livelihood-enhancement projects, or specify continuing coverage</td>
+                <td class="p-3">Avoid uncertainty over mixed skilling and livelihood work</td>
+              </tr>
+              <tr class="border-t bg-slate-50">
+                <td class="p-3">Clarify</td>
+                <td class="p-3">Coordinate agency and donor unspent-fund duties, deadlines, and ongoing-project commitments</td>
+                <td class="p-3">Registration changes should not obscure the company’s statutory duty</td>
+              </tr>
+              <tr class="border-t">
+                <td class="p-3">Clarify</td>
+                <td class="p-3">Tie cancellation for conviction to listed integrity offences or demonstrated material unsuitability, with reasons and hearing rights</td>
+                <td class="p-3">Unrelated offences should not automatically end eligibility</td>
+              </tr>
+              <tr class="border-t bg-slate-50">
+                <td class="p-3">Distinguish</td>
+                <td class="p-3">BRSR Core information verification and CSR project-impact evaluation do not substitute for each other</td>
+                <td class="p-3">Both may apply; they answer different questions</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="text-slate-600 leading-relaxed mb-8">
+          The immediate task is to improve the draft’s accountability and drafting before notification, not mistake a proposal for law already in force.
+        </p>
+
+        <p class="text-slate-600 leading-relaxed mb-6">
+          The series asked why India’s average CSR project stayed near ₹35 lakh while the money tripled.
+          <a href={`${base}insights/the-agency-took-the-cheque/`} class="text-sky-600 hover:underline">The Agency Took the Cheque</a>
+          asked who holds the pen. This special asks whether the 2026 draft makes that spending model more accountable — or merely more like someone else’s paperwork.
+        </p>
+
+        <p class="text-sm text-slate-500 mb-8">
+          <strong>Position as at 21 November 2026.</strong> Draft remains a proposal; comments due 11 December 2026. Vinod Kothari commentary states 30 November; this page follows the primary MCA notice. Full citations on
+          {' '}
+          <a href={linkedInUrl} target="_blank" rel="noopener noreferrer" class="text-sky-600 hover:underline">LinkedIn</a>.
+          Primary notice:
+          {' '}
+          <a href="https://www.mca.gov.in/bin/dms/getdocument?mds=OT8imG9cDfw9Nf3BFLDacw%253D%253D&type=open" target="_blank" rel="noopener noreferrer" class="text-sky-600 hover:underline">MCA Public Notice 05/05/2026-CSR-MCA</a>.
+        </p>
+
+        <div class="mt-8 p-6 rounded-2xl bg-slate-50 border">
+          <h3 class="font-semibold text-lg">Designing CSR portfolios that go deeper, not only wider?</h3>
+          <p class="mt-2 text-sm text-slate-600">
+            Causewave helps companies with CSR strategy, programme design, and portfolio choices — including when to concentrate versus spray.
+            Explore <a href={`${base}services/`} class="text-sky-600 hover:underline">services</a> or get in touch.
+          </p>
+          <a href={`${base}contact/`} class="mt-4 inline-flex btn btn-primary px-6 py-2 text-sm">Get in Touch</a>
+        </div>
+      </div>
+    </article>
+  </main>
+</BaseLayout>

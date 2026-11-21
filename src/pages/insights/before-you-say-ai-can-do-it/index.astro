@@ -1,0 +1,201 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { SITE } from '../../../consts';
+import { getInsightBySlug, buildArticleJsonLd } from '../../../data/insights';
+
+const base = import.meta.env.BASE_URL;
+const post = getInsightBySlug('before-you-say-ai-can-do-it')!;
+const articleJsonLd = buildArticleJsonLd(post, SITE.url);
+const linkedInUrl =
+  'https://www.linkedin.com/pulse/before-you-say-ai-can-do-know-what-requires-dr-hemant-patel-exklf/';
+---
+
+<BaseLayout
+  title='Before You Say “AI Can Do It”, Do You Know What “It” Requires? | Causewave'
+  description={post.description}
+  ogTitle='Before You Say “AI Can Do It”'
+  ogDescription="Generating an output is not delivering a service. Before you say AI can do it, know what it requires — standard, verification, and who answers."
+  ogImage={post.ogImage}
+  ogImageAlt="AI video production still — a brief becoming a film"
+  canonicalPath={post.path}
+  activePage="insights"
+  ogType="article"
+  breadcrumbLabel={post.shortTitle}
+  breadcrumbParent={{ name: 'Insights', path: 'insights/' }}
+  jsonLd={articleJsonLd}
+>
+  <main>
+    <section class="bg-slate-900 text-white section">
+      <div class="max-w-screen-2xl mx-auto px-6">
+        <div class="max-w-3xl">
+          <a href={`${base}insights/`} class="inline-flex items-center text-sm text-slate-400 hover:text-white transition-colors mb-6">
+            ← Insights
+          </a>
+          <div class="flex items-center gap-3 mb-4">
+            <span class="text-xs font-medium text-amber-400 bg-amber-400/10 px-2.5 py-0.5 rounded-full">Opinion</span>
+            <span class="text-xs text-slate-500">{post.dateLabel}</span>
+          </div>
+          <h1 class="text-3xl md:text-4xl font-semibold tracking-tight">{post.title}</h1>
+          <p class="mt-4 text-slate-300 text-lg">{post.excerpt}</p>
+        </div>
+      </div>
+    </section>
+
+    <article class="section max-w-screen-2xl mx-auto px-6">
+      <div class="max-w-3xl">
+        <p class="text-slate-600 leading-relaxed mb-6 text-lg">
+          AI assistance now demonstrably raises individual output on many measured tasks. Some services priced on routine output deserve the pressure they are getting.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          A service is more than its visible artifact. It includes defining the requirement, setting the standard, verifying the result, and answering for it. Those functions tend to fail exactly where buyers assume they are automatic.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-8">
+          Before dismissing a specialist, the question is not whether AI can produce something. It is whether someone, inside or outside your organisation, still holds the judgement the work requires.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">A sentence that ends conversations</h2>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Picture the budget meeting. A company that once hired a production house for a brand film is shown a text-to-video demo, and someone asks why the contract should be renewed. A firm that retained an agency for communication strategy watches a chatbot produce passable copy in seconds and asks what the retainer is for.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          These scenes are illustrative, not reported cases. The sentence that ends them is now common in real procurement: AI can do it.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-8">
+          This is not a defence of every service provider, and it is not an argument against AI. The tools are genuinely powerful. A service is not the artifact it produces. It is the ability to define what the artifact must achieve, produce it to a standard, verify that the standard was met, and stand behind the result. Confusing the visible output with the service is the mistake.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">Give AI its due</h2>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          The evidence for AI assistance is real, within its limits. Brynjolfsson, Li and Raymond tracked more than 5,000 customer-support agents at one Fortune 500 firm. Access to a generative AI assistant raised issues resolved per hour by about 15% on average, with the largest gains — around 30% — among novice and lower-skilled workers. The most experienced workers saw little speed gain and a small decline in quality.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          In a controlled experiment with 453 college-educated professionals on realistic writing tasks, Noy and Zhang found ChatGPT cut completion time by 40% and raised graded quality by 18%, with the weakest writers improving the most.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-8">
+          Bounded results from specific tasks, not laws of the labour market. On defined work with checkable output, AI compresses part of the experience curve and raises the floor. If a service is, at heart, producing a competent average artifact at a predictable standard, then “AI can do it” may be a description of the current offer. Prices for that kind of work are under real pressure.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">An output is not a service</h2>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          A production house does not sell footage. It sells the certainty that footage will serve a brief: the right story, tone, pacing and audience response, delivered on schedule, corrected when it is wrong, with someone answerable for the result.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          A communication strategist does not sell paragraphs. They sell the decision about what an organisation should say, to whom, when, and what it risks by saying it.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-8">
+          The artifact is the visible tip. The service is the system around it. “AI can do it” almost always refers to the tip. A buyer can sometimes supply the rest in-house. The question is not where the expertise sits. The question is whether anyone holds it.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">The frontier is jagged, and it does not come with a map</h2>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          A preregistered experiment with 758 Boston Consulting Group consultants is the most direct evidence on skilled work. On tasks designed to sit inside GPT-4’s then-current capability, consultants finished 12.2% more subtasks, worked 25.1% faster, and produced higher-rated work. On a task designed to sit outside that capability, consultants using AI were 19% less likely to reach a correct solution than those working unaided.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Tasks that feel equally difficult sat on opposite sides of the capability line. Intuition about difficulty is no guide. Even strong professionals, mid-task, trusted the tool past the point where it deserved trust. Combined human-machine performance fell exactly where closer supervision was needed.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-8">
+          In a 2025 randomised trial, experienced open-source developers took 19% longer to complete real issues when using AI tools, even though they had expected to be 24% faster and, afterwards, still believed AI had made them 20% faster. Perceived productivity is not delivered value. A confident dismissal built on last year’s demo is still a guess.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">What generation alone leaves undone</h2>
+        <p class="text-slate-600 leading-relaxed mb-4 font-medium text-slate-800">Setting the standard</p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Generation begins from a prompt, and a prompt is only as good as the judgement behind it. The decision about what the work must achieve, for which audience, at what risk, still belongs to whoever commissions it. The demo does not produce that knowledge.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-4 font-medium text-slate-800">Verification</p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          AI systems produce plausible output, not guaranteed output. US lawyers have been fined for filing briefs citing cases an AI invented. In early 2025, Apple suspended AI news summaries after the feature falsely told BBC readers that a murder suspect had shot himself. The Alan Turing Institute noted there is no way to guarantee an AI will not fabricate, “apart from human oversight.” Verification can be AI-assisted. Residual judgement about whether the checks are sufficient remains with people.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-4 font-medium text-slate-800">Differentiation</p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          In a Science Advances study, writers given AI-generated ideas produced short stories rated more creative — and more similar to one another. That is a result about short stories in a lab, not about brand strategy. The brand implication is a plausible risk: if rivals draw on similar tools with similar prompts, distinctiveness has to be protected deliberately.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-4 font-medium text-slate-800">Responsibility</p>
+        <p class="text-slate-600 leading-relaxed mb-8">
+          When the film flops, the copy misleads, or the filing cites a case that does not exist, no model signs the apology. Accountability can sit with the buyer or the provider. It cannot be delegated to the tool. Ownership without understanding is just exposure.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">The advertising test</h2>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          In 2024, Toys R Us premiered what it described as the first brand film made with OpenAI’s Sora. It was not made by pressing a button. The company worked with Native Foreign, condensed hundreds of iterative shots, added corrective visual effects, and commissioned an original score. Audience sentiment, measured by CARMA, fell from 12.2% positive before release to 3.4% after, with negative sentiment rising to 53.4%.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-8">
+          Coca-Cola’s AI-generated Christmas ads were mocked in 2024 as uncanny and cheap, then released again in 2025 to fresh backlash. System1 initially scored the 2024 ad at the maximum on its scale. Both facts are true. The public verdict and the test verdict diverged. Deciding which one matters for the brand is exactly the judgement that “AI can do it” assumes unnecessary. Some AI output genuinely passes professional testing. Deciding whether it is good enough is itself skilled work.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">Why not just hire an AI operator?</h2>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          If operating the tool is the whole job, a cheap operator beats an expensive specialist. Sometimes that is the right hire. Where the requirement is modest and the cost of error is low, pretending otherwise is protectionism.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Knowing what to ask for, spotting a plausible-but-wrong answer the moment it appears, correcting it, and standing behind the result: those abilities are not bundled with the software licence. An operator who develops them has become a specialist. An operator who has not cannot do the specialist’s part of the job.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-8">
+          In the call-centre study, AI helped newer workers close much of the gap to experienced colleagues. It raised the floor. It did not remove the ceiling. The assistant worked by spreading the practices of the firm’s best existing workers. Tools of this kind are built on captured expertise. Remove the people who set and check the standard, and you have removed the standard.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">The self-sufficiency thought experiment</h2>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Access to these tools is wide. Access and operational delivery are different things. If access alone made an organisation self-sufficient, firms that dismissed their production houses would be making films in-house to the standard they used to buy. Are you actually doing it, end to end, at the quality you used to purchase?
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-8">
+          A sophisticated buyer may already have internalised the judgement: a team that defines the brief, tests the output, and accepts responsibility, using AI to meet its standard at lower cost. That organisation should not have to pay an outside provider for those capabilities again. That is different from buying tool access and assuming the missing capabilities will follow. The test is demonstrated end-to-end delivery, not confidence in the purchase.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">The mirror, held up to providers</h2>
+        <p class="text-slate-600 leading-relaxed mb-8">
+          If a specialist’s work is indistinguishable from a machine draft, the market owes that specialist nothing. The legitimate claim was never “a human made this.” It is “the standard was met, verified and owned.” Providers whose value sits in the artifact alone face direct competition from the tool, and fairly so. Providers whose value sits in judgement, verification and accountability now have to prove that is where their value sits, because buyers are finally asking.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">Four questions before you say it</h2>
+        <ol class="list-decimal pl-5 space-y-3 text-slate-600 mb-8">
+          <li><strong>Can you specify the standard?</strong> Not “a video” or “some copy”, but what the output must achieve, for whom, and how you will know.</li>
+          <li><strong>Can you verify the result?</strong> Who, inside or outside your organisation, can tell excellent output from fluent output before your audience does?</li>
+          <li><strong>What does a plausible-but-wrong result cost you?</strong> A mocked advertisement is embarrassing. A fabricated citation is a sanction. A misled customer is a lost account.</li>
+          <li><strong>Who answers for it?</strong> If the honest answer is “no one”, then what you are buying is not a saving. It is unpriced risk. If the answer is “our own team, with AI help”, that may be right, provided the team truly holds the judgement from questions one and two.</li>
+        </ol>
+        <p class="text-slate-600 leading-relaxed mb-8">
+          If the answers come from the vendor’s demo, you do not yet know what “it” requires.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">The closing</h2>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          AI capabilities will keep advancing. Nobody should plan as if today’s limits are permanent. The dismissal is not wrong because AI is weak; on many tasks it is already strong. It is wrong because it skips a step.
+        </p>
+        <blockquote class="border-l-4 border-amber-500 pl-4 my-6 text-slate-700 italic">
+          “AI can do it” answers whether a machine can produce something. It says nothing about whether you know what the thing must achieve, or who will check that it did.
+        </blockquote>
+        <p class="text-slate-600 leading-relaxed mb-8">
+          Those are questions about your organisation, not about the technology, and only the buyer can answer them. If the answers are solid, buy the tool and take the saving. If they are not, the saving is where the risk starts.
+        </p>
+
+        <p class="text-sm text-slate-500 mb-8">
+          <strong>Evidence cut-off:</strong> November 2026. Studies are task- and setting-specific, cited as evidence about mechanisms, not forecasts. Also on
+          {' '}
+          <a href={linkedInUrl} target="_blank" rel="noopener noreferrer" class="text-sky-600 hover:underline">LinkedIn</a>.
+        </p>
+        <ul class="text-sm text-slate-500 space-y-2 mb-8">
+          <li>1. Brynjolfsson, Li &amp; Raymond, “Generative AI at Work”, <em>QJE</em>, 2025.</li>
+          <li>2. Noy &amp; Zhang, “Experimental evidence on the productivity effects of generative artificial intelligence”, <em>Science</em>, 2023.</li>
+          <li>3. Dell’Acqua et al., “Navigating the Jagged Technological Frontier”, <em>Organization Science</em>, 2025.</li>
+          <li>4. Doshi &amp; Hauser, “Generative AI enhances individual creativity but reduces the collective diversity of novel content”, <em>Science Advances</em>, 2024.</li>
+          <li>5. METR, “Measuring the Impact of Early-2025 AI on Experienced Open-Source Developer Productivity”, July 2025.</li>
+          <li>6. METR, “We are Changing our Developer Productivity Experiment Design”, February 2026.</li>
+          <li>7. BBC News, “Apple Intelligence: iPhone AI news alerts halted after errors”, January 2025.</li>
+          <li>8–9. Reuters, Walmart and Texas sanctions over AI-generated case citations, 2024–25.</li>
+          <li>10–11. Toys R Us Sora film: Marketing-Interactive and NBC News, 2024.</li>
+          <li>12–13. Coca-Cola AI holiday ads: Adweek 2024; Forbes, November 2025.</li>
+        </ul>
+
+        <div class="mt-8 p-6 rounded-2xl bg-slate-50 border">
+          <h3 class="font-semibold text-lg">A brief still has to become a film people understand.</h3>
+          <p class="mt-2 text-sm text-slate-600">
+            Causewave takes CSR and NGO films from brief through to delivery.
+            See <a href={`${base}ai-video/`} class="text-sky-600 hover:underline">AI video</a> or get in touch.
+          </p>
+          <a href={`${base}contact/`} class="mt-4 inline-flex btn btn-primary px-6 py-2 text-sm">Get in Touch</a>
+        </div>
+      </div>
+    </article>
+  </main>
+</BaseLayout>
